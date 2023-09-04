@@ -1,0 +1,546 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/language/Loops.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:56:03 GMT -->
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Loops &#8212; Pine Script® v5 User Manual v5 documentation</title>
+    <link rel="stylesheet" href="../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../../../../static.tradingview.com/static/bundles/pine-highlighter-v01.js"></script>
+    <script type="text/javascript" src="../_static/highlight-pine-code.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Type system" href="Type_system.html" />
+    <link rel="prev" title="Conditional structures" href="Conditional_structures.html" />
+  
+   
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Type_system.html" title="Type system"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Conditional_structures.html" title="Conditional structures"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Language</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="../index.html" class="text-logo">Pine Script<sup>®</sup> v5 User Manual</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Introduction.html">Welcome to Pine Script<sup>®</sup> v5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primer/index.html">Pine Script<sup>®</sup> primer</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Language</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Execution_model.html">Execution model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Time_series.html">Time series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Script_structure.html">Script structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Identifiers.html">Identifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variable_declarations.html">Variable declarations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Conditional_structures.html">Conditional structures</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Loops</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#for">`for`</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#while">`while`</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Type_system.html">Type system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Built-ins.html">Built-ins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="User-defined_functions.html">User-defined functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Objects.html">Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Methods.html">Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Arrays.html">Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Matrices.html">Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Maps.html">Maps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../writing/index.html">Writing scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Error_messages.html">Error messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Release_notes.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migration_guides/index.html">Migration guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Where_can_I_get_more_information.html">Where can I get more information?</a></li>
+</ul>
+
+    
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="https://www.tradingview.com/pine-script-docs/en/v5/search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../index.html">User Manual</a></li>
+              
+                <li><a href="index.html">Language</a></li>
+              
+              <li>Loops</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <a class="reference external image-reference" href="../Introduction.html"><div align="right" class="align-right"><img alt="Pine Script® logo" height="100" src="../_images/Pine-script-logo.svg" width="100" /></div>
+</a>
+<div class="section" id="loops">
+<span id="pageloops"></span><h1>Loops<a class="headerlink" href="#loops" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#introduction" id="id1">Introduction</a><ul>
+<li><a class="reference internal" href="#when-loops-are-not-needed" id="id2">When loops are not needed</a></li>
+<li><a class="reference internal" href="#when-loops-are-necessary" id="id3">When loops are necessary</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#for" id="id4">`for`</a></li>
+<li><a class="reference internal" href="#while" id="id5">`while`</a></li>
+</ul>
+</div>
+<div class="section" id="introduction">
+<h2><a class="toc-backref" href="#id1">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="when-loops-are-not-needed">
+<h3><a class="toc-backref" href="#id2">When loops are not needed</a><a class="headerlink" href="#when-loops-are-not-needed" title="Permalink to this headline">¶</a></h3>
+<p>Pine Script<sup>®</sup>’s runtime and its built-in functions make loops unnecessary in many situations.
+Budding Pine Script<sup>®</sup> programmers not yet familiar with the Pine Script<sup>®</sup> runtime and built-ins
+who want to calculate the average of the last 10
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_close">close</a> values will often write code such as:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Inefficient MA&quot;, &quot;&quot;, true)
+MA_LENGTH = 10
+sumOfCloses = 0.0
+for offset = 0 to MA_LENGTH - 1
+    sumOfCloses := sumOfCloses + close[offset]
+inefficientMA = sumOfCloses / MA_LENGTH
+plot(inefficientMA)
+</pre></div>
+</div>
+<p>A <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_for">for</a>
+loop is unnecessary and inefficient to accomplish tasks like this in Pine.
+This is how it should be done. This code is shorter <em>and</em> will run much faster
+because it does not use a loop and uses the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_ta{dot}sma">ta.sma()</a>
+built-in function to accomplish the task:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Efficient MA&quot;, &quot;&quot;, true)
+thePineMA = ta.sma(close, 10)
+plot(thePineMA)
+</pre></div>
+</div>
+<p>Counting the occurrences of a condition in the last bars is also a task
+which beginning Pine Script<sup>®</sup> programmers often think must be done with a loop.
+To count the number of up bars in the last 10 bars, they will use:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Inefficient sum&quot;)
+MA_LENGTH = 10
+upBars = 0.0
+for offset = 0 to MA_LENGTH - 1
+    if close[offset] &gt; open[offset]
+        upBars := upBars + 1
+plot(upBars)
+</pre></div>
+</div>
+<p>The efficient way to write this in Pine (for the programmer because it saves time,
+to achieve the fastest-loading charts, and to share our common resources most equitably),
+is to use the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_math{dot}sum">math.sum()</a>
+built-in function to accomplish the task:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Efficient sum&quot;)
+upBars = math.sum(close &gt; open ? 1 : 0, 10)
+plot(upBars)
+</pre></div>
+</div>
+<p>What’s happening in there is:</p>
+<ul class="simple">
+<li>We use the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_{question}{colon}">?:</a>
+ternary operator to build an expression that yields 1 on up bars and 0 on other bars.</li>
+<li>We use the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_math{dot}sum">math.sum()</a>
+built-in function to keep a running sum of that value for the last 10 bars.</li>
+</ul>
+</div>
+<div class="section" id="when-loops-are-necessary">
+<h3><a class="toc-backref" href="#id3">When loops are necessary</a><a class="headerlink" href="#when-loops-are-necessary" title="Permalink to this headline">¶</a></h3>
+<p>Loops exist for good reason because even in Pine Script<sup>®</sup>, they are necessary in some cases.
+These cases typically include:</p>
+<ul class="simple">
+<li>The manipulation of collections (<a class="reference internal" href="Arrays.html#pagearrays"><span class="std std-ref">arrays</span></a>, <a class="reference internal" href="Matrices.html#pagematrices"><span class="std std-ref">matrices</span></a>, and <a class="reference internal" href="Maps.html#pagemaps"><span class="std std-ref">maps</span></a>).</li>
+<li>Looking back in history to analyze bars using a reference value that can only
+be known on the current bar, e.g., to find how many past highs are higher than the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_high">high</a> of the current bar.
+Since the current bar’s <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_high">high</a>
+is only known on the bar the script is running on,
+a loop is necessary to go back in time and analyze past bars.</li>
+<li>Performing calculations on past bars that cannot be accomplished using built-in functions.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="for">
+<span id="pageloops-for"></span><h2><a class="toc-backref" href="#id4">`for`</a><a class="headerlink" href="#for" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_for">for</a>
+structure allows the repetitive execution of statements using a counter.
+Its syntax is:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[[&lt;declaration_mode&gt;] [&lt;type&gt;] &lt;identifier&gt; = ]for &lt;identifier&gt; = &lt;expression&gt; to &lt;expression&gt;[ by &lt;expression&gt;]
+    &lt;local_block_loop&gt;
+</pre></div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li>Parts enclosed in square brackets (<code class="docutils literal notranslate"><span class="pre">[]</span></code>) can appear zero or one time, and those enclosed in curly braces (<code class="docutils literal notranslate"><span class="pre">{}</span></code>) can appear zero or more times.</li>
+<li>&lt;declaration_mode&gt; is the variable’s <a class="reference internal" href="Variable_declarations.html#pagevariabledeclarations-declarationmodes"><span class="std std-ref">declaration mode</span></a></li>
+<li>&lt;type&gt; is optional, as in almost all Pine Script<sup>®</sup> variable declarations (see <a class="reference internal" href="Type_system.html#pagetypesystem-types"><span class="std std-ref">types</span></a>)</li>
+<li>&lt;identifier&gt; is a variable’s <a class="reference internal" href="Identifiers.html#pageidentifiers"><span class="std std-ref">name</span></a></li>
+<li>&lt;expression&gt; can be a literal, a variable, an expression or a function call.</li>
+<li>&lt;local_block_loop&gt; consists of zero or more statements followed by a return value, which can be a tuple of values.
+It must be indented by four spaces or a tab. It can contain the <code class="docutils literal notranslate"><span class="pre">break</span></code> statement to exit the loop,
+or the <code class="docutils literal notranslate"><span class="pre">continue</span></code> statement to exit the current iteration and continue on with the next.</li>
+<li>The value assigned to the variable is the return value of the &lt;local_block_loop&gt;,
+i.e., the last value calculated on the loop’s last iteration,
+or <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a> if the loop is not executed.</li>
+<li>The identifier in <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">&lt;identifier&gt;</span></code> is the loop’s counter <em>initial value</em>.</li>
+<li>The expression in <code class="docutils literal notranslate"><span class="pre">=</span> <span class="pre">&lt;expression&gt;</span></code> is the <em>start value</em> of the counter.</li>
+<li>The expression in <code class="docutils literal notranslate"><span class="pre">to</span> <span class="pre">&lt;expression&gt;</span></code> is the <em>end value</em> of the counter. <strong>It is only evaluated upon entry in the loop</strong>.</li>
+<li>The expression in <code class="docutils literal notranslate"><span class="pre">by</span> <span class="pre">&lt;expression&gt;</span></code> is optional.
+It is the step by which the loop counter is increased or decreased on each iteration of the loop.
+Its default value is 1 when <code class="docutils literal notranslate"><span class="pre">start</span> <span class="pre">value</span> <span class="pre">&lt;</span> <span class="pre">end</span> <span class="pre">value</span></code>. It is -1 when <code class="docutils literal notranslate"><span class="pre">start</span> <span class="pre">value</span> <span class="pre">&gt;</span> <span class="pre">end</span> <span class="pre">value</span></code>.
+The step (+1 or -1) used as the default is determined by the start and end values.</li>
+</ul>
+<p>This example uses a <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_for">for</a>
+statement to look back a user-defined amount of bars to determine how many bars have a
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_high">high</a> that is higher or lower than the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_high">high</a> of the last bar on the chart.
+A <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_for">for</a> loop is necessary here,
+since the script only has access to the reference value on the chart’s last bar.
+Pine Script<sup>®</sup>’s runtime cannot, here, be used to calculate on the fly, as the script is executing bar to bar:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;`for` loop&quot;)
+lookbackInput = input.int(50, &quot;Lookback in bars&quot;, minval = 1, maxval = 4999)
+higherBars = 0
+lowerBars = 0
+if barstate.islast
+    var label lbl = label.new(na, na, &quot;&quot;, style = label.style_label_left)
+    for i = 1 to lookbackInput
+        if high[i] &gt; high
+            higherBars += 1
+        else if high[i] &lt; high
+            lowerBars += 1
+    label.set_xy(lbl, bar_index, high)
+    label.set_text(lbl, str.tostring(higherBars, &quot;# higher bars\n&quot;) + str.tostring(lowerBars, &quot;# lower bars&quot;))
+</pre></div>
+</div>
+<p>This example uses a loop in its <code class="docutils literal notranslate"><span class="pre">checkLinesForBreaches()</span></code> function
+to go through an array of pivot lines and delete them when price crosses them.
+A loop is necessary here because all the lines in each of the <code class="docutils literal notranslate"><span class="pre">hiPivotLines</span></code> and <code class="docutils literal notranslate"><span class="pre">loPivotLines</span></code>
+arrays must be checked on each bar, and there is no built-in that can do this for us:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+MAX_LINES_COUNT = 100
+indicator(&quot;Pivot line breaches&quot;, &quot;&quot;, true, max_lines_count = MAX_LINES_COUNT)
+
+color hiPivotColorInput  = input(color.new(color.lime, 0), &quot;High pivots&quot;)
+color loPivotColorInput  = input(color.new(color.fuchsia, 0), &quot;Low pivots&quot;)
+int   pivotLegsInput     = input.int(5, &quot;Pivot legs&quot;)
+int   qtyOfPivotsInput   = input.int(50, &quot;Quantity of last pivots to remember&quot;, minval = 0, maxval = MAX_LINES_COUNT / 2)
+int   maxLineLengthInput = input.int(400, &quot;Maximum line length in bars&quot;, minval = 2)
+
+// ————— Queues a new element in an array and de-queues its first element.
+qDq(array, qtyOfElements, arrayElement) =&gt;
+    array.push(array, arrayElement)
+    if array.size(array) &gt; qtyOfElements
+        // Only deqeue if array has reached capacity.
+        array.shift(array)
+
+// —————— Loop through an array of lines, extending those that price has not crossed and deleting those crossed.
+checkLinesForBreaches(arrayOfLines) =&gt;
+    int qtyOfLines = array.size(arrayOfLines)
+    // Don&#39;t loop in case there are no lines to check because &quot;to&quot; value will be `na` then`.
+    for lineNo = 0 to (qtyOfLines &gt; 0 ? qtyOfLines - 1 : na)
+        // Need to check that array size still warrants a loop because we may have deleted array elements in the loop.
+        if lineNo &lt; array.size(arrayOfLines)
+            line  currentLine    = array.get(arrayOfLines, lineNo)
+            float lineLevel      = line.get_price(currentLine, bar_index)
+            bool  lineWasCrossed = math.sign(close[1] - lineLevel) != math.sign(close - lineLevel)
+            bool  lineIsTooLong  = bar_index - line.get_x1(currentLine) &gt; maxLineLengthInput
+            if lineWasCrossed or lineIsTooLong
+                // Line stays on the chart but will no longer be extend on further bars.
+                array.remove(arrayOfLines, lineNo)
+                // Force type of both local blocks to same type.
+                int(na)
+            else
+                line.set_x2(currentLine, bar_index)
+                int(na)
+
+// Arrays of lines containing non-crossed pivot lines.
+var line[] hiPivotLines = array.new_line(qtyOfPivotsInput)
+var line[] loPivotLines = array.new_line(qtyOfPivotsInput)
+
+// Detect new pivots.
+float hiPivot = ta.pivothigh(pivotLegsInput, pivotLegsInput)
+float loPivot = ta.pivotlow(pivotLegsInput, pivotLegsInput)
+
+// Create new lines on new pivots.
+if not na(hiPivot)
+    line newLine = line.new(bar_index[pivotLegsInput], hiPivot, bar_index, hiPivot, color = hiPivotColorInput)
+    line.delete(qDq(hiPivotLines, qtyOfPivotsInput, newLine))
+else if not na(loPivot)
+    line newLine = line.new(bar_index[pivotLegsInput], loPivot, bar_index, loPivot, color = loPivotColorInput)
+    line.delete(qDq(loPivotLines, qtyOfPivotsInput, newLine))
+
+// Extend lines if they haven&#39;t been crossed by price.
+checkLinesForBreaches(hiPivotLines)
+checkLinesForBreaches(loPivotLines)
+</pre></div>
+</div>
+</div>
+<div class="section" id="while">
+<span id="pageloops-while"></span><h2><a class="toc-backref" href="#id5">`while`</a><a class="headerlink" href="#while" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_while">while</a>
+structure allows the repetitive execution of statements until a condition is false.
+Its syntax is:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[[&lt;declaration_mode&gt;] [&lt;type&gt;] &lt;identifier&gt; = ]while &lt;expression&gt;
+    &lt;local_block_loop&gt;
+</pre></div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li>Parts enclosed in square brackets (<code class="docutils literal notranslate"><span class="pre">[]</span></code>) can appear zero or one time.</li>
+<li>&lt;declaration_mode&gt; is the variable’s <a class="reference internal" href="Variable_declarations.html#pagevariabledeclarations-declarationmodes"><span class="std std-ref">declaration mode</span></a></li>
+<li>&lt;type&gt; is optional, as in almost all Pine Script<sup>®</sup> variable declarations (see <a class="reference internal" href="Type_system.html#pagetypesystem-types"><span class="std std-ref">types</span></a>)</li>
+<li>&lt;identifier&gt; is a variable’s <a class="reference internal" href="Identifiers.html#pageidentifiers"><span class="std std-ref">name</span></a></li>
+<li>&lt;expression&gt; can be a literal, a variable, an expression or a function call.
+It is evaluated at each iteration of the loop. When it evaluates to <code class="docutils literal notranslate"><span class="pre">true</span></code>,
+the loop executes. When it evaluates to <code class="docutils literal notranslate"><span class="pre">false</span></code> the loop stops. Note that evaluation of the expression is done before each iteration only.
+Changes to the expression’s value inside the loop will only have an impact on the next iteration.</li>
+<li>&lt;local_block_loop&gt; consists of zero or more statements followed by a return value, which can be a tuple of values.
+It must be indented by four spaces or a tab. It can contain the <code class="docutils literal notranslate"><span class="pre">break</span></code> statement to exit the loop,
+or the <code class="docutils literal notranslate"><span class="pre">continue</span></code> statement to exit the current iteration and continue on with the next.</li>
+<li>The value assigned to the &lt;identifier&gt; variable is the return value of the &lt;local_block_loop&gt;,
+i.e., the last value calculated on the loop’s last iteration,
+or <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a> if the loop is not executed.</li>
+</ul>
+<p>This is the first code example of the <a class="reference internal" href="#pageloops-for"><span class="std std-ref">for</span></a> section written using a
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_while">while</a> structure instead of a
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_for">for</a> one:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;`for` loop&quot;)
+lookbackInput = input.int(50, &quot;Lookback in bars&quot;, minval = 1, maxval = 4999)
+higherBars = 0
+lowerBars = 0
+if barstate.islast
+    var label lbl = label.new(na, na, &quot;&quot;, style = label.style_label_left)
+    // Initialize the loop counter to its start value.
+    i = 1
+    // Loop until the `i` counter&#39;s value is &lt;= the `lookbackInput` value.
+    while i &lt;= lookbackInput
+        if high[i] &gt; high
+            higherBars += 1
+        else if high[i] &lt; high
+            lowerBars += 1
+        // Counter must be managed &quot;manually&quot;.
+        i += 1
+    label.set_xy(lbl, bar_index, high)
+    label.set_text(lbl, str.tostring(higherBars, &quot;# higher bars\n&quot;) + str.tostring(lowerBars, &quot;# lower bars&quot;))
+</pre></div>
+</div>
+<p>Note that:</p>
+<ul class="simple">
+<li>The <code class="docutils literal notranslate"><span class="pre">i</span></code> counter must be incremented by one explicitly inside the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_while">while</a>’s local block.</li>
+<li>We use the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_{plus}=">+=</a>
+operator to add one to the counter. <code class="docutils literal notranslate"><span class="pre">lowerBars</span> <span class="pre">+=</span> <span class="pre">1</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">lowerBars</span> <span class="pre">:=</span> <span class="pre">lowerBars</span> <span class="pre">+</span> <span class="pre">1</span></code>.</li>
+</ul>
+<p>Let’s calculate the factorial function using a
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_while">while</a> structure:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;&quot;)
+int n = input.int(10, &quot;Factorial of&quot;, minval=0)
+
+factorial(int val = na) =&gt;
+    int counter = val
+    int fact = 1
+    result = while counter &gt; 0
+        fact := fact * counter
+        counter := counter - 1
+        fact
+
+// Only evaluate the function on the first bar.
+var answer = factorial(n)
+plot(answer)
+</pre></div>
+</div>
+<p>Note that:</p>
+<ul>
+<li><p class="first">We use <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input{dot}int">input.int()</a>
+for our input because we need to specify a <code class="docutils literal notranslate"><span class="pre">minval</span></code> value to protect our code.
+While <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input">input()</a>
+also supports the input of “int” type values, it does not support the <code class="docutils literal notranslate"><span class="pre">minval</span></code> parameter.</p>
+</li>
+<li><p class="first">We have packaged our script’s functionality in a <code class="docutils literal notranslate"><span class="pre">factorial()</span></code> function which accepts as an argument
+the value whose factorial it must calculate. We have used <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">val</span> <span class="pre">=</span> <span class="pre">na</span></code> to declare our function’s parameter,
+which says that if the function is called without an argument, as in <code class="docutils literal notranslate"><span class="pre">factorial()</span></code>,
+then the <code class="docutils literal notranslate"><span class="pre">val</span></code> parameter will initialize to <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a>,
+which will prevent the execution of the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_while">while</a> loop
+because its <code class="docutils literal notranslate"><span class="pre">counter</span> <span class="pre">&gt;</span> <span class="pre">0</span></code> expression will return <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a>.
+The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_while">while</a> structure will thus
+initialize the <code class="docutils literal notranslate"><span class="pre">result</span></code> variable to <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a>.
+In turn, because the initialization of <code class="docutils literal notranslate"><span class="pre">result</span></code> is the return value of the our function’s local block,
+the function will return <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a>.</p>
+</li>
+<li><p class="first">Note the last line of the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_while">while</a>’s local block: <code class="docutils literal notranslate"><span class="pre">fact</span></code>.
+It is the local block’s return value, so the value it had on the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_while">while</a>
+structure’s last iteration.</p>
+</li>
+<li><p class="first">Our initialization of <code class="docutils literal notranslate"><span class="pre">result</span></code> is not required; we do it for readability. We could just as well have used:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>while counter &gt; 0
+    fact := fact * counter
+    counter := counter - 1
+    fact
+</pre></div>
+</div>
+</li>
+</ul>
+<a class="reference external image-reference" href="https://www.tradingview.com/"><div align="center" class="align-center"><img alt="../_images/TradingView-Logo-Block.svg" src="../_images/TradingView-Logo-Block.svg" width="200px" /></div>
+</a>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="Conditional_structures.html" title="previous chapter (use the left arrow)">Conditional structures</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="Type_system.html" title="next chapter (use the right arrow)">Type system</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Type_system.html" title="Type system"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Conditional_structures.html" title="Conditional structures"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Language</a> &#187;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="../_static/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="../_static/js/theme.js"></script>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Options</span>
+    v: v5
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Languages</dt>
+      
+        <strong>
+        <dd><a href="Loops.html">en</a></dd>
+        </strong>
+      
+    </dl>
+    <dl>
+      <dt>Versions</dt>
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v3/language/Loops.html">v3</a></dd>
+        
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v4/language/Loops.html">v4</a></dd>
+        
+      
+        <strong>
+        <dd><a href="Loops.html">v5</a></dd>
+        </strong>
+      
+    </dl>
+  </div>
+</div>
+<script type="text/javascript">
+    jQuery(function () {
+        SphinxRtdTheme.Navigation.enable(false);
+    });
+</script>
+  <div class="footer">
+    &copy; Copyright 2023, TradingView.
+  </div>
+  </body>
+
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/language/Loops.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:56:03 GMT -->
+</html>

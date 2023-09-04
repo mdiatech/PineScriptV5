@@ -1,0 +1,343 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/primer/First_steps.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:55:59 GMT -->
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>First steps &#8212; Pine Script® v5 User Manual v5 documentation</title>
+    <link rel="stylesheet" href="../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../../../../static.tradingview.com/static/bundles/pine-highlighter-v01.js"></script>
+    <script type="text/javascript" src="../_static/highlight-pine-code.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="First indicator" href="First_indicator.html" />
+    <link rel="prev" title="Pine Script® primer" href="index.html" />
+  
+   
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="First_indicator.html" title="First indicator"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Pine Script® primer"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Pine Script<sup>®</sup> primer</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="../index.html" class="text-logo">Pine Script<sup>®</sup> v5 User Manual</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Introduction.html">Welcome to Pine Script<sup>®</sup> v5</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Pine Script<sup>®</sup> primer</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">First steps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-scripts">Using scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reading-scripts">Reading scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#writing-scripts">Writing scripts</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="First_indicator.html">First indicator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Next_steps.html">Next steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../language/index.html">Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../writing/index.html">Writing scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Error_messages.html">Error messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Release_notes.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migration_guides/index.html">Migration guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Where_can_I_get_more_information.html">Where can I get more information?</a></li>
+</ul>
+
+    
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="https://www.tradingview.com/pine-script-docs/en/v5/search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../index.html">User Manual</a></li>
+              
+                <li><a href="index.html">Pine Script<sup>®</sup> primer</a></li>
+              
+              <li>First steps</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <a class="reference external image-reference" href="../Introduction.html"><div align="right" class="align-right"><img alt="Pine Script® logo" height="100" src="../_images/Pine-script-logo.svg" width="100" /></div>
+</a>
+<div class="section" id="first-steps">
+<span id="pagefirststeps"></span><h1>First steps<a class="headerlink" href="#first-steps" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#introduction" id="id1">Introduction</a></li>
+<li><a class="reference internal" href="#using-scripts" id="id2">Using scripts</a><ul>
+<li><a class="reference internal" href="#loading-scripts-from-the-chart" id="id3">Loading scripts from the chart</a></li>
+<li><a class="reference internal" href="#browsing-community-scripts" id="id4">Browsing Community Scripts</a></li>
+<li><a class="reference internal" href="#changing-script-settings" id="id5">Changing script settings</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#reading-scripts" id="id6">Reading scripts</a></li>
+<li><a class="reference internal" href="#writing-scripts" id="id7">Writing scripts</a></li>
+</ul>
+</div>
+<div class="section" id="introduction">
+<h2><a class="toc-backref" href="#id1">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Welcome to the Pine Script<sup>®</sup> <a class="reference external" href="../index.html">v5 User Manual</a>,
+which will accompany you in your journey to learn to program your own trading tools in Pine Script<sup>®</sup>.
+Welcome also to the very active community of Pine Script<sup>®</sup> programmers on TradingView.</p>
+<p>In this page, we present a step-by-step approach that you can follow to gradually become more familiar with indicators and strategies (also called <em>scripts</em>)
+written in the Pine Script<sup>®</sup> programming language on <a class="reference external" href="https://www.tradingview.com/">TradingView</a>.
+We will get you started on your journey to:</p>
+<ol class="arabic simple">
+<li><strong>Use</strong> some of the tens of thousands of existing scripts on the platform.</li>
+<li><strong>Read</strong> the Pine Script<sup>®</sup> code of existing scripts.</li>
+<li><strong>Write</strong> Pine Script<sup>®</sup> scripts.</li>
+</ol>
+<p>If you are already familiar with the use of Pine scripts on TradingView and are now ready to learn how to write your own,
+then jump to the <a class="reference internal" href="#pagefirstindicator-writingscripts"><span class="std std-ref">Writing scripts</span></a> section of this page.</p>
+<p>If you are new to our platform, then please read on!</p>
+</div>
+<div class="section" id="using-scripts">
+<h2><a class="toc-backref" href="#id2">Using scripts</a><a class="headerlink" href="#using-scripts" title="Permalink to this headline">¶</a></h2>
+<p>If you are interested in using technical indicators or strategies on TradingView,
+you can first start exploring the thousands of indicators already available on our platform.
+You can access existing indicators on the platform in two different ways:</p>
+<ul class="simple">
+<li>By using the chart’s “Indicators &amp; Strategies” button, or</li>
+<li>By browsing TradingView’s <a class="reference external" href="https://www.tradingview.com/scripts/">Community Scripts</a>,
+the largest repository of trading scripts in the world, with more than 100,000 scripts, most of which are free and open-source, which means you can see their Pine Script<sup>®</sup> code.</li>
+</ul>
+<p>If you can find the tools you need already written for you, it can be a good way to get started and gradually become proficient as a script user,
+until you are ready to start your programming journey in Pine Script<sup>®</sup>.</p>
+<div class="section" id="loading-scripts-from-the-chart">
+<h3><a class="toc-backref" href="#id3">Loading scripts from the chart</a><a class="headerlink" href="#loading-scripts-from-the-chart" title="Permalink to this headline">¶</a></h3>
+<p>To explore and load scripts from you chart, use the “Indicators &amp; Strategies” button:</p>
+<img alt="../_images/FirstSteps-LoadingScriptsFromTheChart-01.png" src="../_images/FirstSteps-LoadingScriptsFromTheChart-01.png" />
+<p>The dialog box presents different categories of scripts in its left pane:</p>
+<ul class="simple">
+<li><strong>Favorites</strong> lists the scripts you have “favorited” by clicking on the star that appears to the left of its name when you mouse over it.</li>
+<li><strong>My scripts</strong> displays the scipts you have written and saved in the Pine Script<sup>®</sup> Editor. They are saved in TradingView’s cloud.</li>
+<li><strong>Built-ins</strong> groups all TradingVIew built-ins organized in four categories: indicators, strategies, candlestick patterns and volume profiles. Most are written in Pine Script<sup>®</sup> and available for free.</li>
+<li><strong>Community Scripts</strong> is where you can search from the 100,000+ published scripts written by TradingView users.</li>
+<li><strong>Invite-only scripts</strong> contains the list of the invite-only scripts you have been granted access to by their authors.</li>
+</ul>
+<p>Here, the section containing the TradingView built-ins is selected:</p>
+<img alt="../_images/FirstSteps-LoadingScriptsFromTheChart-02.png" src="../_images/FirstSteps-LoadingScriptsFromTheChart-02.png" />
+<p>When you click on one of the indicators or strategies (the ones with the green and red arrows following their name), it loads on your chart.</p>
+</div>
+<div class="section" id="browsing-community-scripts">
+<h3><a class="toc-backref" href="#id4">Browsing Community Scripts</a><a class="headerlink" href="#browsing-community-scripts" title="Permalink to this headline">¶</a></h3>
+<p>From <a class="reference external" href="https://www.tradingview.com/">TradingView’s homepage</a>, you can bring up the Community Scripts stream from the “Community” menu.
+Here, we are pointing to the “Editors’ Picks” section, but there are many other categories you can choose from:</p>
+<img alt="../_images/FirstSteps-BrowsingCommunityScripts-01.png" src="../_images/FirstSteps-BrowsingCommunityScripts-01.png" />
+<p>You can also search for scripts using the homepage’s “Search” field, and filter scripts using different criteria.
+The Help Center has a page explaining the <a class="reference external" href="https://www.tradingview.com/support/solutions/43000558522">different types of scripts</a> that are available.</p>
+<p>The scripts stream shows script <em>widgets</em>, i.e., placeholders showing a miniature view of each publication’s chart and description, and its author.
+By clicking on it you will open the <em>script’s page</em>, where you can see the script on a chart, read the author’s description, like the script, leave comments or
+read the script’s source code if it was published open-source.</p>
+<p>Once you find an interesting script in the Community Scripts, follow the instructions in the Help Center to <a class="reference external" href="https://www.tradingview.com/support/solutions/43000555216">load it on your chart</a>.</p>
+</div>
+<div class="section" id="changing-script-settings">
+<h3><a class="toc-backref" href="#id5">Changing script settings</a><a class="headerlink" href="#changing-script-settings" title="Permalink to this headline">¶</a></h3>
+<p>Once a script is loaded on the chart, you can double-click on its name (#1) to bring up its “Settings/Inputs” tab (#2):</p>
+<img alt="../_images/FirstSteps-ChangingScriptSettings-01.png" src="../_images/FirstSteps-ChangingScriptSettings-01.png" />
+<p>The “Inputs” tab allows you to change the settings which the script’s author has decided to make editable.
+You can configure some of the script’s visuals using the “Style” tab of the same dialog box,
+and which timeframes the script should appear on using the “Visibility” tab.</p>
+<p>Other settings are available to all scripts from the buttons that appear to the right of its name when you mouse over it,
+and from the “More” menu (the three dots):</p>
+<img alt="../_images/FirstSteps-ChangingScriptSettings-02.png" src="../_images/FirstSteps-ChangingScriptSettings-02.png" />
+</div>
+</div>
+<div class="section" id="reading-scripts">
+<h2><a class="toc-backref" href="#id6">Reading scripts</a><a class="headerlink" href="#reading-scripts" title="Permalink to this headline">¶</a></h2>
+<p>Reading code written by <strong>good</strong> programmers is the best way to develop your understanding of the language.
+This is as true for Pine Script<sup>®</sup> as it is for all other programming languages.
+Finding good open-source Pine Script<sup>®</sup> code is relatively easy. These are reliable sources of code written by good programmers on TradingView:</p>
+<ul class="simple">
+<li>The TradingView built-in indicators</li>
+<li>Scripts selected as <a class="reference external" href="https://www.tradingview.com/scripts/editors-picks/">Editors’ Picks</a></li>
+<li>Scripts by the <a class="reference external" href="https://www.tradingview.com/u/PineCoders/#following-people">authors the PineCoders account follows</a></li>
+<li>Many scripts by authors with high reputation and open-source publications.</li>
+</ul>
+<p>Reading code from <a class="reference external" href="https://www.tradingview.com/scripts/">Community Scripts</a> is easy;
+if you don’t see a grey or red “lock” icon in the upper-right corner of the script’s widget, this indicates the script is open-source.
+By opening its script page, you will be able to see its source.</p>
+<p>To see the code of TradingView built-ins, load the indicator on your chart, then hover over its name and select the “Source code” curly braces icon
+(if you don’t see it, it’s because the indicator’s source is unavailable). When you click on the icon, the Pine Script<sup>®</sup> Editor will open and from there,
+you can see the script’s code. If you want to play with it, you will need to use the Editor’s “More” menu button at the top-right of the Editor’s pane,
+and select “Make a copy…”. You will then be able to modify and save the code. Because you will have created a different version of the script,
+you will need to use the Editor’s “Add to Chart” button to add that new copy to the chart.</p>
+<p>This shows the Pine Script<sup>®</sup> Editor having just opened after we selected the “View source” button from the indicator on our chart.
+We are about to make a copy of its source because it is read-only for now (indicated by the “lock” icon near its filename in the Editor):</p>
+<img alt="../_images/FirstSteps-ReadingScripts-01.png" src="../_images/FirstSteps-ReadingScripts-01.png" />
+<p>You can also open TradingView built-in indicators from the Pine Script<sup>®</sup> Editor (accessible from the “Pine Script<sup>®</sup> Editor” tab at the bottom of the chart) by
+using the “Open/New default built-in script…” menu selection.</p>
+</div>
+<div class="section" id="writing-scripts">
+<span id="pagefirstindicator-writingscripts"></span><h2><a class="toc-backref" href="#id7">Writing scripts</a><a class="headerlink" href="#writing-scripts" title="Permalink to this headline">¶</a></h2>
+<p>We have built Pine Script<sup>®</sup> to empower both budding and seasoned traders to create their own trading tools.
+We have designed it so it is relatively easy to learn for first-time programmers
+— although learning a first programming language, like trading, is rarely <strong>very</strong> easy for anyone —
+yet powerful enough for knowledgeable programmers to build tools of moderate complexity.</p>
+<p>Pine Script<sup>®</sup> allows you to write three types of scripts:</p>
+<ul class="simple">
+<li><strong>Indicators</strong> like RSI, MACD, etc.</li>
+<li><strong>Strategies</strong> which include logic to issue trading orders and can be backtested and forward-tested.</li>
+<li><strong>Libraries</strong> which are used by more advanced programmers to package oft-used functions that can be reused by other scripts.</li>
+</ul>
+<p>The next step we recommend is to write your <a class="reference internal" href="First_indicator.html#pagefirstindicator"><span class="std std-ref">first indicator</span></a>.</p>
+<a class="reference external image-reference" href="https://www.tradingview.com/"><div align="center" class="align-center"><img alt="../_images/TradingView-Logo-Block.svg" src="../_images/TradingView-Logo-Block.svg" width="200px" /></div>
+</a>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="index.html" title="previous chapter (use the left arrow)">Pine Script<sup>®</sup> primer</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="First_indicator.html" title="next chapter (use the right arrow)">First indicator</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="First_indicator.html" title="First indicator"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Pine Script® primer"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Pine Script<sup>®</sup> primer</a> &#187;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="../_static/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="../_static/js/theme.js"></script>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Options</span>
+    v: v5
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Languages</dt>
+      
+        <strong>
+        <dd><a href="First_steps.html">en</a></dd>
+        </strong>
+      
+    </dl>
+    <dl>
+      <dt>Versions</dt>
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v3/primer/First_steps.html">v3</a></dd>
+        
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v4/primer/First_steps.html">v4</a></dd>
+        
+      
+        <strong>
+        <dd><a href="First_steps.html">v5</a></dd>
+        </strong>
+      
+    </dl>
+  </div>
+</div>
+<script type="text/javascript">
+    jQuery(function () {
+        SphinxRtdTheme.Navigation.enable(false);
+    });
+</script>
+  <div class="footer">
+    &copy; Copyright 2023, TradingView.
+  </div>
+  </body>
+
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/primer/First_steps.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:56:00 GMT -->
+</html>

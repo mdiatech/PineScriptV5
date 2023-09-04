@@ -1,0 +1,1011 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/migration_guides/To_Pine_version_5.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:57:06 GMT -->
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>To Pine Script® version 5 &#8212; Pine Script® v5 User Manual v5 documentation</title>
+    <link rel="stylesheet" href="../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../../../../static.tradingview.com/static/bundles/pine-highlighter-v01.js"></script>
+    <script type="text/javascript" src="../_static/highlight-pine-code.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="To Pine Script® version 4" href="To_Pine_version_4.html" />
+    <link rel="prev" title="Migration guides" href="index.html" />
+  
+   
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="To_Pine_version_4.html" title="To Pine Script® version 4"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Migration guides"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Migration guides</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="../index.html" class="text-logo">Pine Script<sup>®</sup> v5 User Manual</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Introduction.html">Welcome to Pine Script<sup>®</sup> v5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primer/index.html">Pine Script<sup>®</sup> primer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../language/index.html">Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../writing/index.html">Writing scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Error_messages.html">Error messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Release_notes.html">Release notes</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Migration guides</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">To Pine Script<sup>®</sup> version 5</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#v4-to-v5-converter">v4 to v5 converter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renamed-functions-and-variables">Renamed functions and variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renamed-function-parameters">Renamed function parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#removed-an-rsi-overload">Removed an `rsi()` overload</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reserved-keywords">Reserved keywords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#removed-iff-and-offset">Removed `iff()` and `offset()`</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#split-of-input-into-several-functions">Split of `input()` into several functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#some-function-parameters-now-require-built-in-arguments">Some function parameters now require built-in arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deprecated-the-transp-parameter">Deprecated the `transp` parameter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#changed-the-default-session-days-for-time-and-time-close">Changed the default session days for `time()` and `time_close()`</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#strategy-exit-now-must-do-something">`strategy.exit()` now must do something</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#common-script-conversion-errors">Common script conversion errors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#all-variable-function-and-parameter-name-changes">All variable, function, and parameter name changes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="To_Pine_version_4.html">To Pine Script<sup>®</sup> version 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="To_Pine_version_3.html">To Pine Script<sup>®</sup> version 3</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Where_can_I_get_more_information.html">Where can I get more information?</a></li>
+</ul>
+
+    
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="https://www.tradingview.com/pine-script-docs/en/v5/search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../index.html">User Manual</a></li>
+              
+                <li><a href="index.html">Migration guides</a></li>
+              
+              <li>To Pine Script<sup>®</sup> version 5</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <a class="reference external image-reference" href="../Introduction.html"><div align="right" class="align-right"><img alt="Pine Script® logo" height="100" src="../_images/Pine-script-logo.svg" width="100" /></div>
+</a>
+<div class="section" id="to-pine-script-version-5">
+<span id="pagetopineversion5"></span><h1>To Pine Script<sup>®</sup> version 5<a class="headerlink" href="#to-pine-script-version-5" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#introduction" id="id1">Introduction</a></li>
+<li><a class="reference internal" href="#v4-to-v5-converter" id="id2">v4 to v5 converter</a></li>
+<li><a class="reference internal" href="#renamed-functions-and-variables" id="id3">Renamed functions and variables</a></li>
+<li><a class="reference internal" href="#renamed-function-parameters" id="id4">Renamed function parameters</a></li>
+<li><a class="reference internal" href="#removed-an-rsi-overload" id="id5">Removed an `rsi()` overload</a></li>
+<li><a class="reference internal" href="#reserved-keywords" id="id6">Reserved keywords</a></li>
+<li><a class="reference internal" href="#removed-iff-and-offset" id="id7">Removed `iff()` and `offset()`</a></li>
+<li><a class="reference internal" href="#split-of-input-into-several-functions" id="id8">Split of `input()` into several functions</a></li>
+<li><a class="reference internal" href="#some-function-parameters-now-require-built-in-arguments" id="id9">Some function parameters now require built-in arguments</a></li>
+<li><a class="reference internal" href="#deprecated-the-transp-parameter" id="id10">Deprecated the `transp` parameter</a></li>
+<li><a class="reference internal" href="#changed-the-default-session-days-for-time-and-time-close" id="id11">Changed the default session days for `time()` and `time_close()`</a></li>
+<li><a class="reference internal" href="#strategy-exit-now-must-do-something" id="id12">`strategy.exit()` now must do something</a></li>
+<li><a class="reference internal" href="#common-script-conversion-errors" id="id13">Common script conversion errors</a></li>
+<li><a class="reference internal" href="#all-variable-function-and-parameter-name-changes" id="id14">All variable, function, and parameter name changes</a></li>
+</ul>
+</div>
+<div class="section" id="introduction">
+<h2><a class="toc-backref" href="#id1">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>This guide documents the <strong>changes</strong> made to Pine Script<sup>®</sup> from v4 to v5. It will guide you in the adaptation of existing Pine scripts to Pine Script<sup>®</sup> v5.
+See our <a class="reference internal" href="../Release_notes.html#pagereleasenotes-october2021"><span class="std std-ref">Release notes</span></a> for a list of the <strong>new</strong> features in Pine Script<sup>®</sup> v5.</p>
+<p>The most frequent adaptations required to convert older scripts to v5 are:</p>
+<ul class="simple">
+<li>Changing <a class="reference external" href="https://www.tradingview.com/pine-script-reference/v4/#fun_study">study()</a> for <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_indicator">indicator()</a> (the function’s signature has not changed).</li>
+<li>Renaming built-in function calls to include their new namespace (e.g., <a class="reference external" href="https://www.tradingview.com/pine-script-reference/v4/#fun_highest">highest()</a> in v4 becomes <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_ta{dot}highest">ta.highest()</a> in v5).</li>
+<li>Restructuring inputs to use the more specialized <code class="docutils literal notranslate"><span class="pre">input.*()</span></code> functions.</li>
+<li>Eliminating uses of the deprecated <code class="docutils literal notranslate"><span class="pre">transp</span></code> parameter by using <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_color{dot}new">color.new()</a> to simultaneously define color and transparency for use with the <code class="docutils literal notranslate"><span class="pre">color</span></code> parameter.</li>
+<li>If you used the <code class="docutils literal notranslate"><span class="pre">resolution</span></code> and <code class="docutils literal notranslate"><span class="pre">resolution_gaps</span></code> parameters in v4’s <a class="reference external" href="https://www.tradingview.com/pine-script-reference/v4/#fun_study">study()</a>,
+they will require changing to <code class="docutils literal notranslate"><span class="pre">timeframe</span></code> and <code class="docutils literal notranslate"><span class="pre">timeframe_gaps</span></code> in v5’s <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_indicator">indicator()</a>.</li>
+</ul>
+</div>
+<div class="section" id="v4-to-v5-converter">
+<h2><a class="toc-backref" href="#id2">v4 to v5 converter</a><a class="headerlink" href="#v4-to-v5-converter" title="Permalink to this headline">¶</a></h2>
+<p>The Pine Script<sup>®</sup> Editor includes a utility to automatically convert v4 scripts to v5. To access it, open a script with <code class="docutils literal notranslate"><span class="pre">//&#64;version=4</span></code> in it and select the “Convert to v5” option in the “More” menu identified by three dots at the top-right of the Editor’s pane:</p>
+<img alt="../_images/v4_to_v5_convert_button.png" src="../_images/v4_to_v5_convert_button.png" />
+<p>Not all scripts can be automatically converted from v4 to v5. If you want to convert the script manually or if your indicator returns a compilation error after conversion, use the following sections to determine how to complete the conversion. A list of some errors you can encounter during the automatic conversion and how to fix them can be found in the <a class="reference internal" href="v4_to_v5_migration_guide.html#pagetopineversion5-commonconversionerrors"><span class="std std-ref">Common script conversion errors</span></a> section of this guide.</p>
+</div>
+<div class="section" id="renamed-functions-and-variables">
+<h2><a class="toc-backref" href="#id3">Renamed functions and variables</a><a class="headerlink" href="#renamed-functions-and-variables" title="Permalink to this headline">¶</a></h2>
+<p>For clarity and consistency, many built-in functions and variables were renamed in v5.
+The inclusion of v4 function names in a new namespace is the cause of most changes.
+For example, the <a class="reference external" href="https://www.tradingview.com/pine-script-reference/v4/#fun_sma">sma()</a> function in v4 is moved to the <code class="docutils literal notranslate"><span class="pre">ta.</span></code> namespace in v5:
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_ta{dot}sma">ta.sma()</a>.
+Remembering the new namespaces is not necessary; if you type the older name of a function without its namespace in the Editor and press the ‘Auto-complete’ hotkey (<kbd class="kbd docutils literal notranslate">Ctrl</kbd> + <kbd class="kbd docutils literal notranslate">Space</kbd>, or <kbd class="kbd docutils literal notranslate">Cmd</kbd> + <kbd class="kbd docutils literal notranslate">Space</kbd> on MacOS), a popup showing matching suggestions appears:</p>
+<img alt="../_images/v5_autocomplete.png" src="../_images/v5_autocomplete.png" />
+<p>Not counting functions moved to new namespaces, only two functions have been renamed:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">study()</span></code> is now <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_indicator">indicator()</a>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">tickerid()</span></code> is now <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_ticker{dot}new">ticker.new()</a>.</li>
+</ul>
+<p>The full list of renamed functions and variables can be found in the <a class="reference internal" href="v4_to_v5_migration_guide.html#pagetopineversion5-allvariables"><span class="std std-ref">All variable, function, and parameter name changes</span></a> section of this guide.</p>
+</div>
+<div class="section" id="renamed-function-parameters">
+<h2><a class="toc-backref" href="#id4">Renamed function parameters</a><a class="headerlink" href="#renamed-function-parameters" title="Permalink to this headline">¶</a></h2>
+<p>The parameter names of some built-in functions were changed to improve the nomenclature.
+This has no bearing on most scripts, but if you used these parameter names when calling functions, they will require adaptation. For example, we have standardized all mentions:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// Valid in v4. Not valid in v5.
+timev4 = time(resolution = &quot;1D&quot;)
+// Valid in v5.
+timev5 = time(timeframe = &quot;1D&quot;)
+// Valid in v4 and v5.
+timeBoth = time(&quot;1D&quot;)
+</pre></div>
+</div>
+<p>The full list of renamed function parameters can be found in the <a class="reference internal" href="v4_to_v5_migration_guide.html#pagetopineversion5-allvariables"><span class="std std-ref">All variable, function, and parameter name changes</span></a> section of this guide.</p>
+</div>
+<div class="section" id="removed-an-rsi-overload">
+<h2><a class="toc-backref" href="#id5">Removed an `rsi()` overload</a><a class="headerlink" href="#removed-an-rsi-overload" title="Permalink to this headline">¶</a></h2>
+<p>In v4, the <a class="reference external" href="https://www.tradingview.com/pine-script-reference/v4/#fun_rsi">rsi()</a> function had two different overloads:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">rsi(series</span> <span class="pre">float,</span> <span class="pre">simple</span> <span class="pre">int)</span></code> for the normal RSI calculation, and</li>
+<li><code class="docutils literal notranslate"><span class="pre">rsi(series</span> <span class="pre">float,</span> <span class="pre">series</span> <span class="pre">float)</span></code> for an overload used in the MFI indicator, which did a calculation equivalent to <code class="docutils literal notranslate"><span class="pre">100.0</span> <span class="pre">-</span> <span class="pre">(100.0</span> <span class="pre">/</span> <span class="pre">(1.0</span> <span class="pre">+</span> <span class="pre">arg1</span> <span class="pre">/</span> <span class="pre">arg2))</span></code>.</li>
+</ul>
+<p>This caused a single built-in function to behave in two very different ways, and it was difficult to distinguish which one applied because it depended on the type of the second argument. As a result, a number of indicators misused the function and were displaying incorrect results. To avoid this, the second overload was removed in v5.</p>
+<p>The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_ta{dot}rsi">ta.rsi()</a> function in v5 only accepts a “simple int” argument for its <code class="docutils literal notranslate"><span class="pre">length</span></code> parameter.
+If your v4 code used the now deprecated overload of the function with a <code class="docutils literal notranslate"><span class="pre">float</span></code> second argument, you can replace the whole <code class="docutils literal notranslate"><span class="pre">rsi()</span></code> call with the following formula, which is equivalent:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>100.0 - (100.0 / (1.0 + arg1 / arg2))
+</pre></div>
+</div>
+<p>Note that when your v4 code used a “series int” value as the second argument to <a class="reference external" href="https://www.tradingview.com/pine-script-reference/v4/#fun_rsi">rsi()</a>, it was automatically cast to “series float” and the second overload of the function was used. While this was syntactically correct, it most probably did <strong>not</strong> yield the result you expected. In v5, <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_ta{dot}rsi">ta.rsi()</a> requires a “simple int” for the argument to <code class="docutils literal notranslate"><span class="pre">length</span></code>, which precludes dynamic (or “series”) lengths. The reason for this is that RSI calculations use the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_ta{dot}rma">ta.rma()</a> moving average, which is similar to <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_ta{dot}ema">ta.ema()</a> in that it relies on a length-dependent recursive process using the values of previous bars. This makes it impossible to achieve correct results with a “series” length that could vary bar to bar.</p>
+<p>If your v4 code used a length that was “const int”, “input int” or “simple int”, no changes are required.</p>
+</div>
+<div class="section" id="reserved-keywords">
+<h2><a class="toc-backref" href="#id6">Reserved keywords</a><a class="headerlink" href="#reserved-keywords" title="Permalink to this headline">¶</a></h2>
+<p>A number of words are reserved and cannot be used for variable or function names.
+They are: <code class="docutils literal notranslate"><span class="pre">catch</span></code>, <code class="docutils literal notranslate"><span class="pre">class</span></code>, <code class="docutils literal notranslate"><span class="pre">do</span></code>, <code class="docutils literal notranslate"><span class="pre">ellipse</span></code>, <code class="docutils literal notranslate"><span class="pre">in</span></code>, <code class="docutils literal notranslate"><span class="pre">is</span></code>, <code class="docutils literal notranslate"><span class="pre">polygon</span></code>, <code class="docutils literal notranslate"><span class="pre">range</span></code>, <code class="docutils literal notranslate"><span class="pre">return</span></code>, <code class="docutils literal notranslate"><span class="pre">struct</span></code>, <code class="docutils literal notranslate"><span class="pre">text</span></code>, <code class="docutils literal notranslate"><span class="pre">throw</span></code>, <code class="docutils literal notranslate"><span class="pre">try</span></code>.
+If your v4 indicator uses any of these, rename your variable or function for the script to work in v5.</p>
+</div>
+<div class="section" id="removed-iff-and-offset">
+<h2><a class="toc-backref" href="#id7">Removed `iff()` and `offset()`</a><a class="headerlink" href="#removed-iff-and-offset" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="https://www.tradingview.com/pine-script-reference/v4/#fun_iff">iff()</a> and <a class="reference external" href="https://www.tradingview.com/pine-script-reference/v4/#fun_offset">offset()</a> functions have been removed. Code using the <a class="reference external" href="https://www.tradingview.com/pine-script-reference/v4/#fun_iff">iff()</a> function can be rewritten using the ternary operator:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// iff(&lt;condition&gt;, &lt;return_when_true&gt;, &lt;return_when_false&gt;)
+// Valid in v4, not valid in v5
+barColorIff = iff(close &gt;= open, color.green, color.red)
+// &lt;condition&gt; ? &lt;return_when_true&gt; : &lt;return_when_false&gt;
+// Valid in v4 and v5
+barColorTernary = close &gt;= open ? color.green : color.red
+</pre></div>
+</div>
+<p>Note that the ternary operator is evaluated “lazily”; only the required value is calculated (depending on the condition’s evaluation to <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code>). This is different from <a class="reference external" href="https://www.tradingview.com/pine-script-reference/v4/#fun_iff">iff()</a>, which always evaluated both values but returned only the relevant one.</p>
+<p>Some functions require evaluation on every bar to correctly calculate, so you will need to make special provisions for these by pre-evaluating them before the ternary:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// `iff()` in v4: `highest()` and `lowest()` are calculated on every bar
+v1 = iff(close &gt; open, highest(10), lowest(10))
+plot(v1)
+// In v5: forced evaluation on every bar prior to the ternary statement.
+h1 = ta.highest(10)
+l1 = ta.lowest(10)
+v1 = close &gt; open ? h1 : l1
+plot(v1)
+</pre></div>
+</div>
+<p>The <a class="reference external" href="https://www.tradingview.com/pine-script-reference/v4/#fun_offset">offset()</a> function was deprecated because the more readable <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_[]">[]</a> operator is equivalent:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// Valid in v4. Not valid in v5.
+prevClosev4 = offset(close, 1)
+// Valid in v4 and v5.
+prevClosev5 = close[1]
+</pre></div>
+</div>
+</div>
+<div class="section" id="split-of-input-into-several-functions">
+<h2><a class="toc-backref" href="#id8">Split of `input()` into several functions</a><a class="headerlink" href="#split-of-input-into-several-functions" title="Permalink to this headline">¶</a></h2>
+<p>The v4 <a class="reference external" href="https://www.tradingview.com/pine-script-reference/v4/#fun_input">input()</a> function was becoming crowded with a plethora of overloads and parameters. We split its functionality into different functions to clear that space and provide a more robust structure to accommodate the additions planned for inputs. Each new function uses the name of the <code class="docutils literal notranslate"><span class="pre">input.*</span></code> type of the v4 <code class="docutils literal notranslate"><span class="pre">input()</span></code> call it replaces. E.g., there is now a specialized <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input{dot}float">input.float()</a> function replacing the v4 <code class="docutils literal notranslate"><span class="pre">input(1.0,</span> <span class="pre">type</span> <span class="pre">=</span> <span class="pre">input.float)</span></code> call. Note that you can still use <code class="docutils literal notranslate"><span class="pre">input(1.0)</span></code> in v5, but because only <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input{dot}float">input.float()</a> allows for parameters such as <code class="docutils literal notranslate"><span class="pre">minval</span></code>, <code class="docutils literal notranslate"><span class="pre">maxval</span></code>, etc., it is more powerful. Also note that <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input{dot}int">input.int()</a> is the only specialized input function that does not use its equivalent v4 <code class="docutils literal notranslate"><span class="pre">input.integer</span></code> name. The <code class="docutils literal notranslate"><span class="pre">input.*</span></code> constants have been removed because they were used as arguments for the <code class="docutils literal notranslate"><span class="pre">type</span></code> parameter, which was deprecated.</p>
+<p>To convert, for example, a v4 script using an input of type <code class="docutils literal notranslate"><span class="pre">input.symbol</span></code>, the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input{dot}symbol">input.symbol()</a> function must be used in v5:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// Valid in v4. Not valid in v5.
+aaplTicker = input(&quot;AAPL&quot;, type = input.symbol)
+// Valid in v5
+aaplTicker = input.symbol(&quot;AAPL&quot;)
+</pre></div>
+</div>
+<p>The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input">input()</a> function persists in v5, but in a simpler form, with less parameters. It has the advantage of automatically detecting input types “bool/color/int/float/string/source” from the argument used for <code class="docutils literal notranslate"><span class="pre">defval</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// Valid in v4 and v5.
+// While &quot;AAPL&quot; is a valid symbol, it is only a string here because `input.symbol()` is not used.
+tickerString = input(&quot;AAPL&quot;, title = &quot;Ticker string&quot;)
+</pre></div>
+</div>
+</div>
+<div class="section" id="some-function-parameters-now-require-built-in-arguments">
+<span id="pagetopineversion5-somefunctionparametersnowrequirebuiltinarguments"></span><h2><a class="toc-backref" href="#id9">Some function parameters now require built-in arguments</a><a class="headerlink" href="#some-function-parameters-now-require-built-in-arguments" title="Permalink to this headline">¶</a></h2>
+<p>In v4, built-in constants such as <code class="docutils literal notranslate"><span class="pre">plot.style_area</span></code> used as arguments when calling Pine Script<sup>®</sup> functions corresponded to pre-defined values of a specific type. For example, the value of <code class="docutils literal notranslate"><span class="pre">barmerge.lookahead_on</span></code> was <code class="docutils literal notranslate"><span class="pre">true</span></code>, so you could use <code class="docutils literal notranslate"><span class="pre">true</span></code> instead of the named constant when supplying an argument to the <code class="docutils literal notranslate"><span class="pre">lookahead</span></code> parameter in a <a class="reference external" href="https://www.tradingview.com/pine-script-reference/v4/#fun_security">security()</a> function call. We found this to be a common source of confusion, which caused unsuspecting programmers to produce code yielding unintended results.</p>
+<p>In v5, the use of correct built-in named constants as arguments to function parameters requiring them is mandatory:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// Not valid in v5: `true` is used as an argument for `lookahead`.
+request.security(syminfo.tickerid, &quot;1D&quot;, close, lookahead = true)
+// Valid in v5: uses a named constant instead of `true`.
+request.security(syminfo.tickerid, &quot;1D&quot;, close, lookahead = barmerge.lookahead_on)
+
+// Would compile in v4 because `plot.style_columns` was equal to 5.
+// Won’t compile in v5.
+a = 2 * plot.style_columns
+plot(a)
+</pre></div>
+</div>
+<p>To convert your script from v4 to v5, make sure you use the correct named built-in constants as function arguments.</p>
+</div>
+<div class="section" id="deprecated-the-transp-parameter">
+<h2><a class="toc-backref" href="#id10">Deprecated the `transp` parameter</a><a class="headerlink" href="#deprecated-the-transp-parameter" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">transp=</span></code> parameter used in the signature of many v4 plotting functions was deprecated because it interfered with RGB functionality. Transparency must now be specified along with the color as an argument to parameters such as <code class="docutils literal notranslate"><span class="pre">color</span></code>, <code class="docutils literal notranslate"><span class="pre">textcolor</span></code>, etc. The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_color{dot}new">color.new()</a> or <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_color{dot}rgb">color.rgb()</a> functions will be needed in those cases to join a color and its transparency.</p>
+<p>Note that in v4, the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_bgcolor">bgcolor()</a> and <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_fill">fill()</a> functions had an optional <code class="docutils literal notranslate"><span class="pre">transp</span></code> parameter that used a default value of 90. This meant that the code below could display Bollinger Bands with a semi-transparent fill between two bands and a semi-transparent backround color where bands cross price, even though no argument is used for the <code class="docutils literal notranslate"><span class="pre">transp</span></code> parameter in its <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_bgcolor">bgcolor()</a> and <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_fill">fill()</a> calls:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=4
+study(&quot;Bollinger Bands&quot;, overlay = true)
+[middle, upper, lower] = bb(close, 5, 4)
+plot(middle, color=color.blue)
+p1PlotID = plot(upper, color=color.green)
+p2PlotID = plot(lower, color=color.green)
+crossUp = crossover(high, upper)
+crossDn = crossunder(low, lower)
+// Both `fill()` and `bgcolor()` have a default `transp` of 90
+fill(p1PlotID, p2PlotID, color = color.green)
+bgcolor(crossUp ? color.green : crossDn ? color.red : na)
+</pre></div>
+</div>
+<p>In v5 we need to explictly mention the 90 transparency with the color, yielding:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Bollinger Bands&quot;, overlay = true)
+[middle, upper, lower] = ta.bb(close, 5, 4)
+plot(middle, color=color.blue)
+p1PlotID = plot(upper, color=color.green)
+p2PlotID = plot(lower, color=color.green)
+crossUp = ta.crossover(high, upper)
+crossDn = ta.crossunder(low, lower)
+var TRANSP = 90
+// We use `color.new()` to explicitly pass transparency to both functions
+fill(p1PlotID, p2PlotID, color = color.new(color.green, TRANSP))
+bgcolor(crossUp ? color.new(color.green, TRANSP) : crossDn ? color.new(color.red, TRANSP) : na)
+</pre></div>
+</div>
+</div>
+<div class="section" id="changed-the-default-session-days-for-time-and-time-close">
+<h2><a class="toc-backref" href="#id11">Changed the default session days for `time()` and `time_close()`</a><a class="headerlink" href="#changed-the-default-session-days-for-time-and-time-close" title="Permalink to this headline">¶</a></h2>
+<p>The default set of days for <code class="docutils literal notranslate"><span class="pre">session</span></code> strings used in the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_time">time()</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_time_close">time_close()</a> functions,
+and returned by <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input{dot}session">input.session()</a>,
+has changed from <code class="docutils literal notranslate"><span class="pre">&quot;23456&quot;</span></code> (Monday to Friday) to <code class="docutils literal notranslate"><span class="pre">&quot;1234567&quot;</span></code> (Sunday to Saturday):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// On symbols that are traded during weekends, this will behave differently in v4 and v5.
+t0 = time(&quot;1D&quot;, &quot;1000-1200&quot;)
+// v5 equivalent of the behavior of `t0` in v4.
+t1 = time(&quot;1D&quot;, &quot;1000-1200:23456&quot;)
+// v5 equivalent of the behavior of `t0` in v5.
+t2 = time(&quot;1D&quot;, &quot;1000-1200:1234567&quot;)
+</pre></div>
+</div>
+<p>This change in behavior should not have much impact on scripts running on conventional markets that are closed during weekends.
+If it is important for you to ensure your session definitions preserve their v4 behavior in v5 code, add <code class="docutils literal notranslate"><span class="pre">&quot;:23456&quot;</span></code> to your session strings.
+See this manual’s page on <a class="reference internal" href="../concepts/Sessions.html#pagesessions"><span class="std std-ref">Sessions</span></a> for more information.</p>
+</div>
+<div class="section" id="strategy-exit-now-must-do-something">
+<h2><a class="toc-backref" href="#id12">`strategy.exit()` now must do something</a><a class="headerlink" href="#strategy-exit-now-must-do-something" title="Permalink to this headline">¶</a></h2>
+<p>Gone are the days when the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_strategy{dot}exit">strategy.exit()</a> function was allowed to loiter.
+Now it must actually have an effect on the strategy by using at least one of the following parameters: <code class="docutils literal notranslate"><span class="pre">profit</span></code>, <code class="docutils literal notranslate"><span class="pre">limit</span></code>, <code class="docutils literal notranslate"><span class="pre">loss</span></code>, <code class="docutils literal notranslate"><span class="pre">stop</span></code>, or one of the following pairs:
+<code class="docutils literal notranslate"><span class="pre">trail_offset</span></code> combined with either <code class="docutils literal notranslate"><span class="pre">trail_price</span></code> or <code class="docutils literal notranslate"><span class="pre">trail_points</span></code>.
+When uses of <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_strategy{dot}exit">strategy.exit()</a> not meeting these criteria trigger an error while converting a strategy to v5,
+you can safely eliminate these lines, as they didn’t do anything in your code anyway.</p>
+</div>
+<div class="section" id="common-script-conversion-errors">
+<span id="pagetopineversion5-commonconversionerrors"></span><h2><a class="toc-backref" href="#id13">Common script conversion errors</a><a class="headerlink" href="#common-script-conversion-errors" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="invalid-argument-style-linestyle-in-plot-hline-call">
+<h3>Invalid argument ‘style’/’linestyle’ in ‘plot’/’hline’ call<a class="headerlink" href="#invalid-argument-style-linestyle-in-plot-hline-call" title="Permalink to this headline">¶</a></h3>
+<p>To make this work, you need to change the “int” arguments used for the <code class="docutils literal notranslate"><span class="pre">style</span></code> and <code class="docutils literal notranslate"><span class="pre">linestyle</span></code> arguments in
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plot">plot()</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_hline">hline()</a> for built-in constants:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// Will cause an error during conversion
+plotStyle = input(1)
+hlineStyle = input(1)
+plot(close, style = plotStyle)
+hline(100, linestyle = hlineStyle)
+
+// Will work in v5
+//@version=5
+indicator(&quot;&quot;)
+plotStyleInput = input.string(&quot;Line&quot;, options = [&quot;Line&quot;, &quot;Stepline&quot;, &quot;Histogram&quot;, &quot;Cross&quot;, &quot;Area&quot;, &quot;Columns&quot;, &quot;Circles&quot;])
+hlineStyleInput = input.string(&quot;Solid&quot;, options = [&quot;Solid&quot;, &quot;Dashed&quot;, &quot;Dotted&quot;])
+
+plotStyle = plotStyleInput == &quot;Line&quot; ? plot.style_line :
+             plotStyleInput == &quot;Stepline&quot; ? plot.style_stepline :
+             plotStyleInput == &quot;Histogram&quot; ? plot.style_histogram :
+             plotStyleInput == &quot;Cross&quot; ? plot.style_cross :
+             plotStyleInput == &quot;Area&quot; ? plot.style_area :
+             plotStyleInput == &quot;Columns&quot; ? plot.style_columns :
+             plot.style_circles
+
+hlineStyle = hlineStyleInput == &quot;Solid&quot; ? hline.style_solid :
+             hlineStyleInput == &quot;Dashed&quot; ? hline.style_dashed :
+             hline.style_dotted
+
+plot(close, style = plotStyle)
+hline(100, linestyle = hlineStyle)
+</pre></div>
+</div>
+<p>See the <a class="reference internal" href="v4_to_v5_migration_guide.html#pagetopineversion5-somefunctionparametersnowrequirebuiltinarguments"><span class="std std-ref">Some function parameters now require built-in arguments</span></a>
+section of this guide for more information.</p>
+</div>
+<div class="section" id="undeclared-identifier-input-input-name">
+<h3>Undeclared identifier ‘input.%input_name%’<a class="headerlink" href="#undeclared-identifier-input-input-name" title="Permalink to this headline">¶</a></h3>
+<p>To fix this issue, remove the <code class="docutils literal notranslate"><span class="pre">input.*</span></code> constants from your code:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// Will cause an error during conversion
+_integer = input.integer
+_bool = input.bool
+i1 = input(1, &quot;Integer&quot;, _integer)
+i2 = input(true, &quot;Boolean&quot;, _bool)
+
+// Will work in v5
+i1 = input.int(1, &quot;Integer&quot;)
+i2 = input.bool(true, &quot;Boolean&quot;)
+</pre></div>
+</div>
+<p>See the User Manual’s page on <a class="reference internal" href="../concepts/Inputs.html#pageinputs"><span class="std std-ref">Inputs</span></a>, and the
+<a class="reference internal" href="v4_to_v5_migration_guide.html#pagetopineversion5-somefunctionparametersnowrequirebuiltinarguments"><span class="std std-ref">Some function parameters now require built-in arguments</span></a>
+section of this guide for more information.</p>
+</div>
+<div class="section" id="invalid-argument-when-in-strategy-close-call">
+<h3>Invalid argument ‘when’ in ‘strategy.close’ call<a class="headerlink" href="#invalid-argument-when-in-strategy-close-call" title="Permalink to this headline">¶</a></h3>
+<p>This is caused by a confusion between <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_strategy{dot}entry">strategy.entry()</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_strategy{dot}close">strategy.close()</a>.</p>
+<p>The second parameter of <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_strategy{dot}close">strategy.close()</a>
+is <code class="docutils literal notranslate"><span class="pre">when</span></code>, which expects a “bool” argument. In v4, it was allowed to use <code class="docutils literal notranslate"><span class="pre">strategy.long</span></code> an argument because it was a “bool”.
+With v5, however, named built-in constants must be used as arguments, so <code class="docutils literal notranslate"><span class="pre">strategy.long</span></code> is no longer allowed as an argument to the <code class="docutils literal notranslate"><span class="pre">when</span></code> parameter.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">strategy.close(&quot;Short&quot;,</span> <span class="pre">strategy.long)</span></code> call in this code is equivalent to <code class="docutils literal notranslate"><span class="pre">strategy.close(&quot;Short&quot;)</span></code>,
+which is what must be used in v5:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// Will cause an error during conversion
+if (longCondition)
+    strategy.close(&quot;Short&quot;, strategy.long)
+    strategy.entry(&quot;Long&quot;, strategy.long)
+
+// Will work in v5:
+if (longCondition)
+    strategy.close(&quot;Short&quot;)
+    strategy.entry(&quot;Long&quot;, strategy.long)
+</pre></div>
+</div>
+<p>See the <a class="reference internal" href="v4_to_v5_migration_guide.html#pagetopineversion5-somefunctionparametersnowrequirebuiltinarguments"><span class="std std-ref">Some function parameters now require built-in arguments</span></a>
+section of this guide for more information.</p>
+</div>
+<div class="section" id="cannot-call-input-int-with-argument-minval-value-an-argument-of-literal-float-type-was-used-but-a-const-int-is-expected">
+<h3>Cannot call ‘input.int’ with argument ‘minval’=’%value%’. An argument of ‘literal float’ type was used but a ‘const int’ is expected<a class="headerlink" href="#cannot-call-input-int-with-argument-minval-value-an-argument-of-literal-float-type-was-used-but-a-const-int-is-expected" title="Permalink to this headline">¶</a></h3>
+<p>In v4, it was possible to pass a “float” argument to <code class="docutils literal notranslate"><span class="pre">minval</span></code> when an “int” value was being input.
+This is no longer possible in v5; “int” values are required for “int” inputs:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// Works in v4, will break on conversion because minval is a &#39;float&#39; value
+int_input = input(1, &quot;Integer&quot;, input.integer, minval = 1.0)
+
+// Works in v5
+int_input = input.int(1, &quot;Integer&quot;, minval = 1)
+</pre></div>
+</div>
+<p>See the User Manual’s page on <a class="reference internal" href="../concepts/Inputs.html#pageinputs"><span class="std std-ref">Inputs</span></a>, and the
+<a class="reference internal" href="v4_to_v5_migration_guide.html#pagetopineversion5-somefunctionparametersnowrequirebuiltinarguments"><span class="std std-ref">Some function parameters now require built-in arguments</span></a>
+section of this guide for more information.</p>
+</div>
+</div>
+<div class="section" id="all-variable-function-and-parameter-name-changes">
+<span id="pagetopineversion5-allvariables"></span><h2><a class="toc-backref" href="#id14">All variable, function, and parameter name changes</a><a class="headerlink" href="#all-variable-function-and-parameter-name-changes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="removed-functions-and-variables">
+<h3>Removed functions and variables<a class="headerlink" href="#removed-functions-and-variables" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="49%" />
+<col width="51%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>v4</td>
+<td>v5</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">input.bool</span></code> input</td>
+<td>Replaced by <code class="docutils literal notranslate"><span class="pre">input.bool()</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">input.color</span></code> input</td>
+<td>Replaced by <code class="docutils literal notranslate"><span class="pre">input.color()</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">input.float</span></code> input</td>
+<td>Replaced by <code class="docutils literal notranslate"><span class="pre">input.float()</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">input.integer</span></code> input</td>
+<td>Replaced by <code class="docutils literal notranslate"><span class="pre">input.int()</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">input.resolution</span></code> input</td>
+<td>Replaced by <code class="docutils literal notranslate"><span class="pre">input.timeframe()</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">input.session</span></code> input</td>
+<td>Replaced by <code class="docutils literal notranslate"><span class="pre">input.session()</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">input.source</span></code> input</td>
+<td>Replaced by <code class="docutils literal notranslate"><span class="pre">input.source()</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">input.string</span></code> input</td>
+<td>Replaced by <code class="docutils literal notranslate"><span class="pre">input.string()</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">input.symbol</span></code> input</td>
+<td>Replaced by <code class="docutils literal notranslate"><span class="pre">input.symbol()</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">input.time</span></code> input</td>
+<td>Replaced by <code class="docutils literal notranslate"><span class="pre">input.time()</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">iff()</span></code></td>
+<td>Use the <code class="docutils literal notranslate"><span class="pre">?:</span></code> operator instead</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">offset()</span></code></td>
+<td>Use the <code class="docutils literal notranslate"><span class="pre">[]</span></code> operator instead</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="renamed-functions-and-parameters">
+<h3>Renamed functions and parameters<a class="headerlink" href="#renamed-functions-and-parameters" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="no-namespace-change">
+<h4>No namespace change<a class="headerlink" href="#no-namespace-change" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="49%" />
+<col width="51%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>v4</td>
+<td>v5</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">study(&lt;...&gt;,</span> <span class="pre">resolution,</span> <span class="pre">resolution_gaps,</span> <span class="pre">&lt;...&gt;)</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">indicator(&lt;...&gt;,</span> <span class="pre">timeframe,</span> <span class="pre">timeframe_gaps,</span> <span class="pre">&lt;...&gt;)</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">strategy.entry(long)</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">strategy.entry(direction)</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">strategy.order(long)</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">strategy.order(direction)</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">time(resolution)</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">time(timeframe)</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">time_close(resolution)</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">time_close(timeframe)</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">nz(x,</span> <span class="pre">y)</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">nz(source,</span> <span class="pre">replacement)</span></code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="ta-namespace-for-technical-analysis-functions-and-variables">
+<h4>“ta” namespace for technical analysis functions and variables<a class="headerlink" href="#ta-namespace-for-technical-analysis-functions-and-variables" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="49%" />
+<col width="51%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>v4</td>
+<td>v5</td>
+</tr>
+<tr class="row-even"><td colspan="2">Indicator functions and variables</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">accdist</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.accdist</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">alma()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.alma()</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">atr()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.atr()</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">bb()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.bb()</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">bbw()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.bbw()</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">cci()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.cci()</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">cmo()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.cmo()</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">cog()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.cog()</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">dmi()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.dmi()</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">ema()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.ema()</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">hma()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.hma()</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">iii</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.iii</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">kc()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.kc()</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">kcw()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.kcw()</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">linreg()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.linreg()</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">macd()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.macd()</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">mfi()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.mfi()</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">mom()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.mom()</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">nvi</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.nvi</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">obv</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.obv</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">pvi</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.pvi</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">pvt</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.pvt</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">rma()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.rma()</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">roc()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.roc()</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">rsi(x,</span> <span class="pre">y)</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.rsi(source,</span> <span class="pre">length)</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">sar()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.sar()</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">sma()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.sma()</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">stoch()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.stoch()</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">supertrend()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.supertrend()</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">swma(x)</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.swma(source)</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">tr</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.tr</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">tr()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.tr()</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">tsi()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.tsi()</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">vwap</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.vwap</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">vwap(x)</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.vwap(source)</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">vwma()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.vwma()</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">wad</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.wad</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">wma()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.wma()</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">wpr()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.wpr()</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">wvad</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.wvad</span></code></td>
+</tr>
+<tr class="row-odd"><td colspan="2">Supporting functions</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">barsince()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.barsince()</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">change()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.change()</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">correlation(source_a,</span> <span class="pre">source_b,</span> <span class="pre">length)</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.correlation(source1,</span> <span class="pre">source2,</span> <span class="pre">length)</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">cross(x,</span> <span class="pre">y)</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.cross(source1,</span> <span class="pre">source2)</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">crossover(x,</span> <span class="pre">y)</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.crossover(source1,</span> <span class="pre">source2)</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">crossunder(x,</span> <span class="pre">y)</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.crossunder(source1,</span> <span class="pre">source2)</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">cum(x)</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.cum(source)</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">dev()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.dev()</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">falling()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.falling()</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">highest()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.highest()</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">highestbars()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.highestbars()</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">lowest()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.lowest()</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">lowestbars()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.lowestbars()</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">median()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.median()</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">mode()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.mode()</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">percentile_linear_interpolation()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.percentile_linear_interpolation()</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">percentile_nearest_rank()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.percentile_nearest_rank()</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">percentrank()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.percentrank()</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">pivothigh()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.pivothigh()</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">pivotlow()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.pivotlow()</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">range()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.range()</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">rising()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.rising()</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">stdev()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.stdev()</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">valuewhen()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.valuewhen()</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">variance()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ta.variance()</span></code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="math-namespace-for-math-related-functions-and-variables">
+<h4>“math” namespace for math-related functions and variables<a class="headerlink" href="#math-namespace-for-math-related-functions-and-variables" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="49%" />
+<col width="51%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>v4</td>
+<td>v5</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">abs(x)</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">math.abs(number)</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">acos(x)</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">math.acos(number)</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">asin(x)</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">math.asin(number)</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">atan(x)</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">math.atan(number)</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">avg()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">math.avg()</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">ceil(x)</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">math.ceil(number)</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">cos(x)</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">math.cos(angle)</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">exp(x)</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">math.exp(number)</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">floor(x)</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">math.floor(number)</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">log(x)</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">math.log(number)</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">log10(x)</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">math.log10(number)</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">max()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">math.max()</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">min()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">math.min()</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">pow()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">math.pow()</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">random()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">math.random()</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">round(x,</span> <span class="pre">precision)</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">math.round(number,</span> <span class="pre">precision)</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">round_to_mintick(x)</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">math.round_to_mintick(number)</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">sign(x)</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">math.sign(number)</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">sin(x)</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">math.sin(angle)</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">sqrt(x)</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">math.sqrt(number)</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">sum()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">math.sum()</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">tan(x)</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">math.tan(angle)</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">todegrees()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">math.todegrees()</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">toradians()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">math.toradians()</span></code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="request-namespace-for-functions-that-request-external-data">
+<h4>“request” namespace for functions that request external data<a class="headerlink" href="#request-namespace-for-functions-that-request-external-data" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="49%" />
+<col width="51%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>v4</td>
+<td>v5</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">financial()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">request.financial()</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">quandl()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">request.quandl()</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">security(&lt;...&gt;,</span> <span class="pre">resolution,</span> <span class="pre">&lt;...&gt;)</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">request.security(&lt;...&gt;,</span> <span class="pre">timeframe,</span> <span class="pre">&lt;...&gt;)</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">splits()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">request.splits()</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">dividends()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">request.dividends()</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">earnings()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">request.earnings()</span></code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="ticker-namespace-for-functions-that-help-create-tickers">
+<h4>“ticker” namespace for functions that help create tickers<a class="headerlink" href="#ticker-namespace-for-functions-that-help-create-tickers" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="49%" />
+<col width="51%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>v4</td>
+<td>v5</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">heikinashi()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ticker.heikinashi()</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">kagi()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ticker.kagi()</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">linebreak()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ticker.linebreak()</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">pointfigure()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ticker.pointfigure()</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">renko()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ticker.renko()</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">tickerid()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ticker.new()</span></code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="str-namespace-for-functions-that-manipulate-strings">
+<h4>“str” namespace for functions that manipulate strings<a class="headerlink" href="#str-namespace-for-functions-that-manipulate-strings" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="49%" />
+<col width="51%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>v4</td>
+<td>v5</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">tostring(x,</span> <span class="pre">y)</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">str.tostring(value,</span> <span class="pre">format)</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">tonumber(x)</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">str.tonumber(string)</span></code></td>
+</tr>
+</tbody>
+</table>
+<a class="reference external image-reference" href="https://www.tradingview.com/"><div align="center" class="align-center"><img alt="../_images/TradingView-Logo-Block.svg" src="../_images/TradingView-Logo-Block.svg" width="200px" /></div>
+</a>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="index.html" title="previous chapter (use the left arrow)">Migration guides</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="To_Pine_version_4.html" title="next chapter (use the right arrow)">To Pine Script<sup>®</sup> version 4</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="To_Pine_version_4.html" title="To Pine Script® version 4"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Migration guides"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Migration guides</a> &#187;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="../_static/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="../_static/js/theme.js"></script>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Options</span>
+    v: v5
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Languages</dt>
+      
+        <strong>
+        <dd><a href="To_Pine_version_5.html">en</a></dd>
+        </strong>
+      
+    </dl>
+    <dl>
+      <dt>Versions</dt>
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v3/migration_guides/To_Pine_version_5.html">v3</a></dd>
+        
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v4/migration_guides/To_Pine_version_5.html">v4</a></dd>
+        
+      
+        <strong>
+        <dd><a href="To_Pine_version_5.html">v5</a></dd>
+        </strong>
+      
+    </dl>
+  </div>
+</div>
+<script type="text/javascript">
+    jQuery(function () {
+        SphinxRtdTheme.Navigation.enable(false);
+    });
+</script>
+  <div class="footer">
+    &copy; Copyright 2023, TradingView.
+  </div>
+  </body>
+
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/migration_guides/To_Pine_version_5.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:57:06 GMT -->
+</html>

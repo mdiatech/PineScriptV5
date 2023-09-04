@@ -1,0 +1,784 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/concepts/Inputs.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:56:14 GMT -->
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Inputs &#8212; Pine Script® v5 User Manual v5 documentation</title>
+    <link rel="stylesheet" href="../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../../../../static.tradingview.com/static/bundles/pine-highlighter-v01.js"></script>
+    <script type="text/javascript" src="../_static/highlight-pine-code.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Levels" href="Levels.html" />
+    <link rel="prev" title="Fills" href="Fills.html" />
+  
+   
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Levels.html" title="Levels"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Fills.html" title="Fills"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Concepts</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="../index.html" class="text-logo">Pine Script<sup>®</sup> v5 User Manual</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Introduction.html">Welcome to Pine Script<sup>®</sup> v5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primer/index.html">Pine Script<sup>®</sup> primer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../language/index.html">Language</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Concepts</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Alerts.html">Alerts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Backgrounds.html">Backgrounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bar_coloring.html">Bar coloring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bar_plotting.html">Bar plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bar_states.html">Bar states</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chart_information.html">Chart information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Colors.html">Colors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fills.html">Fills</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Inputs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#input-functions">Input functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#input-function-parameters">Input function parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#input-types">Input types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#other-features-affecting-inputs">Other features affecting Inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tips">Tips</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Levels.html">Levels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Libraries.html">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lines_and_boxes.html">Lines and boxes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Non-standard_charts_data.html">Non-standard charts data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Plots.html">Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Repainting.html">Repainting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Sessions.html">Sessions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Strategies.html">Strategies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Tables.html">Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Text_and_shapes.html">Text and shapes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Time.html">Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Timeframes.html">Timeframes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../writing/index.html">Writing scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Error_messages.html">Error messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Release_notes.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migration_guides/index.html">Migration guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Where_can_I_get_more_information.html">Where can I get more information?</a></li>
+</ul>
+
+    
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="https://www.tradingview.com/pine-script-docs/en/v5/search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../index.html">User Manual</a></li>
+              
+                <li><a href="index.html">Concepts</a></li>
+              
+              <li>Inputs</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <a class="reference external image-reference" href="../Introduction.html"><div align="right" class="align-right"><img alt="Pine Script® logo" height="100" src="../_images/Pine-script-logo.svg" width="100" /></div>
+</a>
+<div class="section" id="inputs">
+<span id="pageinputs"></span><h1>Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#introduction" id="id1">Introduction</a></li>
+<li><a class="reference internal" href="#input-functions" id="id2">Input functions</a></li>
+<li><a class="reference internal" href="#input-function-parameters" id="id3">Input function parameters</a></li>
+<li><a class="reference internal" href="#input-types" id="id4">Input types</a><ul>
+<li><a class="reference internal" href="#simple-input" id="id5">Simple input</a></li>
+<li><a class="reference internal" href="#integer-input" id="id6">Integer input</a></li>
+<li><a class="reference internal" href="#float-input" id="id7">Float input</a></li>
+<li><a class="reference internal" href="#boolean-input" id="id8">Boolean input</a></li>
+<li><a class="reference internal" href="#color-input" id="id9">Color input</a></li>
+<li><a class="reference internal" href="#timeframe-input" id="id10">Timeframe input</a></li>
+<li><a class="reference internal" href="#symbol-input" id="id11">Symbol input</a></li>
+<li><a class="reference internal" href="#session-input" id="id12">Session input</a></li>
+<li><a class="reference internal" href="#source-input" id="id13">Source input</a></li>
+<li><a class="reference internal" href="#time-input" id="id14">Time input</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#other-features-affecting-inputs" id="id15">Other features affecting Inputs</a></li>
+<li><a class="reference internal" href="#tips" id="id16">Tips</a></li>
+</ul>
+</div>
+<div class="section" id="introduction">
+<h2><a class="toc-backref" href="#id1">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Inputs allow scripts to receive values that users can change. Using them for key values will make your scripts more adaptable to user preferences.</p>
+<p>The following script plots a 20-period <a class="reference external" href="https://www.tradingview.com/support/solutions/43000502589">simple moving average (SMA)</a>
+using <code class="docutils literal notranslate"><span class="pre">ta.sma(close,</span> <span class="pre">20)</span></code>. While it is simple to write, it is not very flexible because that specific MA is all it will ever plot:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;MA&quot;, &quot;&quot;, true)
+plot(ta.sma(close, 20))
+</pre></div>
+</div>
+<p>If instead we write our script this way, it becomes much more flexible because its users will be able to select
+the source and the length they want to use for the MA’s calculation:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;MA&quot;, &quot;&quot;, true)
+sourceInput = input(close, &quot;Source&quot;)
+lengthInput = input(20, &quot;Length&quot;)
+plot(ta.sma(sourceInput, lengthInput))
+</pre></div>
+</div>
+<p>Inputs can only be accessed when a script is running on the chart.
+Script users access them through the script’s “Settings” dialog box,
+which can be reached by either:</p>
+<ul class="simple">
+<li>Double-clicking on the name of an on-chart indicator</li>
+<li>Right-clicking on the script’s name and choosing the “Settings” item from the dropdown menu</li>
+<li>Choosing the “Settings” item from the “More” menu icon (three dots) that appears when one hovers over the indicator’s name on the chart</li>
+<li>Double-clicking on the indicator’s name from the Data Window (fourth icon down to the right of the chart)</li>
+</ul>
+<p>The “Settings” dialog box always contains the “Style” and “Visibility” tabs,
+which allow users to specify their preferences about the script’s visuals
+and the chart timeframes where it should be visible.</p>
+<p>When a script contains calls to <code class="docutils literal notranslate"><span class="pre">input.*()</span></code> functions, an “Inputs” tab appears in the “Settings” dialog box.</p>
+<img alt="../_images/Inputs-Introduction-1.png" src="../_images/Inputs-Introduction-1.png" />
+<p>In the flow of a script’s execution, inputs are processed when the script is already on a chart
+and a user changes values in the “Inputs” tab.
+The changes trigger a re-execution of the script on all the chart bars,
+so when a user changes an input value, your script recalculates using that new value.</p>
+</div>
+<div class="section" id="input-functions">
+<h2><a class="toc-backref" href="#id2">Input functions</a><a class="headerlink" href="#input-functions" title="Permalink to this headline">¶</a></h2>
+<p>The following input functions are available:</p>
+<ul class="simple">
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input">input()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input{dot}int">input.int()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input{dot}float">input.float()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input{dot}bool">input.bool()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input{dot}color">input.color()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input{dot}string">input.string()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input{dot}timeframe">input.timeframe()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input{dot}symbol">input.symbol()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input{dot}price">input.price()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input{dot}source">input.source()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input{dot}session">input.session()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input{dot}time">input.time()</a></li>
+</ul>
+<p>A specific input <em>widget</em> is created in the “Inputs” tab to accept each type of input.
+Unless otherwise specified in the <code class="docutils literal notranslate"><span class="pre">input.*()</span></code> call, each input appears on a new line of the “Inputs” tab,
+in the order the <code class="docutils literal notranslate"><span class="pre">input.*()</span></code> calls appear in the script.</p>
+<p>Our <a class="reference internal" href="../writing/Style_guide.html#pagestyleguide"><span class="std std-ref">Style guide</span></a> recommends placing <code class="docutils literal notranslate"><span class="pre">input.*()</span></code> calls at the beginning of the script.</p>
+<p>Input function definitions typically contain many parameters,
+which allow you to control the default value of inputs, their limits,
+and their organization in the “Inputs” tab.</p>
+<p>An <code class="docutils literal notranslate"><span class="pre">input*.()</span></code> call being just another function call in Pine Script<sup>®</sup>, its result can be combined with
+<a class="reference internal" href="../language/Operators.html#pageoperators-arithmeticoperators"><span class="std std-ref">arithmetic</span></a>, <span class="xref std std-ref">comparison</span>,
+<a class="reference internal" href="../language/Operators.html#pageoperators-logicaloperators"><span class="std std-ref">logical</span></a> or <a class="reference internal" href="../language/Operators.html#pageoperators-ternaryoperator"><span class="std std-ref">ternary</span></a>
+operators to form an expression to be assigned to the variable. Here, we compare the result of our call to
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input{dot}string">input.string()</a> to the string <code class="docutils literal notranslate"><span class="pre">&quot;On&quot;</span></code>.
+The expression’s result is then stored in the <code class="docutils literal notranslate"><span class="pre">plotDisplayInput</span></code> variable. Since that variable
+holds a <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code> value, it is a of “input bool” type:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Input in an expression`&quot;, &quot;&quot;, true)
+bool plotDisplayInput = input.string(&quot;On&quot;, &quot;Plot Display&quot;, options = [&quot;On&quot;, &quot;Off&quot;]) == &quot;On&quot;
+plot(plotDisplayInput ? close : na)
+</pre></div>
+</div>
+<p>All values returned by <code class="docutils literal notranslate"><span class="pre">input.*()</span></code> functions except “source” ones are of the “input” form
+(see the section on <a class="reference internal" href="../language/Type_system.html#pagetypesystem-forms"><span class="std std-ref">forms</span></a> for more information).</p>
+</div>
+<div class="section" id="input-function-parameters">
+<h2><a class="toc-backref" href="#id3">Input function parameters</a><a class="headerlink" href="#input-function-parameters" title="Permalink to this headline">¶</a></h2>
+<p>The parameters common to all input functions are:
+<code class="docutils literal notranslate"><span class="pre">defval</span></code>, <code class="docutils literal notranslate"><span class="pre">title</span></code>, <code class="docutils literal notranslate"><span class="pre">tooltip</span></code>, <code class="docutils literal notranslate"><span class="pre">inline</span></code> and <code class="docutils literal notranslate"><span class="pre">group</span></code>.
+Some parameters are used by the other input functions:
+<code class="docutils literal notranslate"><span class="pre">options</span></code>, <code class="docutils literal notranslate"><span class="pre">minval</span></code>, <code class="docutils literal notranslate"><span class="pre">maxval</span></code>, <code class="docutils literal notranslate"><span class="pre">step</span></code> and <code class="docutils literal notranslate"><span class="pre">confirm</span></code>.</p>
+<p>All these parameters expect arguments of “const” form
+(except if it’s an input used for a “source”, which returns a “series float” result).
+This means they must be known at compile time and cannot change during the script’s execution.
+Because the result of <code class="docutils literal notranslate"><span class="pre">input.*()</span></code> function is always of “input” or “series” form,
+it follows that the result of one <code class="docutils literal notranslate"><span class="pre">input.*()</span></code> function call cannot be used as an argument
+in a subsequent <code class="docutils literal notranslate"><span class="pre">input.*()</span></code> call because the “input” form is stronger than the “const” form.</p>
+<p>Let’s go over each parameter:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">defval</span></code> is the first parameter of all input functions.
+It is the default value that will appear in the input widget.
+It requires an argument of the type of input value the function is used for.</li>
+<li><code class="docutils literal notranslate"><span class="pre">title</span></code> requires a “const string” argument. It is the field’s label.</li>
+<li><code class="docutils literal notranslate"><span class="pre">tooltip</span></code> requires a “const string” argument. When the parameter is used,
+a question mark icon will appear to the right of the field.
+When users hover over it, the tooltip’s text will appear.
+Note that if multiple input fields are grouped on one line using <code class="docutils literal notranslate"><span class="pre">inline</span></code>,
+the tooltip will always appear to the right of the rightmost field,
+and display the text of the last <code class="docutils literal notranslate"><span class="pre">tooltip</span></code> argument used in the line.
+Newlines (<code class="docutils literal notranslate"><span class="pre">\n</span></code>) are supported in the argument string.</li>
+<li><code class="docutils literal notranslate"><span class="pre">inline</span></code> requires a “const string” argument.
+Using the same argument for the parameter in multiple <code class="docutils literal notranslate"><span class="pre">input.*()</span></code> calls will group their input widgets on the same line.
+There is a limit to the width the “Inputs” tab will expand, so a limited quantity of input fields
+can be fitted on one line. Using one <code class="docutils literal notranslate"><span class="pre">input.*()</span></code> call with a unique argument for <code class="docutils literal notranslate"><span class="pre">inline</span></code>
+has the effect of bringing the input field left, immediately after the label,
+foregoing the default left-alignment of all input fields used when no <code class="docutils literal notranslate"><span class="pre">inline</span></code> argument is used.</li>
+<li><code class="docutils literal notranslate"><span class="pre">group</span></code> requires a “const string” argument. It used to group any number of inputs in the same section.
+The string used as the <code class="docutils literal notranslate"><span class="pre">group</span></code> argument becomes the section’s heading.
+All <code class="docutils literal notranslate"><span class="pre">input.*()</span></code> calls to be grouped together must use the same string for their <code class="docutils literal notranslate"><span class="pre">group</span></code> argument.</li>
+<li><code class="docutils literal notranslate"><span class="pre">options</span></code> requires a comma-separated list of elements enclosed in square brackets (e.g., <code class="docutils literal notranslate"><span class="pre">[&quot;ON&quot;,</span> <span class="pre">&quot;OFF&quot;]</span></code>.
+It is used to create a dropdown menu offering the list’s elements in the form of menu selections.
+Only one menu item can be selected. When an <code class="docutils literal notranslate"><span class="pre">options</span></code> list is used,
+the <code class="docutils literal notranslate"><span class="pre">defval</span></code> value must be one of the list’s elements.
+When <code class="docutils literal notranslate"><span class="pre">options</span></code> is used in input functions allowing <code class="docutils literal notranslate"><span class="pre">minval</span></code>, <code class="docutils literal notranslate"><span class="pre">maxval</span></code> or <code class="docutils literal notranslate"><span class="pre">step</span></code>,
+those parameters cannot be used simultaneously.</li>
+<li><code class="docutils literal notranslate"><span class="pre">minval</span></code> requires a “const int/float” argument, depending on the type of the <code class="docutils literal notranslate"><span class="pre">defval</span></code> value.
+It is the minimum valid value for the input field.</li>
+<li><code class="docutils literal notranslate"><span class="pre">maxval</span></code> requires a “const int/float” argument, depending on the type of the <code class="docutils literal notranslate"><span class="pre">defval</span></code> value.
+It is the maximum valid value for the input field.</li>
+<li><code class="docutils literal notranslate"><span class="pre">step</span></code> is the increment by which the field’s value will move when the widget’s up/down arrows are used.</li>
+<li><code class="docutils literal notranslate"><span class="pre">confirm</span></code> requires a “const bool” (<code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code>) argument.
+This parameter affect the behavior of the script when it is added to a chart.
+<code class="docutils literal notranslate"><span class="pre">input.*()</span></code> calls using <code class="docutils literal notranslate"><span class="pre">confirm</span> <span class="pre">=</span> <span class="pre">true</span></code> will cause the “Settings/Inputs” tab to popup
+when the script is added to the chart. <code class="docutils literal notranslate"><span class="pre">confirm</span></code> is useful to ensure that users configure a particular field.</li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">minval</span></code>, <code class="docutils literal notranslate"><span class="pre">maxval</span></code> and <code class="docutils literal notranslate"><span class="pre">step</span></code> parameters are only present in the signature of the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input{dot}int">input.int()</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input{dot}float">input.float()</a> functions.</p>
+</div>
+<div class="section" id="input-types">
+<h2><a class="toc-backref" href="#id4">Input types</a><a class="headerlink" href="#input-types" title="Permalink to this headline">¶</a></h2>
+<p>The next sections explain what each input function does.
+As we proceed, we will explore the different ways you can use input functions and organize their display.</p>
+<div class="section" id="simple-input">
+<h3><a class="toc-backref" href="#id5">Simple input</a><a class="headerlink" href="#simple-input" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input">input()</a> is a simple,
+generic function that supports the fundamental Pine Script<sup>®</sup> types: “int”, “float”, “bool”, “color” and “string”.
+It also supports “source” inputs, which are price-related values such as
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_close">close</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#hl2">hl2</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_hlc3">hlc3</a>, and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_hlcc4">hlcc4</a>,
+or which can be used to receive the output value of another script.</p>
+<p>Its signature is:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>input(defval, title, tooltip, inline, group) → input int/float/bool/color/string | series float
+</pre></div>
+</div>
+<p>The function automatically detects the type of input by analyzing the type of the <code class="docutils literal notranslate"><span class="pre">defval</span></code> argument used in the function call.
+This script shows all the supported types and the form-type returned by the function when
+used with <code class="docutils literal notranslate"><span class="pre">defval</span></code> arguments of different types:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;`input()`&quot;, &quot;&quot;, true)
+a = input(1, &quot;input int&quot;)
+b = input(1.0, &quot;input float&quot;)
+c = input(true, &quot;input bool&quot;)
+d = input(color.orange, &quot;input color&quot;)
+e = input(&quot;1&quot;, &quot;input string&quot;)
+f = input(close, &quot;series float&quot;)
+plot(na)
+</pre></div>
+</div>
+</div>
+<div class="section" id="integer-input">
+<h3><a class="toc-backref" href="#id6">Integer input</a><a class="headerlink" href="#integer-input" title="Permalink to this headline">¶</a></h3>
+<p>Two signatures exist for the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input{dot}int">input.int()</a>
+function; one when <code class="docutils literal notranslate"><span class="pre">options</span></code> is not used, the other when it is:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>input.int(defval, title, minval, maxval, step, tooltip, inline, group, confirm) → input int
+input.int(defval, title, options, tooltip, inline, group, confirm) → input int
+</pre></div>
+</div>
+<p>This call uses the <code class="docutils literal notranslate"><span class="pre">options</span></code> parameter to propose a pre-defined list of lengths for the MA:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;MA&quot;, &quot;&quot;, true)
+maLengthInput = input.int(10, options = [3, 5, 7, 10, 14, 20, 50, 100, 200])
+ma = ta.sma(close, maLengthInput)
+plot(ma)
+</pre></div>
+</div>
+<p>This one uses the <code class="docutils literal notranslate"><span class="pre">minval</span></code> parameter to limit the length:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;MA&quot;, &quot;&quot;, true)
+maLengthInput = input.int(10, minval = 2)
+ma = ta.sma(close, maLengthInput)
+plot(ma)
+</pre></div>
+</div>
+<p>The version with the <code class="docutils literal notranslate"><span class="pre">options</span></code> list uses a dropdown menu for its widget.
+When the <code class="docutils literal notranslate"><span class="pre">options</span></code> parameter is not used, a simple input widget is used to enter the value.</p>
+<img alt="../_images/Inputs-InputTypes-02.png" src="../_images/Inputs-InputTypes-02.png" />
+</div>
+<div class="section" id="float-input">
+<h3><a class="toc-backref" href="#id7">Float input</a><a class="headerlink" href="#float-input" title="Permalink to this headline">¶</a></h3>
+<p>Two signatures exist for the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input{dot}float">input.float()</a> function;
+one when <code class="docutils literal notranslate"><span class="pre">options</span></code> is not used, the other when it is:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>input.int(defval, title, minval, maxval, step, tooltip, inline, group, confirm) → input int
+input.int(defval, title, options, tooltip, inline, group, confirm) → input int
+</pre></div>
+</div>
+<p>Here, we use a “float” input for the factor used to multiple the standard deviation,
+to calculate Bollinger Bands:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;MA&quot;, &quot;&quot;, true)
+maLengthInput = input.int(10, minval = 1)
+bbFactorInput = input.float(1.5, minval = 0, step = 0.5)
+ma      = ta.sma(close, maLengthInput)
+bbWidth = ta.stdev(ma, maLengthInput) * bbFactorInput
+bbHi    = ma + bbWidth
+bbLo    = ma - bbWidth
+plot(ma)
+plot(bbHi, &quot;BB Hi&quot;, color.gray)
+plot(bbLo, &quot;BB Lo&quot;, color.gray)
+</pre></div>
+</div>
+<p>The input widgets for floats are similar to the ones used for integer inputs.</p>
+<img alt="../_images/Inputs-InputTypes-03.png" src="../_images/Inputs-InputTypes-03.png" />
+</div>
+<div class="section" id="boolean-input">
+<h3><a class="toc-backref" href="#id8">Boolean input</a><a class="headerlink" href="#boolean-input" title="Permalink to this headline">¶</a></h3>
+<p>Let’s continue to develop our script further, this time by adding a boolean input to allow users
+to toggle the display of the BBs:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;MA&quot;, &quot;&quot;, true)
+maLengthInput = input.int(10,    &quot;MA length&quot;, minval = 1)
+bbFactorInput = input.float(1.5, &quot;BB factor&quot;, inline = &quot;01&quot;, minval = 0, step = 0.5)
+showBBInput   = input.bool(true, &quot;Show BB&quot;,   inline = &quot;01&quot;)
+ma      = ta.sma(close, maLengthInput)
+bbWidth = ta.stdev(ma, maLengthInput) * bbFactorInput
+bbHi    = ma + bbWidth
+bbLo    = ma - bbWidth
+plot(ma, &quot;MA&quot;, color.aqua)
+plot(showBBInput ? bbHi : na, &quot;BB Hi&quot;, color.gray)
+plot(showBBInput ? bbLo : na, &quot;BB Lo&quot;, color.gray)
+</pre></div>
+</div>
+<p>Note that:</p>
+<ul class="simple">
+<li>We have added an input using <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input{dot}bool">input.bool()</a>
+to set the value of <code class="docutils literal notranslate"><span class="pre">showBBInput</span></code>.</li>
+<li>We use the <code class="docutils literal notranslate"><span class="pre">inline</span></code> parameter in that input and in the one for <code class="docutils literal notranslate"><span class="pre">bbFactorInput</span></code> to bring them on the same line.
+We use <code class="docutils literal notranslate"><span class="pre">&quot;01&quot;</span></code> for its argument in both cases. That is how the Pine Script<sup>®</sup> compiler recognizes that they belong on the same line.
+The particular string used as an argument is unimportant and does not appear anywhere in the “Inputs” tab;
+it is only used to identify which inputs go on the same line.</li>
+<li>We have vertically aligned the <code class="docutils literal notranslate"><span class="pre">title</span></code> arguments of our <code class="docutils literal notranslate"><span class="pre">input.*()</span></code> calls to make them easier to read.</li>
+<li>We use the <code class="docutils literal notranslate"><span class="pre">showBBInput</span></code> variable in our two <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plot">plot()</a>
+calls to plot conditionally. When the user unchecks the checkbox of the <code class="docutils literal notranslate"><span class="pre">showBBInput</span></code> input,
+the variable’s value becomes <code class="docutils literal notranslate"><span class="pre">false</span></code>. When that happens, our <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plot">plot()</a>
+calls plot the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a> value, which displays nothing.
+We use <code class="docutils literal notranslate"><span class="pre">true</span></code> as the default value of the input, so the BBs plot by default.</li>
+<li>Because we use the <code class="docutils literal notranslate"><span class="pre">inline</span></code> parameter for the <code class="docutils literal notranslate"><span class="pre">bbFactorInput</span></code> variable, its input field in the “Inputs” tab does not align vertically
+with that of <code class="docutils literal notranslate"><span class="pre">maLengthInput</span></code>, which doesn’t use <code class="docutils literal notranslate"><span class="pre">inline</span></code>.</li>
+</ul>
+<img alt="../_images/Inputs-InputTypes-04.png" src="../_images/Inputs-InputTypes-04.png" />
+</div>
+<div class="section" id="color-input">
+<h3><a class="toc-backref" href="#id9">Color input</a><a class="headerlink" href="#color-input" title="Permalink to this headline">¶</a></h3>
+<p>As is explained in the <span class="xref std std-ref">Color selection through script settings</span>
+section of the “Colors” page, the color selections that usually appear in the “Settings/Style” tab are not always available.
+When that is the case, script users will have no means to change the colors your script uses.
+For those cases, it is essential to provide color inputs if you want your script’s colors to be modifiable through the script’s “Settings”.
+Instead of using the “Settings/Style” tab to change colors, you will then allow your script users to change
+the colors using calls to <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input{dot}color">input.color()</a>.</p>
+<p>Suppose we wanted to plot our BBs in a ligther shade when the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_high">high</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_low">low</a>
+values are higher/lower than the BBs. You could use code like this to create your colors:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>bbHiColor = color.new(color.gray, high &gt; bbHi ? 60 : 0)
+bbLoColor = color.new(color.gray, low  &lt; bbLo ? 60 : 0)
+</pre></div>
+</div>
+<p>When using dynamic (or “series”) color components like the transparency here,
+the color widgets in the “Settings/Style” will no longer appear. Let’s create our own,
+which will appear in our “Inputs” tab:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;MA&quot;, &quot;&quot;, true)
+maLengthInput = input.int(10,           &quot;MA length&quot;, inline = &quot;01&quot;, minval = 1)
+maColorInput  = input.color(color.aqua, &quot;&quot;,          inline = &quot;01&quot;)
+bbFactorInput = input.float(1.5,        &quot;BB factor&quot;, inline = &quot;02&quot;, minval = 0, step = 0.5)
+bbColorInput  = input.color(color.gray, &quot;&quot;,          inline = &quot;02&quot;)
+showBBInput   = input.bool(true,        &quot;Show BB&quot;,   inline = &quot;02&quot;)
+ma      = ta.sma(close, maLengthInput)
+bbWidth = ta.stdev(ma, maLengthInput) * bbFactorInput
+bbHi    = ma + bbWidth
+bbLo    = ma - bbWidth
+bbHiColor = color.new(bbColorInput, high &gt; bbHi ? 60 : 0)
+bbLoColor = color.new(bbColorInput, low  &lt; bbLo ? 60 : 0)
+plot(ma, &quot;MA&quot;, maColorInput)
+plot(showBBInput ? bbHi : na, &quot;BB Hi&quot;, bbHiColor, 2)
+plot(showBBInput ? bbLo : na, &quot;BB Lo&quot;, bbLoColor, 2)
+</pre></div>
+</div>
+<p>Note that:</p>
+<ul class="simple">
+<li>We have added two calls to <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input{dot}color">input.color()</a>
+to gather the values of the <code class="docutils literal notranslate"><span class="pre">maColorInput</span></code> and <code class="docutils literal notranslate"><span class="pre">bbColorInput</span></code> variables. We use <code class="docutils literal notranslate"><span class="pre">maColorInput</span></code> directly in the
+<code class="docutils literal notranslate"><span class="pre">plot(ma,</span> <span class="pre">&quot;MA&quot;,</span> <span class="pre">maColorInput)</span></code> call, and we use <code class="docutils literal notranslate"><span class="pre">bbColorInput</span></code> to build the <code class="docutils literal notranslate"><span class="pre">bbHiColor</span></code> and <code class="docutils literal notranslate"><span class="pre">bbLoColor</span></code> variables,
+which modulate the transparency using the position of price relative to the BBs.
+We use a conditional value for the <code class="docutils literal notranslate"><span class="pre">transp</span></code> value we call
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_color{dot}new">color.new()</a> with,
+to generate different transparencies of the same base color.</li>
+<li>We do not use a <code class="docutils literal notranslate"><span class="pre">title</span></code> argument for our new color inputs
+because they are on the same line as other inputs allowing users to understand to which plots they apply.</li>
+<li>We have reorganized our <code class="docutils literal notranslate"><span class="pre">inline</span></code> arguments so they reflect the fact we have inputs grouped on two distinct lines.</li>
+</ul>
+<img alt="../_images/Inputs-InputTypes-05.png" src="../_images/Inputs-InputTypes-05.png" />
+</div>
+<div class="section" id="timeframe-input">
+<span id="pageinputs-timeframeinput"></span><h3><a class="toc-backref" href="#id10">Timeframe input</a><a class="headerlink" href="#timeframe-input" title="Permalink to this headline">¶</a></h3>
+<p>Timeframe inputs can be useful when you want to be able to change the
+timeframe used to calculate values in your scripts.</p>
+<p>Let’s do away with our BBs from the previous sections and add a timeframe input to a simple MA script:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;MA&quot;, &quot;&quot;, true)
+tfInput = input.timeframe(&quot;D&quot;, &quot;Timeframe&quot;)
+ma = ta.sma(close, 20)
+securityNoRepaint(sym, tf, src) =&gt;
+    request.security(sym, tf, src[barstate.isrealtime ? 1 : 0])[barstate.isrealtime ? 0 : 1]
+maHTF = securityNoRepaint(syminfo.tickerid, tfInput, ma)
+plot(maHTF, &quot;MA&quot;, color.aqua)
+</pre></div>
+</div>
+<p>Note that:</p>
+<ul class="simple">
+<li>We use the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input{dot}timeframe">input.timeframe()</a>
+function to receive the timeframe input.</li>
+<li>The function creates a dropdown widget where some standard timeframes are proposed.
+The list of timeframes also includes any you have favorated in the chart user interface.</li>
+<li>We use the <code class="docutils literal notranslate"><span class="pre">tfInput</span></code> in our <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a> call.
+We also use <code class="docutils literal notranslate"><span class="pre">gaps</span> <span class="pre">=</span> <span class="pre">barmerge.gaps_on</span></code> in the call, so the function only returns data when the higher timeframe has completed.</li>
+</ul>
+<img alt="../_images/Inputs-InputTypes-06.png" src="../_images/Inputs-InputTypes-06.png" />
+</div>
+<div class="section" id="symbol-input">
+<h3><a class="toc-backref" href="#id11">Symbol input</a><a class="headerlink" href="#symbol-input" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input{dot}symbol">input.symbol()</a>
+function creates a widget that allows users to search and select symbols like they would from the chart’s user interface.</p>
+<p>Let’s add a symbol input to our script:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;MA&quot;, &quot;&quot;, true)
+tfInput = input.timeframe(&quot;D&quot;, &quot;Timeframe&quot;)
+symbolInput = input.symbol(&quot;&quot;, &quot;Symbol&quot;)
+ma = ta.sma(close, 20)
+securityNoRepaint(sym, tf, src) =&gt;
+    request.security(sym, tf, src[barstate.isrealtime ? 1 : 0])[barstate.isrealtime ? 0 : 1]
+maHTF = securityNoRepaint(symbolInput, tfInput, ma)
+plot(maHTF, &quot;MA&quot;, color.aqua)
+</pre></div>
+</div>
+<p>Note that:</p>
+<ul class="simple">
+<li>The <code class="docutils literal notranslate"><span class="pre">defval</span></code> argument we use is an empty string. This causes
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a>,
+where we use the <code class="docutils literal notranslate"><span class="pre">symbolInput</span></code> variable containing that input, to use the chart’s symbol by default.
+If the user selects another symbol and wants to return to the default value using the chart’s symbol,
+he will need to use the “Reset Settings” selection from the “Inputs” tab’s “Defaults” menu.</li>
+<li>We use the <code class="docutils literal notranslate"><span class="pre">securityNoRepaint()</span></code> user-defined function to use
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a>
+in such a way that it does not repaint; it only returns values when the higher timeframe has completed.</li>
+</ul>
+</div>
+<div class="section" id="session-input">
+<span id="pageinputs-sessioninput"></span><h3><a class="toc-backref" href="#id12">Session input</a><a class="headerlink" href="#session-input" title="Permalink to this headline">¶</a></h3>
+<p>Session inputs are useful to gather start-stop values for periods of time.
+The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input{dot}session">input.session()</a>
+built-in function creates an input widget allowing users to specify the beginning and end time of a session.
+Selections can be made using a dropdown menu, or by entering time values in “hh:mm” format.</p>
+<p>The value returned by <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input{dot}session">input.session()</a>
+is a valid string in session format. See the manual’s page on <a class="reference internal" href="Sessions.html#pagesessions"><span class="std std-ref">sessions</span></a> for more information.</p>
+<p>Session information can also contain information on the days where the session is valid.
+We use an <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input{dot}string">input.string()</a>
+function call here to input that day information:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Session input&quot;, &quot;&quot;, true)
+string sessionInput = input.session(&quot;0600-1700&quot;, &quot;Session&quot;)
+string daysInput = input.string(&quot;1234567&quot;, tooltip = &quot;1 = Sunday, 7 = Saturday&quot;)
+sessionString = sessionInput + &quot;:&quot; + daysInput
+inSession = not na(time(timeframe.period, sessionString))
+bgcolor(inSession ? color.silver : na)
+</pre></div>
+</div>
+<p>Note that:</p>
+<ul class="simple">
+<li>This script proposes a default session of “0600-1700”.</li>
+<li>The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input{dot}string">input.string()</a>
+call uses a tooltip to provide users with help on the format to use to enter day information.</li>
+<li>A complete session string is built by concatenating the two strings the script receives as inputs.</li>
+<li>We explicitly declare the type of our two inputs with the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_string">string</a> keyword to make it clear those
+variables will contain a string.</li>
+<li>We detect if the chart bar is in the user-defined session by calling
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_time">time()</a>
+with the session string. If the current bar’s <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_time">time</a>
+value (the time at the bar’s <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_open">open</a>)
+is not in the session, <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_time">time()</a> returns
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a>, so <code class="docutils literal notranslate"><span class="pre">inSession</span></code> will be <code class="docutils literal notranslate"><span class="pre">true</span></code>
+whenever <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_time">time()</a>
+returns a value that is not <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a>.</li>
+</ul>
+<img alt="../_images/Inputs-InputTypes-07.png" src="../_images/Inputs-InputTypes-07.png" />
+</div>
+<div class="section" id="source-input">
+<h3><a class="toc-backref" href="#id13">Source input</a><a class="headerlink" href="#source-input" title="Permalink to this headline">¶</a></h3>
+<p>Source inputs are useful to provide a selection of two types of sources:</p>
+<ul class="simple">
+<li>Price values, namely:
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_open">open</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_high">high</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_low">low</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_close">close</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_hl2">hl2</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_hlc3">hlc3</a>, and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_ohlc4">ohlc4</a>.</li>
+<li>The values plotted by other scripts on the chart. This can be useful to “link”
+two or more scripts together by sending the output of one as an input to another script.</li>
+</ul>
+<p>This script simply plots the user’s selection of source.
+We propose the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_high">high</a> as the default value:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Source input&quot;, &quot;&quot;, true)
+srcInput = input.source(high, &quot;Source&quot;)
+plot(srcInput, &quot;Src&quot;, color.new(color.purple, 70), 6)
+</pre></div>
+</div>
+<p>This shows a chart where, in addition to our script, we have loaded an “Arnaud Legoux Moving Average” indicator.
+See here how we use our script’s source input widget to select the output of the ALMA script as an input into our script.
+Because our script plots that source in a light-purple thick line, you see the plots from the two scripts overlap
+because they plot the same value:</p>
+<img alt="../_images/Inputs-InputTypes-08.png" src="../_images/Inputs-InputTypes-08.png" />
+</div>
+<div class="section" id="time-input">
+<h3><a class="toc-backref" href="#id14">Time input</a><a class="headerlink" href="#time-input" title="Permalink to this headline">¶</a></h3>
+<p>Time inputs use the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input{dot}time">input.time()</a>
+function. The function returns a Unix time in milliseconds (see the <a class="reference internal" href="Time.html#pagetime"><span class="std std-ref">Time</span></a> page for more information).
+This type of data also contains date information, so the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input{dot}time">input.time()</a> function returns a time <strong>and</strong> a date.
+That is the reason why its widget allows for the selection of both.</p>
+<p>Here, we test the bar’s time against an input value, and we plot an arrow when it is greater:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Time input&quot;, &quot;T&quot;, true)
+timeAndDateInput = input.time(timestamp(&quot;1 Aug 2021 00:00 +0300&quot;), &quot;Date and time&quot;)
+barIsLater = time &gt; timeAndDateInput
+plotchar(barIsLater, &quot;barIsLater&quot;, &quot;🠆&quot;, location.top, size = size.tiny)
+</pre></div>
+</div>
+<p>Note that the <code class="docutils literal notranslate"><span class="pre">defval</span></code> value we use is a call to the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_timestamp">timestamp()</a> function.</p>
+</div>
+</div>
+<div class="section" id="other-features-affecting-inputs">
+<h2><a class="toc-backref" href="#id15">Other features affecting Inputs</a><a class="headerlink" href="#other-features-affecting-inputs" title="Permalink to this headline">¶</a></h2>
+<p>Some parameters of the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_indicator">indicator()</a>
+function, when used, will populate the script’s “Inputs” tab with a field.
+The parameters are <code class="docutils literal notranslate"><span class="pre">timeframe</span></code> and <code class="docutils literal notranslate"><span class="pre">timeframe_gaps</span></code>. An example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;MA&quot;, &quot;&quot;, true, timeframe = &quot;D&quot;, timeframe_gaps = false)
+plot(ta.vwma(close, 10))
+</pre></div>
+</div>
+<img alt="../_images/Inputs-OtherFeaturesAffectingInputs-03.png" src="../_images/Inputs-OtherFeaturesAffectingInputs-03.png" />
+</div>
+<div class="section" id="tips">
+<h2><a class="toc-backref" href="#id16">Tips</a><a class="headerlink" href="#tips" title="Permalink to this headline">¶</a></h2>
+<p>The design of your script’s inputs has an important impact on the usability of your scripts.
+Well-designed inputs are more intuitively usable and make for a better user experience:</p>
+<ul class="simple">
+<li>Choose clear and concise labels (your input’s <code class="docutils literal notranslate"><span class="pre">title</span></code> argument).</li>
+<li>Choose your default values carefully.</li>
+<li>Provide <code class="docutils literal notranslate"><span class="pre">minval</span></code> and <code class="docutils literal notranslate"><span class="pre">maxval</span></code> values that will prevent your code from producing unexpected results,
+e.g., limit the minimal value of lengths to 1 or 2, depending on the type of MA you are using.</li>
+<li>Provide a <code class="docutils literal notranslate"><span class="pre">step</span></code> value that is congruent with the value you are capturing.
+Steps of 5 can be more useful on a 0-200 range, for example, or steps of 0.05 on a 0.0-1.0 scale.</li>
+<li>Group related inputs on the same line using <code class="docutils literal notranslate"><span class="pre">inline</span></code>; bull and bear colors for example,
+or the width and color of a line.</li>
+<li>When you have many inputs, group them into meaningful sections using <code class="docutils literal notranslate"><span class="pre">group</span></code>.
+Place the most important sections at the top.</li>
+<li>Do the same for individual inputs <strong>within</strong> sections.</li>
+</ul>
+<p>It can be advantageous to vertically align different arguments of multliple <code class="docutils literal notranslate"><span class="pre">input.*()</span></code>
+calls in your code. When you need to make global changes, this will allow you to use the Editor’s
+multi-cursor feature to operate on all the lines at once.</p>
+<p>Because It is sometimes necessary to use Unicode spaces to In order to achieve optimal alignment in inputs.
+This is an example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Aligned inputs&quot;, &quot;&quot;, true)
+
+var GRP1 = &quot;Not aligned&quot;
+ma1SourceInput   = input(close, &quot;MA source&quot;,     inline = &quot;11&quot;, group = GRP1)
+ma1LengthInput   = input(close, &quot;Length&quot;,        inline = &quot;11&quot;, group = GRP1)
+long1SourceInput = input(close, &quot;Signal source&quot;, inline = &quot;12&quot;, group = GRP1)
+long1LengthInput = input(close, &quot;Length&quot;,        inline = &quot;12&quot;, group = GRP1)
+
+var GRP2 = &quot;Aligned&quot;
+// The three spaces after &quot;MA source&quot; are Unicode EN spaces (U+2002).
+ma2SourceInput   = input(close, &quot;MA source   &quot;,  inline = &quot;21&quot;, group = GRP2)
+ma2LengthInput   = input(close, &quot;Length&quot;,        inline = &quot;21&quot;, group = GRP2)
+long2SourceInput = input(close, &quot;Signal source&quot;, inline = &quot;22&quot;, group = GRP2)
+long2LengthInput = input(close, &quot;Length&quot;,        inline = &quot;22&quot;, group = GRP2)
+
+plot(ta.vwma(close, 10))
+</pre></div>
+</div>
+<img alt="../_images/Inputs-Tips-1.png" src="../_images/Inputs-Tips-1.png" />
+<p>Note that:</p>
+<ul class="simple">
+<li>We use the <code class="docutils literal notranslate"><span class="pre">group</span></code> parameter to distinguish between the two sections of inputs.
+We use a constant to hold the name of the groups. This way, if we decide to change the name of the group,
+we only need to change it in one place.</li>
+<li>The first sections inputs widgets do not align vertically. We are using <code class="docutils literal notranslate"><span class="pre">inline</span></code>,
+which places the input widgets immediately to the right of the label.
+Because the labels for the <code class="docutils literal notranslate"><span class="pre">ma1SourceInput</span></code> and <code class="docutils literal notranslate"><span class="pre">long1SourceInput</span></code> inputs are of different lengths
+the labels are in different <em>y</em> positions.</li>
+<li>To make up for the misalignment, we pad the <code class="docutils literal notranslate"><span class="pre">title</span></code> argument in the <code class="docutils literal notranslate"><span class="pre">ma2SourceInput</span></code> line
+with three Unicode EN spaces (U+2002).
+Unicode spaces are necessary because ordinary spaces would be stripped from the label.
+You can achieve precise alignment by combining different quantities and types of Unicode spaces.
+See here for a list of <a class="reference external" href="https://jkorpela.fi/chars/spaces.html" rel="nofollow">Unicode spaces</a> of different widths.</li>
+</ul>
+<a class="reference external image-reference" href="https://www.tradingview.com/"><div align="center" class="align-center"><img alt="../_images/TradingView-Logo-Block.svg" src="../_images/TradingView-Logo-Block.svg" width="200px" /></div>
+</a>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="Fills.html" title="previous chapter (use the left arrow)">Fills</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="Levels.html" title="next chapter (use the right arrow)">Levels</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Levels.html" title="Levels"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Fills.html" title="Fills"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Concepts</a> &#187;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="../_static/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="../_static/js/theme.js"></script>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Options</span>
+    v: v5
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Languages</dt>
+      
+        <strong>
+        <dd><a href="Inputs.html">en</a></dd>
+        </strong>
+      
+    </dl>
+    <dl>
+      <dt>Versions</dt>
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v3/concepts/Inputs.html">v3</a></dd>
+        
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v4/concepts/Inputs.html">v4</a></dd>
+        
+      
+        <strong>
+        <dd><a href="Inputs.html">v5</a></dd>
+        </strong>
+      
+    </dl>
+  </div>
+</div>
+<script type="text/javascript">
+    jQuery(function () {
+        SphinxRtdTheme.Navigation.enable(false);
+    });
+</script>
+  <div class="footer">
+    &copy; Copyright 2023, TradingView.
+  </div>
+  </body>
+
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/concepts/Inputs.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:56:16 GMT -->
+</html>

@@ -1,0 +1,859 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/concepts/Colors.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:56:10 GMT -->
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Colors &#8212; Pine Script® v5 User Manual v5 documentation</title>
+    <link rel="stylesheet" href="../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../../../../static.tradingview.com/static/bundles/pine-highlighter-v01.js"></script>
+    <script type="text/javascript" src="../_static/highlight-pine-code.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Fills" href="Fills.html" />
+    <link rel="prev" title="Chart information" href="Chart_information.html" />
+  
+   
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Fills.html" title="Fills"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Chart_information.html" title="Chart information"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Concepts</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="../index.html" class="text-logo">Pine Script<sup>®</sup> v5 User Manual</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Introduction.html">Welcome to Pine Script<sup>®</sup> v5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primer/index.html">Pine Script<sup>®</sup> primer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../language/index.html">Language</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Concepts</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Alerts.html">Alerts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Backgrounds.html">Backgrounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bar_coloring.html">Bar coloring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bar_plotting.html">Bar plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bar_states.html">Bar states</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chart_information.html">Chart information</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Colors</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#constant-colors">Constant colors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#conditional-coloring">Conditional coloring</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#calculated-colors">Calculated colors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mixing-transparencies">Mixing transparencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tips">Tips</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Fills.html">Fills</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Inputs.html">Inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Levels.html">Levels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Libraries.html">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lines_and_boxes.html">Lines and boxes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Non-standard_charts_data.html">Non-standard charts data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Plots.html">Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Repainting.html">Repainting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Sessions.html">Sessions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Strategies.html">Strategies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Tables.html">Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Text_and_shapes.html">Text and shapes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Time.html">Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Timeframes.html">Timeframes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../writing/index.html">Writing scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Error_messages.html">Error messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Release_notes.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migration_guides/index.html">Migration guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Where_can_I_get_more_information.html">Where can I get more information?</a></li>
+</ul>
+
+    
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="https://www.tradingview.com/pine-script-docs/en/v5/search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../index.html">User Manual</a></li>
+              
+                <li><a href="index.html">Concepts</a></li>
+              
+              <li>Colors</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <a class="reference external image-reference" href="../Introduction.html"><div align="right" class="align-right"><img alt="Pine Script® logo" height="100" src="../_images/Pine-script-logo.svg" width="100" /></div>
+</a>
+<div class="section" id="colors">
+<span id="pagecolors"></span><h1>Colors<a class="headerlink" href="#colors" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#introduction" id="id1">Introduction</a><ul>
+<li><a class="reference internal" href="#transparency" id="id2">Transparency</a></li>
+<li><a class="reference internal" href="#z-index" id="id3">Z-index</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#constant-colors" id="id4">Constant colors</a></li>
+<li><a class="reference internal" href="#conditional-coloring" id="id5">Conditional coloring</a></li>
+<li><a class="reference internal" href="#calculated-colors" id="id6">Calculated colors</a><ul>
+<li><a class="reference internal" href="#color-new" id="id7">color.new()</a></li>
+<li><a class="reference internal" href="#color-rgb" id="id8">color.rgb()</a></li>
+<li><a class="reference internal" href="#color-from-gradient" id="id9">color.from_gradient()</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mixing-transparencies" id="id10">Mixing transparencies</a></li>
+<li><a class="reference internal" href="#tips" id="id11">Tips</a><ul>
+<li><a class="reference internal" href="#designing-usable-colors-schemes" id="id12">Designing usable colors schemes</a></li>
+<li><a class="reference internal" href="#plot-crisp-lines" id="id13">Plot crisp lines</a></li>
+<li><a class="reference internal" href="#customize-gradients" id="id14">Customize gradients</a></li>
+<li><a class="reference internal" href="#color-selection-through-script-settings" id="id15">Color selection through script settings</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="introduction">
+<h2><a class="toc-backref" href="#id1">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Script visuals can play a critical role in the usability of the indicators we write in Pine Script<sup>®</sup>.
+Well-designed plots and drawings make indicators easier to use and understand.
+Good visual designs establish a visual hierarchy that allows the more important information to stand out, and the less important one to not get in the way.</p>
+<p>Using colors in Pine can be as simple as you want, or as involved as your concept requires.
+The 4,294,967,296 possible assemblies of color and transparency available in Pine Script<sup>®</sup> can be applied to:</p>
+<ul class="simple">
+<li>Any element you can plot or draw in an indicator’s visual space, be it lines, fills, text or candles.</li>
+<li>The background of a script’s visual space, whether the script is running in its own pane, or in overlay mode on the chart.</li>
+<li>The color of bars or the body of candles appearing on a chart.</li>
+</ul>
+<p>A script can only color the elements it places in its own visual space. The only exception to this rule is that a pane indicator can color chart bars or candles.</p>
+<p>Pine Script<sup>®</sup> has built-in colors such as <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_color{dot}green">color.green</a>,
+as well as functions like <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_color{dot}rgb">color.rgb()</a> which allow you to dynamically generate any color in the RGBA color space.</p>
+<div class="section" id="transparency">
+<h3><a class="toc-backref" href="#id2">Transparency</a><a class="headerlink" href="#transparency" title="Permalink to this headline">¶</a></h3>
+<p>Each color in Pine Script<sup>®</sup> is defined by four values:</p>
+<ul class="simple">
+<li>Its red, green and blue components (0-255), following the <a class="reference external" href="https://en.wikipedia.org/wiki/RGB_color_space" rel="nofollow">RGB color model</a>.</li>
+<li>Its transparency (0-100), often referred to as the Alpha channel outside Pine, as defined in the <a class="reference external" href="https://en.wikipedia.org/wiki/RGB_color_space" rel="nofollow">RGBA color model</a>.
+Even though transparency is expressed in the 0-100 range, its value can be a “float” when used in functions, which gives you access to the 256 underlying values of the alpha channel.</li>
+</ul>
+<p>The transparency of a color defines how opaque it is: zero is fully opaque, 100 makes the color—whichever it is—invisible.
+Modulating transparency can be crucial in more involved color visuals or when using backgrounds, to control which colors dominate the others, and how they mix together when superimposed.</p>
+</div>
+<div class="section" id="z-index">
+<span id="pagecolors-zindex"></span><h3><a class="toc-backref" href="#id3">Z-index</a><a class="headerlink" href="#z-index" title="Permalink to this headline">¶</a></h3>
+<p>When you place elements in a script’s visual space, they have relative depth on the <em>z</em> axis; some will appear on top of others.
+The <em>z-index</em> is a value that represents the position of elements on the <em>z</em> axis. Elements with the highest z-index appear on top.</p>
+<p>Elements drawn in Pine Script<sup>®</sup> are divided in groups. Each group has its own position in the <em>z</em> space, and <strong>within the same group</strong>,
+elements created last in the script’s logic will appear on top of other elements from the same group.
+An element of one group cannot be placed outside the region of the <em>z</em> space attributed to its group,
+so a plot can never appear on top of a table, for example, because tables have the highest z-index.</p>
+<p>This list contains the groups of visual elements, ordered by increasing z-index,
+so background colors are always at the bottom of <em>z</em> space, and tables will always appear on top of all other elements:</p>
+<ul class="simple">
+<li>Background colors</li>
+<li>Plots</li>
+<li>Hlines</li>
+<li>Fills</li>
+<li>Boxes</li>
+<li>Labels</li>
+<li>Lines</li>
+<li>Tables</li>
+</ul>
+<p>Note that by using <code class="docutils literal notranslate"><span class="pre">explicit_plot_zorder</span> <span class="pre">=</span> <span class="pre">true</span></code> in <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_indicator">indicator()</a> or
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_strategy">strategy()</a>, you can control the relative z-index of <code class="docutils literal notranslate"><span class="pre">plot*()</span></code>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_hline">hline()</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_fill">fill()</a> visuals using their sequential order in the script.</p>
+</div>
+</div>
+<div class="section" id="constant-colors">
+<span id="pagecolors-constantcolors"></span><h2><a class="toc-backref" href="#id4">Constant colors</a><a class="headerlink" href="#constant-colors" title="Permalink to this headline">¶</a></h2>
+<p>There are 17 built-in colors in Pine Script<sup>®</sup>. This table lists their names, hexadecimal equivalent,
+and RGB values as arguments to <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_color{dot}rgb">color.rgb()</a>:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="30%" />
+<col width="18%" />
+<col width="52%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Hex</th>
+<th class="head">RGB values</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>color.aqua</td>
+<td>#00BCD4</td>
+<td>color.rgb(0, 188, 212)</td>
+</tr>
+<tr class="row-odd"><td>color.black</td>
+<td>#363A45</td>
+<td>color.rgb(54, 58, 69)</td>
+</tr>
+<tr class="row-even"><td>color.blue</td>
+<td>#2196F3</td>
+<td>color.rgb(33, 150, 243)</td>
+</tr>
+<tr class="row-odd"><td>color.fuchsia</td>
+<td>#E040FB</td>
+<td>color.rgb(224, 64, 251)</td>
+</tr>
+<tr class="row-even"><td>color.gray</td>
+<td>#787B86</td>
+<td>color.rgb(120, 123, 134)</td>
+</tr>
+<tr class="row-odd"><td>color.green</td>
+<td>#4CAF50</td>
+<td>color.rgb(76, 175, 80)</td>
+</tr>
+<tr class="row-even"><td>color.lime</td>
+<td>#00E676</td>
+<td>color.rgb(0, 230, 118)</td>
+</tr>
+<tr class="row-odd"><td>color.maroon</td>
+<td>#880E4F</td>
+<td>color.rgb(136,  14, 79)</td>
+</tr>
+<tr class="row-even"><td>color.navy</td>
+<td>#311B92</td>
+<td>color.rgb(49, 27, 146)</td>
+</tr>
+<tr class="row-odd"><td>color.olive</td>
+<td>#808000</td>
+<td>color.rgb(128, 128, 0)</td>
+</tr>
+<tr class="row-even"><td>color.orange</td>
+<td>#FF9800</td>
+<td>color.rgb(255, 152, 0)</td>
+</tr>
+<tr class="row-odd"><td>color.purple</td>
+<td>#9C27B0</td>
+<td>color.rgb(156, 39, 176)</td>
+</tr>
+<tr class="row-even"><td>color.red</td>
+<td>#FF5252</td>
+<td>color.rgb(255, 82, 82)</td>
+</tr>
+<tr class="row-odd"><td>color.silver</td>
+<td>#B2B5BE</td>
+<td>color.rgb(178, 181, 190)</td>
+</tr>
+<tr class="row-even"><td>color.teal</td>
+<td>#00897B</td>
+<td>color.rgb(0, 137, 123)</td>
+</tr>
+<tr class="row-odd"><td>color.white</td>
+<td>#FFFFFF</td>
+<td>color.rgb(255, 255, 255)</td>
+</tr>
+<tr class="row-even"><td>color.yellow</td>
+<td>#FFEB3B</td>
+<td>color.rgb(255, 235, 59)</td>
+</tr>
+</tbody>
+</table>
+<p>In the following script, all plots use the same <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_color{dot}olive">color.olive</a>
+color with a transparency of 40, but expressed in different ways. All five methods are functionally equivalent:</p>
+<img alt="../_images/Colors-UsingColors-1.png" src="../_images/Colors-UsingColors-1.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;&quot;, &quot;&quot;, true)
+// ————  Transparency (#99) is included in the hex value.
+plot(ta.sma(close, 10), &quot;10&quot;, #80800099)
+// ————  Transparency is included in the color-generating function&#39;s arguments.
+plot(ta.sma(close, 30), &quot;30&quot;, color.new(color.olive, 40))
+plot(ta.sma(close, 50), &quot;50&quot;, color.rgb(128, 128, 0, 40))
+      // ————  Use `transp` parameter (deprecated and advised against)
+plot(ta.sma(close, 70), &quot;70&quot;, color.olive, transp = 40)
+plot(ta.sma(close, 90), &quot;90&quot;, #808000, transp = 40)
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The last two <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plot">plot()</a> calls specify transparency using the <code class="docutils literal notranslate"><span class="pre">transp</span></code> parameter.
+This use should be avoided as the <code class="docutils literal notranslate"><span class="pre">transp</span></code> is deprecated in Pine Script<sup>®</sup> v5.
+Using the <code class="docutils literal notranslate"><span class="pre">transp</span></code> parameter to define transparency is not as flexible because it requires an argument of <em>input integer</em> type,
+which entails it must be known before the script is executed, and so cannot be calculated dynamically, as your script executes bar to bar.
+Additionally, if you use a <code class="docutils literal notranslate"><span class="pre">color</span></code> argument that already includes transparency information,
+as is done in the next three <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plot">plot()</a> calls,
+any argument used for the <code class="docutils literal notranslate"><span class="pre">transp</span></code> parameter would have no effect. This is also true for other functions with a <code class="docutils literal notranslate"><span class="pre">transp</span></code> parameter.</p>
+</div>
+<p>The colors in the previous script do not vary as the script executes bar to bar.
+Sometimes, however, colors need to be created as the script executes on each bar because they depend on conditions that are unknown at compile time,
+or when the script begins execution on bar zero. For those cases, programmers have two options:</p>
+<ol class="arabic simple">
+<li>Use conditional statements to select colors from a few pre-determined base colors.</li>
+<li>Build new colors dynamically, by calculating them as the script executes bar to bar, to implement color gradients, for example.</li>
+</ol>
+</div>
+<div class="section" id="conditional-coloring">
+<span id="pagecolors-conditionalcoloring"></span><h2><a class="toc-backref" href="#id5">Conditional coloring</a><a class="headerlink" href="#conditional-coloring" title="Permalink to this headline">¶</a></h2>
+<p>Let’s say you want to color a moving average in different colors, depending on some conditions you define.
+To do so, you can use a conditional statement that will select a different color for each of your states.
+Let’s start by coloring a moving average in a bull color when it’s rising, and in a bear color when it’s not:</p>
+<img alt="../_images/Colors-ConditionalColors-1.png" src="../_images/Colors-ConditionalColors-1.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Conditional colors&quot;, &quot;&quot;, true)
+int   lengthInput = input.int(20, &quot;Length&quot;, minval = 2)
+color maBullColorInput = input.color(color.green, &quot;Bull&quot;)
+color maBearColorInput = input.color(color.maroon, &quot;Bear&quot;)
+float ma = ta.sma(close, lengthInput)
+// Define our states.
+bool maRising  = ta.rising(ma, 1)
+// Build our color.
+color c_ma = maRising ? maBullColorInput : maBearColorInput
+plot(ma, &quot;MA&quot;, c_ma, 2)
+</pre></div>
+</div>
+<p>Note that:</p>
+<ul class="simple">
+<li>We provide users of our script a selection of colors for our bull/bear colors.</li>
+<li>We define an <code class="docutils literal notranslate"><span class="pre">maRising</span></code> boolean variable which will hold <code class="docutils literal notranslate"><span class="pre">true</span></code> when the moving average is higher on the current bar than it was on the last.</li>
+<li>We define a <code class="docutils literal notranslate"><span class="pre">c_ma</span></code> color variable that is assigned one of our two colors, depending on the value of the <code class="docutils literal notranslate"><span class="pre">maRising</span></code> boolean. We use the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_{question}{colon}">? : ternary operator</a> to write our conditional statement.</li>
+</ul>
+<p>You can also use conditional colors to avoid plotting under certain conditions.
+Here, we plot high and low pivots using a line, but we do not want to plot anything when a new pivot comes in,
+to avoid the joints that would otherwise appear in pivot transitions.
+To do so, we test for pivot changes and use <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a>
+as the color value when a change is detected, so that no line is plotted on that bar:</p>
+<img alt="../_images/Colors-ConditionalColors-2.png" src="../_images/Colors-ConditionalColors-2.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Conditional colors&quot;, &quot;&quot;, true)
+int legsInput = input.int(5, &quot;Pivot Legs&quot;, minval = 1)
+color pHiColorInput = input.color(color.olive, &quot;High pivots&quot;)
+color pLoColorInput = input.color(color.orange, &quot;Low pivots&quot;)
+// Intialize the pivot level variables.
+var float pHi = na
+var float pLo = na
+// When a new pivot is detected, save its value.
+pHi := nz(ta.pivothigh(legsInput, legsInput), pHi)
+pLo := nz(ta.pivotlow( legsInput, legsInput), pLo)
+// When a new pivot is detected, do not plot a color.
+plot(pHi, &quot;High&quot;, ta.change(pHi) ? na : pHiColorInput, 2, plot.style_line)
+plot(pLo, &quot;Low&quot;,  ta.change(pLo) ? na : pLoColorInput, 2, plot.style_line)
+</pre></div>
+</div>
+<p>To undertand how this code works, one must first know that <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_ta{dot}pivothigh">ta.pivothigh()</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_ta{dot}pivotlow">ta.pivotlow()</a>,
+used as they are here without an argument to the <code class="docutils literal notranslate"><span class="pre">source</span></code> parameter,
+will return a value when they find a
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_high">high</a>/<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_low">low</a> pivot,
+otherwise they return <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a>.</p>
+<p>When we test the value returned by the pivot function for <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a>
+using the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_nz">nz()</a> function,
+we allow the value returned to be assigned to the <code class="docutils literal notranslate"><span class="pre">pHi</span></code> or <code class="docutils literal notranslate"><span class="pre">pLo</span></code> variables only when it is not <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a>,
+otherwise the previous value of the variable is simply reassigned to it, which has no impact on its value.
+Keep in mind that previous values of <code class="docutils literal notranslate"><span class="pre">pHi</span></code> and <code class="docutils literal notranslate"><span class="pre">pLo</span></code> are preserved bar to bar because we use the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_var">var</a> keyword when initializing them, which causes the initialization to only occur on the first bar.</p>
+<p>All that’s left to do next is, when we plot our lines, to insert a ternary conditional statement that will yield
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a> for the color when the pivot value changes,
+or the color selected in the script’s inputs when the pivot level does not change.</p>
+</div>
+<div class="section" id="calculated-colors">
+<h2><a class="toc-backref" href="#id6">Calculated colors</a><a class="headerlink" href="#calculated-colors" title="Permalink to this headline">¶</a></h2>
+<p>Using functions like <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_color{dot}new">color.new()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_color{dot}rgb">color.rgb()</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_color{dot}from_gradient">color.from_gradient()</a>, one can build colors on the fly, as the script executes bar to bar.</p>
+<p><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_color{dot}new">color.new()</a> is most useful when you need to generate different transparency levels from a base color.</p>
+<p><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_color{dot}rgb">color.rgb()</a> is useful when you need to build colors dynamically from red, green, blue, or tranparency components.
+While <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_color{dot}rgb">color.rgb()</a> creates a color,
+its sister functions <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_color{dot}r">color.r()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_color{dot}g">color.g()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_color{dot}b">color.b()</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_color{dot}t">color.t()</a>
+can be used to extract the red, green, blue or transparency values from a color, which can in turn be used to generate a variant.</p>
+<p><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_color{dot}from_gradient">color.from_gradient()</a>
+is useful to create linear gradients between two base colors. It determines which intermediary color to use by evaluating a source value against minimum and maximum values.</p>
+<div class="section" id="color-new">
+<h3><a class="toc-backref" href="#id7">color.new()</a><a class="headerlink" href="#color-new" title="Permalink to this headline">¶</a></h3>
+<p>Let’s put <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_color{dot}new">color.new(color, transp)</a>
+to use to create different transparencies for volume columns using one of two bull/bear base colors:</p>
+<img alt="../_images/Colors-CalculatingColors-1.png" src="../_images/Colors-CalculatingColors-1.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Volume&quot;)
+// We name our color constants to make them more readable.
+var color GOLD_COLOR   = #CCCC00ff
+var color VIOLET_COLOR = #AA00FFff
+color bullColorInput = input.color(GOLD_COLOR,   &quot;Bull&quot;)
+color bearColorInput = input.color(VIOLET_COLOR, &quot;Bear&quot;)
+int levelsInput = input.int(10, &quot;Gradient levels&quot;, minval = 1)
+// We initialize only once on bar zero with `var`, otherwise the count would reset to zero on each bar.
+var float riseFallCnt = 0
+// Count the rises/falls, clamping the range to: 1 to `i_levels`.
+riseFallCnt := math.max(1, math.min(levelsInput, riseFallCnt + math.sign(volume - nz(volume[1]))))
+// Rescale the count on a scale of 80, reverse it and cap transparency to &lt;80 so that colors remains visible.
+float transparency = 80 - math.abs(80 * riseFallCnt / levelsInput)
+// Build the correct transparency of either the bull or bear color.
+color volumeColor = color.new(close &gt; open ? bullColorInput : bearColorInput, transparency)
+plot(volume, &quot;Volume&quot;, volumeColor, 1, plot.style_columns)
+</pre></div>
+</div>
+<p>Note that:</p>
+<ul class="simple">
+<li>In the next to last line of our script, we dynamically calculate the column color by varying both the base color used,
+depending on whether the bar is up or down, <strong>and</strong> the transparency level, which is calculated from the cumulative rises or falls of volume.</li>
+<li>We offer the script user control over not only the base bull/bear colors used, but also on the number of brightness levels we use.
+We use this value to determine the maximum number of rises or falls we will track. Giving users the possiblity to manage this value allows them to adapt the indicator’s visuals to the timeframe or market they use.</li>
+<li>We take care to control the maximum level of transparency we use so that it never goes higher than 80. This ensures our colors always retain some visibility.</li>
+<li>We also set the minimum value for the number of levels to 1 in the inputs. When the user selects 1, the volume columns will be either in bull or bear color of maximum brightness—or transparency zero.</li>
+</ul>
+</div>
+<div class="section" id="color-rgb">
+<h3><a class="toc-backref" href="#id8">color.rgb()</a><a class="headerlink" href="#color-rgb" title="Permalink to this headline">¶</a></h3>
+<p>In our next example we use <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_color{dot}rgb">color.rgb(red, green, blue, transp)</a>
+to build colors from RGBA values. We use the result in a holiday season gift for our friends, so they can bring their TradingView charts to parties:</p>
+<img alt="../_images/Colors-CalculatingColors-2.png" src="../_images/Colors-CalculatingColors-2.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Holiday candles&quot;, &quot;&quot;, true)
+float r = math.random(0, 255)
+float g = math.random(0, 255)
+float b = math.random(0, 255)
+float t = math.random(0, 100)
+color holidayColor = color.rgb(r, g, b, t)
+plotcandle(open, high, low, close, color = c_holiday, wickcolor = holidayColor, bordercolor = c_holiday)
+</pre></div>
+</div>
+<p>Note that:</p>
+<ul class="simple">
+<li>We generate values in the zero to 255 range for the red, green and blue channels, and in the zero to 100 range for transparency.
+Also note that because <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_math{dot}random">math.random()</a> returns float values,
+the float 0.0-100.0 range provides access to the full 0-255 transparency values of the underlying alpha channel.</li>
+<li>We use the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_math{dot}random">math.random(min, max, seed)</a>
+function to generate pseudo-random values. We do not use an argument for the third parameter of the function: <code class="docutils literal notranslate"><span class="pre">seed</span></code>.
+Using it is handy when you want to ensure the repeatability of the function’s results. Called with the same seed, it will produce the same sequence of values.</li>
+</ul>
+</div>
+<div class="section" id="color-from-gradient">
+<h3><a class="toc-backref" href="#id9">color.from_gradient()</a><a class="headerlink" href="#color-from-gradient" title="Permalink to this headline">¶</a></h3>
+<p>Our last examples of color calculations will use
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_color{dot}from_gradient">color.from_gradient(value, bottom_value, top_value, bottom_color, top_color)</a>.
+Let’s first use it in its simplest form, to color a CCI signal in a version of the indicator that otherwise looks like the built-in:</p>
+<img alt="../_images/Colors-CalculatingColors-3.png" src="../_images/Colors-CalculatingColors-3.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(title=&quot;CCI line gradient&quot;, precision=2, timeframe=&quot;&quot;)
+var color GOLD_COLOR   = #CCCC00
+var color VIOLET_COLOR = #AA00FF
+var color BEIGE_COLOR  = #9C6E1B
+float srcInput = input.source(close, title=&quot;Source&quot;)
+int   lenInput = input.int(20, &quot;Length&quot;, minval = 5)
+color bullColorInput = input.color(GOLD_COLOR,   &quot;Bull&quot;)
+color bearColorInput = input.color(BEIGE_COLOR, &quot;Bear&quot;)
+float signal = ta.cci(srcInput, lenInput)
+color signalColor = color.from_gradient(signal, -200, 200, bearColorInput, bullColorInput)
+plot(signal, &quot;CCI&quot;, signalColor)
+bandTopPlotID = hline(100,  &quot;Upper Band&quot;, color.silver, hline.style_dashed)
+bandBotPlotID = hline(-100, &quot;Lower Band&quot;, color.silver, hline.style_dashed)
+fill(bandTopPlotID, bandBotPlotID, color.new(BEIGE_COLOR, 90), &quot;Background&quot;)
+</pre></div>
+</div>
+<p>Note that:</p>
+<ul class="simple">
+<li>To calculate the gradient, <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_color{dot}from_gradient">color.from_gradient()</a>
+requires minimum and maximum values against which the argument used for the <code class="docutils literal notranslate"><span class="pre">value</span></code> parameter will be compared.
+The fact that we want a gradient for an unbounded signal like CCI (i.e., without fixed boundaries such as RSI, which always oscillates between 0-100),
+does not entail we cannot use <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_color{dot}from_gradient">color.from_gradient()</a>.
+Here, we solve our conundrum by providing values of -200 and 200 as arguments. They do not represent the real minimum and maximum values for CCI,
+but they are at levels from which we do not mind the colors no longer changing,
+as whenever the series is outside the <code class="docutils literal notranslate"><span class="pre">bottom_value</span></code> and <code class="docutils literal notranslate"><span class="pre">top_value</span></code> limits, the colors used for <code class="docutils literal notranslate"><span class="pre">bottom_color</span></code> and <code class="docutils literal notranslate"><span class="pre">top_color</span></code> will apply.</li>
+<li>The color progression calculated by <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_color{dot}from_gradient">color.from_gradient()</a> is linear.
+If the value of the series is halfway between the <code class="docutils literal notranslate"><span class="pre">bottom_value</span></code> and <code class="docutils literal notranslate"><span class="pre">top_value</span></code> arguments,
+the generated color’s RGBA components will also be halfway between those of <code class="docutils literal notranslate"><span class="pre">bottom_color</span></code> and <code class="docutils literal notranslate"><span class="pre">top_color</span></code>.</li>
+<li>Many common indicator calculations are available in Pine Script<sup>®</sup> as built-in functions.
+Here we use <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_ta{dot}cci">ta.cci()</a> instead of calculating it the long way.</li>
+</ul>
+<p>The argument used for <code class="docutils literal notranslate"><span class="pre">value</span></code> in <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_color{dot}from_gradient">color.from_gradient()</a>
+does not necessarily have to be the value of the line we are calculating. Anything we want can be used, as long as arguments for <code class="docutils literal notranslate"><span class="pre">bottom_value</span></code> and <code class="docutils literal notranslate"><span class="pre">top_value</span></code> can be supplied.
+Here, we enhance our CCI indicator by coloring the band using the number of bars since the signal has been above/below the centerline:</p>
+<img alt="../_images/Colors-CalculatingColors-4.png" src="../_images/Colors-CalculatingColors-4.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(title=&quot;CCI line gradient&quot;, precision=2, timeframe=&quot;&quot;)
+var color GOLD_COLOR   = #CCCC00
+var color VIOLET_COLOR = #AA00FF
+var color GREEN_BG_COLOR = color.new(color.green, 70)
+var color RED_BG_COLOR   = color.new(color.maroon, 70)
+float srcInput      = input.source(close, &quot;Source&quot;)
+int   lenInput      = input.int(20, &quot;Length&quot;, minval = 5)
+int   stepsInput    = input.int(50, &quot;Gradient levels&quot;, minval = 1)
+color bullColorInput   = input.color(GOLD_COLOR, &quot;Line: Bull&quot;, inline = &quot;11&quot;)
+color bearColorInput   = input.color(VIOLET_COLOR, &quot;Bear&quot;, inline = &quot;11&quot;)
+color bullBgColorInput = input.color(GREEN_BG_COLOR, &quot;Background: Bull&quot;, inline = &quot;12&quot;)
+color bearBgColorInput = input.color(RED_BG_COLOR, &quot;Bear&quot;, inline = &quot;12&quot;)
+
+// Plot colored signal line.
+float signal = ta.cci(srcInput, lenInput)
+color signalColor = color.from_gradient(signal, -200, 200, color.new(bearColorInput, 0), color.new(bullColorInput, 0))
+plot(signal, &quot;CCI&quot;, signalColor, 2)
+
+// Detect crosses of the centerline.
+bool signalX = ta.cross(signal, 0)
+// Count no of bars since cross. Capping it to the no of steps from inputs.
+int gradientStep = math.min(stepsInput, nz(ta.barssince(signalX)))
+// Choose bull/bear end color for the gradient.
+color endColor = signal &gt; 0 ? bullBgColorInput : bearBgColorInput
+// Get color from gradient going from no color to `c_endColor`
+color bandColor = color.from_gradient(gradientStep, 0, stepsInput, na, endColor)
+bandTopPlotID = hline(100,  &quot;Upper Band&quot;, color.silver, hline.style_dashed)
+bandBotPlotID = hline(-100, &quot;Lower Band&quot;, color.silver, hline.style_dashed)
+fill(bandTopPlotID, bandBotPlotID, bandColor, title = &quot;Band&quot;)
+</pre></div>
+</div>
+<p>Note that:</p>
+<ul class="simple">
+<li>The signal plot uses the same base colors and gradient as in our previous example.
+We have however increased the width of the line from the default 1 to 2.
+It is the most important component of our visuals; increasing its width is a way to give it more prominence,
+and ensure users are not distracted by the band, which has become busier than it was in its original, flat beige color.</li>
+<li>The fill must remain unobtrusive for two reasons. First, it is of secondary importance to the visuals, as it provides complementary information, i.e.,
+the duration for which the signal has been in bull/bear territory. Second, since fills have a greater z-index than plots,
+the fill will cover the signal plot. For these reasons, we make the fill’s base colors fairly transparent, at 70, so they do not mask the plots.
+The gradient used for the band starts with no color at all
+(see the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a> used as the argument to <code class="docutils literal notranslate"><span class="pre">bottom_color</span></code> in the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_color{dot}from_gradient">color.from_gradient()</a> call),
+and goes to the base bull/bear colors from the inputs, which the conditional, <code class="docutils literal notranslate"><span class="pre">c_endColor</span></code> color variable contains.</li>
+<li>We provide users with distinct bull/bear color selections for the line and the band.</li>
+<li>When we calculate the <code class="docutils literal notranslate"><span class="pre">gradientStep</span></code> variable, we use <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_nz">nz()</a> on
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_ta{dot}barssince">ta.barssince()</a> because in early bars of the dataset,
+when the condition tested has not occurred yet, <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_ta{dot}barssince">ta.barssince()</a>
+will return <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a>.
+Because we use <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_nz">nz()</a>, the value returned is replaced with zero in those cases.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="mixing-transparencies">
+<h2><a class="toc-backref" href="#id10">Mixing transparencies</a><a class="headerlink" href="#mixing-transparencies" title="Permalink to this headline">¶</a></h2>
+<p>In this example we take our CCI indicator in another direction. We will build dynamically adjusting extremes zone buffers using a Donchian Channel (historical highs/lows) calculated from the CCI.
+We build the top/bottom bands by making them 1/4 the height of the DC. We will use a dynamically adjusting lookback to calculate the DC.
+To modulate the lookback, we will calculate a simple measure of volatility by keeping a ratio of a short-period ATR to a long one.
+When that ratio is higher than 50 of its last 100 values, we consider the volatility high. When the volatility is high/low, we decrease/increase the lookback.</p>
+<p>Our aim is to provide users of our indicator with:</p>
+<ul class="simple">
+<li>The CCI line colored using a bull/bear gradient, as we illustrated in our most recent examples.</li>
+<li>The top and bottom bands of the Donchian Channel, filled in such a way that their color darkens as a historical high/low becomes older and older.</li>
+<li>A way to appreciate the state of our volatility measure, which we will do by painting the background with one color whose intensity increases when volatility increases.</li>
+</ul>
+<p>This is what our indicator looks like using the light theme:</p>
+<img alt="../_images/Colors-MixingTransparencies-1.png" src="../_images/Colors-MixingTransparencies-1.png" />
+<p>And with the dark theme:</p>
+<img alt="../_images/Colors-MixingTransparencies-2.png" src="../_images/Colors-MixingTransparencies-2.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;CCI DC&quot;, precision = 6)
+color GOLD_COLOR   = #CCCC00ff
+color VIOLET_COLOR = #AA00FFff
+int lengthInput = input.int(20, &quot;Length&quot;, minval = 5)
+color bullColorInput = input.color(GOLD_COLOR,   &quot;Bull&quot;)
+color bearColorInput = input.color(VIOLET_COLOR, &quot;Bear&quot;)
+
+// ————— Function clamps `val` between `min` and `max`.
+clamp(val, min, max) =&gt;
+    math.max(min, math.min(max, val))
+
+// ————— Volatility expressed as 0-100 value.
+float v = ta.atr(lengthInput / 5) / ta.atr(lengthInput * 5)
+float vPct = ta.percentrank(v, lengthInput * 5)
+
+// ————— Calculate dynamic lookback for DC. It increases/decreases on low/high volatility.
+bool highVolatility = vPct &gt; 50
+var int lookBackMin = lengthInput * 2
+var int lookBackMax = lengthInput * 10
+var float lookBack = math.avg(lookBackMin, lookBackMax)
+lookBack += highVolatility ? -2 : 2
+lookBack := clamp(lookBack, lookBackMin, lookBackMax)
+
+// ————— Dynamic lookback length Donchian channel of signal.
+float signal = ta.cci(close, lengthInput)
+// `lookBack` is a float; need to cast it to int to be used a length.
+float hiTop  = ta.highest(signal, int(lookBack))
+float loBot  = ta.lowest( signal, int(lookBack))
+// Get margin of 25% of the DC height to build high and low bands.
+float margin = (hiTop - loBot) / 4
+float hiBot  = hiTop - margin
+float loTop  = loBot + margin
+// Center of DC.
+float center = math.avg(hiTop, loBot)
+
+// ————— Create colors.
+color signalColor = color.from_gradient(signal, -200, 200, bearColorInput, bullColorInput)
+// Bands: Calculate transparencies so the longer since the hi/lo has changed,
+//        the darker the color becomes. Cap highest transparency to 90.
+float hiTransp = clamp(100 - (100 * math.max(1, nz(ta.barssince(ta.change(hiTop)) + 1)) / 255), 60, 90)
+float loTransp = clamp(100 - (100 * math.max(1, nz(ta.barssince(ta.change(loBot)) + 1)) / 255), 60, 90)
+color hiColor = color.new(bullColorInput, hiTransp)
+color loColor = color.new(bearColorInput, loTransp)
+// Background: Rescale the 0-100 range of `vPct` to 0-25 to create 75-100 transparencies.
+color bgColor = color.new(color.gray, 100 - (vPct / 4))
+
+// ————— Plots
+// Invisible lines for band fills.
+hiTopPlotID = plot(hiTop, color = na)
+hiBotPlotID = plot(hiBot, color = na)
+loTopPlotID = plot(loTop, color = na)
+loBotPlotID = plot(loBot, color = na)
+// Plot signal and centerline.
+p_signal = plot(signal, &quot;CCI&quot;, signalColor, 2)
+plot(center, &quot;Centerline&quot;, color.silver, 1)
+
+// Fill the bands.
+fill(hiTopPlotID, hiBotPlotID, hiColor)
+fill(loTopPlotID, loBotPlotID, loColor)
+
+// ————— Background.
+bgcolor(bgColor)
+</pre></div>
+</div>
+<p>Note that:</p>
+<ul class="simple">
+<li>We clamp the transparency of the background to a 100-75 range so that it doesn’t overwhelm. We also use a neutral color that will not distract too much. The darker the background is, the higher our measure of volatility.</li>
+<li>We also clamp the transparency values for the band fills between 60 and 90.
+We use 90 so that when a new high/low is found and the gradient resets, the starting transparency makes the color somewhat visible.
+We do not use a transparency lower than 60 because we don’t want those bands to hide the signal line.</li>
+<li>We use the very handy <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_ta{dot}percentrank">ta.percentrank()</a> function
+to generate a 0-100 value from our ATR ratio measuring volatility.
+It is useful to convert values whose scale is unknown into known values that can be used to produce transparencies.</li>
+<li>Because we must clamp values three times in our script, we wrote an <code class="docutils literal notranslate"><span class="pre">f_clamp()</span></code> function, instead of explicitly coding the logic three times.</li>
+</ul>
+</div>
+<div class="section" id="tips">
+<h2><a class="toc-backref" href="#id11">Tips</a><a class="headerlink" href="#tips" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="designing-usable-colors-schemes">
+<h3><a class="toc-backref" href="#id12">Designing usable colors schemes</a><a class="headerlink" href="#designing-usable-colors-schemes" title="Permalink to this headline">¶</a></h3>
+<p>If you write scripts intended for other traders, try to avoid colors that will not work well in some environments,
+whether it be for plots, labels, tables or fills. At a minimum, test your visuals to ensure they perform satisfactorily with both the light and dark TradingView themes;
+they are the most commonly used. Colors such as black and white, for example, should be avoided.</p>
+<p>Build the appropriate inputs to provide script users the flexibility to adapt your script’s visuals to their particular environments.</p>
+<p>Take care to build a visual hierarchy of the colors you use that matches the relative importance of your script’s visual components.
+Good designers understand how to achieve the optimal balance of color and weight so the eye is naturally drawn to the most important elements of the design.
+When you make everything stand out, nothing does. Make room for some elements to stand out by toning down the visuals surrounding it.</p>
+<p>Providing a selection of color presets in your inputs — rather than a single color that can be changed — can help color-challenged users.
+Our <a class="reference external" href="https://www.tradingview.com/script/Jdw7wW2g-Technical-Ratings/">Technical Ratings</a> demonstrates one way of achieving this.</p>
+</div>
+<div class="section" id="plot-crisp-lines">
+<h3><a class="toc-backref" href="#id13">Plot crisp lines</a><a class="headerlink" href="#plot-crisp-lines" title="Permalink to this headline">¶</a></h3>
+<p>It is best to use zero transparency to plot the important lines in your visuals, to keep them crisp.
+This way, they will show through fills more precisely. Keep in mind that fills have a higher z-index than plots, so they are placed on top of them.
+A slight increase of a line’s width can also go a long way in making it stand out.</p>
+<p>If you want a special plot to stand out, you can also give it more importance by using multiple plots for the same line.
+These are examples where we modulate the successive width and transparency of plots to achieve this:</p>
+<img alt="../_images/Colors-PlotCrispLines-1.png" src="../_images/Colors-PlotCrispLines-1.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;&quot;)
+plot(high, &quot;&quot;, color.new(color.orange, 80), 8)
+plot(high, &quot;&quot;, color.new(color.orange, 60), 4)
+plot(high, &quot;&quot;, color.new(color.orange, 00), 1)
+
+plot(hl2, &quot;&quot;, color.new(color.orange, 60), 4)
+plot(hl2, &quot;&quot;, color.new(color.orange, 00), 1)
+
+plot(low, &quot;&quot;, color.new(color.orange, 0), 1)
+</pre></div>
+</div>
+</div>
+<div class="section" id="customize-gradients">
+<h3><a class="toc-backref" href="#id14">Customize gradients</a><a class="headerlink" href="#customize-gradients" title="Permalink to this headline">¶</a></h3>
+<p>When building gradients, adapt them to the visuals they apply to. If you are using a gradient to color candles, for example,
+it is usually best to limit the number of steps in the gradient to ten or less, as it is more difficult for the eye to perceive intensity variations of discrete objects.
+As we did in our examples, cap minimum and maximum transparency levels so your visual elements remain visible and do not overwhelm when it’s not necessary.</p>
+</div>
+<div class="section" id="color-selection-through-script-settings">
+<span id="stylecolors"></span><h3><a class="toc-backref" href="#id15">Color selection through script settings</a><a class="headerlink" href="#color-selection-through-script-settings" title="Permalink to this headline">¶</a></h3>
+<p>The type of color you use in your scripts has an impact on how users of your script will be able to change the colors of your script’s visuals.
+As long as you don’t use colors whose RGBA components have to be calculated at runtime, script users will be able to modify the colors you use by going to your script’s “Settings/Style” tab.
+Our first example script on this page meets that criteria, and the following screenshot shows how we used the script’s “Settings/Style” tab to change the color of the first moving average:</p>
+<img alt="../_images/Colors-ColorsSelection-1.png" src="../_images/Colors-ColorsSelection-1.png" />
+<p>If your script uses a calculated color, i.e., a color where at least one of its RGBA components can only be known at runtime,
+then the “Settings/Style” tab will NOT offer users the usual color widgets they can use to modify your plot colors.
+Plots of the same script not using calculated colors will also be affected. In this script, for example,
+our first <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plot">plot()</a> call uses a calculated color, and the second one doesn’t:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Calculated colors&quot;, &quot;&quot;, true)
+float ma = ta.sma(close, 20)
+float maHeight = ta.percentrank(ma, 100)
+float transparency = math.min(80, 100 - maHeight)
+// This plot uses a calculated color.
+plot(ma, &quot;MA1&quot;, color.rgb(156, 39, 176, transparency), 2)
+// This plot does not use a calculated color.
+plot(close, &quot;Close&quot;, color.blue)
+</pre></div>
+</div>
+<p>The color used in the first plot is a calculated color because its transparency can only be known at runtime.
+It is calculated using the relative position of the moving average in relation to its past 100 values.
+The greater percentage of past values are below the current value, the higher the 0-100 value of <code class="docutils literal notranslate"><span class="pre">maHeight</span></code> will be.
+Since we want the color to be the darkest when <code class="docutils literal notranslate"><span class="pre">maHeight</span></code> is 100, we subtract 100 from it to obtain the zero transparency then.
+We also cap the calculated <code class="docutils literal notranslate"><span class="pre">transparency</span></code> value to a maximum of 80 so that it always remains visible.</p>
+<p>Because that calculated color is used in our script, the “Settings/Style” tab will not show any color widgets:</p>
+<img alt="../_images/Colors-ColorsSelection-2.png" src="../_images/Colors-ColorsSelection-2.png" />
+<p>The solution to enable script users to control the colors used is to supply them with custom inputs, as we do here:</p>
+<img alt="../_images/Colors-ColorsSelection-3.png" src="../_images/Colors-ColorsSelection-3.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Calculated colors&quot;, &quot;&quot;, true)
+color maInput = input.color(color.purple, &quot;MA&quot;)
+color closeInput = input.color(color.blue, &quot;Close&quot;)
+float ma = ta.sma(close, 20)
+float maHeight = ta.percentrank(ma, 100)
+float transparency = math.min(80, 100 - maHeight)
+// This plot uses a calculated color.
+plot(ma, &quot;MA1&quot;, color.new(maInput, transparency), 2)
+// This plot does not use a calculated color.
+plot(close, &quot;Close&quot;, closeInput)
+</pre></div>
+</div>
+<p>Notice how our script’s “Settings” now show an “Inputs” tab, where we have created two color inputs.
+The first one uses <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_color{dot}purple">color.purple</a> as its default value.
+Whether the script user changes that color or not,
+it will then be used in a <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_color{dot}new">color.new()</a> call
+to generate a calculated transparency in the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plot">plot()</a> call.
+The second input uses as its default the built-in <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_color{dot}blue">color.blue</a> color
+we previously used in the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plot">plot()</a> call,
+and simply use it as is in the second <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plot">plot()</a> call.</p>
+<a class="reference external image-reference" href="https://www.tradingview.com/"><div align="center" class="align-center"><img alt="../_images/TradingView-Logo-Block.svg" src="../_images/TradingView-Logo-Block.svg" width="200px" /></div>
+</a>
+</div>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="Chart_information.html" title="previous chapter (use the left arrow)">Chart information</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="Fills.html" title="next chapter (use the right arrow)">Fills</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Fills.html" title="Fills"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Chart_information.html" title="Chart information"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Concepts</a> &#187;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="../_static/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="../_static/js/theme.js"></script>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Options</span>
+    v: v5
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Languages</dt>
+      
+        <strong>
+        <dd><a href="Colors.html">en</a></dd>
+        </strong>
+      
+    </dl>
+    <dl>
+      <dt>Versions</dt>
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v3/concepts/Colors.html">v3</a></dd>
+        
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v4/concepts/Colors.html">v4</a></dd>
+        
+      
+        <strong>
+        <dd><a href="Colors.html">v5</a></dd>
+        </strong>
+      
+    </dl>
+  </div>
+</div>
+<script type="text/javascript">
+    jQuery(function () {
+        SphinxRtdTheme.Navigation.enable(false);
+    });
+</script>
+  <div class="footer">
+    &copy; Copyright 2023, TradingView.
+  </div>
+  </body>
+
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/concepts/Colors.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:56:13 GMT -->
+</html>

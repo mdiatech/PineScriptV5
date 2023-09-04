@@ -1,0 +1,1116 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/language/Arrays.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:56:03 GMT -->
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Arrays &#8212; Pine Script® v5 User Manual v5 documentation</title>
+    <link rel="stylesheet" href="../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../../../../static.tradingview.com/static/bundles/pine-highlighter-v01.js"></script>
+    <script type="text/javascript" src="../_static/highlight-pine-code.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Matrices" href="Matrices.html" />
+    <link rel="prev" title="Methods" href="Methods.html" />
+  
+   
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Matrices.html" title="Matrices"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Methods.html" title="Methods"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Language</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="../index.html" class="text-logo">Pine Script<sup>®</sup> v5 User Manual</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Introduction.html">Welcome to Pine Script<sup>®</sup> v5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primer/index.html">Pine Script<sup>®</sup> primer</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Language</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Execution_model.html">Execution model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Time_series.html">Time series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Script_structure.html">Script structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Identifiers.html">Identifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variable_declarations.html">Variable declarations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Conditional_structures.html">Conditional structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Type_system.html">Type system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Built-ins.html">Built-ins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="User-defined_functions.html">User-defined functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Objects.html">Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Methods.html">Methods</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Arrays</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#declaring-arrays">Declaring arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reading-and-writing-array-elements">Reading and writing array elements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#looping-through-array-elements">Looping through array elements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scope">Scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#history-referencing">History referencing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inserting-and-removing-array-elements">Inserting and removing array elements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#calculations-on-arrays">Calculations on arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#manipulating-arrays">Manipulating arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#searching-arrays">Searching arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#error-handling">Error handling</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Matrices.html">Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Maps.html">Maps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../writing/index.html">Writing scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Error_messages.html">Error messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Release_notes.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migration_guides/index.html">Migration guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Where_can_I_get_more_information.html">Where can I get more information?</a></li>
+</ul>
+
+    
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="https://www.tradingview.com/pine-script-docs/en/v5/search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../index.html">User Manual</a></li>
+              
+                <li><a href="index.html">Language</a></li>
+              
+              <li>Arrays</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <div class="figure align-right" style="width: 50%">
+<a class="reference external image-reference" href="../Introduction.html"><img alt="../_images/Pine-script-logo.svg" height="100" src="../_images/Pine-script-logo.svg" width="100" /></a>
+</div>
+<p><a class="reference internal" href="../_images/Advanced.svg"><div align="bottom" class="align-bottom"><img alt="Advanced logo" height="100" src="../_images/Advanced.svg" width="100" /></div>
+</a></p>
+<div class="section" id="arrays">
+<span id="pagearrays"></span><h1>Arrays<a class="headerlink" href="#arrays" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#introduction" id="id1">Introduction</a></li>
+<li><a class="reference internal" href="#declaring-arrays" id="id2">Declaring arrays</a><ul>
+<li><a class="reference internal" href="#using-var-and-varip-keywords" id="id3">Using `var` and `varip` keywords</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#reading-and-writing-array-elements" id="id4">Reading and writing array elements</a></li>
+<li><a class="reference internal" href="#looping-through-array-elements" id="id5">Looping through array elements</a></li>
+<li><a class="reference internal" href="#scope" id="id6">Scope</a></li>
+<li><a class="reference internal" href="#history-referencing" id="id7">History referencing</a></li>
+<li><a class="reference internal" href="#inserting-and-removing-array-elements" id="id8">Inserting and removing array elements</a><ul>
+<li><a class="reference internal" href="#inserting" id="id9">Inserting</a></li>
+<li><a class="reference internal" href="#removing" id="id10">Removing</a></li>
+<li><a class="reference internal" href="#using-an-array-as-a-stack" id="id11">Using an array as a stack</a></li>
+<li><a class="reference internal" href="#using-an-array-as-a-queue" id="id12">Using an array as a queue</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#calculations-on-arrays" id="id13">Calculations on arrays</a></li>
+<li><a class="reference internal" href="#manipulating-arrays" id="id14">Manipulating arrays</a><ul>
+<li><a class="reference internal" href="#concatenation" id="id15">Concatenation</a></li>
+<li><a class="reference internal" href="#copying" id="id16">Copying</a></li>
+<li><a class="reference internal" href="#joining" id="id17">Joining</a></li>
+<li><a class="reference internal" href="#sorting" id="id18">Sorting</a></li>
+<li><a class="reference internal" href="#reversing" id="id19">Reversing</a></li>
+<li><a class="reference internal" href="#slicing" id="id20">Slicing</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#searching-arrays" id="id21">Searching arrays</a></li>
+<li><a class="reference internal" href="#error-handling" id="id22">Error handling</a><ul>
+<li><a class="reference internal" href="#index-xx-is-out-of-bounds-array-size-is-yy" id="id23">Index xx is out of bounds. Array size is yy</a></li>
+<li><a class="reference internal" href="#cannot-call-array-methods-when-id-of-array-is-na" id="id24">Cannot call array methods when ID of array is ‘na’</a></li>
+<li><a class="reference internal" href="#array-is-too-large-maximum-size-is-100000" id="id25">Array is too large. Maximum size is 100000</a></li>
+<li><a class="reference internal" href="#cannot-create-an-array-with-a-negative-size" id="id26">Cannot create an array with a negative size</a></li>
+<li><a class="reference internal" href="#cannot-use-shift-if-array-is-empty" id="id27">Cannot use <cite>shift()</cite> if array is empty.</a></li>
+<li><a class="reference internal" href="#cannot-use-pop-if-array-is-empty" id="id28">Cannot use <cite>pop()</cite> if array is empty.</a></li>
+<li><a class="reference internal" href="#index-from-should-be-less-than-index-to" id="id29">Index ‘from’ should be less than index ‘to’</a></li>
+<li><a class="reference internal" href="#slice-is-out-of-bounds-of-the-parent-array" id="id30">Slice is out of bounds of the parent array</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This page contains advanced material. If you are a beginning Pine Script<sup>®</sup> programmer, we recommend
+you become familiar with other, more accessible Pine Script<sup>®</sup> features before you venture here.</p>
+</div>
+<div class="section" id="introduction">
+<h2><a class="toc-backref" href="#id1">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Pine Script<sup>®</sup> Arrays are one-dimensional collections that can hold multiple value references. Think of them as a better way to handle
+cases where one would otherwise need to explicitly declare a set of similar variables (e.g., <code class="docutils literal notranslate"><span class="pre">price00</span></code>, <code class="docutils literal notranslate"><span class="pre">price01</span></code>, <code class="docutils literal notranslate"><span class="pre">price02</span></code>, …).</p>
+<p>All elements within an array must be of the same type, which can be a
+<a class="reference external" href="Type_system.html#id2">built-in</a> or a
+<a class="reference internal" href="Type_system.html#pagetypesystem-userdefinedtypes"><span class="std std-ref">user-defined type</span></a>, always of “series” form.
+Scripts reference arrays using an array ID similar to the IDs of lines, labels, and other special types.
+Pine Script<sup>®</sup> does not use an indexing operator to reference individual array elements.
+Instead, functions including <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}get">array.get()</a>
+and <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}set">array.set()</a> read and write the values of array elements.
+We can use array values in expressions and functions that allow values of the “series” form.</p>
+<p>Scripts reference the elements of an array using an <em>index</em>, which starts at 0 and extends to the number of elements in the array minus one.
+Arrays in Pine Script<sup>®</sup> can have a dynamic size that varies across bars, as one can change the number of elements in an array on
+each iteration of a script. Scripts can contain multiple array instances. The size of arrays is limited to 100,000 elements.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">We will use <em>beginning</em> of an array to designate index 0, and <em>end</em> of an array to designate the array’s element with the
+highest index value. We will also extend the meaning of <em>array</em> to include array IDs, for the sake of brevity.</p>
+</div>
+</div>
+<div class="section" id="declaring-arrays">
+<span id="pagearrays-declaringarrays"></span><h2><a class="toc-backref" href="#id2">Declaring arrays</a><a class="headerlink" href="#declaring-arrays" title="Permalink to this headline">¶</a></h2>
+<p>Pine Script<sup>®</sup> uses the following syntax to declare arrays:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[var/varip ][array&lt;type&gt;/&lt;type[]&gt; ]&lt;identifier&gt; = &lt;expression&gt;
+</pre></div>
+</div>
+<p>Where <code class="docutils literal notranslate"><span class="pre">&lt;type&gt;</span></code> is a <a class="reference internal" href="Type_system.html#pagetypesystem-typetemplates"><span class="std std-ref">type template</span></a> for the array that declares the type
+of values it will contain, and the <code class="docutils literal notranslate"><span class="pre">&lt;expression&gt;</span></code> returns either an array of the specified type or <code class="docutils literal notranslate"><span class="pre">na</span></code>.</p>
+<p>When declaring a variable as an array, we can use the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_array">array</a>
+keyword followed by a <a class="reference internal" href="Type_system.html#pagetypesystem-typetemplates"><span class="std std-ref">type template</span></a>. Alternatively, we can use the <code class="docutils literal notranslate"><span class="pre">type</span></code> name followed
+by the <code class="docutils literal notranslate"><span class="pre">[]</span></code> modifier (not to be confused with the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_[]">[]</a> <em>history-referencing operator</em>).</p>
+<p>Since Pine always uses type-specific functions to create arrays, the <code class="docutils literal notranslate"><span class="pre">array&lt;type&gt;/type[]</span></code> part of the declaration is redundant,
+except when declaring an array variable assigned to <code class="docutils literal notranslate"><span class="pre">na</span></code>. Even when not required, explicitly declaring the array type helps clearly
+state the intention to readers.</p>
+<p>This line of code declares an array variable named <code class="docutils literal notranslate"><span class="pre">prices</span></code> that points to <code class="docutils literal notranslate"><span class="pre">na</span></code>.
+In this case, we must specify the type to declare that the variable can reference arrays containing “float” values:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>array&lt;float&gt; prices = na
+</pre></div>
+</div>
+<p>We can also write the above example in this form:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>float[] prices = na
+</pre></div>
+</div>
+<p>When declaring an array and the <code class="docutils literal notranslate"><span class="pre">&lt;expression&gt;</span></code> is not <code class="docutils literal notranslate"><span class="pre">na</span></code>, use one of the following functions:
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array.new%3Ctype%3E">array.new&lt;type&gt;(size, initial_value)</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}from">array.from()</a>,
+or <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}copy">array.copy()</a>.
+For <code class="docutils literal notranslate"><span class="pre">array.new&lt;type&gt;(size,</span> <span class="pre">initial_value)</span></code> functions, the arguments of the <code class="docutils literal notranslate"><span class="pre">size</span></code> and <code class="docutils literal notranslate"><span class="pre">initial_value</span></code> parameters can be “series” to allow dynamic sizing and initialization of array elements.
+The following example creates an array containing zero “float” elements,
+and this time, the array ID returned by the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array.new%3Ctype%3E">array.new&lt;float&gt;()</a>
+function call is assigned to <code class="docutils literal notranslate"><span class="pre">prices</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>prices = array.new&lt;float&gt;(0)
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The <code class="docutils literal notranslate"><span class="pre">array.*</span></code> namespace also contains type-specific functions for creating arrays, including
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}new_int">array.new_int()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}new_float">array.new_float()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}new_bool">array.new_bool()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}new_color">array.new_color()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}new_string">array.new_string()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}new_line">array.new_line()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}new_linefill">array.new_linefill()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}new_label">array.new_label()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}new_box">array.new_box()</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}new_table">array.new_table()</a>.
+The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array.new%3Ctype%3E">array.new&lt;type&gt;()</a> function
+can create an array of any type, including <a class="reference internal" href="Type_system.html#pagetypesystem-userdefinedtypes"><span class="std std-ref">user-defined types</span></a>.</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">initial_value</span></code> parameter of <code class="docutils literal notranslate"><span class="pre">array.new*</span></code> functions allows users to set all elements in the array to a specified value.
+If no argument is provided for <code class="docutils literal notranslate"><span class="pre">initial_value</span></code>, the array is filled with <code class="docutils literal notranslate"><span class="pre">na</span></code> values.</p>
+<p>This line declares an array ID named <code class="docutils literal notranslate"><span class="pre">prices</span></code> pointing to an array containing two elements, each assigned to the bar’s
+<code class="docutils literal notranslate"><span class="pre">close</span></code> value:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>prices = array.new&lt;float&gt;(2, close)
+</pre></div>
+</div>
+<p>To create an array and initialize its elements with different values, use
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}from">array.from()</a>. This function infers the array’s size and the
+type of elements it will hold from the arguments in the function call. As with <code class="docutils literal notranslate"><span class="pre">array.new*</span></code> functions, it accepts “series” arguments. All values
+supplied to the function must be of the same type.</p>
+<p>For example, all three of these lines of code will create identical “bool” arrays with the same two elements:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>statesArray = array.from(close &gt; open, high != close)
+bool[] statesArray = array.from(close &gt; open, high != close)
+array&lt;bool&gt; statesArray = array.from(close &gt; open, high != close)
+</pre></div>
+</div>
+<div class="section" id="using-var-and-varip-keywords">
+<span id="pagearrays-declaringarrays-usingvarandvaripkeywords"></span><h3><a class="toc-backref" href="#id3">Using `var` and `varip` keywords</a><a class="headerlink" href="#using-var-and-varip-keywords" title="Permalink to this headline">¶</a></h3>
+<p>Users can utilize <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_var">var</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_varip">varip</a> keywords to instruct a script to declare an array
+variable only once on the first iteration of the script on the first chart bar. Array variables declared using these keywords
+point to the same array instances until explicitly reassigned, allowing an array and its element references to persist
+across bars.</p>
+<p>When declaring an array variable using these keywords and pushing a new value to the end of the referenced array on each bar, the array will
+grow by one on each bar and be of size <code class="docutils literal notranslate"><span class="pre">bar_index</span> <span class="pre">+</span> <span class="pre">1</span></code> (<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_bar_index">bar_index</a>
+starts at zero) by the time the script executes on the last bar, as this code demonstrates:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Using `var`&quot;)
+//@variable An array that expands its size by 1 on each bar.
+var a = array.new&lt;float&gt;(0)
+array.push(a, close)
+
+if barstate.islast
+    //@variable A string containing the size of `a` and the current `bar_index` value.
+    string labelText = &quot;Array size: &quot; + str.tostring(a.size()) + &quot;\nbar_index: &quot; + str.tostring(bar_index)
+    // Display the `labelText`.
+    label.new(bar_index, 0, labelText, size = size.large)
+</pre></div>
+</div>
+<p>The same code without the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_var">var</a> keyword would re-declare the array on each bar.
+In this case, after execution of the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}push">array.push()</a> call, the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}size">a.size()</a> call would return a value of 1.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Array variables declared using <a class="reference external" href="../../../../pine-script-reference/v5/index.html#kw_varip">varip</a>
+behave as ones using <a class="reference external" href="../../../../pine-script-reference/v5/index.html#kw_var">var</a> on historical data,
+but they update their values for realtime bars (i.e., the bars since the script’s last compilation)
+on each new price tick. Arrays assigned to <a class="reference external" href="../../../../pine-script-reference/v5/index.html#kw_varip">varip</a>
+variables can only hold <a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_int">int</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_float">float</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_bool">bool</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_color">color</a>, or
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_string">string</a> types or
+<a class="reference internal" href="Type_system.html#pagetypesystem-userdefinedtypes"><span class="std std-ref">user-defined types</span></a> that exclusively contain within their fields these types
+or collections (arrays, <a class="reference internal" href="Matrices.html#pagematrices"><span class="std std-ref">matrices</span></a>, or <a class="reference internal" href="Maps.html#pagemaps"><span class="std std-ref">maps</span></a>) of these types.</p>
+</div>
+</div>
+</div>
+<div class="section" id="reading-and-writing-array-elements">
+<span id="pagearrays-readingandwritingarrayelements"></span><h2><a class="toc-backref" href="#id4">Reading and writing array elements</a><a class="headerlink" href="#reading-and-writing-array-elements" title="Permalink to this headline">¶</a></h2>
+<p>Scripts can write values to existing individual array elements using
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}set">array.set(id, index, value)</a>,
+and read using <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}get">array.get(id, index)</a>.
+When using these functions, it is imperative that the <code class="docutils literal notranslate"><span class="pre">index</span></code> in the function call is always less than or equal to
+the array’s size (because array indices start at zero). To get the size of an array, use the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}size">array.size(id)</a> function.</p>
+<p>The following example uses the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}set">set()</a> method
+to populate a <code class="docutils literal notranslate"><span class="pre">fillColors</span></code> array with instances of one base color using different transparency levels.
+It then uses <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}get">array.get()</a> to retrieve one of the colors
+from the array based on the location of the bar with the highest price within the last <code class="docutils literal notranslate"><span class="pre">lookbackInput</span></code> bars:</p>
+<img alt="../_images/Arrays-ReadingAndWriting-DistanceFromHigh.png" src="../_images/Arrays-ReadingAndWriting-DistanceFromHigh.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Distance from high&quot;, &quot;&quot;, true)
+lookbackInput = input.int(100)
+FILL_COLOR = color.green
+// Declare array and set its values on the first bar only.
+var fillColors = array.new&lt;color&gt;(5)
+if barstate.isfirst
+    // Initialize the array elements with progressively lighter shades of the fill color.
+    fillColors.set(0, color.new(FILL_COLOR, 70))
+    fillColors.set(1, color.new(FILL_COLOR, 75))
+    fillColors.set(2, color.new(FILL_COLOR, 80))
+    fillColors.set(3, color.new(FILL_COLOR, 85))
+    fillColors.set(4, color.new(FILL_COLOR, 90))
+
+// Find the offset to highest high. Change its sign because the function returns a negative value.
+lastHiBar = - ta.highestbars(high, lookbackInput)
+// Convert the offset to an array index, capping it to 4 to avoid a runtime error.
+// The index used by `array.get()` will be the equivalent of `floor(fillNo)`.
+fillNo = math.min(lastHiBar / (lookbackInput / 5), 4)
+// Set background to a progressively lighter fill with increasing distance from location of highest high.
+bgcolor(array.get(fillColors, fillNo))
+// Plot key values to the Data Window for debugging.
+plotchar(lastHiBar, &quot;lastHiBar&quot;, &quot;&quot;, location.top, size = size.tiny)
+plotchar(fillNo, &quot;fillNo&quot;, &quot;&quot;, location.top, size = size.tiny)
+</pre></div>
+</div>
+<p>Another technique for initializing the elements in an array is to create an <em>empty array</em> (an array with no elements),
+then use <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}push">array.push()</a> to append <strong>new</strong>
+elements to the end of the array, increasing the size of the array by one on each call.
+The following code is functionally identical to the initialization section from the preceding script:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// Declare array and set its values on the first bar only.
+var fillColors = array.new&lt;color&gt;(0)
+if barstate.isfirst
+    // Initialize the array elements with progressively lighter shades of the fill color.
+    array.push(fillColors, color.new(FILL_COLOR, 70))
+    array.push(fillColors, color.new(FILL_COLOR, 75))
+    array.push(fillColors, color.new(FILL_COLOR, 80))
+    array.push(fillColors, color.new(FILL_COLOR, 85))
+    array.push(fillColors, color.new(FILL_COLOR, 90))
+</pre></div>
+</div>
+<p>This code is equivalent to the one above, but it uses <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}unshift">array.unshift()</a>
+to insert new elements at the <em>beginning</em> of the <code class="docutils literal notranslate"><span class="pre">fillColors</span></code> array:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// Declare array and set its values on the first bar only.
+var fillColors = array.new&lt;color&gt;(0)
+if barstate.isfirst
+    // Initialize the array elements with progressively lighter shades of the fill color.
+    array.unshift(fillColors, color.new(FILL_COLOR, 90))
+    array.unshift(fillColors, color.new(FILL_COLOR, 85))
+    array.unshift(fillColors, color.new(FILL_COLOR, 80))
+    array.unshift(fillColors, color.new(FILL_COLOR, 75))
+    array.unshift(fillColors, color.new(FILL_COLOR, 70))
+</pre></div>
+</div>
+<p>We can also use <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}from">array.from()</a> to create the
+same <code class="docutils literal notranslate"><span class="pre">fillColors</span></code> array with a single function call:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   //@version=5
+   indicator(&quot;Using `var`&quot;)
+   FILL_COLOR = color.green
+   var color[] fillColors = array.from(
+        color.new(FILL_COLOR, 70),
+        color.new(FILL_COLOR, 75),
+        color.new(FILL_COLOR, 80),
+        color.new(FILL_COLOR, 85),
+        color.new(FILL_COLOR, 90)
+)
+   // Cycle background through the array&#39;s colors.
+   bgcolor(array.get(fillColors, bar_index % (fillColors.size())))
+</pre></div>
+</div>
+<p>The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}fill">array.fill(id, value, index_from, index_to)</a>
+function points all array elements, or the elements within the <code class="docutils literal notranslate"><span class="pre">index_from</span></code> to <code class="docutils literal notranslate"><span class="pre">index_to</span></code> range, to a specified <code class="docutils literal notranslate"><span class="pre">value</span></code>.
+Without the last two optional parameters, the function fills the whole array, so:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>a = array.new&lt;float&gt;(10, close)
+</pre></div>
+</div>
+<p>and:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>a = array.new&lt;float&gt;(10)
+a.fill(close)
+</pre></div>
+</div>
+<p>are equivalent, but:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>a = array.new&lt;float&gt;(10)
+a.fill(close, 1, 3)
+</pre></div>
+</div>
+<p>only fills the second and third elements (at index 1 and 2) of the array with <code class="docutils literal notranslate"><span class="pre">close</span></code>.
+Note how <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}fill">array.fill()</a>’s
+last parameter, <code class="docutils literal notranslate"><span class="pre">index_to</span></code>, must be one greater than the last index the function will fill.
+The remaining elements will hold <code class="docutils literal notranslate"><span class="pre">na</span></code> values, as the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array.new%3Ctype%3E">array.new()</a> function call
+does not contain an <code class="docutils literal notranslate"><span class="pre">initial_value</span></code> argument.</p>
+</div>
+<div class="section" id="looping-through-array-elements">
+<span id="pagearrays-looping"></span><h2><a class="toc-backref" href="#id5">Looping through array elements</a><a class="headerlink" href="#looping-through-array-elements" title="Permalink to this headline">¶</a></h2>
+<p>When looping through an array’s element indices and the array’s size is unknown, one can use the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}size">array.size()</a> function to
+get the maximum index value. For example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Protected `for` loop&quot;, overlay = true)
+//@variable An array of `close` prices from the 1-minute timeframe.
+array&lt;float&gt; a = request.security_lower_tf(syminfo.tickerid, &quot;1&quot;, close)
+
+//@variable A string representation of the elements in `a`.
+string labelText = &quot;&quot;
+for i = 0 to (array.size(a) == 0 ? na : array.size(a) - 1)
+    labelText += str.tostring(array.get(a, i)) + &quot;\n&quot;
+
+label.new(bar_index, high, text = labelText)
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Note that:</dt>
+<dd><ul class="first last simple">
+<li>We use the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security_lower_tf">request.security_lower_tf()</a> function
+which returns an array of <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_close">close</a> prices at the <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">minute</span></code> timeframe.</li>
+<li>This code example will throw an error if you use it on a chart timeframe smaller than <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">minute</span></code>.</li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_for">for</a> loops do not execute if the <code class="docutils literal notranslate"><span class="pre">to</span></code> expression is
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a>. Note that the <code class="docutils literal notranslate"><span class="pre">to</span></code> value is only evaluated once upon entry.</li>
+</ul>
+</dd>
+</dl>
+<p>An alternative method to loop through an array is to use a
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_for{dot}{dot}{dot}in">for…in</a> loop.
+This approach is a variation of the standard for loop that can iterate over the value references and indices in an array.
+Here is an example of how we can write the code example from above using a for…in loop:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;`for...in` loop&quot;, overlay = true)
+//@variable An array of `close` prices from the 1-minute timeframe.
+array&lt;float&gt; a = request.security_lower_tf(syminfo.tickerid, &quot;1&quot;, close)
+
+//@variable A string representation of the elements in `a`.
+string labelText = &quot;&quot;
+for price in a
+    labelText += str.tostring(price) + &quot;\n&quot;
+
+label.new(bar_index, high, text = labelText)
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Note that:</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_for{dot}{dot}{dot}in">for…in</a>
+loops can return a tuple containing each index and corresponding element. For example,
+<code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">[i,</span> <span class="pre">price]</span> <span class="pre">in</span> <span class="pre">a</span></code> returns the <code class="docutils literal notranslate"><span class="pre">i</span></code> index and <code class="docutils literal notranslate"><span class="pre">price</span></code> value for each element in <code class="docutils literal notranslate"><span class="pre">a</span></code>.</li>
+</ul>
+</dd>
+</dl>
+<p>A <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_while">while</a> loop statement can also be used:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;`while` loop&quot;, overlay = true)
+array&lt;float&gt; a = request.security_lower_tf(syminfo.tickerid, &quot;1&quot;, close)
+
+string labelText = &quot;&quot;
+int i = 0
+while i &lt; array.size(a)
+    labelText += str.tostring(array.get(a, i)) + &quot;\n&quot;
+    i += 1
+
+label.new(bar_index, high, text = labelText)
+</pre></div>
+</div>
+</div>
+<div class="section" id="scope">
+<h2><a class="toc-backref" href="#id6">Scope</a><a class="headerlink" href="#scope" title="Permalink to this headline">¶</a></h2>
+<p>Users can declare arrays within the global scope of a script, as well as the local scopes of <a class="reference internal" href="User-defined_functions.html#pageuserdefinedfunctions"><span class="std std-ref">functions</span></a>,
+<a class="reference internal" href="Methods.html#pagemethods"><span class="std std-ref">methods</span></a>, and <a class="reference internal" href="Conditional_structures.html#pageconditionalstructures"><span class="std std-ref">conditional structures</span></a>.
+Unlike some of the other built-in types, namely <em>fundamental</em> types, scripts can modify globally-assigned arrays from within local scopes, allowing
+users to implement global variables that any function in the script can directly interact with.
+We use the functionality here to calculate progressively lower or higher price levels:</p>
+<img alt="../_images/Arrays-Scope-Bands.png" src="../_images/Arrays-Scope-Bands.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    //@version=5
+    indicator(&quot;Bands&quot;, &quot;&quot;, true)
+//@variable The distance ratio between plotted price levels.
+    factorInput = 1 + (input.float(-2., &quot;Step %&quot;) / 100)
+//@variable A single-value array holding the lowest `ohlc4` value within a 50 bar window from 10 bars back.
+    level = array.new&lt;float&gt;(1, ta.lowest(ohlc4, 50)[10])
+
+    nextLevel(val) =&gt;
+        newLevel = level.get(0) * val
+        // Write new level to the global `level` array so we can use it as the base in the next function call.
+        level.set(0, newLevel)
+        newLevel
+
+    plot(nextLevel(1))
+    plot(nextLevel(factorInput))
+    plot(nextLevel(factorInput))
+    plot(nextLevel(factorInput))
+</pre></div>
+</div>
+</div>
+<div class="section" id="history-referencing">
+<span id="pagearrays-historyreferencing"></span><h2><a class="toc-backref" href="#id7">History referencing</a><a class="headerlink" href="#history-referencing" title="Permalink to this headline">¶</a></h2>
+<p>Pine Script<sup>®</sup>’s history-referencing operator <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_[]">[ ]</a>
+can access the history of array variables, allowing scripts to interact with past array instances previously assigned
+to a variable.</p>
+<p>To illustrate this, let’s create a simple example to show how one can fetch the previous bar’s <code class="docutils literal notranslate"><span class="pre">close</span></code> value in
+two equivalent ways. This script uses the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_[]">[ ]</a> operator to
+get the array instance assigned to <code class="docutils literal notranslate"><span class="pre">a</span></code> on the previous bar, then uses the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array.get">get()</a>
+method to retrieve the value of the first element (<code class="docutils literal notranslate"><span class="pre">previousClose1</span></code>). For <code class="docutils literal notranslate"><span class="pre">previousClose2</span></code>, we use the history-referencing operator on the <code class="docutils literal notranslate"><span class="pre">close</span></code>
+variable directly to retrieve the value. As we see from the plots, <code class="docutils literal notranslate"><span class="pre">previousClose1</span></code> and <code class="docutils literal notranslate"><span class="pre">previousClose2</span></code> both return the same value:</p>
+<img alt="../_images/Arrays-History-referencing.png" src="../_images/Arrays-History-referencing.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;History referencing&quot;)
+
+//@variable A single-value array declared on each bar.
+a = array.new&lt;float&gt;(1)
+// Set the value of the only element in `a` to `close`.
+array.set(a, 0, close)
+
+//@variable The array instance assigned to `a` on the previous bar.
+previous = a[1]
+
+previousClose1 = na(previous) ? na : previous.get(0)
+previousClose2 = close[1]
+
+plot(previousClose1, &quot;previousClose1&quot;, color.gray, 6)
+plot(previousClose2, &quot;previousClose2&quot;, color.white, 2)
+</pre></div>
+</div>
+</div>
+<div class="section" id="inserting-and-removing-array-elements">
+<span id="pagearrays-insertingandremovingarrayelements"></span><h2><a class="toc-backref" href="#id8">Inserting and removing array elements</a><a class="headerlink" href="#inserting-and-removing-array-elements" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="inserting">
+<span id="pagearrays-insertingandremovingarrayelements-inserting"></span><h3><a class="toc-backref" href="#id9">Inserting</a><a class="headerlink" href="#inserting" title="Permalink to this headline">¶</a></h3>
+<p>The following three functions can insert new elements into an array.</p>
+<p><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}unshift">array.unshift()</a>
+inserts a new element at the beginning of an array (index 0) and increases the index values of any existing elements by one.</p>
+<p><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}insert">array.insert()</a>
+inserts a new element at the specified <code class="docutils literal notranslate"><span class="pre">index</span></code> and increases the index of existing elements at or
+after the <code class="docutils literal notranslate"><span class="pre">index</span></code> by one.</p>
+<img alt="../_images/Arrays-InsertingAndRemovingArrayElements-Insert.png" src="../_images/Arrays-InsertingAndRemovingArrayElements-Insert.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;`array.insert()`&quot;)
+a = array.new&lt;float&gt;(5, 0)
+for i = 0 to 4
+    array.set(a, i, i + 1)
+if barstate.islast
+    label.new(bar_index, 0, &quot;BEFORE\na: &quot; + str.tostring(a), size = size.large)
+    array.insert(a, 2, 999)
+    label.new(bar_index, 0, &quot;AFTER\na: &quot; + str.tostring(a), style = label.style_label_up, size = size.large)
+</pre></div>
+</div>
+<p><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}push">array.push()</a>
+adds a new element at the end of an array.</p>
+</div>
+<div class="section" id="removing">
+<span id="pagearrays-insertingandremovingarrayelements-removing"></span><h3><a class="toc-backref" href="#id10">Removing</a><a class="headerlink" href="#removing" title="Permalink to this headline">¶</a></h3>
+<p>These four functions remove elements from an array. The first three also return the value of the removed element.</p>
+<p><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}remove">array.remove()</a>
+removes the element at the specified <code class="docutils literal notranslate"><span class="pre">index</span></code> and returns that element’s value.</p>
+<p><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}shift">array.shift()</a>
+removes the first element from an array and returns its value.</p>
+<p><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}pop">array.pop()</a>
+removes the last element of an array and returns its value.</p>
+<p><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}clear">array.clear()</a>
+removes all elements from an array. Note that clearing an array won’t delete any objects its elements referenced.
+See the example below that illustrates how this works:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;`array.clear()` example&quot;, overlay = true)
+
+// Create a label array and add a label to the array on each new bar.
+var a = array.new&lt;label&gt;()
+label lbl = label.new(bar_index, high, &quot;Text&quot;, color = color.red)
+array.push(a, lbl)
+
+var table t = table.new(position.top_right, 1, 1)
+// Clear the array on the last bar. This doesn&#39;t remove the labels from the chart.
+if barstate.islast
+    array.clear(a)
+    table.cell(t, 0, 0, &quot;Array elements count: &quot; + str.tostring(array.size(a)), bgcolor = color.yellow)
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-an-array-as-a-stack">
+<span id="pagearrays-insertingandremovingarrayelements-usinganarrayasastack"></span><h3><a class="toc-backref" href="#id11">Using an array as a stack</a><a class="headerlink" href="#using-an-array-as-a-stack" title="Permalink to this headline">¶</a></h3>
+<p>Stacks are LIFO (last in, first out) constructions. They behave somewhat like a vertical pile of books to which books can only be added or removed one at a time,
+always from the top. Pine Script<sup>®</sup> arrays can be used as a stack, in which case we use the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}push">array.push()</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}pop">array.pop()</a>
+functions to add and remove elements at the end of the array.</p>
+<p><code class="docutils literal notranslate"><span class="pre">array.push(prices,</span> <span class="pre">close)</span></code> will add a new element to the end of the <code class="docutils literal notranslate"><span class="pre">prices</span></code> array, increasing the array’s size by one.</p>
+<p><code class="docutils literal notranslate"><span class="pre">array.pop(prices)</span></code> will remove the end element from the <code class="docutils literal notranslate"><span class="pre">prices</span></code> array, return its value and decrease the array’s size by one.</p>
+<p>See how the functions are used here to track successive lows in rallies:</p>
+<img alt="../_images/Arrays-InsertingAndRemovingArrayElements-LowsFromNewHighs.png" src="../_images/Arrays-InsertingAndRemovingArrayElements-LowsFromNewHighs.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Lows from new highs&quot;, &quot;&quot;, true)
+var lows = array.new&lt;float&gt;(0)
+flushLows = false
+
+// Remove last element from the stack when `_cond` is true.
+array_pop(id, cond) =&gt; cond and array.size(id) &gt; 0 ? array.pop(id) : float(na)
+
+if ta.rising(high, 1)
+    // Rising highs; push a new low on the stack.
+    lows.push(low)
+    // Force the return type of this `if` block to be the same as that of the next block.
+    bool(na)
+else if lows.size() &gt;= 4 or low &lt; array.min(lows)
+    // We have at least 4 lows or price has breached the lowest low;
+    // sort lows and set flag indicating we will plot and flush the levels.
+    array.sort(lows, order.ascending)
+    flushLows := true
+
+// If needed, plot and flush lows.
+lowLevel = array_pop(lows, flushLows)
+plot(lowLevel, &quot;Low 1&quot;, low &gt; lowLevel ? color.silver : color.purple, 2, plot.style_linebr)
+lowLevel := array_pop(lows, flushLows)
+plot(lowLevel, &quot;Low 2&quot;, low &gt; lowLevel ? color.silver : color.purple, 3, plot.style_linebr)
+lowLevel := array_pop(lows, flushLows)
+plot(lowLevel, &quot;Low 3&quot;, low &gt; lowLevel ? color.silver : color.purple, 4, plot.style_linebr)
+lowLevel := array_pop(lows, flushLows)
+plot(lowLevel, &quot;Low 4&quot;, low &gt; lowLevel ? color.silver : color.purple, 5, plot.style_linebr)
+
+if flushLows
+    // Clear remaining levels after the last 4 have been plotted.
+    lows.clear()
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-an-array-as-a-queue">
+<span id="pagearrays-insertingandremovingarrayelements-usinganarrayasaqueue"></span><h3><a class="toc-backref" href="#id12">Using an array as a queue</a><a class="headerlink" href="#using-an-array-as-a-queue" title="Permalink to this headline">¶</a></h3>
+<p>Queues are FIFO (first in, first out) constructions. They behave somewhat like cars arriving at a red light.
+New cars are queued at the end of the line, and the first car to leave will be the first one that arrived to the red light.</p>
+<p>In the following code example, we let users decide through the script’s inputs how many labels they want to have on their chart.
+We use that quantity to determine the size of the array of labels we then create, initializing the array’s elements to <code class="docutils literal notranslate"><span class="pre">na</span></code>.</p>
+<p>When a new pivot is detected, we create a label for it, saving the label’s ID in the <code class="docutils literal notranslate"><span class="pre">pLabel</span></code> variable.
+We then queue the ID of that label by
+using <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}push">array.push()</a>
+to append the new label’s ID to the end of the array, making our array size one greater than the maximum number of labels to keep on the chart.</p>
+<p>Lastly, we de-queue the oldest label by removing the array’s first element using
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}shift">array.shift()</a> and deleting the label referenced by that array element’s value.
+As we have now de-queued an element from our queue, the array contains <code class="docutils literal notranslate"><span class="pre">pivotCountInput</span></code> elements once again.
+Note that on the dataset’s first bars we will be deleting <code class="docutils literal notranslate"><span class="pre">na</span></code> label IDs until the maximum number of labels has been created,
+but this does not cause runtime errors. Let’s look at our code:</p>
+<img alt="../_images/Arrays-InsertingAndRemovingArrayElements-ShowLastnHighPivots.png" src="../_images/Arrays-InsertingAndRemovingArrayElements-ShowLastnHighPivots.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+MAX_LABELS = 100
+indicator(&quot;Show Last n High Pivots&quot;, &quot;&quot;, true, max_labels_count = MAX_LABELS)
+
+pivotCountInput = input.int(5, &quot;How many pivots to show&quot;, minval = 0, maxval = MAX_LABELS)
+pivotLegsInput  = input.int(3, &quot;Pivot legs&quot;, minval = 1, maxval = 5)
+
+// Create an array containing the user-selected max count of label IDs.
+var labelIds = array.new&lt;label&gt;(pivotCountInput)
+
+pHi = ta.pivothigh(pivotLegsInput, pivotLegsInput)
+if not na(pHi)
+    // New pivot found; plot its label `i_pivotLegs` bars back.
+    pLabel = label.new(bar_index[pivotLegsInput], pHi, str.tostring(pHi, format.mintick), textcolor = color.white)
+    // Queue the new label&#39;s ID by appending it to the end of the array.
+    array.push(labelIds, pLabel)
+    // De-queue the oldest label ID from the queue and delete the corresponding label.
+    label.delete(array.shift(labelIds))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="calculations-on-arrays">
+<span id="pagearrays-calculationsonarrays"></span><h2><a class="toc-backref" href="#id13">Calculations on arrays</a><a class="headerlink" href="#calculations-on-arrays" title="Permalink to this headline">¶</a></h2>
+<p>While series variables can be viewed as a horizontal set of values stretching back in time,
+Pine Script<sup>®</sup>’s one-dimensional arrays can be viewed as vertical structures
+residing on each bar. As an array’s set of elements is not a <span class="xref std std-ref">time series</span>,
+Pine Script<sup>®</sup>’s usual mathematical functions are not allowed on them.
+Special-purpose functions must be used to operate on all of an array’s values. The available functions are:
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}abs">array.abs()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}avg">array.avg()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}covariance">array.covariance()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}min">array.min()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}max">array.max()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}median">array.median()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}mode">array.mode()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}percentile_linear_interpolation">array.percentile_linear_interpolation()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}percentile_nearest_rank">array.percentile_nearest_rank()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}percentrank">array.percentrank()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}range">array.range()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}standardize">array.standardize()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}stdev">array.stdev()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}sum">array.sum()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}variance">array.variance()</a>.</p>
+<p>Note that contrary to the usual mathematical functions in Pine Script<sup>®</sup>, those used on arrays do not return <code class="docutils literal notranslate"><span class="pre">na</span></code> when some of the values they
+calculate on have <code class="docutils literal notranslate"><span class="pre">na</span></code> values. There are a few exceptions to this rule:</p>
+<ul class="simple">
+<li>When all array elements have <code class="docutils literal notranslate"><span class="pre">na</span></code> value or the array contains no elements, <code class="docutils literal notranslate"><span class="pre">na</span></code> is returned. <code class="docutils literal notranslate"><span class="pre">array.standardize()</span></code> however, will return an empty array.</li>
+<li><code class="docutils literal notranslate"><span class="pre">array.mode()</span></code> will return <code class="docutils literal notranslate"><span class="pre">na</span></code> when no mode is found.</li>
+</ul>
+</div>
+<div class="section" id="manipulating-arrays">
+<span id="pagearrays-manipulatingarrays"></span><h2><a class="toc-backref" href="#id14">Manipulating arrays</a><a class="headerlink" href="#manipulating-arrays" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="concatenation">
+<span id="pagearrays-manipulatingarrays-concatenation"></span><h3><a class="toc-backref" href="#id15">Concatenation</a><a class="headerlink" href="#concatenation" title="Permalink to this headline">¶</a></h3>
+<p>Two arrays can be merged—or concatenated—using <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}concat">array.concat()</a>.
+When arrays are concatenated, the second array is appended to the end of the first,
+so the first array is modified while the second one remains intact. The function returns the array ID of the first array:</p>
+<img alt="../_images/Arrays-ManipulatingArrays-Concat.png" src="../_images/Arrays-ManipulatingArrays-Concat.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;`array.concat()`&quot;)
+a = array.new&lt;float&gt;(0)
+b = array.new&lt;float&gt;(0)
+array.push(a, 0)
+array.push(a, 1)
+array.push(b, 2)
+array.push(b, 3)
+if barstate.islast
+    label.new(bar_index, 0, &quot;BEFORE\na: &quot; + str.tostring(a) + &quot;\nb: &quot; + str.tostring(b), size = size.large)
+    c = array.concat(a, b)
+    array.push(c, 4)
+    label.new(bar_index, 0, &quot;AFTER\na: &quot; + str.tostring(a) + &quot;\nb: &quot; + str.tostring(b) + &quot;\nc: &quot; + str.tostring(c), style = label.style_label_up, size = size.large)
+</pre></div>
+</div>
+</div>
+<div class="section" id="copying">
+<span id="pagearrays-manipulatingarrays-copying"></span><h3><a class="toc-backref" href="#id16">Copying</a><a class="headerlink" href="#copying" title="Permalink to this headline">¶</a></h3>
+<p>You can copy an array using <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}copy">array.copy()</a>.
+Here we copy the array <code class="docutils literal notranslate"><span class="pre">a</span></code> to a new array named <code class="docutils literal notranslate"><span class="pre">_b</span></code>:</p>
+<img alt="../_images/Arrays-ManipulatingArrays-Copy.png" src="../_images/Arrays-ManipulatingArrays-Copy.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;`array.copy()`&quot;)
+a = array.new&lt;float&gt;(0)
+array.push(a, 0)
+array.push(a, 1)
+if barstate.islast
+    b = array.copy(a)
+    array.push(b, 2)
+    label.new(bar_index, 0, &quot;a: &quot; + str.tostring(a) + &quot;\nb: &quot; + str.tostring(b), size = size.large)
+</pre></div>
+</div>
+<p>Note that simply using <code class="docutils literal notranslate"><span class="pre">_b</span> <span class="pre">=</span> <span class="pre">a</span></code> in the previous example would not have copied the array, but only its ID.
+From thereon, both variables would point to the same array, so using either one would affect the same array.</p>
+</div>
+<div class="section" id="joining">
+<span id="pagearrays-manipulatingarrays-joining"></span><h3><a class="toc-backref" href="#id17">Joining</a><a class="headerlink" href="#joining" title="Permalink to this headline">¶</a></h3>
+<p>Use <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}join">array.join()</a> to concatenate all of the elements in the array into a string and separate these elements with the specified separator:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;&quot;)
+v1 = array.new&lt;string&gt;(10, &quot;test&quot;)
+v2 = array.new&lt;string&gt;(10, &quot;test&quot;)
+array.push(v2, &quot;test1&quot;)
+v3 = array.new_float(5, 5)
+v4 = array.new_int(5, 5)
+l1 = label.new(bar_index, close, array.join(v1))
+l2 = label.new(bar_index, close, array.join(v2, &quot;,&quot;))
+l3 = label.new(bar_index, close, array.join(v3, &quot;,&quot;))
+l4 = label.new(bar_index, close, array.join(v4, &quot;,&quot;))
+</pre></div>
+</div>
+</div>
+<div class="section" id="sorting">
+<span id="pagearrays-manipulatingarrays-sorting"></span><h3><a class="toc-backref" href="#id18">Sorting</a><a class="headerlink" href="#sorting" title="Permalink to this headline">¶</a></h3>
+<p>Arrays containing “int” or “float” elements can be sorted in either ascending or descending order using
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}sort">array.sort()</a>.
+The <code class="docutils literal notranslate"><span class="pre">order</span></code> parameter is optional and defaults to <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_order{dot}ascending">order.ascending</a>.
+As all <code class="docutils literal notranslate"><span class="pre">array.*()</span></code> function arguments, it is of form “series”, so can be determined at runtime, as is done here.
+Note that in the example, which array is sorted is also determined at runtime:</p>
+<img alt="../_images/Arrays-ManipulatingArrays-Sort.png" src="../_images/Arrays-ManipulatingArrays-Sort.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;`array.sort()`&quot;)
+a = array.new&lt;float&gt;(0)
+b = array.new&lt;float&gt;(0)
+array.push(a, 2)
+array.push(a, 0)
+array.push(a, 1)
+array.push(b, 4)
+array.push(b, 3)
+array.push(b, 5)
+if barstate.islast
+    barUp = close &gt; open
+    array.sort(barUp ? a : b, barUp ? order.ascending : order.descending)
+    label.new(bar_index, 0,
+      &quot;a &quot; + (barUp ? &quot;is sorted ▲: &quot;   : &quot;is not sorted: &quot;) + str.tostring(a) + &quot;\n\n&quot; +
+      &quot;b &quot; + (barUp ? &quot;is not sorted: &quot; : &quot;is sorted ▼: &quot;)   + str.tostring(b), size = size.large)
+</pre></div>
+</div>
+<p>Another useful option for sorting arrays is to use the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}sort_indices">array.sort_indices()</a>
+function, which takes a reference to the original array and returns an array containing the indices from the original array.
+Please note that this function won’t modify the original array. The <code class="docutils literal notranslate"><span class="pre">order</span></code> parameter is optional and defaults to
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_order{dot}ascending">order.ascending</a>.</p>
+</div>
+<div class="section" id="reversing">
+<span id="pagearrays-manipulatingarrays-reversing"></span><h3><a class="toc-backref" href="#id19">Reversing</a><a class="headerlink" href="#reversing" title="Permalink to this headline">¶</a></h3>
+<p>Use <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}reverse">array.reverse()</a>  to reverse an array:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;`array.reverse()`&quot;)
+a = array.new&lt;float&gt;(0)
+array.push(a, 0)
+array.push(a, 1)
+array.push(a, 2)
+if barstate.islast
+    array.reverse(a)
+    label.new(bar_index, 0, &quot;a: &quot; + str.tostring(a))
+</pre></div>
+</div>
+</div>
+<div class="section" id="slicing">
+<span id="pagearrays-manipulatingarrays-slicing"></span><h3><a class="toc-backref" href="#id20">Slicing</a><a class="headerlink" href="#slicing" title="Permalink to this headline">¶</a></h3>
+<p>Slicing an array using <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}slice">array.slice()</a>
+creates a shallow copy of a subset of the parent array.
+You determine the size of the subset to slice using the <code class="docutils literal notranslate"><span class="pre">index_from</span></code> and <code class="docutils literal notranslate"><span class="pre">index_to</span></code> parameters.
+The <code class="docutils literal notranslate"><span class="pre">index_to</span></code> argument must be one greater than the end of the subset you want to slice.</p>
+<p>The shallow copy created by the slice acts like a window on the parent array’s content.
+The indices used for the slice define the window’s position and size over the parent array.
+If, as in the example below, a slice is created from the first three elements of an array (indices 0 to 2),
+then regardless of changes made to the parent array, and as long as it contains at least three elements,
+the shallow copy will always contain the parent array’s first three elements.</p>
+<p>Additionally, once the shallow copy is created, operations on the copy are mirrored on the parent array.
+Adding an element to the end of the shallow copy, as is done in the following example,
+will widen the window by one element and also insert that element in the parent array at index 3.
+In this example, to slice the subset from index 0 to index 2 of array <code class="docutils literal notranslate"><span class="pre">a</span></code>, we must use <code class="docutils literal notranslate"><span class="pre">_sliceOfA</span> <span class="pre">=</span> <span class="pre">array.slice(a,</span> <span class="pre">0,</span> <span class="pre">3)</span></code>:</p>
+<img alt="../_images/Arrays-ManipulatingArrays-Slice.png" src="../_images/Arrays-ManipulatingArrays-Slice.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;`array.slice()`&quot;)
+a = array.new&lt;float&gt;(0)
+array.push(a, 0)
+array.push(a, 1)
+array.push(a, 2)
+array.push(a, 3)
+if barstate.islast
+    // Create a shadow of elements at index 1 and 2 from array `a`.
+    sliceOfA = array.slice(a, 0, 3)
+    label.new(bar_index, 0, &quot;BEFORE\na: &quot; + str.tostring(a) + &quot;\nsliceOfA: &quot; + str.tostring(sliceOfA))
+    // Remove first element of parent array `a`.
+    array.remove(a, 0)
+    // Add a new element at the end of the shallow copy, thus also affecting the original array `a`.
+    array.push(sliceOfA, 4)
+    label.new(bar_index, 0, &quot;AFTER\na: &quot; + str.tostring(a) + &quot;\nsliceOfA: &quot; + str.tostring(sliceOfA), style = label.style_label_up)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="searching-arrays">
+<span id="pagearrays-searchingarrays"></span><h2><a class="toc-backref" href="#id21">Searching arrays</a><a class="headerlink" href="#searching-arrays" title="Permalink to this headline">¶</a></h2>
+<p>We can test if a value is part of an array with the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}includes">array.includes()</a> function,
+which returns true if the element is found.
+We can find the first occurrence of a value in an array by using the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}indexof">array.indexof()</a> function.
+The first occurence is the one with the lowest index.
+We can also find the last occurrence of a value with
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}lastindexof">array.lastindexof()</a>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Searching in arrays&quot;)
+valueInput = input.int(1)
+a = array.new&lt;float&gt;(0)
+array.push(a, 0)
+array.push(a, 1)
+array.push(a, 2)
+array.push(a, 1)
+if barstate.islast
+    valueFound      = array.includes(a, valueInput)
+    firstIndexFound = array.indexof(a, valueInput)
+    lastIndexFound  = array.lastindexof(a, valueInput)
+    label.new(bar_index, 0, &quot;a: &quot; + str.tostring(a) +
+      &quot;\nFirst &quot; + str.tostring(valueInput) + (firstIndexFound != -1 ? &quot; value was found at index: &quot; + str.tostring(firstIndexFound) : &quot; value was not found.&quot;) +
+      &quot;\nLast &quot; + str.tostring(valueInput)  + (lastIndexFound  != -1 ? &quot; value was found at index: &quot; + str.tostring(lastIndexFound) : &quot; value was not found.&quot;))
+</pre></div>
+</div>
+<p>We can also perform a binary search on an array but note that performing a binary search on an array
+means that the array will first need to be sorted in ascending order only.
+The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}binary_search">array.binary_search()</a>
+function will return the value’s index if it was found or -1 if it wasn’t.
+If we want to always return an existing index from the array even if our chosen value wasn’t found,
+then we can use one of the other binary search functions available.
+The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}binary_search_leftmost">array.binary_search_leftmost()</a>
+function, which returns an index if the value was found or the first index to the left where the value would be found.
+The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}binary_search_rightmost">array.binary_search_rightmost()</a>
+function is almost identical and returns an index if the value was found or the first index to the right where the value would be found.</p>
+</div>
+<div class="section" id="error-handling">
+<span id="pagearrays-errorhandling"></span><h2><a class="toc-backref" href="#id22">Error handling</a><a class="headerlink" href="#error-handling" title="Permalink to this headline">¶</a></h2>
+<p>Malformed <code class="docutils literal notranslate"><span class="pre">array.*()</span></code> call syntax in Pine scripts will cause the usual <strong>compiler</strong> error messages to appear in Pine Script<sup>®</sup> Editor’s console,
+at the bottom of the window, when you save a script. Refer to the Pine Script<sup>®</sup> <a class="reference external" href="../../../../pine-script-reference/v5/index.html">v5 Reference Manual</a>
+when in doubt regarding the exact syntax of function calls.</p>
+<p>Scripts using arrays can also throw <strong>runtime</strong> errors, which appear as an exclamation mark next to the indicator’s name on the chart.
+We discuss those runtime errors in this section.</p>
+<div class="section" id="index-xx-is-out-of-bounds-array-size-is-yy">
+<span id="pagearrays-errorhandling-indexisoutofbounds"></span><h3><a class="toc-backref" href="#id23">Index xx is out of bounds. Array size is yy</a><a class="headerlink" href="#index-xx-is-out-of-bounds-array-size-is-yy" title="Permalink to this headline">¶</a></h3>
+<p>This will most probably be the most frequent error you encounter. It will happen when you reference an nonexistent array index.
+The “xx” value will be the value of the faulty index you tried to use, and “yy” will be the size of the array.
+Recall that array indices start at zero—not one—and end at the array’s size, minus one. An array of size 3’s last valid index is thus <code class="docutils literal notranslate"><span class="pre">2</span></code>.</p>
+<p>To avoid this error, you must make provisions in your code logic to prevent using an index lying outside of the array’s index boundaries.
+This code will generate the error because the last index we use in the loop is outside the valid index range for the array:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Out of bounds index&quot;)
+a = array.new&lt;float&gt;(3)
+for i = 1 to 3
+    array.set(a, i, i)
+plot(array.pop(a))
+</pre></div>
+</div>
+<p>The correct <code class="docutils literal notranslate"><span class="pre">for</span></code> statement is:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>for i = 0 to 2
+</pre></div>
+</div>
+<p>To loop on all array elements in an array of unknown size, use:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Protected `for` loop&quot;)
+sizeInput = input.int(0, &quot;Array size&quot;, minval = 0, maxval = 100000)
+a = array.new&lt;float&gt;(sizeInput)
+for i = 0 to (array.size(a) == 0 ? na : array.size(a) - 1)
+    array.set(a, i, i)
+plot(array.pop(a))
+</pre></div>
+</div>
+<p>When you size arrays dynamically using a field in your script’s <em>Settings/Inputs</em> tab, protect the boundaries of that value using
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input{dot}int">input.int()</a>’s <code class="docutils literal notranslate"><span class="pre">minval</span></code> and <code class="docutils literal notranslate"><span class="pre">maxval</span></code> parameters:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Protected array size&quot;)
+sizeInput = input.int(10, &quot;Array size&quot;, minval = 1, maxval = 100000)
+a = array.new&lt;float&gt;(sizeInput)
+for i = 0 to sizeInput - 1
+    array.set(a, i, i)
+plot(array.size(a))
+</pre></div>
+</div>
+<p>See the <a class="reference internal" href="#pagearrays-looping"><span class="std std-ref">Looping</span></a> section of this page for more information.</p>
+</div>
+<div class="section" id="cannot-call-array-methods-when-id-of-array-is-na">
+<span id="pagearrays-errorhandling-cannotcallmethodswhenarrayisna"></span><h3><a class="toc-backref" href="#id24">Cannot call array methods when ID of array is ‘na’</a><a class="headerlink" href="#cannot-call-array-methods-when-id-of-array-is-na" title="Permalink to this headline">¶</a></h3>
+<p>When an array ID is initialized to <code class="docutils literal notranslate"><span class="pre">na</span></code>, operations on it are not allowed, since no array exists.
+All that exists at that point is an array variable containing the <code class="docutils literal notranslate"><span class="pre">na</span></code> value rather that a valid array ID pointing to an existing array.
+Note that an array created with no elements in it, as you do when you use <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">array.new_int(0)</span></code>, has a valid ID nonetheless.
+This code will throw the error we are discussing:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Out of bounds index&quot;)
+int[] a = na
+array.push(a, 111)
+label.new(bar_index, 0, &quot;a: &quot; + str.tostring(a))
+</pre></div>
+</div>
+<p>To avoid it, create an array with size zero using:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>int[] a = array.new_int(0)
+</pre></div>
+</div>
+<p>or:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>a = array.new_int(0)
+</pre></div>
+</div>
+</div>
+<div class="section" id="array-is-too-large-maximum-size-is-100000">
+<span id="pagearrays-errorhandling-arrayistoolarge"></span><h3><a class="toc-backref" href="#id25">Array is too large. Maximum size is 100000</a><a class="headerlink" href="#array-is-too-large-maximum-size-is-100000" title="Permalink to this headline">¶</a></h3>
+<p>This error will appear if your code attempts to declare an array with a size greater than 100,000.
+It will also occur if, while dynamically appending elements to an array, a new element would increase the array’s size past the maximum.</p>
+</div>
+<div class="section" id="cannot-create-an-array-with-a-negative-size">
+<span id="pagearrays-errorhandling-cannotcreatearraywithnegativesize"></span><h3><a class="toc-backref" href="#id26">Cannot create an array with a negative size</a><a class="headerlink" href="#cannot-create-an-array-with-a-negative-size" title="Permalink to this headline">¶</a></h3>
+<p>We haven’t found any use for arrays of negative size yet, but if you ever do, we may allow them :)</p>
+</div>
+<div class="section" id="cannot-use-shift-if-array-is-empty">
+<span id="pagearrays-errorhandling-cannotuseshiftifarrayisempty"></span><h3><a class="toc-backref" href="#id27">Cannot use <cite>shift()</cite> if array is empty.</a><a class="headerlink" href="#cannot-use-shift-if-array-is-empty" title="Permalink to this headline">¶</a></h3>
+<p>This error will occur if <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}shift">array.shift()</a>
+is called to remove the first element of an empty array.</p>
+</div>
+<div class="section" id="cannot-use-pop-if-array-is-empty">
+<span id="pagearrays-errorhandling-cannotusepopifarrayisempty"></span><h3><a class="toc-backref" href="#id28">Cannot use <cite>pop()</cite> if array is empty.</a><a class="headerlink" href="#cannot-use-pop-if-array-is-empty" title="Permalink to this headline">¶</a></h3>
+<p>This error will occur if <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}pop">array.pop()</a>
+is called to remove the last element of an empty array.</p>
+</div>
+<div class="section" id="index-from-should-be-less-than-index-to">
+<span id="pagearrays-errorhandling-indexfromshouldbelessthanindexto"></span><h3><a class="toc-backref" href="#id29">Index ‘from’ should be less than index ‘to’</a><a class="headerlink" href="#index-from-should-be-less-than-index-to" title="Permalink to this headline">¶</a></h3>
+<p>When two indices are used in functions such as <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}slice">array.slice()</a>,
+the first index must always be smaller than the second one.</p>
+</div>
+<div class="section" id="slice-is-out-of-bounds-of-the-parent-array">
+<span id="pagearrays-errorhandling-sliceisoutofbounds"></span><h3><a class="toc-backref" href="#id30">Slice is out of bounds of the parent array</a><a class="headerlink" href="#slice-is-out-of-bounds-of-the-parent-array" title="Permalink to this headline">¶</a></h3>
+<p>This message occurs whenever the parent array’s size is modified in such a way that it makes the shallow copy
+created by a slice point outside the boundaries of the parent array. This code will reproduce it because after creating a slice
+from index 3 to 4 (the last two elements of our five-element parent array), we remove the parent’s first element,
+making its size four and its last index 3. From that moment on, the shallow copy which is still poiting to the “window” at
+the parent array’s indices 3 to 4, is pointing out of the parent array’s boundaries:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Slice out of bounds&quot;)
+a = array.new&lt;float&gt;(5, 0)
+b = array.slice(a, 3, 5)
+array.remove(a, 0)
+c = array.indexof(b, 2)
+plot(c)
+</pre></div>
+</div>
+<a class="reference external image-reference" href="https://www.tradingview.com/"><div align="center" class="align-center"><img alt="../_images/TradingView-Logo-Block.svg" src="../_images/TradingView-Logo-Block.svg" width="200px" /></div>
+</a>
+</div>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="Methods.html" title="previous chapter (use the left arrow)">Methods</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="Matrices.html" title="next chapter (use the right arrow)">Matrices</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Matrices.html" title="Matrices"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Methods.html" title="Methods"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Language</a> &#187;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="../_static/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="../_static/js/theme.js"></script>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Options</span>
+    v: v5
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Languages</dt>
+      
+        <strong>
+        <dd><a href="Arrays.html">en</a></dd>
+        </strong>
+      
+    </dl>
+    <dl>
+      <dt>Versions</dt>
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v3/language/Arrays.html">v3</a></dd>
+        
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v4/language/Arrays.html">v4</a></dd>
+        
+      
+        <strong>
+        <dd><a href="Arrays.html">v5</a></dd>
+        </strong>
+      
+    </dl>
+  </div>
+</div>
+<script type="text/javascript">
+    jQuery(function () {
+        SphinxRtdTheme.Navigation.enable(false);
+    });
+</script>
+  <div class="footer">
+    &copy; Copyright 2023, TradingView.
+  </div>
+  </body>
+
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/language/Arrays.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:56:06 GMT -->
+</html>

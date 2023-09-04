@@ -1,0 +1,1205 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/language/Maps.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:57:40 GMT -->
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Maps &#8212; Pine Script® v5 User Manual v5 documentation</title>
+    <link rel="stylesheet" href="../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../../../../static.tradingview.com/static/bundles/pine-highlighter-v01.js"></script>
+    <script type="text/javascript" src="../_static/highlight-pine-code.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Concepts" href="../concepts/index.html" />
+    <link rel="prev" title="Matrices" href="Matrices.html" />
+  
+   
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../concepts/index.html" title="Concepts"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Matrices.html" title="Matrices"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Language</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="../index.html" class="text-logo">Pine Script<sup>®</sup> v5 User Manual</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Introduction.html">Welcome to Pine Script<sup>®</sup> v5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primer/index.html">Pine Script<sup>®</sup> primer</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Language</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Execution_model.html">Execution model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Time_series.html">Time series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Script_structure.html">Script structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Identifiers.html">Identifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variable_declarations.html">Variable declarations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Conditional_structures.html">Conditional structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Type_system.html">Type system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Built-ins.html">Built-ins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="User-defined_functions.html">User-defined functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Objects.html">Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Methods.html">Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Arrays.html">Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Matrices.html">Matrices</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Maps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#declaring-a-map">Declaring a map</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reading-and-writing">Reading and writing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#looping-through-a-map">Looping through a map</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#copying-a-map">Copying a map</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scope-and-history">Scope and history</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#maps-of-other-collections">Maps of other collections</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../writing/index.html">Writing scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Error_messages.html">Error messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Release_notes.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migration_guides/index.html">Migration guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Where_can_I_get_more_information.html">Where can I get more information?</a></li>
+</ul>
+
+    
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="https://www.tradingview.com/pine-script-docs/en/v5/search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../index.html">User Manual</a></li>
+              
+                <li><a href="index.html">Language</a></li>
+              
+              <li>Maps</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <div class="figure align-right" style="width: 50%">
+<a class="reference external image-reference" href="../Introduction.html"><img alt="../_images/Pine-script-logo.svg" height="100" src="../_images/Pine-script-logo.svg" width="100" /></a>
+</div>
+<p><a class="reference internal" href="../_images/Advanced.svg"><div align="bottom" class="align-bottom"><img alt="Advanced logo" height="100" src="../_images/Advanced.svg" width="100" /></div>
+</a></p>
+<div class="section" id="maps">
+<span id="pagemaps"></span><h1>Maps<a class="headerlink" href="#maps" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#introduction" id="id1">Introduction</a></li>
+<li><a class="reference internal" href="#declaring-a-map" id="id2">Declaring a map</a><ul>
+<li><a class="reference internal" href="#using-var-and-varip-keywords" id="id3">Using `var` and `varip` keywords</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#reading-and-writing" id="id4">Reading and writing</a><ul>
+<li><a class="reference internal" href="#putting-and-getting-key-value-pairs" id="id5">Putting and getting key-value pairs</a></li>
+<li><a class="reference internal" href="#inspecting-keys-and-values" id="id6">Inspecting keys and values</a><ul>
+<li><a class="reference internal" href="#map-keys-and-map-values" id="id7">`map.keys()` and `map.values()`</a></li>
+<li><a class="reference internal" href="#map-contains" id="id8">`map.contains()`</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#removing-key-value-pairs" id="id9">Removing key-value pairs</a></li>
+<li><a class="reference internal" href="#combining-maps" id="id10">Combining maps</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#looping-through-a-map" id="id11">Looping through a map</a></li>
+<li><a class="reference internal" href="#copying-a-map" id="id12">Copying a map</a><ul>
+<li><a class="reference internal" href="#shallow-copies" id="id13">Shallow copies</a></li>
+<li><a class="reference internal" href="#deep-copies" id="id14">Deep copies</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#scope-and-history" id="id15">Scope and history</a></li>
+<li><a class="reference internal" href="#maps-of-other-collections" id="id16">Maps of other collections</a></li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This page contains advanced material. If you are a beginning Pine Script<sup>®</sup> programmer, we recommend
+you become familiar with other, more accessible Pine Script<sup>®</sup> features before you venture here.</p>
+</div>
+<div class="section" id="introduction">
+<h2><a class="toc-backref" href="#id1">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Pine Script<sup>®</sup> Maps are collections that store elements in <em>key-value pairs</em>. They allow scripts to collect
+multiple value references associated with unique identifiers (keys).</p>
+<p>Unlike <a class="reference internal" href="Arrays.html#pagearrays"><span class="std std-ref">arrays</span></a> and <a class="reference internal" href="Matrices.html#pagematrices"><span class="std std-ref">matrices</span></a>, maps are considered <em>unordered</em> collections.
+Scripts quickly access a map’s values by referencing the keys from the key-value pairs put into them rather than
+traversing an internal index.</p>
+<p>A map’s keys can be of any <em>fundamental type</em>, and its values can be of any built-in or
+<a class="reference internal" href="Type_system.html#pagetypesystem-userdefinedtypes"><span class="std std-ref">user-defined</span></a> type. Maps cannot directly use other <em>collections</em>
+(maps, <a class="reference internal" href="Arrays.html#pagearrays"><span class="std std-ref">arrays</span></a>, or <a class="reference internal" href="Matrices.html#pagematrices"><span class="std std-ref">matrices</span></a>) as values, but they can hold
+<a class="reference internal" href="Type_system.html#pagetypesystem-userdefinedtypes"><span class="std std-ref">UDT</span></a> instances containing these data structures within their fields.
+See <a class="reference internal" href="#pagemaps-mapsofothercollections"><span class="std std-ref">this section</span></a> for more information.</p>
+<p>As with other collections, maps can contain up to 100,000 elements in total. Since each key-value pair in a map consists
+of two elements (a unique <em>key</em> and its associated <em>value</em>), the maximum number of key-value pairs a map can hold is 50,000.</p>
+</div>
+<div class="section" id="declaring-a-map">
+<span id="pagemaps-declaringamap"></span><h2><a class="toc-backref" href="#id2">Declaring a map</a><a class="headerlink" href="#declaring-a-map" title="Permalink to this headline">¶</a></h2>
+<p>Pine Script<sup>®</sup> uses the following syntax to declare maps:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[var/varip ][map&lt;keyType, valueType&gt; ]&lt;identifier&gt; = &lt;expression&gt;
+</pre></div>
+</div>
+<p>Where <code class="docutils literal notranslate"><span class="pre">&lt;keyType,</span> <span class="pre">valueType&gt;</span></code> is the map’s <a class="reference internal" href="Type_system.html#pagetypesystem-typetemplates"><span class="std std-ref">type template</span></a> that declares
+the types of keys and values it will contain, and the <code class="docutils literal notranslate"><span class="pre">&lt;expression&gt;</span></code> returns either a map instance or <code class="docutils literal notranslate"><span class="pre">na</span></code>.</p>
+<p>When declaring a map variable assigned to <code class="docutils literal notranslate"><span class="pre">na</span></code>, users must include the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_map">map</a> keyword followed by a
+<a class="reference internal" href="Type_system.html#pagetypesystem-typetemplates"><span class="std std-ref">type template</span></a> to tell the compiler that the variable can accept
+maps with <code class="docutils literal notranslate"><span class="pre">keyType</span></code> keys and <code class="docutils literal notranslate"><span class="pre">valueType</span></code> values.</p>
+<p>For example, this line of code declares a new <code class="docutils literal notranslate"><span class="pre">myMap</span></code> variable that can accept map instances holding pairs of
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_string">string</a> keys and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_float">float</a> values:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>map&lt;string, float&gt; myMap = na
+</pre></div>
+</div>
+<p>When the <code class="docutils literal notranslate"><span class="pre">&lt;expression&gt;</span></code> is not <code class="docutils literal notranslate"><span class="pre">na</span></code>, the compiler does not require explicit type declaration,
+as it will infer the type information from the assigned map object.</p>
+<p>This line declares a <code class="docutils literal notranslate"><span class="pre">myMap</span></code> variable assigned to an empty map with
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_string">string</a> keys and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_float">float</a> values.
+Any maps assigned to this variable later must have the same key and value types:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>myMap = map.new&lt;string, float&gt;()
+</pre></div>
+</div>
+<div class="section" id="using-var-and-varip-keywords">
+<span id="pagemaps-declaringamap-usingvarandvaripkeywords"></span><h3><a class="toc-backref" href="#id3">Using `var` and `varip` keywords</a><a class="headerlink" href="#using-var-and-varip-keywords" title="Permalink to this headline">¶</a></h3>
+<p>Users can include the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#kw_var">var</a> or
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#kw_varip">varip</a> keywords to instruct their scripts to
+declare map variables only on the first chart bar. Variables that use these keywords point to the same map instances
+on each script iteration until explicitly reassigned.</p>
+<p>For example, this script declares a <code class="docutils literal notranslate"><span class="pre">colorMap</span></code> variable assigned to a map that holds pairs of
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_string">string</a> keys and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_color">color</a> values on the first chart bar.
+The script displays an <code class="docutils literal notranslate"><span class="pre">oscillator</span></code> on the chart and uses the values it
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_map.put">put</a> into the <code class="docutils literal notranslate"><span class="pre">colorMap</span></code> on the <em>first</em> bar
+to color the plots on <em>all</em> bars:</p>
+<img alt="../_images/Maps-Declaring-a-map-Using-var-and-varip-keywords-1.png" src="../_images/Maps-Declaring-a-map-Using-var-and-varip-keywords-1.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;var map demo&quot;)
+
+//@variable A map associating color values with string keys.
+var colorMap = map.new&lt;string, color&gt;()
+
+// Put `&lt;string, color&gt;` pairs into `colorMap` on the first bar.
+if bar_index == 0
+    colorMap.put(&quot;Bull&quot;, color.green)
+    colorMap.put(&quot;Bear&quot;, color.red)
+    colorMap.put(&quot;Neutral&quot;, color.gray)
+
+//@variable The 14-bar RSI of `close`.
+float oscillator = ta.rsi(close, 14)
+
+//@variable The color of the `oscillator`.
+color oscColor = switch
+    oscillator &gt; 50 =&gt; colorMap.get(&quot;Bull&quot;)
+    oscillator &lt; 50 =&gt; colorMap.get(&quot;Bear&quot;)
+    =&gt;                 colorMap.get(&quot;Neutral&quot;)
+
+// Plot the `oscillator` using the `oscColor` from our `colorMap`.
+plot(oscillator, &quot;Histogram&quot;, oscColor, 2, plot.style_histogram, histbase = 50)
+plot(oscillator, &quot;Line&quot;, oscColor, 3)
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Map variables declared using <a class="reference external" href="../../../../pine-script-reference/v5/index.html#kw_varip">varip</a>
+behave as ones using <a class="reference external" href="../../../../pine-script-reference/v5/index.html#kw_var">var</a> on historical data,
+but they update their key-value pairs for realtime bars (i.e., the bars since the script’s last compilation)
+on each new price tick. Maps assigned to <a class="reference external" href="../../../../pine-script-reference/v5/index.html#kw_varip">varip</a>
+variables can only hold values of <a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_int">int</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_float">float</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_bool">bool</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_color">color</a>, or
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_string">string</a> types or
+<a class="reference internal" href="Type_system.html#pagetypesystem-userdefinedtypes"><span class="std std-ref">user-defined types</span></a> that exclusively contain within their fields these types
+or collections (<a class="reference internal" href="Arrays.html#pagearrays"><span class="std std-ref">arrays</span></a>, <a class="reference internal" href="Matrices.html#pagematrices"><span class="std std-ref">matrices</span></a>, or maps) of these types.</p>
+</div>
+</div>
+</div>
+<div class="section" id="reading-and-writing">
+<span id="pagemaps-readingandwriting"></span><h2><a class="toc-backref" href="#id4">Reading and writing</a><a class="headerlink" href="#reading-and-writing" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="putting-and-getting-key-value-pairs">
+<span id="pagemaps-readingandwriting-puttingandgettingkeyvaluepairs"></span><h3><a class="toc-backref" href="#id5">Putting and getting key-value pairs</a><a class="headerlink" href="#putting-and-getting-key-value-pairs" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_map.put">map.put()</a> function is one that map users
+will utilize quite often, as it’s the primary method to put a new key-value pair into a map. It associates the <code class="docutils literal notranslate"><span class="pre">key</span></code>
+argument with the <code class="docutils literal notranslate"><span class="pre">value</span></code> argument in the call and adds the pair to the map <code class="docutils literal notranslate"><span class="pre">id</span></code>.</p>
+<p>If the <code class="docutils literal notranslate"><span class="pre">key</span></code> argument in the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_map.put">map.put()</a> call
+already exists in the map’s <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_map.keys">keys</a>, the new pair
+passed into the function will <strong>replace</strong> the existing one.</p>
+<p>To retrieve the value from a map <code class="docutils literal notranslate"><span class="pre">id</span></code> associated with a given <code class="docutils literal notranslate"><span class="pre">key</span></code>, use
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_map.get">map.get()</a>. This function returns the value
+if the <code class="docutils literal notranslate"><span class="pre">id</span></code> map <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_map.contains">contains</a> the <code class="docutils literal notranslate"><span class="pre">key</span></code>.
+Otherwise, it returns <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a>.</p>
+<p>The following example calculates the difference between the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_bar_index">bar_index</a> values from when
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_close">close</a> was last
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_ta.rising">rising</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_ta.falling">falling</a> over a given <code class="docutils literal notranslate"><span class="pre">length</span></code>
+with the help of <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_map.put">map.put()</a>
+and <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_map.get">map.get()</a> methods. The script puts a
+<code class="docutils literal notranslate"><span class="pre">(&quot;Rising&quot;,</span> <span class="pre">bar_index)</span></code> pair into the <code class="docutils literal notranslate"><span class="pre">data</span></code> map when the price is rising and puts a <code class="docutils literal notranslate"><span class="pre">(&quot;Falling&quot;,</span> <span class="pre">bar_index)</span></code>
+pair into the map when the price is falling. It then puts a pair containing the “Difference” between the “Rising” and “Falling”
+values into the map and plots its value on the chart:</p>
+<img alt="../_images/Maps-Reading-and-writing-Putting-and-getting-key-value-pairs-1.png" src="../_images/Maps-Reading-and-writing-Putting-and-getting-key-value-pairs-1.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Putting and getting demo&quot;)
+
+//@variable The length of the `ta.rising()` and `ta.falling()` calculation.
+int length = input.int(2, &quot;Length&quot;)
+
+//@variable A map associating `string` keys with `int` values.
+var data = map.new&lt;string, int&gt;()
+
+// Put a new (&quot;Rising&quot;, `bar_index`) pair into the `data` map when `close` is rising.
+if ta.rising(close, length)
+    data.put(&quot;Rising&quot;, bar_index)
+// Put a new (&quot;Falling&quot;, `bar_index`) pair into the `data` map when `close` is falling.
+if ta.falling(close, length)
+    data.put(&quot;Falling&quot;, bar_index)
+
+// Put the &quot;Difference&quot; between current &quot;Rising&quot; and &quot;Falling&quot; values into the `data` map.
+data.put(&quot;Difference&quot;, data.get(&quot;Rising&quot;) - data.get(&quot;Falling&quot;))
+
+//@variable The difference between the last &quot;Rising&quot; and &quot;Falling&quot; `bar_index`.
+int index = data.get(&quot;Difference&quot;)
+
+//@variable Returns `color.green` when `index` is positive, `color.red` when negative, and `color.gray` otherwise.
+color indexColor = index &gt; 0 ? color.green : index &lt; 0 ? color.red : color.gray
+
+plot(index, color = indexColor, style = plot.style_columns)
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Note that:</dt>
+<dd><ul class="first last simple">
+<li>This script replaces the values associated with the “Rising”, “Falling”, and “Difference” keys on successive
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_map.put">data.put()</a> calls, as each of these keys
+is unique and can only appear once in the <code class="docutils literal notranslate"><span class="pre">data</span></code> map.</li>
+<li>Replacing the pairs in a map does not change the internal <em>insertion order</em> of its keys. We discuss this further
+in the <a class="reference internal" href="#pagemaps-readingandwriting-inspectingkeysandvalues"><span class="std std-ref">next section</span></a>.</li>
+</ul>
+</dd>
+</dl>
+<p>Similar to working with other collections, when putting a value of a <em>special type</em>
+(<a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_line">line</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_linefill">linefill</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_label">label</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_box">box</a>, or
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_table">table</a>) or a
+<a class="reference internal" href="Type_system.html#pagetypesystem-userdefinedtypes"><span class="std std-ref">user-defined type</span></a> into a map, it’s important to note the inserted pair’s
+<code class="docutils literal notranslate"><span class="pre">value</span></code> points to that same object without copying it. Modifying the value referenced by a key-value pair will
+also affect the original object.</p>
+<p>For example, this script contains a custom <code class="docutils literal notranslate"><span class="pre">ChartData</span></code> type with <code class="docutils literal notranslate"><span class="pre">o</span></code>, <code class="docutils literal notranslate"><span class="pre">h</span></code>, <code class="docutils literal notranslate"><span class="pre">l</span></code>, and <code class="docutils literal notranslate"><span class="pre">c</span></code> fields.
+On the first chart bar, the script declares a <code class="docutils literal notranslate"><span class="pre">myMap</span></code> variable and adds the pair <code class="docutils literal notranslate"><span class="pre">(&quot;A&quot;,</span> <span class="pre">myData)</span></code>, where
+<code class="docutils literal notranslate"><span class="pre">myData</span></code> is a <code class="docutils literal notranslate"><span class="pre">ChartData</span></code> instance with initial field values of <code class="docutils literal notranslate"><span class="pre">na</span></code>. It adds the pair <code class="docutils literal notranslate"><span class="pre">(&quot;B&quot;,</span> <span class="pre">myData)</span></code>
+to <code class="docutils literal notranslate"><span class="pre">myMap</span></code> and updates the object from this pair on every bar via the user-defined <code class="docutils literal notranslate"><span class="pre">update()</span></code> method.</p>
+<p>Each change to the object with the “B” key affects the one referenced by the “A” key, as shown by the candle
+plot of the “A” object’s fields:</p>
+<img alt="../_images/Maps-Reading-and-writing-Putting-and-getting-key-value-pairs-2.png" src="../_images/Maps-Reading-and-writing-Putting-and-getting-key-value-pairs-2.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Putting and getting objects demo&quot;)
+
+//@type A custom type to hold OHLC data.
+type ChartData
+    float o
+    float h
+    float l
+    float c
+
+//@function Updates the fields of a `ChartData` object.
+method update(ChartData this) =&gt;
+    this.o := open
+    this.h := high
+    this.l := low
+    this.c := close
+
+//@variable A new `ChartData` instance declared on the first bar.
+var myData = ChartData.new()
+//@variable A map associating `string` keys with `ChartData` instances.
+var myMap = map.new&lt;string, ChartData&gt;()
+
+// Put a new pair with the &quot;A&quot; key into `myMap` only on the first bar.
+if bar_index == 0
+    myMap.put(&quot;A&quot;, myData)
+
+// Put a pair with the &quot;B&quot; key into `myMap` on every bar.
+myMap.put(&quot;B&quot;, myData)
+
+//@variable The `ChartData` value associated with the &quot;A&quot; key in `myMap`.
+ChartData oldest = myMap.get(&quot;A&quot;)
+//@variable The `ChartData` value associated with the &quot;B&quot; key in `myMap`.
+ChartData newest = myMap.get(&quot;B&quot;)
+
+// Update `newest`. Also affects `oldest` and `myData` since they all reference the same `ChartData` object.
+newest.update()
+
+// Plot the fields of `oldest` as candles.
+plotcandle(oldest.o, oldest.h, oldest.l, oldest.c)
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Note that:</dt>
+<dd><ul class="first last simple">
+<li>This script would behave differently if it passed a copy of <code class="docutils literal notranslate"><span class="pre">myData</span></code> into each
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_map.put">myMap.put()</a> call.
+For more information, see <a class="reference internal" href="Objects.html#pageobjects-copyingobjects"><span class="std std-ref">this</span></a> section of our User Manual’s
+page on <a class="reference internal" href="Objects.html#pageobjects"><span class="std std-ref">objects</span></a>.</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="inspecting-keys-and-values">
+<span id="pagemaps-readingandwriting-inspectingkeysandvalues"></span><h3><a class="toc-backref" href="#id6">Inspecting keys and values</a><a class="headerlink" href="#inspecting-keys-and-values" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="map-keys-and-map-values">
+<span id="pagemaps-readingandwriting-inspectingkeysandvalues-mapkeysandmapvalues"></span><h4><a class="toc-backref" href="#id7">`map.keys()` and `map.values()`</a><a class="headerlink" href="#map-keys-and-map-values" title="Permalink to this headline">¶</a></h4>
+<p>To retrieve all keys and values put into a map, use
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_map.keys">map.keys()</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_map.values">map.values()</a>.
+These functions copy all key/value references within a map <code class="docutils literal notranslate"><span class="pre">id</span></code> to a new
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_array">array</a> object.
+Modifying the array returned from either of these functions does not affect the <code class="docutils literal notranslate"><span class="pre">id</span></code> map.</p>
+<p>Although maps are <em>unordered</em> collections, Pine Script<sup>®</sup> internally maintains the <em>insertion order</em>
+of a map’s key-value pairs. As a result, the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_map.keys">map.keys()</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_map.values">map.values()</a> functions always return
+<a class="reference internal" href="Arrays.html#pagearrays"><span class="std std-ref">arrays</span></a> with their elements ordered based on the <code class="docutils literal notranslate"><span class="pre">id</span></code> map’s insertion order.</p>
+<p>The script below demonstrates this by displaying the key and value arrays from an <code class="docutils literal notranslate"><span class="pre">m</span></code> map in a
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_label">label</a> once every 50 bars. As we see on the chart,
+the order of elements in each array returned by <code class="docutils literal notranslate"><span class="pre">m.keys()</span></code> and <code class="docutils literal notranslate"><span class="pre">m.values()</span></code> aligns with the insertion order of
+the key-value pairs in <code class="docutils literal notranslate"><span class="pre">m</span></code>:</p>
+<img alt="../_images/Maps-Reading-and-writing-Inspecting-keys-and-values-1.png" src="../_images/Maps-Reading-and-writing-Inspecting-keys-and-values-1.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Keys and values demo&quot;)
+
+if bar_index % 50 == 0
+    //@variable A map containing pairs of `string` keys and `float` values.
+    m = map.new&lt;string, float&gt;()
+
+    // Put pairs into `m`. The map will maintain this insertion order.
+    m.put(&quot;First&quot;, math.round(math.random(0, 100)))
+    m.put(&quot;Second&quot;, m.get(&quot;First&quot;) + 1)
+    m.put(&quot;Third&quot;, m.get(&quot;Second&quot;) + 1)
+
+    //@variable An array containing the keys of `m` in their insertion order.
+    array&lt;string&gt; keys = m.keys()
+    //@variable An array containing the values of `m` in their insertion order.
+    array&lt;float&gt; values = m.values()
+
+    //@variable A label displaying the `size` of `m` and the `keys` and `values` arrays.
+    label debugLabel = label.new(
+         bar_index, 0,
+         str.format(&quot;Pairs: {0}\nKeys: {1}\nValues: {2}&quot;, m.size(), keys, values),
+         color = color.navy, style = label.style_label_center,
+         textcolor = color.white, size = size.huge
+     )
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Note that:</dt>
+<dd><ul class="first last simple">
+<li>The value with the “First” key is a <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_math.random">random</a>
+whole number between 0 and 100. The “Second” value is one greater than the “First”, and the “Third” value is one
+greater than the “Second”.</li>
+</ul>
+</dd>
+</dl>
+<p>It’s important to note a map’s internal insertion order <strong>does not</strong> change when replacing its key-value pairs.
+The locations of the new elements in the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_map.keys">keys()</a>
+and <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_map.values">values()</a> arrays will be the same as the
+old elements in such cases. The only exception is if the script completely
+<a class="reference internal" href="#pagemaps-readingandwriting-removingkeyvaluepairs"><span class="std std-ref">removes</span></a> the key beforehand.</p>
+<p>Below, we’ve added a line of code to <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_map.put">put</a> a new
+value with the “Second” key into the <code class="docutils literal notranslate"><span class="pre">m</span></code> map, overwriting the previous value associated with that key. Although the
+script puts this new pair into the map <em>after</em> the one with the “Third” key, the pair’s key and value are still second
+in the <code class="docutils literal notranslate"><span class="pre">keys</span></code> and <code class="docutils literal notranslate"><span class="pre">values</span></code> arrays since the key was already present in <code class="docutils literal notranslate"><span class="pre">m</span></code> <em>before</em> the change:</p>
+<img alt="../_images/Maps-Reading-and-writing-Inspecting-keys-and-values-2.png" src="../_images/Maps-Reading-and-writing-Inspecting-keys-and-values-2.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Keys and values demo&quot;)
+
+if bar_index % 50 == 0
+    //@variable A map containing pairs of `string` keys and `float` values.
+    m = map.new&lt;string, float&gt;()
+
+    // Put pairs into `m`. The map will maintain this insertion order.
+    m.put(&quot;First&quot;, math.round(math.random(0, 100)))
+    m.put(&quot;Second&quot;, m.get(&quot;First&quot;) + 1)
+    m.put(&quot;Third&quot;, m.get(&quot;Second&quot;) + 1)
+
+    // Overwrite the &quot;Second&quot; pair in `m`. This will NOT affect the insertion order.
+    // The key and value will still appear second in the `keys` and `values` arrays.
+    m.put(&quot;Second&quot;, -2)
+
+    //@variable An array containing the keys of `m` in their insertion order.
+    array&lt;string&gt; keys = m.keys()
+    //@variable An array containing the values of `m` in their insertion order.
+    array&lt;float&gt; values = m.values()
+
+    //@variable A label displaying the `size` of `m` and the `keys` and `values` arrays.
+    label debugLabel = label.new(
+         bar_index, 0,
+         str.format(&quot;Pairs: {0}\nKeys: {1}\nValues: {2}&quot;, m.size(), keys, values),
+         color = color.navy, style = label.style_label_center,
+         textcolor = color.white, size = size.huge
+     )
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The elements in a <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_map.values">map.values()</a>
+array point to the same values as the map <code class="docutils literal notranslate"><span class="pre">id</span></code>. Consequently, when the map’s values are of <em>reference types</em>,
+including <a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_line">line</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_linefill">linefill</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_label">label</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_box">box</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_table">table</a>, or
+<a class="reference internal" href="Type_system.html#pagetypesystem-userdefinedtypes"><span class="std std-ref">UDTs</span></a>, modifying the instances
+referenced by the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_map.values">map.values()</a>
+array will also affect those referenced by the map <code class="docutils literal notranslate"><span class="pre">id</span></code> since the contents of both collections point to identical objects.</p>
+</div>
+</div>
+<div class="section" id="map-contains">
+<span id="pagemaps-readingandwriting-inspectingkeysandvalues-mapcontains"></span><h4><a class="toc-backref" href="#id8">`map.contains()`</a><a class="headerlink" href="#map-contains" title="Permalink to this headline">¶</a></h4>
+<p>To check if a specific <code class="docutils literal notranslate"><span class="pre">key</span></code> exists within a map <code class="docutils literal notranslate"><span class="pre">id</span></code>, use
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_map.contains">map.contains()</a>.
+This function is a convenient alternative to calling
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array.includes">array.includes()</a> on the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_array">array</a> returned from
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_map.keys">map.keys()</a>.</p>
+<p>For example, this script checks if various keys exist within an <code class="docutils literal notranslate"><span class="pre">m</span></code> map,
+then displays the results in a <a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_label">label</a>:</p>
+<img alt="../_images/Maps-Reading-and-writing-Inspecting-keys-and-values-3.png" src="../_images/Maps-Reading-and-writing-Inspecting-keys-and-values-3.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Inspecting keys demo&quot;)
+
+//@variable A map containing `string` keys and `string` values.
+m = map.new&lt;string, string&gt;()
+
+// Put key-value pairs into the map.
+m.put(&quot;A&quot;, &quot;B&quot;)
+m.put(&quot;C&quot;, &quot;D&quot;)
+m.put(&quot;E&quot;, &quot;F&quot;)
+
+//@variable An array of keys to check for in `m`.
+array&lt;string&gt; testKeys = array.from(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;, &quot;F&quot;)
+
+//@variable An array containing all elements from `testKeys` found in the keys of `m`.
+array&lt;string&gt; mappedKeys = array.new&lt;string&gt;()
+
+for key in testKeys
+    // Add the `key` to `mappedKeys` if `m` contains it.
+    if m.contains(key)
+        mappedKeys.push(key)
+
+//@variable A string representing the `testKeys` array and the elements found within the keys of `m`.
+string testText = str.format(&quot;Tested keys: {0}\nKeys found: {1}&quot;, testKeys, mappedKeys)
+
+if bar_index == last_bar_index - 1
+    //@variable Displays the `testText` in a label at the `bar_index` before the last.
+    label debugLabel = label.new(
+         bar_index, 0, testText, style = label.style_label_center,
+         textcolor = color.white, size = size.huge
+     )
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="removing-key-value-pairs">
+<span id="pagemaps-readingandwriting-removingkeyvaluepairs"></span><h3><a class="toc-backref" href="#id9">Removing key-value pairs</a><a class="headerlink" href="#removing-key-value-pairs" title="Permalink to this headline">¶</a></h3>
+<p>To remove a specific key-value pair from a map <code class="docutils literal notranslate"><span class="pre">id</span></code>, use
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_map.remove">map.remove()</a>.
+This function removes the <code class="docutils literal notranslate"><span class="pre">key</span></code> and its associated value from the map while preserving the insertion
+order of other key-value pairs. It returns the removed value if the map
+<a class="reference internal" href="#pagemaps-readingandwriting-inspectingkeysandvalues-mapcontains"><span class="std std-ref">contained</span></a> the <code class="docutils literal notranslate"><span class="pre">key</span></code>.
+Otherwise, it returns <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a>.</p>
+<p>To remove all key-value pairs from a map <code class="docutils literal notranslate"><span class="pre">id</span></code> at once, use
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_map.clear">map.clear()</a>.</p>
+<p>The following script creates a new <code class="docutils literal notranslate"><span class="pre">m</span></code> map, <a class="reference internal" href="#pagemaps-readingandwriting-puttingandgettingkeyvaluepairs"><span class="std std-ref">puts</span></a>
+key-value pairs into the map, uses <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_map.remove">m.remove()</a>
+within a loop to remove each valid <code class="docutils literal notranslate"><span class="pre">key</span></code> listed in the <code class="docutils literal notranslate"><span class="pre">removeKeys</span></code> array, then calls
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_map.clear">m.clear()</a> to remove all remaining key-value pairs.
+It uses a custom <code class="docutils literal notranslate"><span class="pre">debugLabel()</span></code> method to display the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_map.size">size</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_map.keys">keys</a>, and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_map.values">values</a> of <code class="docutils literal notranslate"><span class="pre">m</span></code> after each change:</p>
+<img alt="../_images/Maps-Reading-and-writing-Removing-key-value-pairs-1.png" src="../_images/Maps-Reading-and-writing-Removing-key-value-pairs-1.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Removing key-value pairs demo&quot;)
+
+//@function Returns a label to display the keys and values from a map.
+method debugLabel(
+     map&lt;string, int&gt; this, int barIndex = bar_index,
+     color bgColor = color.blue, string note = &quot;&quot;
+ ) =&gt;
+    //@variable A string representing the size, keys, and values in `this` map.
+    string repr = str.format(
+         &quot;{0}\nSize: {1}\nKeys: {2}\nValues: {3}&quot;,
+         note, this.size(), str.tostring(this.keys()), str.tostring(this.values())
+     )
+    label.new(
+         barIndex, 0, repr, color = bgColor, style = label.style_label_center,
+         textcolor = color.white, size = size.huge
+     )
+
+if bar_index == last_bar_index - 1
+    //@variable A map containing `string` keys and `int` values.
+    m = map.new&lt;string, int&gt;()
+
+    // Put key-value pairs into `m`.
+    for [i, key] in array.from(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;)
+        m.put(key, i)
+    m.debugLabel(bar_index, color.green, &quot;Added pairs&quot;)
+
+    //@variable An array of keys to remove from `m`.
+    array&lt;string&gt; removeKeys = array.from(&quot;B&quot;, &quot;B&quot;, &quot;D&quot;, &quot;F&quot;, &quot;a&quot;)
+
+    // Remove each `key` in `removeKeys` from `m`.
+    for key in removeKeys
+        m.remove(key)
+    m.debugLabel(bar_index + 10, color.red, &quot;Removed pairs&quot;)
+
+    // Remove all remaining keys from `m`.
+    m.clear()
+    m.debugLabel(bar_index + 20, color.purple, &quot;Cleared the map&quot;)
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Note that:</dt>
+<dd><ul class="first last simple">
+<li>Not all strings in the <code class="docutils literal notranslate"><span class="pre">removeKeys</span></code> array were present in the keys of <code class="docutils literal notranslate"><span class="pre">m</span></code>.
+Attempting to remove non-existent keys (“F”, “a”, and the second “B” in this example)
+has no effect on a map’s contents.</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="combining-maps">
+<span id="pagemaps-readingandwriting-combiningmaps"></span><h3><a class="toc-backref" href="#id10">Combining maps</a><a class="headerlink" href="#combining-maps" title="Permalink to this headline">¶</a></h3>
+<p>Scripts can combine two maps via <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_map.put_all">map.put_all()</a>.
+This function puts <em>all</em> key-value pairs from the <code class="docutils literal notranslate"><span class="pre">id2</span></code> map, in their insertion order, into the <code class="docutils literal notranslate"><span class="pre">id1</span></code> map.
+As with <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_map.put">map.put()</a>, if any keys in <code class="docutils literal notranslate"><span class="pre">id2</span></code>
+are also present in <code class="docutils literal notranslate"><span class="pre">id1</span></code>, this function <strong>replaces</strong> the key-value pairs that contain those keys without
+affecting their initial insertion order.</p>
+<p>This example contains a user-defined <code class="docutils literal notranslate"><span class="pre">hexMap()</span></code> function that maps decimal
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_int">int</a> keys to
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_string">string</a> representations of their
+<a class="reference external" href="https://en.wikipedia.org//wiki/Hexadecimal" rel="nofollow">hexadecimal</a> forms. The script uses this function to create two maps,
+<code class="docutils literal notranslate"><span class="pre">mapA</span></code> and <code class="docutils literal notranslate"><span class="pre">mapB</span></code>, then uses <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_map.put_all">mapA.put_all(mapB)</a>
+to put all key-value pairs from <code class="docutils literal notranslate"><span class="pre">mapB</span></code> into <code class="docutils literal notranslate"><span class="pre">mapA</span></code>.</p>
+<p>The script uses a custom <code class="docutils literal notranslate"><span class="pre">debugLabel()</span></code> function to display labels showing the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_map.keys">keys</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_map.values">values</a> of <code class="docutils literal notranslate"><span class="pre">mapA</span></code> and <code class="docutils literal notranslate"><span class="pre">mapB</span></code>,
+then another label displaying the contents of <code class="docutils literal notranslate"><span class="pre">mapA</span></code> after putting all key-value pairs from <code class="docutils literal notranslate"><span class="pre">mapB</span></code> into it:</p>
+<img alt="../_images/Maps-Reading-and-writing-Combining-maps-1.png" src="../_images/Maps-Reading-and-writing-Combining-maps-1.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Combining maps demo&quot;, &quot;Hex map&quot;)
+
+//@variable An array of string hex digits.
+var array&lt;string&gt; hexDigits = str.split(&quot;0123456789ABCDEF&quot;, &quot;&quot;)
+
+//@function Returns a hexadecimal string for the specified `value`.
+hex(int value) =&gt;
+    //@variable A string representing the hex form of the `value`.
+    string result = &quot;&quot;
+    //@variable A temporary value for digit calculation.
+    int tempValue = value
+    while tempValue &gt; 0
+        //@variable The next integer digit.
+        int digit = tempValue % 16
+        // Add the hex form of the `digit` to the `result`.
+        result := hexDigits.get(digit) + result
+        // Divide the `tempValue` by the base.
+        tempValue := int(tempValue / 16)
+    result
+
+//@function Returns a map holding the `numbers` as keys and their `hex` strings as values.
+hexMap(array&lt;int&gt; numbers) =&gt;
+    //@variable A map associating `int` keys with `string` values.
+    result = map.new&lt;int, string&gt;()
+    for number in numbers
+        // Put a pair containing the `number` and its `hex()` representation into the `result`.
+        result.put(number, hex(number))
+    result
+
+//@function Returns a label to display the keys and values of a hex map.
+debugLabel(
+     map&lt;int, string&gt; this, int barIndex = bar_index, color bgColor = color.blue,
+     string style = label.style_label_center, string note = &quot;&quot;
+ ) =&gt;
+    string repr = str.format(
+         &quot;{0}\nDecimal: {1}\nHex: {2}&quot;,
+         note, str.tostring(this.keys()), str.tostring(this.values())
+     )
+    label.new(
+         barIndex, 0, repr, color = bgColor, style = style,
+         textcolor = color.white, size = size.huge
+     )
+
+if bar_index == last_bar_index - 1
+    //@variable A map with decimal `int` keys and hexadecimal `string` values.
+    map&lt;int, string&gt; mapA = hexMap(array.from(101, 202, 303, 404))
+    debugLabel(mapA, bar_index, color.navy, label.style_label_down, &quot;A&quot;)
+
+    //@variable A map containing key-value pairs to add to `mapA`.
+    map&lt;int, string&gt; mapB = hexMap(array.from(303, 404, 505, 606, 707, 808))
+    debugLabel(mapB, bar_index, color.maroon, label.style_label_up, &quot;B&quot;)
+
+    // Put all pairs from `mapB` into `mapA`.
+    mapA.put_all(mapB)
+    debugLabel(mapA, bar_index + 10, color.purple, note = &quot;Merge B into A&quot;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="looping-through-a-map">
+<span id="pagemaps-loopingthroughamap"></span><h2><a class="toc-backref" href="#id11">Looping through a map</a><a class="headerlink" href="#looping-through-a-map" title="Permalink to this headline">¶</a></h2>
+<p>There are several ways scripts can iteratively access the keys and values in a map.
+For example, one could loop through a map’s
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_map.keys">keys()</a> array and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_map.get">get()</a> the value for each <code class="docutils literal notranslate"><span class="pre">key</span></code>, like so:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>for key in thisMap.keys()
+    value = thisMap.get(key)
+</pre></div>
+</div>
+<p>However, we recommend using a <code class="docutils literal notranslate"><span class="pre">for...in</span></code> loop directly on a map, as it iterates over the map’s key-value pairs
+in their insertion order, returning a tuple containing the next pair’s key and value on each iteration.</p>
+<p>For example, this line of code loops through each <code class="docutils literal notranslate"><span class="pre">key</span></code> and <code class="docutils literal notranslate"><span class="pre">value</span></code> in <code class="docutils literal notranslate"><span class="pre">thisMap</span></code>,
+starting from the first key-value pair put into it:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>for [key, value] in thisMap
+</pre></div>
+</div>
+<p>Let’s use this structure to write a script that displays a map’s key-value pairs in a
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_table">table</a>. In the example below,
+we’ve defined a custom <code class="docutils literal notranslate"><span class="pre">toTable()</span></code> method that creates a
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_table">table</a>, then uses a <code class="docutils literal notranslate"><span class="pre">for...in</span></code>
+loop to iterate over the map’s key-value pairs and populate the table’s cells. The script uses this
+method to visualize a map containing <code class="docutils literal notranslate"><span class="pre">length</span></code>-bar <code class="docutils literal notranslate"><span class="pre">averages</span></code> of price and volume data:</p>
+<img alt="../_images/Maps-Looping-through-a-map-1.png" src="../_images/Maps-Looping-through-a-map-1.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Looping through a map demo&quot;, &quot;Table of averages&quot;)
+
+//@variable The length of the moving average.
+int length = input.int(20, &quot;Length&quot;)
+//@variable The size of the table text.
+string txtSize = input.string(
+     size.huge, &quot;Text size&quot;,
+     options = [size.auto, size.tiny, size.small, size.normal, size.large, size.huge]
+ )
+
+//@function Displays the pairs of `this` map within a table.
+//@param    this A map with `string` keys and `float` values.
+//@param    position The position of the table on the chart.
+//@param    header The string to display on the top row of the table.
+//@param    textSize The size of the text in the table.
+//@returns  A new `table` object with cells displaying each pair in `this`.
+method toTable(
+     map&lt;string, float&gt; this, string position = position.middle_center, string header = na,
+     string textSize = size.huge
+ ) =&gt;
+    // Color variables
+    borderColor = #000000
+    headerColor = color.rgb(1, 88, 80)
+    pairColor   = color.maroon
+    textColor   = color.white
+
+    //@variable A table that displays the key-value pairs of `this` map.
+    table result = table.new(
+         position, this.size() + 1, 3, border_width = 2, border_color = borderColor
+     )
+    // Initialize top and side header cells.
+    result.cell(1, 0, header, bgcolor = headerColor, text_color = textColor, text_size = textSize)
+    result.merge_cells(1, 0, this.size(), 0)
+    result.cell(0, 1, &quot;Key&quot;, bgcolor = headerColor, text_color = textColor, text_size = textSize)
+    result.cell(0, 2, &quot;Value&quot;, bgcolor = headerColor, text_color = textColor, text_size = textSize)
+
+    //@variable The column index of the table. Updates on each loop iteration.
+    int col = 1
+
+    // Loop over each `key` and `value` from `this` map in the insertion order.
+    for [key, value] in this
+        // Initialize a `key` cell in the `result` table on row 1.
+        result.cell(
+             col, 1, str.tostring(key), bgcolor = color.maroon,
+             text_color = color.white, text_size = textSize
+         )
+        // Initialize a `value` cell in the `result` table on row 2.
+        result.cell(
+             col, 2, str.tostring(value), bgcolor = color.maroon,
+             text_color = color.white, text_size = textSize
+         )
+        // Move to the next column index.
+        col += 1
+    result // Return the `result` table.
+
+//@variable A map with `string` keys and `float` values to hold `length`-bar averages.
+averages = map.new&lt;string, float&gt;()
+
+// Put key-value pairs into the `averages` map.
+averages.put(&quot;Open&quot;, ta.sma(open, length))
+averages.put(&quot;High&quot;, ta.sma(high, length))
+averages.put(&quot;Low&quot;, ta.sma(low, length))
+averages.put(&quot;Close&quot;, ta.sma(close, length))
+averages.put(&quot;Volume&quot;, ta.sma(volume, length))
+
+//@variable The text to display at the top of the table.
+string headerText = str.format(&quot;{0} {1}-bar averages&quot;, &quot;&#39;&quot; + syminfo.tickerid + &quot;&#39;&quot;, length)
+// Display the `averages` map in a `table` with the `headerText`.
+averages.toTable(header = headerText, textSize = txtSize)
+</pre></div>
+</div>
+</div>
+<div class="section" id="copying-a-map">
+<span id="pagemaps-copyingamap"></span><h2><a class="toc-backref" href="#id12">Copying a map</a><a class="headerlink" href="#copying-a-map" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="shallow-copies">
+<span id="pagemaps-copyingamap-shallowcopies"></span><h3><a class="toc-backref" href="#id13">Shallow copies</a><a class="headerlink" href="#shallow-copies" title="Permalink to this headline">¶</a></h3>
+<p>Scripts can make a <em>shallow copy</em> of a map <code class="docutils literal notranslate"><span class="pre">id</span></code> using the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_map.copy">map.copy()</a> function.
+Modifications to a shallow copy do not affect the original <code class="docutils literal notranslate"><span class="pre">id</span></code> map or its internal insertion order.</p>
+<p>For example, this script constructs an <code class="docutils literal notranslate"><span class="pre">m</span></code> map with the keys “A”, “B”, “C”, and “D” assigned to four
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_math.random">random</a> values between 0 and 10.
+It then creates an <code class="docutils literal notranslate"><span class="pre">mCopy</span></code> map as a shallow copy of <code class="docutils literal notranslate"><span class="pre">m</span></code> and updates the values associated with its keys.
+The script displays the key-value pairs in <code class="docutils literal notranslate"><span class="pre">m</span></code> and <code class="docutils literal notranslate"><span class="pre">mCopy</span></code> on the chart using our custom <code class="docutils literal notranslate"><span class="pre">debugLabel()</span></code> method:</p>
+<img alt="../_images/Maps-Copying-a-map-Shallow-copies-1.png" src="../_images/Maps-Copying-a-map-Shallow-copies-1.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Shallow copy demo&quot;)
+
+//@function Displays the key-value pairs of `this` map in a label.
+method debugLabel(
+     map&lt;string, float&gt; this, int barIndex = bar_index, color bgColor = color.blue,
+     color textColor = color.white, string note = &quot;&quot;
+ ) =&gt;
+    //@variable The text to display in the label.
+    labelText = note + &quot;\n{&quot;
+    for [key, value] in this
+        labelText += str.format(&quot;{0}: {1}, &quot;, key, value)
+    labelText := str.replace(labelText, &quot;, &quot;, &quot;}&quot;, this.size() - 1)
+
+    if barstate.ishistory
+        label result = label.new(
+             barIndex, 0, labelText, color = bgColor, style = label.style_label_center,
+             textcolor = textColor, size = size.huge
+         )
+
+if bar_index == last_bar_index - 1
+    //@variable A map of `string` keys and random `float` values.
+    m = map.new&lt;string, float&gt;()
+
+    // Assign random values to an array of keys in `m`.
+    for key in array.from(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;)
+        m.put(key, math.random(0, 10))
+
+    //@variable A shallow copy of `m`.
+    mCopy = m.copy()
+
+    // Assign the insertion order value `i` to each `key` in `mCopy`.
+    for [i, key] in mCopy.keys()
+        mCopy.put(key, i)
+
+    // Display the labels.
+    m.debugLabel(bar_index, note = &quot;Original&quot;)
+    mCopy.debugLabel(bar_index + 10, color.purple, note = &quot;Copied and changed&quot;)
+</pre></div>
+</div>
+</div>
+<div class="section" id="deep-copies">
+<span id="pagemaps-copyingamap-deepcopies"></span><h3><a class="toc-backref" href="#id14">Deep copies</a><a class="headerlink" href="#deep-copies" title="Permalink to this headline">¶</a></h3>
+<p>While a <a class="reference internal" href="#pagemaps-copyingamap-shallowcopies"><span class="std std-ref">shallow copy</span></a> will suffice when copying maps that have values of a
+<em>fundamental type</em>, it’s important to remember that shallow copies of a map holding values of a <em>reference type</em>
+(<a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_line">line</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_linefill">linefill</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_label">label</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_box">box</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_table">table</a>,
+or a <a class="reference internal" href="Type_system.html#pagetypesystem-userdefinedtypes"><span class="std std-ref">UDT</span></a>) point to the same objects as the original.
+Modifying the objects referenced by a shallow copy will affect the instances referenced by the original map and vice versa.</p>
+<p>To ensure changes to objects referenced by a copied map do not affect instances referenced in other locations,
+one can make a <em>deep copy</em> by creating a new map with key-value pairs containing copies of each value in the original map.</p>
+<p>This example creates an <code class="docutils literal notranslate"><span class="pre">original</span></code> map of <a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_string">string</a>
+keys and <a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_label">label</a> values and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_map.put">puts</a> a key-value pair into it. The script copies the
+map to a <code class="docutils literal notranslate"><span class="pre">shallow</span></code> variable via the built-in <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_map.copy">copy()</a>
+method, then to a <code class="docutils literal notranslate"><span class="pre">deep</span></code> variable using a custom <code class="docutils literal notranslate"><span class="pre">deepCopy()</span></code> method.</p>
+<p>As we see from the chart, changes to the label retrieved from the <code class="docutils literal notranslate"><span class="pre">shallow</span></code> copy also affect the instance referenced by
+the <code class="docutils literal notranslate"><span class="pre">original</span></code> map, but changes to the one from the <code class="docutils literal notranslate"><span class="pre">deep</span></code> copy do not:</p>
+<img alt="../_images/Maps-Copying-a-map-Deep-copies-1.png" src="../_images/Maps-Copying-a-map-Deep-copies-1.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Deep copy demo&quot;)
+
+//@function Returns a deep copy of `this` map.
+method deepCopy(map&lt;string, label&gt; this) =&gt;
+    //@variable A deep copy of `this` map.
+    result = map.new&lt;string, label&gt;()
+    // Add key-value pairs with copies of each `value` to the `result`.
+    for [key, value] in this
+        result.put(key, value.copy())
+    result //Return the `result`.
+
+//@variable A map containing `string` keys and `label` values.
+var original = map.new&lt;string, label&gt;()
+
+if bar_index == last_bar_index - 1
+    // Put a new key-value pair into the `original` map.
+    map.put(
+         original, &quot;Test&quot;,
+         label.new(bar_index, 0, &quot;Original&quot;, textcolor = color.white, size = size.huge)
+     )
+
+    //@variable A shallow copy of the `original` map.
+    map&lt;string, label&gt; shallow = original.copy()
+    //@variable A deep copy of the `original` map.
+    map&lt;string, label&gt; deep = original.deepCopy()
+
+    //@variable The &quot;Test&quot; label from the `shallow` copy.
+    label shallowLabel = shallow.get(&quot;Test&quot;)
+    //@variable The &quot;Test&quot; label from the `deep` copy.
+    label deepLabel = deep.get(&quot;Test&quot;)
+
+    // Modify the &quot;Test&quot; label&#39;s `y` attribute in the `original` map.
+    // This also affects the `shallowLabel`.
+    original.get(&quot;Test&quot;).set_y(label.all.size())
+
+    // Modify the `shallowLabel`. Also modifies the &quot;Test&quot; label in the `original` map.
+    shallowLabel.set_text(&quot;Shallow copy&quot;)
+    shallowLabel.set_color(color.red)
+    shallowLabel.set_style(label.style_label_up)
+
+    // Modify the `deepLabel`. Does not modify any other label instance.
+    deepLabel.set_text(&quot;Deep copy&quot;)
+    deepLabel.set_color(color.navy)
+    deepLabel.set_style(label.style_label_left)
+    deepLabel.set_x(bar_index + 5)
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Note that:</dt>
+<dd><ul class="first last simple">
+<li>The <code class="docutils literal notranslate"><span class="pre">deepCopy()</span></code> method loops through the <code class="docutils literal notranslate"><span class="pre">original</span></code> map, copying each <code class="docutils literal notranslate"><span class="pre">value</span></code> and
+<a class="reference internal" href="#pagemaps-readingandwriting-puttingandgettingkeyvaluepairs"><span class="std std-ref">putting</span></a> key-value pairs
+containing the copies into a <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_map.new%3Ctype,type%3E">new</a>
+map instance.</li>
+</ul>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="scope-and-history">
+<span id="pagemaps-scopeandhistory"></span><h2><a class="toc-backref" href="#id15">Scope and history</a><a class="headerlink" href="#scope-and-history" title="Permalink to this headline">¶</a></h2>
+<p>As with other collections in Pine, map variables leave historical trails on each bar,
+allowing a script to access past map instances assigned to a variable using the
+history-referencing operator <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_[]">[]</a>.
+Scripts can also assign maps to global variables and interact with them from the scopes of
+<a class="reference internal" href="User-defined_functions.html#pageuserdefinedfunctions"><span class="std std-ref">functions</span></a>, <a class="reference internal" href="Methods.html#pagemethods"><span class="std std-ref">methods</span></a>, and
+<a class="reference internal" href="Conditional_structures.html#pageconditionalstructures"><span class="std std-ref">conditional structures</span></a>.</p>
+<p>As an example, this script uses a global map and its history to calculate an aggregate set of
+<a class="reference external" href="https://www.tradingview.com/support/solutions/43000592270/">EMAs</a>. It declares a <code class="docutils literal notranslate"><span class="pre">globalData</span></code>
+map of <a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_int">int</a> keys and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_float">float</a> values, where each key
+in the map corresponds to the length of each EMA calculation. The user-defined <code class="docutils literal notranslate"><span class="pre">update()</span></code> function
+calculates each <code class="docutils literal notranslate"><span class="pre">key</span></code>-length EMA by mixing the values from the <code class="docutils literal notranslate"><span class="pre">previous</span></code> map assigned to
+<code class="docutils literal notranslate"><span class="pre">globalData</span></code> with the current <code class="docutils literal notranslate"><span class="pre">source</span></code> value.</p>
+<p>The script plots the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array.max">maximum</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array.min">minimum</a> values in the global map’s
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_map.values">values()</a> array and the value from
+<code class="docutils literal notranslate"><span class="pre">globalData.get(50)</span></code> (i.e., the 50-bar EMA):</p>
+<img alt="../_images/Maps-Scope-and-history-1.png" src="../_images/Maps-Scope-and-history-1.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Scope and history demo&quot;, overlay = true)
+
+//@variable The source value for EMA calculation.
+float source = input.source(close, &quot;Source&quot;)
+
+//@variable A map containing global key-value pairs.
+globalData = map.new&lt;int, float&gt;()
+
+//@function Calculates a set of EMAs and updates the key-value pairs in `globalData`.
+update() =&gt;
+    //@variable The previous map instance assigned to `globalData`.
+    map&lt;int, float&gt; previous = globalData[1]
+
+    // Put key-value pairs with keys 10-200 into `globalData` if `previous` is `na`.
+    if na(previous)
+        for i = 10 to 200
+            globalData.put(i, source)
+    else
+        // Iterate each `key` and `value` in the `previous` map.
+        for [key, value] in previous
+            //@variable The smoothing parameter for the `key`-length EMA.
+            float alpha = 2.0 / (key + 1.0)
+            //@variable The `key`-length EMA value.
+            float ema = (1.0 - alpha) * value + alpha * source
+            // Put the `key`-length `ema` into the `globalData` map.
+            globalData.put(key, ema)
+
+// Update the `globalData` map.
+update()
+
+//@variable The array of values from `globalData` in their insertion order.
+array&lt;float&gt; values = globalData.values()
+
+// Plot the max EMA, min EMA, and 50-bar EMA values.
+plot(values.max(), &quot;Max EMA&quot;, color.green, 2)
+plot(values.min(), &quot;Min EMA&quot;, color.red, 2)
+plot(globalData.get(50), &quot;50-bar EMA&quot;, color.orange, 3)
+</pre></div>
+</div>
+</div>
+<div class="section" id="maps-of-other-collections">
+<span id="pagemaps-mapsofothercollections"></span><h2><a class="toc-backref" href="#id16">Maps of other collections</a><a class="headerlink" href="#maps-of-other-collections" title="Permalink to this headline">¶</a></h2>
+<p>Maps cannot directly use other maps, <a class="reference internal" href="Arrays.html#pagearrays"><span class="std std-ref">arrays</span></a>, or <a class="reference internal" href="Matrices.html#pagematrices"><span class="std std-ref">matrices</span></a>
+as values, but they can hold values of a <a class="reference internal" href="Type_system.html#pagetypesystem-userdefinedtypes"><span class="std std-ref">user-defined type</span></a>
+that contains collections within its fields.</p>
+<p>For example, suppose we want to create a “2D” map that uses
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_string">string</a> keys to access
+<em>nested maps</em> that hold pairs of
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_string">string</a> keys and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_float">float</a> values.
+Since maps cannot use other collections as values, we will first create a <em>wrapper type</em> with a field
+to hold a <code class="docutils literal notranslate"><span class="pre">map&lt;string,</span> <span class="pre">float&gt;</span></code> instance, like so:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@type A wrapper type for maps with `string` keys and `float` values.
+type Wrapper
+    map&lt;string, float&gt; data
+</pre></div>
+</div>
+<p>With our <code class="docutils literal notranslate"><span class="pre">Wrapper</span></code> type defined, we can create maps of
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_string">string</a> keys and
+<code class="docutils literal notranslate"><span class="pre">Wrapper</span></code> values, where the <code class="docutils literal notranslate"><span class="pre">data</span></code> field of each value in the map points to a <code class="docutils literal notranslate"><span class="pre">map&lt;string,</span> <span class="pre">float&gt;</span></code> instance:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mapOfMaps = map.new&lt;string, Wrapper&gt;()
+</pre></div>
+</div>
+<p>The script below uses this concept to construct a map containing maps that hold OHLCV data requested from multiple tickers.
+The user-defined <code class="docutils literal notranslate"><span class="pre">requestData()</span></code> function requests price and volume data from a ticker, creates a <code class="docutils literal notranslate"><span class="pre">&lt;string,</span> <span class="pre">float&gt;</span></code> map,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_map.put">puts</a> the data into it, then returns a <code class="docutils literal notranslate"><span class="pre">Wrapper</span></code>
+instance containing the new map.</p>
+<p>The script <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_map.put">puts</a> the results from each call to
+<code class="docutils literal notranslate"><span class="pre">requestData()</span></code> into the <code class="docutils literal notranslate"><span class="pre">mapOfMaps</span></code>, then creates a <a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_string">string</a>
+representation of the nested maps with a user-defined <code class="docutils literal notranslate"><span class="pre">toString()</span></code> method, which it displays on the chart in a
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_label">label</a>:</p>
+<img alt="../_images/Maps-Maps-of-other-collections-1.png" src="../_images/Maps-Maps-of-other-collections-1.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Nested map demo&quot;)
+
+//@variable The timeframe of the requested data.
+string tf = input.timeframe(&quot;D&quot;, &quot;Timeframe&quot;)
+// Symbol inputs.
+string symbol1 = input.symbol(&quot;EURUSD&quot;, &quot;Symbol 1&quot;)
+string symbol2 = input.symbol(&quot;GBPUSD&quot;, &quot;Symbol 2&quot;)
+string symbol3 = input.symbol(&quot;EURGBP&quot;, &quot;Symbol 3&quot;)
+
+//@type A wrapper type for maps with `string` keys and `float` values.
+type Wrapper
+    map&lt;string, float&gt; data
+
+//@function Returns a wrapped map containing OHLCV data from the `tickerID` at the `timeframe`.
+requestData(string tickerID, string timeframe) =&gt;
+    // Request a tuple of OHLCV values from the specified ticker and timeframe.
+    [o, h, l, c, v] = request.security(
+         tickerID, timeframe,
+         [open, high, low, close, volume]
+     )
+    //@variable A map containing requested OHLCV data.
+    result = map.new&lt;string, float&gt;()
+    // Put key-value pairs into the `result`.
+    result.put(&quot;Open&quot;, o)
+    result.put(&quot;High&quot;, h)
+    result.put(&quot;Low&quot;, l)
+    result.put(&quot;Close&quot;, c)
+    result.put(&quot;Volume&quot;, v)
+    //Return the wrapped `result`.
+    Wrapper.new(result)
+
+//@function Returns a string representing `this` map of `string` keys and `Wrapper` values.
+method toString(map&lt;string, Wrapper&gt; this) =&gt;
+    //@variable A string representation of `this` map.
+    string result = &quot;{&quot;
+
+    // Iterate over each `key1` and associated `wrapper` in `this`.
+    for [key1, wrapper] in this
+        // Add `key1` to the `result`.
+        result += key1
+
+        //@variable A string representation of the `wrapper.data` map.
+        string innerStr = &quot;: {&quot;
+        // Iterate over each `key2` and associated `value` in the wrapped map.
+        for [key2, value] in wrapper.data
+            // Add the key-value pair&#39;s representation to `innerStr`.
+            innerStr += str.format(&quot;{0}: {1}, &quot;, key2, str.tostring(value))
+
+        // Replace the end of `innerStr` with &quot;}&quot; and add to `result`.
+        result += str.replace(innerStr, &quot;, &quot;, &quot;},\n&quot;, wrapper.data.size() - 1)
+
+    // Replace the blank line at the end of `result` with &quot;}&quot;.
+    result := str.replace(result, &quot;,\n&quot;, &quot;}&quot;, this.size() - 1)
+    result
+
+//@variable A map of wrapped maps containing OHLCV data from multiple tickers.
+var mapOfMaps = map.new&lt;string, Wrapper&gt;()
+
+//@variable A label showing the contents of the `mapOfMaps`.
+var debugLabel = label.new(
+     bar_index, 0, color = color.navy, textcolor = color.white, size = size.huge,
+     style = label.style_label_center, text_font_family = font.family_monospace
+ )
+
+// Put wrapped maps into `mapOfMaps`.
+mapOfMaps.put(symbol1, requestData(symbol1, tf))
+mapOfMaps.put(symbol2, requestData(symbol2, tf))
+mapOfMaps.put(symbol3, requestData(symbol3, tf))
+
+// Update the label.
+debugLabel.set_text(mapOfMaps.toString())
+debugLabel.set_x(bar_index)
+</pre></div>
+</div>
+<a class="reference external image-reference" href="https://www.tradingview.com/"><div align="center" class="align-center"><img alt="../_images/TradingView-Logo-Block.svg" src="../_images/TradingView-Logo-Block.svg" width="200px" /></div>
+</a>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="Matrices.html" title="previous chapter (use the left arrow)">Matrices</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="../concepts/index.html" title="next chapter (use the right arrow)">Concepts</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../concepts/index.html" title="Concepts"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Matrices.html" title="Matrices"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Language</a> &#187;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="../_static/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="../_static/js/theme.js"></script>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Options</span>
+    v: v5
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Languages</dt>
+      
+        <strong>
+        <dd><a href="Maps.html">en</a></dd>
+        </strong>
+      
+    </dl>
+    <dl>
+      <dt>Versions</dt>
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v3/language/Maps.html">v3</a></dd>
+        
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v4/language/Maps.html">v4</a></dd>
+        
+      
+        <strong>
+        <dd><a href="Maps.html">v5</a></dd>
+        </strong>
+      
+    </dl>
+  </div>
+</div>
+<script type="text/javascript">
+    jQuery(function () {
+        SphinxRtdTheme.Navigation.enable(false);
+    });
+</script>
+  <div class="footer">
+    &copy; Copyright 2023, TradingView.
+  </div>
+  </body>
+
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/language/Maps.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:57:43 GMT -->
+</html>

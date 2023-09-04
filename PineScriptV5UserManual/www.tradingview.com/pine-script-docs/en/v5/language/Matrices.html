@@ -1,0 +1,2256 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/language/Matrices.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:57:33 GMT -->
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Matrices &#8212; Pine Script® v5 User Manual v5 documentation</title>
+    <link rel="stylesheet" href="../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../../../../static.tradingview.com/static/bundles/pine-highlighter-v01.js"></script>
+    <script type="text/javascript" src="../_static/highlight-pine-code.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Maps" href="Maps.html" />
+    <link rel="prev" title="Arrays" href="Arrays.html" />
+  
+   
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Maps.html" title="Maps"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Arrays.html" title="Arrays"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Language</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="../index.html" class="text-logo">Pine Script<sup>®</sup> v5 User Manual</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Introduction.html">Welcome to Pine Script<sup>®</sup> v5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primer/index.html">Pine Script<sup>®</sup> primer</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Language</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Execution_model.html">Execution model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Time_series.html">Time series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Script_structure.html">Script structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Identifiers.html">Identifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variable_declarations.html">Variable declarations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Conditional_structures.html">Conditional structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Type_system.html">Type system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Built-ins.html">Built-ins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="User-defined_functions.html">User-defined functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Objects.html">Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Methods.html">Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Arrays.html">Arrays</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Matrices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#declaring-a-matrix">Declaring a matrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reading-and-writing-matrix-elements">Reading and writing matrix elements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rows-and-columns">Rows and columns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#looping-through-a-matrix">Looping through a matrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#copying-a-matrix">Copying a matrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scope-and-history">Scope and history</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inspecting-a-matrix">Inspecting a matrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#manipulating-a-matrix">Manipulating a matrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix-calculations">Matrix calculations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#error-handling">Error handling</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Maps.html">Maps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../writing/index.html">Writing scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Error_messages.html">Error messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Release_notes.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migration_guides/index.html">Migration guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Where_can_I_get_more_information.html">Where can I get more information?</a></li>
+</ul>
+
+    
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="https://www.tradingview.com/pine-script-docs/en/v5/search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../index.html">User Manual</a></li>
+              
+                <li><a href="index.html">Language</a></li>
+              
+              <li>Matrices</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <div class="figure align-right" style="width: 50%">
+<a class="reference external image-reference" href="../Introduction.html"><img alt="../_images/Pine-script-logo.svg" height="100" src="../_images/Pine-script-logo.svg" width="100" /></a>
+</div>
+<p><a class="reference internal" href="../_images/Advanced.svg"><div align="bottom" class="align-bottom"><img alt="Advanced logo" height="100" src="../_images/Advanced.svg" width="100" /></div>
+</a></p>
+<div class="section" id="matrices">
+<span id="pagematrices"></span><h1>Matrices<a class="headerlink" href="#matrices" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#introduction" id="id1">Introduction</a></li>
+<li><a class="reference internal" href="#declaring-a-matrix" id="id2">Declaring a matrix</a><ul>
+<li><a class="reference internal" href="#using-var-and-varip-keywords" id="id3">Using `var` and `varip` keywords</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#reading-and-writing-matrix-elements" id="id4">Reading and writing matrix elements</a><ul>
+<li><a class="reference internal" href="#matrix-get-and-matrix-set" id="id5">`matrix.get()` and `matrix.set()`</a></li>
+<li><a class="reference internal" href="#matrix-fill" id="id6">`matrix.fill()`</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#rows-and-columns" id="id7">Rows and columns</a><ul>
+<li><a class="reference internal" href="#retrieving" id="id8">Retrieving</a></li>
+<li><a class="reference internal" href="#inserting" id="id9">Inserting</a></li>
+<li><a class="reference internal" href="#removing" id="id10">Removing</a></li>
+<li><a class="reference internal" href="#swapping" id="id11">Swapping</a></li>
+<li><a class="reference internal" href="#replacing" id="id12">Replacing</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#looping-through-a-matrix" id="id13">Looping through a matrix</a><ul>
+<li><a class="reference internal" href="#for" id="id14">`for`</a></li>
+<li><a class="reference internal" href="#for-in" id="id15">`for…in`</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#copying-a-matrix" id="id16">Copying a matrix</a><ul>
+<li><a class="reference internal" href="#shallow-copies" id="id17">Shallow copies</a></li>
+<li><a class="reference internal" href="#deep-copies" id="id18">Deep copies</a></li>
+<li><a class="reference internal" href="#submatrices" id="id19">Submatrices</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#scope-and-history" id="id20">Scope and history</a></li>
+<li><a class="reference internal" href="#inspecting-a-matrix" id="id21">Inspecting a matrix</a></li>
+<li><a class="reference internal" href="#manipulating-a-matrix" id="id22">Manipulating a matrix</a><ul>
+<li><a class="reference internal" href="#reshaping" id="id23">Reshaping</a></li>
+<li><a class="reference internal" href="#reversing" id="id24">Reversing</a></li>
+<li><a class="reference internal" href="#transposing" id="id25">Transposing</a></li>
+<li><a class="reference internal" href="#sorting" id="id26">Sorting</a></li>
+<li><a class="reference internal" href="#concatenating" id="id27">Concatenating</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#matrix-calculations" id="id28">Matrix calculations</a><ul>
+<li><a class="reference internal" href="#element-wise-calculations" id="id29">Element-wise calculations</a></li>
+<li><a class="reference internal" href="#special-calculations" id="id30">Special calculations</a><ul>
+<li><a class="reference internal" href="#matrix-sum-and-matrix-diff" id="id31">`matrix.sum()` and `matrix.diff()`</a></li>
+<li><a class="reference internal" href="#matrix-mult" id="id32">`matrix.mult()`</a></li>
+<li><a class="reference internal" href="#matrix-det" id="id33">`matrix.det()`</a></li>
+<li><a class="reference internal" href="#matrix-inv-and-matrix-pinv" id="id34">`matrix.inv()` and `matrix.pinv()`</a></li>
+<li><a class="reference internal" href="#matrix-rank" id="id35">`matrix.rank()`</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#error-handling" id="id36">Error handling</a><ul>
+<li><a class="reference internal" href="#the-row-column-index-xx-is-out-of-bounds-row-column-size-is-yy" id="id37">The row/column index (xx) is out of bounds, row/column size is (yy).</a></li>
+<li><a class="reference internal" href="#the-array-size-does-not-match-the-number-of-rows-columns-in-the-matrix" id="id38">The array size does not match the number of rows/columns in the matrix.</a></li>
+<li><a class="reference internal" href="#cannot-call-matrix-methods-when-the-id-of-matrix-is-na" id="id39">Cannot call matrix methods when the ID of matrix is ‘na’.</a></li>
+<li><a class="reference internal" href="#matrix-is-too-large-maximum-size-of-the-matrix-is-100-000-elements" id="id40">Matrix is too large. Maximum size of the matrix is 100,000 elements.</a></li>
+<li><a class="reference internal" href="#the-row-column-index-must-be-0-from-row-column-to-row-column" id="id41">The row/column index must be 0 &lt;= from_row/column &lt; to_row/column.</a></li>
+<li><a class="reference internal" href="#matrices-id1-and-id2-must-have-an-equal-number-of-rows-and-columns-to-be-added" id="id42">Matrices ‘id1’ and ‘id2’ must have an equal number of rows and columns to be added.</a></li>
+<li><a class="reference internal" href="#the-number-of-columns-in-the-id1-matrix-must-equal-the-number-of-rows-in-the-matrix-or-the-number-of-elements-in-the-array-id2" id="id43">The number of columns in the ‘id1’ matrix must equal the number of rows in the matrix (or the number of elements in the array) ‘id2’.</a></li>
+<li><a class="reference internal" href="#operation-not-available-for-non-square-matrices" id="id44">Operation not available for non-square matrices.</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This page contains advanced material. If you are a beginning Pine Script<sup>®</sup> programmer, we recommend
+you become familiar with other, more accessible Pine Script<sup>®</sup> features before you venture here.</p>
+</div>
+<div class="section" id="introduction">
+<h2><a class="toc-backref" href="#id1">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Pine Script<sup>®</sup> Matrices are collections that store value references in a rectangular format.
+They are essentially the equivalent of two-dimensional
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_array">array</a> objects with functions and methods
+for inspection, modification, and specialized calculations. As with <a class="reference internal" href="Arrays.html#pagearrays"><span class="std std-ref">arrays</span></a>, all matrix elements
+must be of the same <a class="reference internal" href="Type_system.html#pagetypesystem-types"><span class="std std-ref">type</span></a>, which can be a
+<a class="reference external" href="Type_system.html#id2">built-in</a> or a
+<a class="reference internal" href="Type_system.html#pagetypesystem-userdefinedtypes"><span class="std std-ref">user-defined type</span></a>.</p>
+<p>Matrices reference their elements using two indices: one index for their rows and the other for their columns.
+Each index starts at 0 and extends to the number of rows/columns in the matrix minus one. Matrices in Pine can
+have dynamic numbers of rows and columns that vary across bars.
+The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.elements_count">total number of elements</a>
+within a matrix is the product of the number of
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.rows">rows</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.columns">columns</a> (e.g., a 5x5 matrix has a total of 25).
+Like <a class="reference internal" href="Arrays.html#pagearrays"><span class="std std-ref">arrays</span></a>, the total number of elements in a matrix cannot exceed 100,000.</p>
+</div>
+<div class="section" id="declaring-a-matrix">
+<span id="pagematrices-declaringamatrix"></span><h2><a class="toc-backref" href="#id2">Declaring a matrix</a><a class="headerlink" href="#declaring-a-matrix" title="Permalink to this headline">¶</a></h2>
+<p>Pine Script<sup>®</sup> uses the following syntax for matrix declaration:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[var/varip ][matrix&lt;type&gt; ]&lt;identifier&gt; = &lt;expression&gt;
+</pre></div>
+</div>
+<p>Where <code class="docutils literal notranslate"><span class="pre">&lt;type&gt;</span></code> is a <a class="reference internal" href="Type_system.html#pagetypesystem-typetemplates"><span class="std std-ref">type template</span></a> for the matrix that declares the type
+of values it will contain, and the <code class="docutils literal notranslate"><span class="pre">&lt;expression&gt;</span></code> returns either a matrix instance of the type or <code class="docutils literal notranslate"><span class="pre">na</span></code>.</p>
+<p>When declaring a matrix variable as <code class="docutils literal notranslate"><span class="pre">na</span></code>, users must specify that the identifier will reference matrices of a
+specific type by including the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_matrix">matrix</a> keyword
+followed by a <a class="reference internal" href="Type_system.html#pagetypesystem-typetemplates"><span class="std std-ref">type template</span></a>.</p>
+<p>This line declares a new <code class="docutils literal notranslate"><span class="pre">myMatrix</span></code> variable with a value of <code class="docutils literal notranslate"><span class="pre">na</span></code>. It explicitly declares the variable as
+<code class="docutils literal notranslate"><span class="pre">matrix&lt;float&gt;</span></code>, which tells the compiler that the variable can only accept
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_matrix">matrix</a> objects containing
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_float">float</a> values:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>matrix&lt;float&gt; myMatrix = na
+</pre></div>
+</div>
+<p>When a matrix variable is not assigned to <code class="docutils literal notranslate"><span class="pre">na</span></code>, the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_matrix">matrix</a>
+keyword and its type template are optional, as the compiler will use the type information from the object the variable references.</p>
+<p>Here, we declare a <code class="docutils literal notranslate"><span class="pre">myMatrix</span></code> variable referencing a new <code class="docutils literal notranslate"><span class="pre">matrix&lt;float&gt;</span></code> instance with two rows, two columns,
+and an <code class="docutils literal notranslate"><span class="pre">initial_value</span></code> of 0. The variable gets its type information from the new object in this case, so it
+doesn’t require an explicit type declaration:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>myMatrix = matrix.new&lt;float&gt;(2, 2, 0.0)
+</pre></div>
+</div>
+<div class="section" id="using-var-and-varip-keywords">
+<span id="pagematrices-declaringamatrix-usingvarandvaripkeywords"></span><h3><a class="toc-backref" href="#id3">Using `var` and `varip` keywords</a><a class="headerlink" href="#using-var-and-varip-keywords" title="Permalink to this headline">¶</a></h3>
+<p>As with other variables, users can include the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_var">var</a>
+or <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_varip">varip</a> keywords to instruct a script to declare
+a matrix variable only once rather than on every bar. A matrix variable declared with this keyword will point to the
+same instance throughout the span of the chart unless the script explicitly assigns another matrix to it, allowing
+a matrix and its element references to persist between script iterations.</p>
+<p>This script declares an <code class="docutils literal notranslate"><span class="pre">m</span></code> variable assigned to a matrix that holds a single row of two
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_int">int</a>
+elements using the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_var">var</a>
+keyword. On every 20th bar, the script adds 1 to the first element on the first row of the <code class="docutils literal notranslate"><span class="pre">m</span></code> matrix.
+The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plot">plot()</a> call displays this element
+on the chart. As we see from the plot, the value of
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.get">m.get(0, 0)</a> persists between bars, never
+returning to the initial value of 0:</p>
+<img alt="../_images/Matrices-Declaring-a-matrix-Using-var-and-varip-keywords-1.png" src="../_images/Matrices-Declaring-a-matrix-Using-var-and-varip-keywords-1.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;var matrix demo&quot;)
+
+//@variable A 1x2 rectangular matrix declared only at `bar_index == 0`, i.e., the first bar.
+var m = matrix.new&lt;int&gt;(1, 2, 0)
+
+//@variable Is `true` on every 20th bar.
+bool update = bar_index % 20 == 0
+
+if update
+    int currentValue = m.get(0, 0) // Get the current value of the first row and column.
+    m.set(0, 0, currentValue + 1)  // Set the first row and column element value to `currentValue + 1`.
+
+plot(m.get(0, 0), linewidth = 3) // Plot the value from the first row and column.
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Matrix variables declared using <a class="reference external" href="../../../../pine-script-reference/v5/index.html#kw_varip">varip</a>
+behave as ones using <a class="reference external" href="../../../../pine-script-reference/v5/index.html#kw_var">var</a> on historical data,
+but they update their values for realtime bars (i.e., the bars since the script’s last compilation)
+on each new price tick. Matrices assigned to <a class="reference external" href="../../../../pine-script-reference/v5/index.html#kw_varip">varip</a>
+variables can only hold <a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_int">int</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_float">float</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_bool">bool</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_color">color</a>, or
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_string">string</a> types or
+<a class="reference internal" href="Type_system.html#pagetypesystem-userdefinedtypes"><span class="std std-ref">user-defined types</span></a> that exclusively contain within their fields these types
+or collections (<a class="reference internal" href="Arrays.html#pagearrays"><span class="std std-ref">arrays</span></a>, matrices, or <a class="reference internal" href="Maps.html#pagemaps"><span class="std std-ref">maps</span></a>) of these types.</p>
+</div>
+</div>
+</div>
+<div class="section" id="reading-and-writing-matrix-elements">
+<span id="pagematrices-readingandwritingmatrixelements"></span><h2><a class="toc-backref" href="#id4">Reading and writing matrix elements</a><a class="headerlink" href="#reading-and-writing-matrix-elements" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="matrix-get-and-matrix-set">
+<span id="pagematrices-readingandwritingmatrixelements-matrixgetandmatrixset"></span><h3><a class="toc-backref" href="#id5">`matrix.get()` and `matrix.set()`</a><a class="headerlink" href="#matrix-get-and-matrix-set" title="Permalink to this headline">¶</a></h3>
+<p>To retrieve the value from a matrix at a specified <code class="docutils literal notranslate"><span class="pre">row</span></code> and <code class="docutils literal notranslate"><span class="pre">column</span></code> index, use
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.get">matrix.get()</a>.
+This function locates the specified matrix element and returns its value. Similarly, to
+overwrite a specific element’s value, use
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.set">matrix.set()</a>
+to assign the element at the specified <code class="docutils literal notranslate"><span class="pre">row</span></code> and <code class="docutils literal notranslate"><span class="pre">column</span></code> to a new <code class="docutils literal notranslate"><span class="pre">value</span></code>.</p>
+<p>The example below defines a square matrix <code class="docutils literal notranslate"><span class="pre">m</span></code> with two rows and columns and an <code class="docutils literal notranslate"><span class="pre">initial_value</span></code>
+of 0 for all elements on the first bar. The script adds 1 to each element’s value on different
+bars using the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.get">m.get()</a>
+and <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.set">m.set()</a> methods.
+It updates the first row’s first value once every 11 bars, the first row’s second value once every
+seven bars, the second row’s first value once every five bars, and the second row’s second value
+once every three bars. The script plots each element’s value on the chart:</p>
+<img alt="../_images/Matrices-Reading-and-writing-matrix-elements-1.png" src="../_images/Matrices-Reading-and-writing-matrix-elements-1.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Reading and writing elements demo&quot;)
+
+//@variable A 2x2 square matrix of `float` values.
+var m = matrix.new&lt;float&gt;(2, 2, 0.0)
+
+switch
+    bar_index % 11 == 0 =&gt; m.set(0, 0, m.get(0, 0) + 1.0) // Adds 1 to the value at row 0, column 0 every 11th bar.
+    bar_index % 7  == 0 =&gt; m.set(0, 1, m.get(0, 1) + 1.0) // Adds 1 to the value at row 0, column 1 every 7th bar.
+    bar_index % 5  == 0 =&gt; m.set(1, 0, m.get(1, 0) + 1.0) // Adds 1 to the value at row 1, column 0 every 5th bar.
+    bar_index % 3  == 0 =&gt; m.set(1, 1, m.get(1, 1) + 1.0) // Adds 1 to the value at row 1, column 1 every 3rd bar.
+
+plot(m.get(0, 0), &quot;Row 0, Column 0 Value&quot;, color.red, 2)
+plot(m.get(0, 1), &quot;Row 0, Column 1 Value&quot;, color.orange, 2)
+plot(m.get(1, 0), &quot;Row 1, Column 0 Value&quot;, color.green, 2)
+plot(m.get(1, 1), &quot;Row 1, Column 1 Value&quot;, color.blue, 2)
+</pre></div>
+</div>
+</div>
+<div class="section" id="matrix-fill">
+<span id="pagematrices-readingandwritingmatrixelements-matrixfill"></span><h3><a class="toc-backref" href="#id6">`matrix.fill()`</a><a class="headerlink" href="#matrix-fill" title="Permalink to this headline">¶</a></h3>
+<p>To overwrite all matrix elements with a specific value, use
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.fill">matrix.fill()</a>.
+This function points all items in the entire matrix or within the <code class="docutils literal notranslate"><span class="pre">from_row/column</span></code> and
+<code class="docutils literal notranslate"><span class="pre">to_row/column</span></code> index range to the <code class="docutils literal notranslate"><span class="pre">value</span></code> specified in the call. For example, this
+snippet declares a 4x4 square matrix, then fills its elements with a
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_math.random">random</a> value:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>myMatrix = matrix.new&lt;float&gt;(4, 4)
+myMatrix.fill(math.random())
+</pre></div>
+</div>
+<p>Note when using <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.fill">matrix.fill()</a>
+with matrices containing special types (<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_line">line</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_linefill">linefill</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_label">label</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_box">box</a>, or
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_table">table</a>)  or <a class="reference internal" href="Type_system.html#pagetypesystem-userdefinedtypes"><span class="std std-ref">UDTs</span></a>,
+all replaced elements will point to the same object passed in the function call.</p>
+<p>This script declares a matrix with four rows and columns of <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_label">label</a>
+references, which it fills with a new <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_label">label</a> object on the first bar.
+On each bar, the script sets the <code class="docutils literal notranslate"><span class="pre">x</span></code> attribute of the label referenced at row 0, column 0 to
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_bar_index">bar_index</a>, and the <code class="docutils literal notranslate"><span class="pre">text</span></code> attribute of the one referenced
+at row 3, column 3 to the number of labels on the chart. Although the matrix can reference 16 (4x4) labels, each element points to the
+<em>same</em> instance, resulting in only one label on the chart that updates its <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">text</span></code> attributes on each bar:</p>
+<img alt="../_images/Matrices-Reading-and-writing-matrix-elements-2.png" src="../_images/Matrices-Reading-and-writing-matrix-elements-2.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Object matrix fill demo&quot;)
+
+//@variable A 4x4 label matrix.
+var matrix&lt;label&gt; m = matrix.new&lt;label&gt;(4, 4)
+
+// Fill `m` with a new label object on the first bar.
+if bar_index == 0
+    m.fill(label.new(0, 0, textcolor = color.white, size = size.huge))
+
+//@variable The number of label objects on the chart.
+int numLabels = label.all.size()
+
+// Set the `x` of the label from the first row and column to `bar_index`.
+m.get(0, 0).set_x(bar_index)
+// Set the `text` of the label at the last row and column to the number of labels.
+m.get(3, 3).set_text(str.format(&quot;Total labels on the chart: {0}&quot;, numLabels))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="rows-and-columns">
+<span id="pagematrices-rowsandcolumns"></span><h2><a class="toc-backref" href="#id7">Rows and columns</a><a class="headerlink" href="#rows-and-columns" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="retrieving">
+<span id="pagematrices-rowsandcolumns-retrieving"></span><h3><a class="toc-backref" href="#id8">Retrieving</a><a class="headerlink" href="#retrieving" title="Permalink to this headline">¶</a></h3>
+<p>Matrices facilitate the retrieval of all values from a specific row or column via
+the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.row">matrix.row()</a>
+and <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.col">matrix.col()</a>
+functions. These functions return the values as an
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_array">array</a> object sized according
+to the other dimension of the matrix, i.e., the size of a
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.row">matrix.row()</a> array equals
+the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.columns">number of columns</a>
+and the size of a <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.col">matrix.col()</a>
+array equals the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.rows">number of rows</a>.</p>
+<p>The script below populates a 3x2 <code class="docutils literal notranslate"><span class="pre">m</span></code> matrix with the values 1 - 6 on the first chart bar. It calls
+the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.row">m.row()</a>  and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.col">m.col()</a> methods to access
+the first row and column arrays from the matrix and displays them on the chart in a label along with the array sizes:</p>
+<img alt="../_images/Matrices-Rows-and-columns-Retrieving-1.png" src="../_images/Matrices-Rows-and-columns-Retrieving-1.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Retrieving rows and columns demo&quot;)
+
+//@variable A 3x2 rectangular matrix.
+var matrix&lt;float&gt; m = matrix.new&lt;float&gt;(3, 2)
+
+if bar_index == 0
+    m.set(0, 0, 1.0) // Set row 0, column 0 value to 1.
+    m.set(0, 1, 2.0) // Set row 0, column 1 value to 2.
+    m.set(1, 0, 3.0) // Set row 1, column 0 value to 3.
+    m.set(1, 1, 4.0) // Set row 1, column 1 value to 4.
+    m.set(2, 0, 5.0) // Set row 1, column 0 value to 5.
+    m.set(2, 1, 6.0) // Set row 1, column 1 value to 6.
+
+//@variable The first row of the matrix.
+array&lt;float&gt; row0 = m.row(0)
+//@variable The first column of the matrix.
+array&lt;float&gt; column0 = m.col(0)
+
+//@variable Displays the first row and column of the matrix and their sizes in a label.
+var label debugLabel = label.new(0, 0, color = color.blue, textcolor = color.white, size = size.huge)
+debugLabel.set_x(bar_index)
+debugLabel.set_text(str.format(&quot;Row 0: {0}, Size: {1}\nCol 0: {2}, Size: {3}&quot;, row0, m.columns(), column0, m.rows()))
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Note that:</dt>
+<dd><ul class="first last simple">
+<li>To get the sizes of the arrays displayed in the label, we used the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.rows">rows()</a>
+and <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.columns">columns()</a> methods
+rather than <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array.size">array.size()</a>
+to demonstrate that the size of the <code class="docutils literal notranslate"><span class="pre">row0</span></code> array equals the number of columns and the size of the
+<code class="docutils literal notranslate"><span class="pre">column0</span></code> array equals the number of rows.</li>
+</ul>
+</dd>
+</dl>
+<p><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.row">matrix.row()</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.col">matrix.col()</a> copy
+the references in a row/column to a new <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_array">array</a>.
+Modifications to the <a class="reference internal" href="Arrays.html#pagearrays"><span class="std std-ref">arrays</span></a> returned by these functions do not directly affect the elements or the shape of a matrix.</p>
+<p>Here, we’ve modified the previous script to set the first element of <code class="docutils literal notranslate"><span class="pre">row0</span></code> to 10 via the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array.set">array.set()</a> method before displaying the label.
+This script also plots the value from row 0, column 0. As we see, the label shows that the first element of the <code class="docutils literal notranslate"><span class="pre">row0</span></code>
+array is 10. However, the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plot">plot</a> shows that the
+corresponding matrix element still has a value of 1:</p>
+<img alt="../_images/Matrices-Rows-and-columns-Retrieving-2.png" src="../_images/Matrices-Rows-and-columns-Retrieving-2.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Retrieving rows and columns demo&quot;)
+
+//@variable A 3x2 rectangular matrix.
+var matrix&lt;float&gt; m = matrix.new&lt;float&gt;(3, 2)
+
+if bar_index == 0
+    m.set(0, 0, 1.0) // Set row 0, column 0 value to 1.
+    m.set(0, 1, 2.0) // Set row 0, column 1 value to 2.
+    m.set(1, 0, 3.0) // Set row 1, column 0 value to 3.
+    m.set(1, 1, 4.0) // Set row 1, column 1 value to 4.
+    m.set(2, 0, 5.0) // Set row 1, column 0 value to 5.
+    m.set(2, 1, 6.0) // Set row 1, column 1 value to 6.
+
+//@variable The first row of the matrix.
+array&lt;float&gt; row0 = m.row(0)
+//@variable The first column of the matrix.
+array&lt;float&gt; column0 = m.col(0)
+
+// Set the first `row` element to 10.
+row0.set(0, 10)
+
+//@variable Displays the first row and column of the matrix and their sizes in a label.
+var label debugLabel = label.new(0, m.get(0, 0), color = color.blue, textcolor = color.white, size = size.huge)
+debugLabel.set_x(bar_index)
+debugLabel.set_text(str.format(&quot;Row 0: {0}, Size: {1}\nCol 0: {2}, Size: {3}&quot;, row0, m.columns(), column0, m.rows()))
+
+// Plot the first element of `m`.
+plot(m.get(0, 0), linewidth = 3)
+</pre></div>
+</div>
+<p>Although changes to an <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_array">array</a> returned by
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.row">matrix.row()</a> or
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.col">matrix.col()</a> do not directly affect a
+parent matrix, it’s important to note the resulting array from a matrix containing
+<a class="reference internal" href="Type_system.html#pagetypesystem-userdefinedtypes"><span class="std std-ref">UDTs</span></a> or special types, including
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_line">line</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_linefill">linefill</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_label">label</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_box">box</a>, or
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_table">table</a>, behaves as a <em>shallow copy</em>
+of a row/column, i.e., the elements within an array returned from these functions point to the same objects as the
+corresponding matrix elements.</p>
+<p>This script contains a custom <code class="docutils literal notranslate"><span class="pre">myUDT</span></code> type containing a <code class="docutils literal notranslate"><span class="pre">value</span></code> field with an initial value of 0. It declares
+a 1x1 <code class="docutils literal notranslate"><span class="pre">m</span></code> matrix to hold a single <code class="docutils literal notranslate"><span class="pre">myUDT</span></code> instance on the first bar, then calls <code class="docutils literal notranslate"><span class="pre">m.row(0)</span></code> to copy the first
+row of the matrix as an <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_array">array</a>. On every chart bar,
+the script adds 1 to the <code class="docutils literal notranslate"><span class="pre">value</span></code> field of the first <code class="docutils literal notranslate"><span class="pre">row</span></code> array element. In this case, the <code class="docutils literal notranslate"><span class="pre">value</span></code> field of the
+matrix element increases on every bar as well since both elements reference the same object:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Row with reference types demo&quot;)
+
+//@type A custom type that holds a float value.
+type myUDT
+    float value = 0.0
+
+//@variable A 1x1 matrix of `myUDT` type.
+var matrix&lt;myUDT&gt; m = matrix.new&lt;myUDT&gt;(1, 1, myUDT.new())
+//@variable A shallow copy of the first row of `m`.
+array&lt;myUDT&gt; row = m.row(0)
+//@variable The first element of the `row`.
+myUDT firstElement = row.get(0)
+
+firstElement.value += 1.0 // Add 1 to the `value` field of `firstElement`. Also affects the element in the matrix.
+
+plot(m.get(0, 0).value, linewidth = 3) // Plot the `value` of the `myUDT` object from the first row and column of `m`.
+</pre></div>
+</div>
+</div>
+<div class="section" id="inserting">
+<span id="pagematrices-rowsandcolumns-inserting"></span><h3><a class="toc-backref" href="#id9">Inserting</a><a class="headerlink" href="#inserting" title="Permalink to this headline">¶</a></h3>
+<p>Scripts can add new rows and columns to a matrix via
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.add_row">matrix.add_row()</a>
+and <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.add_col">matrix.add_col()</a>.
+These functions insert the value references from an <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_array">array</a>
+into a matrix at the specified <code class="docutils literal notranslate"><span class="pre">row/column</span></code> index. If the <code class="docutils literal notranslate"><span class="pre">id</span></code> matrix is empty (has no rows or columns), the <code class="docutils literal notranslate"><span class="pre">array_id</span></code>
+in the call can be of any size. If a row/column exists at the specified index, the matrix increases the index value for the
+existing row/column and all after it by 1.</p>
+<p>The script below declares an empty <code class="docutils literal notranslate"><span class="pre">m</span></code> matrix and inserts rows and columns using the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.add_row">m.add_row()</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.add_col">m.add_col()</a> methods.
+It first inserts an array with three elements at row 0, turning <code class="docutils literal notranslate"><span class="pre">m</span></code> into a 1x3 matrix, then another
+at row 1, changing the shape to 2x3. After that, the script inserts another array at row 0, which changes
+the shape of <code class="docutils literal notranslate"><span class="pre">m</span></code> to 3x3 and shifts the index of all rows previously at index 0 and higher. It inserts
+another array at the last column index, changing the shape to 3x4. Finally, it adds an array with four
+values at the end row index.</p>
+<p>The resulting matrix has four rows and columns and contains values 1-16 in ascending order. The script
+displays the rows of <code class="docutils literal notranslate"><span class="pre">m</span></code> after each row/column insertion with a user-defined <code class="docutils literal notranslate"><span class="pre">debugLabel()</span></code> function to visualize the process:</p>
+<img alt="../_images/Matrices-Rows-and-columns-Inserting-1.png" src="../_images/Matrices-Rows-and-columns-Inserting-1.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Rows and columns demo&quot;)
+
+//@function Displays the rows of a matrix in a label with a note.
+//@param    this The matrix to display.
+//@param    barIndex The `bar_index` to display the label at.
+//@param    bgColor The background color of the label.
+//@param    textColor The color of the label&#39;s text.
+//@param    note The text to display above the rows.
+method debugLabel(
+     matrix&lt;float&gt; this, int barIndex = bar_index, color bgColor = color.blue,
+     color textColor = color.white, string note = &quot;&quot;
+ ) =&gt;
+    labelText = note + &quot;\n&quot; + str.tostring(this)
+    if barstate.ishistory
+        label.new(
+             barIndex, 0, labelText, color = bgColor, style = label.style_label_center,
+             textcolor = textColor, size = size.huge
+         )
+
+//Create an empty matrix.
+var m = matrix.new&lt;float&gt;()
+
+if bar_index == last_bar_index - 1
+    debugLabel(m, bar_index - 30, note = &quot;Empty matrix&quot;)
+
+    // Insert an array at row 0. `m` will now have 1 row and 3 columns.
+    m.add_row(0, array.from(5, 6, 7))
+    debugLabel(m, bar_index - 20, note = &quot;New row at\nindex 0&quot;)
+
+    // Insert an array at row 1. `m` will now have 2 rows and 3 columns.
+    m.add_row(1, array.from(9, 10, 11))
+    debugLabel(m, bar_index - 10, note = &quot;New row at\nindex 1&quot;)
+
+    // Insert another array at row 0. `m` will now have 3 rows and 3 columns.
+    // The values previously on row 0 will now be on row 1, and the values from row 1 will be on row 2.
+    m.add_row(0, array.from(1, 2, 3))
+    debugLabel(m, bar_index, note = &quot;New row at\nindex 0&quot;)
+
+    // Insert an array at column 3. `m` will now have 3 rows and 4 columns.
+    m.add_col(3, array.from(4, 8, 12))
+    debugLabel(m, bar_index + 10, note = &quot;New column at\nindex 3&quot;)
+
+    // Insert an array at row 3. `m` will now have 4 rows and 4 columns.
+    m.add_row(3, array.from(13, 14, 15, 16))
+    debugLabel(m, bar_index + 20, note = &quot;New row at\nindex 3&quot;)
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Just as the row or column arrays <a class="reference internal" href="#pagematrices-rowsandcolumns-retrieving"><span class="std std-ref">retrieved</span></a> from a matrix of
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_line">line</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_linefill">linefill</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_label">label</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_box">box</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_table">table</a>, or
+<a class="reference internal" href="Type_system.html#pagetypesystem-userdefinedtypes"><span class="std std-ref">UDT</span></a> instances
+behave as shallow copies, the elements of matrices containing such types reference the same objects as the
+<a class="reference internal" href="Arrays.html#pagearrays"><span class="std std-ref">arrays</span></a> inserted into them. Modifications to the element values in either object affect the other in such cases.</p>
+</div>
+</div>
+<div class="section" id="removing">
+<span id="pagematrices-rowsandcolumns-removing"></span><h3><a class="toc-backref" href="#id10">Removing</a><a class="headerlink" href="#removing" title="Permalink to this headline">¶</a></h3>
+<p>To remove a specific row or column from a matrix, use
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.remove_row">matrix.remove_row()</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.remove_col">matrix.remove_col()</a>. These
+functions remove the specified row/column and decrease the index values of all rows/columns after it by 1.</p>
+<p>For this example, we’ve added these lines of code to our “Rows and columns demo” script from the
+<a class="reference internal" href="#pagematrices-rowsandcolumns-inserting"><span class="std std-ref">section above</span></a>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// Removing example
+
+    // Remove the first row and last column from the matrix. `m` will now have 3 rows and 3 columns.
+    m.remove_row(0)
+    m.remove_col(3)
+    debugLabel(m, bar_index + 30, color.red, note = &quot;Removed row 0\nand column 3&quot;)
+</pre></div>
+</div>
+<p>This code removes the first row and the last column of the <code class="docutils literal notranslate"><span class="pre">m</span></code> matrix using the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.remove_row">m.remove_row()</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.remove_col">m.remove_col()</a> methods
+and displays the rows in a label at <code class="docutils literal notranslate"><span class="pre">bar_index</span> <span class="pre">+</span> <span class="pre">30</span></code>. As we can see, <code class="docutils literal notranslate"><span class="pre">m</span></code> has a 3x3 shape after executing
+this block, and the index values for all existing rows are reduced by 1:</p>
+<img alt="../_images/Matrices-Rows-and-columns-Removing-1.png" src="../_images/Matrices-Rows-and-columns-Removing-1.png" />
+</div>
+<div class="section" id="swapping">
+<span id="pagematrices-rowsandcolumns-swapping"></span><h3><a class="toc-backref" href="#id11">Swapping</a><a class="headerlink" href="#swapping" title="Permalink to this headline">¶</a></h3>
+<p>To swap the rows and columns of a matrix without altering its dimensions, use
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.swap_rows">matrix.swap_rows()</a>
+and <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.swap_columns">matrix.swap_columns()</a>.
+These functions swap the locations of the elements at the <code class="docutils literal notranslate"><span class="pre">row1/column1</span></code> and <code class="docutils literal notranslate"><span class="pre">row2/column2</span></code> indices.</p>
+<p>Let’s add the following lines to the <a class="reference internal" href="#pagematrices-rowsandcolumns-removing"><span class="std std-ref">previous example</span></a>, which swap
+the first and last rows of <code class="docutils literal notranslate"><span class="pre">m</span></code> and display the changes in a label at <code class="docutils literal notranslate"><span class="pre">bar_index</span> <span class="pre">+</span> <span class="pre">40</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// Swapping example
+
+    // Swap the first and last row. `m` retains the same dimensions.
+    m.swap_rows(0, 2)
+    debugLabel(m, bar_index + 40, color.purple, note = &quot;Swapped rows 0\nand 2&quot;)
+</pre></div>
+</div>
+<p>In the new label, we see the matrix has the same number of rows as before, and the first and last rows have traded places:</p>
+<img alt="../_images/Matrices-Rows-and-columns-Swapping-1.png" src="../_images/Matrices-Rows-and-columns-Swapping-1.png" />
+</div>
+<div class="section" id="replacing">
+<span id="pagematrices-rowsandcolumns-replacing"></span><h3><a class="toc-backref" href="#id12">Replacing</a><a class="headerlink" href="#replacing" title="Permalink to this headline">¶</a></h3>
+<p>It may be desirable in some cases to completely <em>replace</em> a row or column in a matrix. To do so,
+<a class="reference internal" href="#pagematrices-rowsandcolumns-inserting"><span class="std std-ref">insert</span></a> the new array at the desired <code class="docutils literal notranslate"><span class="pre">row/column</span></code>
+and <a class="reference internal" href="#pagematrices-rowsandcolumns-removing"><span class="std std-ref">remove</span></a> the old elements previously at that index.</p>
+<p>In the following code, we’ve defined a <code class="docutils literal notranslate"><span class="pre">replaceRow()</span></code> method that uses the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.add_row">add_row()</a> method to
+insert the new <code class="docutils literal notranslate"><span class="pre">values</span></code> at the <code class="docutils literal notranslate"><span class="pre">row</span></code> index and uses the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.remove_row">remove_row()</a> method to
+remove the old row that moved to the <code class="docutils literal notranslate"><span class="pre">row</span> <span class="pre">+</span> <span class="pre">1</span></code> index. This script uses the <code class="docutils literal notranslate"><span class="pre">replaceRow()</span></code> method to fill
+the rows of a 3x3 matrix with the numbers 1-9. It draws a label on the chart before and after replacing the
+rows using the custom <code class="docutils literal notranslate"><span class="pre">debugLabel()</span></code> method:</p>
+<img alt="../_images/Matrices-Rows-and-columns-Replacing-1.png" src="../_images/Matrices-Rows-and-columns-Replacing-1.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Replacing rows demo&quot;)
+
+//@function Displays the rows of a matrix in a label with a note.
+//@param    this The matrix to display.
+//@param    barIndex The `bar_index` to display the label at.
+//@param    bgColor The background color of the label.
+//@param    textColor The color of the label&#39;s text.
+//@param    note The text to display above the rows.
+method debugLabel(
+     matrix&lt;float&gt; this, int barIndex = bar_index, color bgColor = color.blue,
+     color textColor = color.white, string note = &quot;&quot;
+ ) =&gt;
+    labelText = note + &quot;\n&quot; + str.tostring(this)
+    if barstate.ishistory
+        label.new(
+             barIndex, 0, labelText, color = bgColor, style = label.style_label_center,
+             textcolor = textColor, size = size.huge
+         )
+
+//@function Replaces the `row` of `this` matrix with a new array of `values`.
+//@param    row The row index to replace.
+//@param    values The array of values to insert.
+method replaceRow(matrix&lt;float&gt; this, int row, array&lt;float&gt; values) =&gt;
+    this.add_row(row, values) // Inserts a copy of the `values` array at the `row`.
+    this.remove_row(row + 1)  // Removes the old elements previously at the `row`.
+
+//@variable A 3x3 matrix.
+var matrix&lt;float&gt; m = matrix.new&lt;float&gt;(3, 3, 0.0)
+
+if bar_index == last_bar_index - 1
+    m.debugLabel(note = &quot;Original&quot;)
+    // Replace each row of `m`.
+    m.replaceRow(0, array.from(1.0, 2.0, 3.0))
+    m.replaceRow(1, array.from(4.0, 5.0, 6.0))
+    m.replaceRow(2, array.from(7.0, 8.0, 9.0))
+    m.debugLabel(bar_index + 10, note = &quot;Replaced rows&quot;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="looping-through-a-matrix">
+<span id="pagematrices-loopingthroughamatrix"></span><h2><a class="toc-backref" href="#id13">Looping through a matrix</a><a class="headerlink" href="#looping-through-a-matrix" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="for">
+<span id="pagematrices-loopingthroughamatrix-for"></span><h3><a class="toc-backref" href="#id14">`for`</a><a class="headerlink" href="#for" title="Permalink to this headline">¶</a></h3>
+<p>When a script only needs to iterate over the row/column indices in a matrix, the most common method is to use
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_for">for</a> loops. For example, this line creates a
+loop with a <code class="docutils literal notranslate"><span class="pre">row</span></code> value that starts at 0 and increases by one until it reaches one less than the number of rows
+in the <code class="docutils literal notranslate"><span class="pre">m</span></code> matrix (i.e., the last row index):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>for row = 0 to m.rows() - 1
+</pre></div>
+</div>
+<p>To iterate over all index values in the <code class="docutils literal notranslate"><span class="pre">m</span></code> matrix, we can create a <em>nested</em> loop that iterates over each <code class="docutils literal notranslate"><span class="pre">column</span></code> index on each <code class="docutils literal notranslate"><span class="pre">row</span></code> value:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>for row = 0 to m.rows() - 1
+    for column = 0 to m.columns() - 1
+</pre></div>
+</div>
+<p>Let’s use this nested structure to create a <a class="reference internal" href="Methods.html#pagemethods"><span class="std std-ref">method</span></a> that visualizes matrix elements.
+In the script below, we’ve defined a <code class="docutils literal notranslate"><span class="pre">toTable()</span></code> method that displays the elements of a matrix within a
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_table">table</a> object. It iterates over each
+<code class="docutils literal notranslate"><span class="pre">row</span></code> index and over each <code class="docutils literal notranslate"><span class="pre">column</span></code> index on every <code class="docutils literal notranslate"><span class="pre">row</span></code>. Within the loop, it converts each element
+to a <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_string">string</a> to display in the corresponding table cell.</p>
+<p>On the first bar, the script creates an empty <code class="docutils literal notranslate"><span class="pre">m</span></code> matrix, populates it with rows, and calls <code class="docutils literal notranslate"><span class="pre">m.toTable()</span></code> to display its elements:</p>
+<img alt="../_images/Matrices-Looping-through-a-matrix-For-1.png" src="../_images/Matrices-Looping-through-a-matrix-For-1.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;for loop demo&quot;, &quot;Matrix to table&quot;)
+
+//@function Displays the elements of `this` matrix in a table.
+//@param    this The matrix to display.
+//@param    position The position of the table on the chart.
+//@param    bgColor The background color of the table.
+//@param    textColor The color of the text in each cell.
+//@param    note A note string to display on the bottom row of the table.
+//@returns  A new `table` object with cells corresponding to each element of `this` matrix.
+method toTable(
+     matrix&lt;float&gt; this, string position = position.middle_center,
+     color bgColor = color.blue, color textColor = color.white,
+     string note = na
+ ) =&gt;
+    //@variable The number of rows in `this` matrix.
+    int rows = this.rows()
+    //@variable The number of columns in `this` matrix.
+    int columns = this.columns()
+    //@variable A table that displays the elements of `this` matrix with an optional `note` cell.
+    table result = table.new(position, columns, rows + 1, bgColor)
+
+    // Iterate over each row index of `this` matrix.
+    for row = 0 to rows - 1
+        // Iterate over each column index of `this` matrix on each `row`.
+        for col = 0 to columns - 1
+            //@variable The element from `this` matrix at the `row` and `col` index.
+            float element = this.get(row, col)
+            // Initialize the corresponding `result` cell with the `element` value.
+            result.cell(col, row, str.tostring(element), text_color = textColor, text_size = size.huge)
+
+    // Initialize a merged cell on the bottom row if a `note` is provided.
+    if not na(note)
+        result.cell(0, rows, note, text_color = textColor, text_size = size.huge)
+        result.merge_cells(0, rows, columns - 1, rows)
+
+    result // Return the `result` table.
+
+//@variable A 3x4 matrix of values.
+var m = matrix.new&lt;float&gt;()
+
+if bar_index == 0
+    // Add rows to `m`.
+    m.add_row(0, array.from(1, 2, 3))
+    m.add_row(1, array.from(5, 6, 7))
+    m.add_row(2, array.from(9, 10, 11))
+    // Add a column to `m`.
+    m.add_col(3, array.from(4, 8, 12))
+    // Display the elements of `m` in a table.
+    m.toTable()
+</pre></div>
+</div>
+</div>
+<div class="section" id="for-in">
+<span id="pagematrices-loopingthroughamatrix-forin"></span><h3><a class="toc-backref" href="#id15">`for…in`</a><a class="headerlink" href="#for-in" title="Permalink to this headline">¶</a></h3>
+<p>When a script needs to iterate over and retrieve the rows of a matrix, using the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_for{dot}{dot}{dot}in">for…in</a>
+structure is often preferred over the standard <code class="docutils literal notranslate"><span class="pre">for</span></code> loop. This structure directly references
+the row <a class="reference internal" href="Arrays.html#pagearrays"><span class="std std-ref">arrays</span></a> in a matrix, making it a more convenient option for such use cases.
+For example, this line creates a loop that returns a <code class="docutils literal notranslate"><span class="pre">row</span></code> array for each row
+in the <code class="docutils literal notranslate"><span class="pre">m</span></code> matrix:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>for row in m
+</pre></div>
+</div>
+<p>The following indicator calculates the moving average of OHLC data with an input <code class="docutils literal notranslate"><span class="pre">length</span></code> and displays the values on the chart.
+The custom <code class="docutils literal notranslate"><span class="pre">rowWiseAvg()</span></code> method loops through the rows of a matrix using a <code class="docutils literal notranslate"><span class="pre">for...in</span></code> structure to produce an array containing
+the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array.avg">array.avg()</a> of each <code class="docutils literal notranslate"><span class="pre">row</span></code>.</p>
+<p>On the first chart bar, the script creates a new <code class="docutils literal notranslate"><span class="pre">m</span></code> matrix with four rows and <code class="docutils literal notranslate"><span class="pre">length</span></code> columns, which it queues a new column of
+OHLC data into via the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.add_col">m.add_col()</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.remove_col">m.remove_col()</a> methods on each subsequent bar.
+It uses <code class="docutils literal notranslate"><span class="pre">m.rowWiseAvg()</span></code> to calculate the array of row-wise <code class="docutils literal notranslate"><span class="pre">averages</span></code>, then it plots the element values on the chart:</p>
+<img alt="../_images/Matrices-Looping-through-a-matrix-For-in-1.png" src="../_images/Matrices-Looping-through-a-matrix-For-in-1.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;for...in loop demo&quot;, &quot;Average OHLC&quot;, overlay = true)
+
+//@variable The number of terms in the average.
+int length = input.int(20, &quot;Length&quot;, minval = 1)
+
+//@function Calculates the average of each matrix row.
+method rowWiseAvg(matrix&lt;float&gt; this) =&gt;
+    //@variable An array with elements corresponding to each row&#39;s average.
+    array&lt;float&gt; result = array.new&lt;float&gt;()
+    // Iterate over each `row` of `this` matrix.
+    for row in this
+        // Push the average of each `row` into the `result`.
+        result.push(row.avg())
+    result // Return the resulting array.
+
+//@variable A 4x`length` matrix of values.
+var matrix&lt;float&gt; m = matrix.new&lt;float&gt;(4, length)
+
+// Add a new column containing OHLC values to the matrix.
+m.add_col(m.columns(), array.from(open, high, low, close))
+// Remove the first column.
+m.remove_col(0)
+
+//@variable An array containing averages of `open`, `high`, `low`, and `close` over `length` bars.
+array&lt;float&gt; averages = m.rowWiseAvg()
+
+plot(averages.get(0), &quot;Average Open&quot;,  color.blue,   2)
+plot(averages.get(1), &quot;Average High&quot;,  color.green,  2)
+plot(averages.get(2), &quot;Average Low&quot;,   color.red,    2)
+plot(averages.get(3), &quot;Average Close&quot;, color.orange, 2)
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Note that:</dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">for...in</span></code> loops can also reference the index value of each row. For example,
+<code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">[i,</span> <span class="pre">row]</span> <span class="pre">in</span> <span class="pre">m</span></code> creates a tuple containing the <code class="docutils literal notranslate"><span class="pre">i</span></code> row index and the
+corresponding <code class="docutils literal notranslate"><span class="pre">row</span></code> array from the <code class="docutils literal notranslate"><span class="pre">m</span></code> matrix on each loop iteration.</li>
+</ul>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="copying-a-matrix">
+<span id="pagematrices-copyingamatrix"></span><h2><a class="toc-backref" href="#id16">Copying a matrix</a><a class="headerlink" href="#copying-a-matrix" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="shallow-copies">
+<span id="pagematrices-copyingamatrix-shallowcopies"></span><h3><a class="toc-backref" href="#id17">Shallow copies</a><a class="headerlink" href="#shallow-copies" title="Permalink to this headline">¶</a></h3>
+<p>Pine scripts can copy matrices via <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.copy">matrix.copy()</a>.
+This function returns a <em>shallow copy</em> of a matrix that does not affect the shape of the original matrix or its references.</p>
+<p>For example, this script assigns a new matrix to the <code class="docutils literal notranslate"><span class="pre">myMatrix</span></code> variable and adds two columns. It creates a new <code class="docutils literal notranslate"><span class="pre">myCopy</span></code>
+matrix from <code class="docutils literal notranslate"><span class="pre">myMatrix</span></code> using the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.copy">myMatrix.copy()</a>
+method, then adds a new row. It displays the rows of both matrices in labels via the user-defined <code class="docutils literal notranslate"><span class="pre">debugLabel()</span></code> function:</p>
+<img alt="../_images/Matrices-Copying-a-matrix-Shallow-copies-1.png" src="../_images/Matrices-Copying-a-matrix-Shallow-copies-1.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Shallow copy demo&quot;)
+
+//@function Displays the rows of a matrix in a label with a note.
+//@param    this The matrix to display.
+//@param    barIndex The `bar_index` to display the label at.
+//@param    bgColor The background color of the label.
+//@param    textColor The color of the label&#39;s text.
+//@param    note The text to display above the rows.
+method debugLabel(
+     matrix&lt;float&gt; this, int barIndex = bar_index, color bgColor = color.blue,
+     color textColor = color.white, string note = &quot;&quot;
+ ) =&gt;
+    labelText = note + &quot;\n&quot; + str.tostring(this)
+    if barstate.ishistory
+        label.new(
+             barIndex, 0, labelText, color = bgColor, style = label.style_label_center,
+             textcolor = textColor, size = size.huge
+         )
+
+//@variable A 2x2 `float` matrix.
+matrix&lt;float&gt; myMatrix = matrix.new&lt;float&gt;()
+myMatrix.add_col(0, array.from(1.0, 3.0))
+myMatrix.add_col(1, array.from(2.0, 4.0))
+
+//@variable A shallow copy of `myMatrix`.
+matrix&lt;float&gt; myCopy = myMatrix.copy()
+// Add a row to the last index of `myCopy`.
+myCopy.add_row(myCopy.rows(), array.from(5.0, 6.0))
+
+if bar_index == last_bar_index - 1
+    // Display the rows of both matrices in separate labels.
+    myMatrix.debugLabel(note = &quot;Original&quot;)
+    myCopy.debugLabel(bar_index + 10, color.green, note = &quot;Shallow Copy&quot;)
+</pre></div>
+</div>
+<p>It’s important to note that the elements within shallow copies of a matrix point to the same values as
+the original matrix. When matrices contain special types
+(<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_line">line</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_linefill">linefill</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_label">label</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_box">box</a>, or
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_table">table</a>)
+or <a class="reference internal" href="Type_system.html#pagetypesystem-userdefinedtypes"><span class="std std-ref">user-defined types</span></a>, the elements of a shallow copy reference
+the same objects as the original.</p>
+<p>This script declares a <code class="docutils literal notranslate"><span class="pre">myMatrix</span></code> variable with a <code class="docutils literal notranslate"><span class="pre">newLabel</span></code> as the initial value. It then copies
+<code class="docutils literal notranslate"><span class="pre">myMatrix</span></code> to a <code class="docutils literal notranslate"><span class="pre">myCopy</span></code> variable via <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.copy">myMatrix.copy()</a>
+and plots the number of labels. As we see below, there’s only one <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_label">label</a>
+on the chart, as the element in <code class="docutils literal notranslate"><span class="pre">myCopy</span></code> references the same object as the element in <code class="docutils literal notranslate"><span class="pre">myMatrix</span></code>.
+Consequently, changes to the element values in <code class="docutils literal notranslate"><span class="pre">myCopy</span></code> affect the values in both matrices:</p>
+<img alt="../_images/Matrices-Copying-a-matrix-Shallow-copies-2.png" src="../_images/Matrices-Copying-a-matrix-Shallow-copies-2.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Shallow copy demo&quot;)
+
+//@variable Initial value of the original matrix elements.
+var label newLabel = label.new(
+     bar_index, 1, &quot;Original&quot;, color = color.blue, textcolor = color.white, size = size.huge
+ )
+
+//@variable A 1x1 matrix containing a new `label` instance.
+var matrix&lt;label&gt; myMatrix = matrix.new&lt;label&gt;(1, 1, newLabel)
+//@variable A shallow copy of `myMatrix`.
+var matrix&lt;label&gt; myCopy = myMatrix.copy()
+
+//@variable The first label from the `myCopy` matrix.
+label testLabel = myCopy.get(0, 0)
+
+// Change the `text`, `style`, and `x` values of `testLabel`. Also affects the `newLabel`.
+testLabel.set_text(&quot;Copy&quot;)
+testLabel.set_style(label.style_label_up)
+testLabel.set_x(bar_index)
+
+// Plot the total number of labels.
+plot(label.all.size(), linewidth = 3)
+</pre></div>
+</div>
+</div>
+<div class="section" id="deep-copies">
+<span id="pagematrices-copyingamatrix-deepcopies"></span><h3><a class="toc-backref" href="#id18">Deep copies</a><a class="headerlink" href="#deep-copies" title="Permalink to this headline">¶</a></h3>
+<p>One can produce a <em>deep copy</em> of a matrix (i.e., a matrix whose elements point to copies of the original values)
+by explicitly copying each object the matrix references.</p>
+<p>Here, we’ve added a <code class="docutils literal notranslate"><span class="pre">deepCopy()</span></code> user-defined method to our previous script. The method creates a new matrix
+and uses <a class="reference internal" href="#pagematrices-loopingthroughamatrix-for"><span class="std std-ref">nested for loops</span></a> to assign all elements to copies of the
+originals. When the script calls this method instead of the built-in
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.copy">copy()</a>, we see that there are now two
+labels on the chart, and any changes to the label from <code class="docutils literal notranslate"><span class="pre">myCopy</span></code> do not affect the one from <code class="docutils literal notranslate"><span class="pre">myMatrix</span></code>:</p>
+<img alt="../_images/Matrices-Copying-a-matrix-Deep-copies-1.png" src="../_images/Matrices-Copying-a-matrix-Deep-copies-1.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Deep copy demo&quot;)
+
+//@function Returns a deep copy of a label matrix.
+method deepCopy(matrix&lt;label&gt; this) =&gt;
+    //@variable A deep copy of `this` matrix.
+    matrix&lt;label&gt; that = this.copy()
+    for row = 0 to that.rows() - 1
+        for column = 0 to that.columns() - 1
+            // Assign the element at each `row` and `column` of `that` matrix to a copy of the retrieved label.
+            that.set(row, column, that.get(row, column).copy())
+    that
+
+//@variable Initial value of the original matrix.
+var label newLabel = label.new(
+     bar_index, 2, &quot;Original&quot;, color = color.blue, textcolor = color.white, size = size.huge
+ )
+
+//@variable A 1x1 matrix containing a new `label` instance.
+var matrix&lt;label&gt; myMatrix = matrix.new&lt;label&gt;(1, 1, newLabel)
+//@variable A deep copy of `myMatrix`.
+var matrix&lt;label&gt; myCopy = myMatrix.deepCopy()
+
+//@variable The first label from the `myCopy` matrix.
+label testLabel = myCopy.get(0, 0)
+
+// Change the `text`, `style`, and `x` values of `testLabel`. Does not affect the `newLabel`.
+testLabel.set_text(&quot;Copy&quot;)
+testLabel.set_style(label.style_label_up)
+testLabel.set_x(bar_index)
+
+// Change the `x` value of `newLabel`.
+newLabel.set_x(bar_index)
+
+// Plot the total number of labels.
+plot(label.all.size(), linewidth = 3)
+</pre></div>
+</div>
+</div>
+<div class="section" id="submatrices">
+<span id="pagematrices-copyingamatrix-submatrices"></span><h3><a class="toc-backref" href="#id19">Submatrices</a><a class="headerlink" href="#submatrices" title="Permalink to this headline">¶</a></h3>
+<p>In Pine, a <em>submatrix</em> is a <a class="reference internal" href="#pagematrices-copyingamatrix-shallowcopies"><span class="std std-ref">shallow copy</span></a> of an existing matrix
+that only includes the rows and columns specified by the <code class="docutils literal notranslate"><span class="pre">from_row/column</span></code> and <code class="docutils literal notranslate"><span class="pre">to_row/column</span></code> parameters.
+In essence, it is a sliced copy of a matrix.</p>
+<p>For example, the script below creates an <code class="docutils literal notranslate"><span class="pre">mSub</span></code> matrix from the <code class="docutils literal notranslate"><span class="pre">m</span></code> matrix via the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.submatrix">m.submatrix()</a> method, then calls
+our user-defined <code class="docutils literal notranslate"><span class="pre">debugLabel()</span></code> function to display the rows of both matrices in labels:</p>
+<img alt="../_images/Matrices-Copying-a-matrix-Submatrices-1.png" src="../_images/Matrices-Copying-a-matrix-Submatrices-1.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Submatrix demo&quot;)
+
+//@function Displays the rows of a matrix in a label with a note.
+//@param    this The matrix to display.
+//@param    barIndex The `bar_index` to display the label at.
+//@param    bgColor The background color of the label.
+//@param    textColor The color of the label&#39;s text.
+//@param    note The text to display above the rows.
+method debugLabel(
+     matrix&lt;float&gt; this, int barIndex = bar_index, color bgColor = color.blue,
+     color textColor = color.white, string note = &quot;&quot;
+ ) =&gt;
+    labelText = note + &quot;\n&quot; + str.tostring(this)
+    if barstate.ishistory
+        label.new(
+             barIndex, 0, labelText, color = bgColor, style = label.style_label_center,
+             textcolor = textColor, size = size.huge
+         )
+
+//@variable A 3x3 matrix of values.
+var m = matrix.new&lt;float&gt;()
+
+if bar_index == last_bar_index - 1
+    // Add columns to `m`.
+    m.add_col(0, array.from(9, 6, 3))
+    m.add_col(1, array.from(8, 5, 2))
+    m.add_col(2, array.from(7, 4, 1))
+    // Display the rows of `m`.
+    m.debugLabel(note = &quot;Original Matrix&quot;)
+
+    //@variable A 2x2 submatrix of `m` containing the first two rows and columns.
+    matrix&lt;float&gt; mSub = m.submatrix(from_row = 0, to_row = 2, from_column = 0, to_column = 2)
+    // Display the rows of `mSub`
+    debugLabel(mSub, bar_index + 10, bgColor = color.green, note = &quot;Submatrix&quot;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="scope-and-history">
+<span id="pagematrices-scopeandhistory"></span><h2><a class="toc-backref" href="#id20">Scope and history</a><a class="headerlink" href="#scope-and-history" title="Permalink to this headline">¶</a></h2>
+<p>Matrix variables leave historical trails on each bar, allowing scripts to use the history-referencing operator
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_[]">[]</a> to interact with past matrix instances
+previously assigned to a variable. Additionally, scripts can modify matrices assigned to global variables from
+within the scopes of <a class="reference internal" href="User-defined_functions.html#pageuserdefinedfunctions"><span class="std std-ref">functions</span></a>, <a class="reference internal" href="Methods.html#pagemethods"><span class="std std-ref">methods</span></a>,
+and <a class="reference internal" href="Conditional_structures.html#pageconditionalstructures"><span class="std std-ref">conditional structures</span></a>.</p>
+<p>This script calculates the average ratios of body and wick distances relative to the bar range over <code class="docutils literal notranslate"><span class="pre">length</span></code> bars.
+It displays the data along with values from <code class="docutils literal notranslate"><span class="pre">length</span></code> bars ago in a table. The user-defined <code class="docutils literal notranslate"><span class="pre">addData()</span></code> function
+adds columns of current and historical ratios to the <code class="docutils literal notranslate"><span class="pre">globalMatrix</span></code>, and the <code class="docutils literal notranslate"><span class="pre">calcAvg()</span></code> function references <code class="docutils literal notranslate"><span class="pre">previous</span></code>
+matrices assigned to <code class="docutils literal notranslate"><span class="pre">globalMatrix</span></code> using the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_[]">[]</a>
+operator to calculate a matrix of averages:</p>
+<img alt="../_images/Matrices-Scope-and-history-1.png" src="../_images/Matrices-Scope-and-history-1.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Scope and history demo&quot;, &quot;Bar ratio comparison&quot;)
+
+int length = input.int(10, &quot;Length&quot;, 1)
+
+//@variable A global matrix.
+matrix&lt;float&gt; globalMatrix = matrix.new&lt;float&gt;()
+
+//@function Calculates the ratio of body range to candle range.
+bodyRatio() =&gt;
+    math.abs(close - open) / (high - low)
+
+//@function Calculates the ratio of upper wick range to candle range.
+upperWickRatio() =&gt;
+    (high - math.max(open, close)) / (high - low)
+
+//@function Calculates the ratio of lower wick range to candle range.
+lowerWickRatio() =&gt;
+    (math.min(open, close) - low) / (high - low)
+
+//@function Adds data to the `globalMatrix`.
+addData() =&gt;
+    // Add a new column of data at `column` 0.
+    globalMatrix.add_col(0, array.from(bodyRatio(), upperWickRatio(), lowerWickRatio()))
+    //@variable The column of `globalMatrix` from index 0 `length` bars ago.
+    array&lt;float&gt; pastValues = globalMatrix.col(0)[length]
+    // Add `pastValues` to the `globalMatrix`, or an array of `na` if `pastValues` is `na`.
+    if na(pastValues)
+        globalMatrix.add_col(1, array.new&lt;float&gt;(3))
+    else
+        globalMatrix.add_col(1, pastValues)
+
+//@function Returns the `length`-bar average of matrices assigned to `globalMatrix` on historical bars.
+calcAvg() =&gt;
+    //@variable The sum historical `globalMatrix` matrices.
+    matrix&lt;float&gt; sums = matrix.new&lt;float&gt;(globalMatrix.rows(), globalMatrix.columns(), 0.0)
+    for i = 0 to length - 1
+        //@variable The `globalMatrix` matrix `i` bars before the current bar.
+        matrix&lt;float&gt; previous = globalMatrix[i]
+        // Break the loop if `previous` is `na`.
+        if na(previous)
+            sums.fill(na)
+            break
+        // Assign the sum of `sums` and `previous` to `sums`.
+        sums := matrix.sum(sums, previous)
+    // Divide the `sums` matrix by the `length`.
+    result = sums.mult(1.0 / length)
+
+// Add data to the `globalMatrix`.
+addData()
+
+//@variable The historical average of the `globalMatrix` matrices.
+globalAvg = calcAvg()
+
+//@variable A `table` displaying information from the `globalMatrix`.
+var table infoTable = table.new(
+     position.middle_center, globalMatrix.columns() + 1, globalMatrix.rows() + 1, bgcolor = color.navy
+ )
+
+// Define value cells.
+for [i, row] in globalAvg
+    for [j, value] in row
+        color textColor = value &gt; 0.333 ? color.orange : color.gray
+        infoTable.cell(j + 1, i + 1, str.tostring(value), text_color = textColor, text_size = size.huge)
+
+// Define header cells.
+infoTable.cell(0, 1, &quot;Body ratio&quot;, text_color = color.white, text_size = size.huge)
+infoTable.cell(0, 2, &quot;Upper wick ratio&quot;, text_color = color.white, text_size = size.huge)
+infoTable.cell(0, 3, &quot;Lower wick ratio&quot;, text_color = color.white, text_size = size.huge)
+infoTable.cell(1, 0, &quot;Current average&quot;, text_color = color.white, text_size = size.huge)
+infoTable.cell(2, 0, str.format(&quot;{0} bars ago&quot;, length), text_color = color.white, text_size = size.huge)
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Note that:</dt>
+<dd><ul class="first last simple">
+<li>The <code class="docutils literal notranslate"><span class="pre">addData()</span></code> and <code class="docutils literal notranslate"><span class="pre">calcAvg()</span></code> functions have no parameters, as they directly interact with the
+<code class="docutils literal notranslate"><span class="pre">globalMatrix</span></code> and <code class="docutils literal notranslate"><span class="pre">length</span></code> variables declared in the outer scope.</li>
+<li><code class="docutils literal notranslate"><span class="pre">calcAvg()</span></code> calculates the average by adding <code class="docutils literal notranslate"><span class="pre">previous</span></code> matrices using
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.sum">matrix.sum()</a> and multiplying all elements
+by <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">/</span> <span class="pre">length</span></code> using <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.mult">matrix.mult()</a>.
+We discuss these and other specialized functions in our <a class="reference internal" href="#pagematrices-matrixcalculations"><span class="std std-ref">Matrix calculations</span></a> section below.</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="inspecting-a-matrix">
+<span id="pagematrices-inspectingamatrix"></span><h2><a class="toc-backref" href="#id21">Inspecting a matrix</a><a class="headerlink" href="#inspecting-a-matrix" title="Permalink to this headline">¶</a></h2>
+<p>The ability to inspect the shape of a matrix and patterns within its elements is crucial, as it
+helps reveal important information about a matrix and its compatibility with various calculations
+and transformations. Pine Script<sup>®</sup> includes several built-ins for matrix inspection, including
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.is_square">matrix.is_square()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.is_identity">matrix.is_identity()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.is_diagonal">matrix.is_diagonal()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.is_antidiagonal">matrix.is_antidiagonal()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.is_symmetric">matrix.is_symmetric()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.is_antisymmetric">matrix.is_antisymmetric()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.is_triangular">matrix.is_triangular()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.is_stochastic">matrix.is_stochastic()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.is_binary">matrix.is_binary()</a>,
+and <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.is_zero">matrix.is_zero()</a>.</p>
+<p>To demonstrate these features, this example contains a custom <code class="docutils literal notranslate"><span class="pre">inspect()</span></code> method that uses conditional blocks with
+<code class="docutils literal notranslate"><span class="pre">matrix.is_*()</span></code> functions to return information about a matrix. It displays a string representation of an <code class="docutils literal notranslate"><span class="pre">m</span></code>
+matrix and the description returned from <code class="docutils literal notranslate"><span class="pre">m.inspect()</span></code> in labels on the chart:</p>
+<img alt="../_images/Matrices-Inspecting-a-matrix-1.png" src="../_images/Matrices-Inspecting-a-matrix-1.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Matrix inspection demo&quot;)
+
+//@function Inspects a matrix using `matrix.is_*()` functions and returns a `string` describing some of its features.
+method inspect(matrix&lt;int&gt; this)=&gt;
+    //@variable A string describing `this` matrix.
+    string result = &quot;This matrix:\n&quot;
+    if this.is_square()
+        result += &quot;- Has an equal number of rows and columns.\n&quot;
+    if this.is_binary()
+        result += &quot;- Contains only 1s and 0s.\n&quot;
+    if this.is_zero()
+        result += &quot;- Is filled with 0s.\n&quot;
+    if this.is_triangular()
+        result += &quot;- Contains only 0s above and/or below its main diagonal.\n&quot;
+    if this.is_diagonal()
+        result += &quot;- Only has nonzero values in its main diagonal.\n&quot;
+    if this.is_antidiagonal()
+        result += &quot;- Only has nonzero values in its main antidiagonal.\n&quot;
+    if this.is_symmetric()
+        result += &quot;- Equals its transpose.\n&quot;
+    if this.is_antisymmetric()
+        result += &quot;- Equals the negative of its transpose.\n&quot;
+    if this.is_identity()
+        result += &quot;- Is the identity matrix.\n&quot;
+    result
+
+//@variable A 4x4 identity matrix.
+matrix&lt;int&gt; m = matrix.new&lt;int&gt;()
+
+// Add rows to the matrix.
+m.add_row(0, array.from(1, 0, 0, 0))
+m.add_row(1, array.from(0, 1, 0, 0))
+m.add_row(2, array.from(0, 0, 1, 0))
+m.add_row(3, array.from(0, 0, 0, 1))
+
+if bar_index == last_bar_index - 1
+    // Display the `m` matrix in a blue label.
+    label.new(
+         bar_index, 0, str.tostring(m), color = color.blue, style = label.style_label_right,
+         textcolor = color.white, size = size.huge
+     )
+    // Display the result of `m.inspect()` in a purple label.
+    label.new(
+         bar_index, 0, m.inspect(), color = color.purple, style = label.style_label_left,
+         textcolor = color.white, size = size.huge
+     )
+</pre></div>
+</div>
+</div>
+<div class="section" id="manipulating-a-matrix">
+<span id="pagematrices-manipulatingamatrix"></span><h2><a class="toc-backref" href="#id22">Manipulating a matrix</a><a class="headerlink" href="#manipulating-a-matrix" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="reshaping">
+<span id="pagematrices-manipulatingamatrix-reshaping"></span><h3><a class="toc-backref" href="#id23">Reshaping</a><a class="headerlink" href="#reshaping" title="Permalink to this headline">¶</a></h3>
+<p>The shape of a matrix can determine its compatibility with various matrix operations. In some cases, it is
+necessary to change the dimensions of a matrix without affecting the number of elements or the values they reference,
+otherwise known as <em>reshaping</em>. To reshape a matrix in Pine, use the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.reshape">matrix.reshape()</a> function.</p>
+<p>This example demonstrates the results of multiple reshaping operations on a matrix. The initial <code class="docutils literal notranslate"><span class="pre">m</span></code> matrix has a 1x8 shape
+(one row and eight columns). Through successive calls to the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.reshape">m.reshape()</a>
+method, the script changes the shape of <code class="docutils literal notranslate"><span class="pre">m</span></code> to 2x4, 4x2, and 8x1. It displays each reshaped matrix in a label on the chart
+using the custom <code class="docutils literal notranslate"><span class="pre">debugLabel()</span></code> method:</p>
+<img alt="../_images/Matrices-Manipulating-a-matrix-Reshaping-1.png" src="../_images/Matrices-Manipulating-a-matrix-Reshaping-1.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Reshaping example&quot;)
+
+//@function Displays the rows of a matrix in a label with a note.
+//@param    this The matrix to display.
+//@param    barIndex The `bar_index` to display the label at.
+//@param    bgColor The background color of the label.
+//@param    textColor The color of the label&#39;s text.
+//@param    note The text to display above the rows.
+method debugLabel(
+     matrix&lt;float&gt; this, int barIndex = bar_index, color bgColor = color.blue,
+     color textColor = color.white, string note = &quot;&quot;
+ ) =&gt;
+    labelText = note + &quot;\n&quot; + str.tostring(this)
+    if barstate.ishistory
+        label.new(
+             barIndex, 0, labelText, color = bgColor, style = label.style_label_center,
+             textcolor = textColor, size = size.huge
+         )
+
+//@variable A matrix containing the values 1-8.
+matrix&lt;int&gt; m = matrix.new&lt;int&gt;()
+
+if bar_index == last_bar_index - 1
+    // Add the initial vector of values.
+    m.add_row(0, array.from(1, 2, 3, 4, 5, 6, 7, 8))
+    m.debugLabel(note = &quot;Initial 1x8 matrix&quot;)
+
+    // Reshape. `m` now has 2 rows and 4 columns.
+    m.reshape(2, 4)
+    m.debugLabel(bar_index + 10, note = &quot;Reshaped to 2x4&quot;)
+
+    // Reshape. `m` now has 4 rows and 2 columns.
+    m.reshape(4, 2)
+    m.debugLabel(bar_index + 20, note = &quot;Reshaped to 4x2&quot;)
+
+    // Reshape. `m` now has 8 rows and 1 column.
+    m.reshape(8, 1)
+    m.debugLabel(bar_index + 30, note = &quot;Reshaped to 8x1&quot;)
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Note that:</dt>
+<dd><ul class="first last simple">
+<li>The order of elements in <code class="docutils literal notranslate"><span class="pre">m</span></code> does not change with each <code class="docutils literal notranslate"><span class="pre">m.reshape()</span></code> call.</li>
+<li>When reshaping a matrix, the product of the <code class="docutils literal notranslate"><span class="pre">rows</span></code> and <code class="docutils literal notranslate"><span class="pre">columns</span></code> arguments must equal the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.elements_count">matrix.elements_count()</a>
+value, as <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.reshape">matrix.reshape()</a>
+cannot change the number of elements in a matrix.</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="reversing">
+<span id="pagematrices-manipulatingamatrix-reversing"></span><h3><a class="toc-backref" href="#id24">Reversing</a><a class="headerlink" href="#reversing" title="Permalink to this headline">¶</a></h3>
+<p>One can reverse the order of all elements in a matrix using
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.reverse">matrix.reverse()</a>.
+This function moves the references of an m-by-n matrix <code class="docutils literal notranslate"><span class="pre">id</span></code> at the i-th row and j-th column to
+the m - 1 - i row and n - 1 - j column.</p>
+<p>For example, this script creates a 3x3 matrix containing the values 1-9 in ascending order, then
+uses the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.reverse">reverse()</a>
+method to reverse its contents. It displays the original and modified versions of the matrix in
+labels on the chart via <code class="docutils literal notranslate"><span class="pre">m.debugLabel()</span></code>:</p>
+<img alt="../_images/Matrices-Manipulating-a-matrix-Reversing-1.png" src="../_images/Matrices-Manipulating-a-matrix-Reversing-1.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Reversing demo&quot;)
+
+//@function Displays the rows of a matrix in a label with a note.
+//@param    this The matrix to display.
+//@param    barIndex The `bar_index` to display the label at.
+//@param    bgColor The background color of the label.
+//@param    textColor The color of the label&#39;s text.
+//@param    note The text to display above the rows.
+method debugLabel(
+     matrix&lt;float&gt; this, int barIndex = bar_index, color bgColor = color.blue,
+     color textColor = color.white, string note = &quot;&quot;
+ ) =&gt;
+    labelText = note + &quot;\n&quot; + str.tostring(this)
+    if barstate.ishistory
+        label.new(
+             barIndex, 0, labelText, color = bgColor, style = label.style_label_center,
+             textcolor = textColor, size = size.huge
+         )
+
+//@variable A 3x3 matrix.
+matrix&lt;float&gt; m = matrix.new&lt;float&gt;()
+
+// Add rows to `m`.
+m.add_row(0, array.from(1, 2, 3))
+m.add_row(1, array.from(4, 5, 6))
+m.add_row(2, array.from(7, 8, 9))
+
+if bar_index == last_bar_index - 1
+    // Display the contents of `m`.
+    m.debugLabel(note = &quot;Original&quot;)
+    // Reverse `m`, then display its contents.
+    m.reverse()
+    m.debugLabel(bar_index + 10, color.red, note = &quot;Reversed&quot;)
+</pre></div>
+</div>
+</div>
+<div class="section" id="transposing">
+<span id="pagematrices-manipulatingamatrix-transposing"></span><h3><a class="toc-backref" href="#id25">Transposing</a><a class="headerlink" href="#transposing" title="Permalink to this headline">¶</a></h3>
+<p>Transposing a matrix is a fundamental operation that flips all rows and columns in a matrix about its
+<em>main diagonal</em> (the diagonal vector of all values in which the row index equals the column index).
+This process produces a new matrix with reversed row and column dimensions, known as the <em>transpose</em>.
+Scripts can calculate the transpose of a matrix using
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.transpose">matrix.transpose()</a>.</p>
+<p>For any m-row, n-column matrix, the matrix returned from
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.transpose">matrix.transpose()</a>
+will have n rows and m columns. All elements in a matrix at the i-th row and j-th column correspond
+to the elements in its transpose at the j-th row and i-th column.</p>
+<p>This example declares a 2x4 <code class="docutils literal notranslate"><span class="pre">m</span></code> matrix, calculates its transpose using the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.transpose">m.transpose()</a> method,
+and displays both matrices on the chart using our custom <code class="docutils literal notranslate"><span class="pre">debugLabel()</span></code> method. As we can see below,
+the transposed matrix has a 4x2 shape, and the rows of the transpose match the columns of the original:</p>
+<img alt="../_images/Matrices-Manipulating-a-matrix-Transposing-1.png" src="../_images/Matrices-Manipulating-a-matrix-Transposing-1.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Transpose example&quot;)
+
+//@function Displays the rows of a matrix in a label with a note.
+//@param    this The matrix to display.
+//@param    barIndex The `bar_index` to display the label at.
+//@param    bgColor The background color of the label.
+//@param    textColor The color of the label&#39;s text.
+//@param    note The text to display above the rows.
+method debugLabel(
+     matrix&lt;float&gt; this, int barIndex = bar_index, color bgColor = color.blue,
+     color textColor = color.white, string note = &quot;&quot;
+ ) =&gt;
+    labelText = note + &quot;\n&quot; + str.tostring(this)
+    if barstate.ishistory
+        label.new(
+             barIndex, 0, labelText, color = bgColor, style = label.style_label_center,
+             textcolor = textColor, size = size.huge
+         )
+
+//@variable A 2x4 matrix.
+matrix&lt;int&gt; m = matrix.new&lt;int&gt;()
+
+// Add columns to `m`.
+m.add_col(0, array.from(1, 5))
+m.add_col(1, array.from(2, 6))
+m.add_col(2, array.from(3, 7))
+m.add_col(3, array.from(4, 8))
+
+//@variable The transpose of `m`. Has a 4x2 shape.
+matrix&lt;int&gt; mt = m.transpose()
+
+if bar_index == last_bar_index - 1
+    m.debugLabel(note = &quot;Original&quot;)
+    mt.debugLabel(bar_index + 10, note = &quot;Transpose&quot;)
+</pre></div>
+</div>
+</div>
+<div class="section" id="sorting">
+<span id="pagematrices-manipulatingamatrix-sorting"></span><h3><a class="toc-backref" href="#id26">Sorting</a><a class="headerlink" href="#sorting" title="Permalink to this headline">¶</a></h3>
+<p>Scripts can sort the contents of a matrix via
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.sort">matrix.sort()</a>.
+Unlike <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array.sort">array.sort()</a>,
+which sorts <em>elements</em>, this function organizes all <em>rows</em> in a matrix in a specified <code class="docutils literal notranslate"><span class="pre">order</span></code>
+(<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_order.ascending">order.ascending</a> by default)
+based on the values in a specified <code class="docutils literal notranslate"><span class="pre">column</span></code>.</p>
+<p>This script declares a 3x3 <code class="docutils literal notranslate"><span class="pre">m</span></code> matrix, sorts the rows of the <code class="docutils literal notranslate"><span class="pre">m1</span></code> copy in ascending order based on the
+first column, then sorts the rows of the <code class="docutils literal notranslate"><span class="pre">m2</span></code> copy in descending order based on the second column. It
+displays the original matrix and sorted copies in labels using our <code class="docutils literal notranslate"><span class="pre">debugLabel()</span></code> method:</p>
+<img alt="../_images/Matrices-Manipulating-a-matrix-Sorting-1.png" src="../_images/Matrices-Manipulating-a-matrix-Sorting-1.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Sorting rows example&quot;)
+
+//@function Displays the rows of a matrix in a label with a note.
+//@param    this The matrix to display.
+//@param    barIndex The `bar_index` to display the label at.
+//@param    bgColor The background color of the label.
+//@param    textColor The color of the label&#39;s text.
+//@param    note The text to display above the rows.
+method debugLabel(
+     matrix&lt;float&gt; this, int barIndex = bar_index, color bgColor = color.blue,
+     color textColor = color.white, string note = &quot;&quot;
+ ) =&gt;
+    labelText = note + &quot;\n&quot; + str.tostring(this)
+    if barstate.ishistory
+        label.new(
+             barIndex, 0, labelText, color = bgColor, style = label.style_label_center,
+             textcolor = textColor, size = size.huge
+         )
+
+//@variable A 3x3 matrix.
+matrix&lt;int&gt; m = matrix.new&lt;int&gt;()
+
+if bar_index == last_bar_index - 1
+    // Add rows to `m`.
+    m.add_row(0, array.from(3, 2, 4))
+    m.add_row(1, array.from(1, 9, 6))
+    m.add_row(2, array.from(7, 8, 9))
+    m.debugLabel(note = &quot;Original&quot;)
+
+    // Copy `m` and sort rows in ascending order based on the first column (default).
+    matrix&lt;int&gt; m1 = m.copy()
+    m1.sort()
+    m1.debugLabel(bar_index + 10, color.green, note = &quot;Sorted using col 0\n(Ascending)&quot;)
+
+    // Copy `m` and sort rows in descending order based on the second column.
+    matrix&lt;int&gt; m2 = m.copy()
+    m2.sort(1, order.descending)
+    m2.debugLabel(bar_index + 20, color.red, note = &quot;Sorted using col 1\n(Descending)&quot;)
+</pre></div>
+</div>
+<p>It’s important to note that <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.sort">matrix.sort()</a>
+does not sort the columns of a matrix. However, one <em>can</em> use this function to sort matrix columns with the help of
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.transpose">matrix.transpose()</a>.</p>
+<p>As an example, this script contains a <code class="docutils literal notranslate"><span class="pre">sortColumns()</span></code> method that uses the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.sort">sort()</a>
+method to sort the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.transpose">transpose</a>
+of a matrix using the column corresponding to the <code class="docutils literal notranslate"><span class="pre">row</span></code> of the original matrix. The script uses this method
+to sort the <code class="docutils literal notranslate"><span class="pre">m</span></code> matrix based on the contents of its first row:</p>
+<img alt="../_images/Matrices-Manipulating-a-matrix-Sorting-2.png" src="../_images/Matrices-Manipulating-a-matrix-Sorting-2.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Sorting columns example&quot;)
+
+//@function Displays the rows of a matrix in a label with a note.
+//@param    this The matrix to display.
+//@param    barIndex The `bar_index` to display the label at.
+//@param    bgColor The background color of the label.
+//@param    textColor The color of the label&#39;s text.
+//@param    note The text to display above the rows.
+method debugLabel(
+     matrix&lt;float&gt; this, int barIndex = bar_index, color bgColor = color.blue,
+     color textColor = color.white, string note = &quot;&quot;
+ ) =&gt;
+    labelText = note + &quot;\n&quot; + str.tostring(this)
+    if barstate.ishistory
+        label.new(
+             barIndex, 0, labelText, color = bgColor, style = label.style_label_center,
+             textcolor = textColor, size = size.huge
+         )
+
+//@function Sorts the columns of `this` matrix based on the values in the specified `row`.
+method sortColumns(matrix&lt;int&gt; this, int row = 0, bool ascending = true) =&gt;
+    //@variable The transpose of `this` matrix.
+    matrix&lt;int&gt; thisT = this.transpose()
+    //@variable Is `order.ascending` when `ascending` is `true`, `order.descending` otherwise.
+    order = ascending ? order.ascending : order.descending
+    // Sort the rows of `thisT` using the `row` column.
+    thisT.sort(row, order)
+    //@variable A copy of `this` matrix with sorted columns.
+    result = thisT.transpose()
+
+//@variable A 3x3 matrix.
+matrix&lt;int&gt; m = matrix.new&lt;int&gt;()
+
+if bar_index == last_bar_index - 1
+    // Add rows to `m`.
+    m.add_row(0, array.from(3, 2, 4))
+    m.add_row(1, array.from(1, 9, 6))
+    m.add_row(2, array.from(7, 8, 9))
+    m.debugLabel(note = &quot;Original&quot;)
+
+    // Sort the columns of `m` based on the first row and display the result.
+    m.sortColumns(0).debugLabel(bar_index + 10, note = &quot;Sorted using row 0\n(Ascending)&quot;)
+</pre></div>
+</div>
+</div>
+<div class="section" id="concatenating">
+<span id="pagematrices-manipulatingamatrix-concatenating"></span><h3><a class="toc-backref" href="#id27">Concatenating</a><a class="headerlink" href="#concatenating" title="Permalink to this headline">¶</a></h3>
+<p>Scripts can <em>concatenate</em> two matrices using <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.concat">matrix.concat()</a>.
+This function appends the rows of an <code class="docutils literal notranslate"><span class="pre">id2</span></code> matrix to the end of an <code class="docutils literal notranslate"><span class="pre">id1</span></code> matrix with the same number of columns.</p>
+<p>To create a matrix with elements representing the <em>columns</em> of a matrix appended to another,
+<a class="reference internal" href="#pagematrices-manipulatingamatrix-transposing"><span class="std std-ref">transpose</span></a> both matrices, use
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.concat">matrix.concat()</a> on the transposed
+matrices, then <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.transpose">transpose()</a> the result.</p>
+<p>For example, this script appends the rows of the <code class="docutils literal notranslate"><span class="pre">m2</span></code> matrix to the <code class="docutils literal notranslate"><span class="pre">m1</span></code> matrix and appends their columns using <em>transposed
+copies</em> of the matrices. It displays the <code class="docutils literal notranslate"><span class="pre">m1</span></code> and <code class="docutils literal notranslate"><span class="pre">m2</span></code> matrices and the results after concatenating their rows and columns
+in labels using the custom <code class="docutils literal notranslate"><span class="pre">debugLabel()</span></code> method:</p>
+<img alt="../_images/Matrices-Manipulating-a-matrix-Concatenating-1.png" src="../_images/Matrices-Manipulating-a-matrix-Concatenating-1.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Concatenation demo&quot;)
+
+//@function Displays the rows of a matrix in a label with a note.
+//@param    this The matrix to display.
+//@param    barIndex The `bar_index` to display the label at.
+//@param    bgColor The background color of the label.
+//@param    textColor The color of the label&#39;s text.
+//@param    note The text to display above the rows.
+method debugLabel(
+     matrix&lt;float&gt; this, int barIndex = bar_index, color bgColor = color.blue,
+     color textColor = color.white, string note = &quot;&quot;
+ ) =&gt;
+    labelText = note + &quot;\n&quot; + str.tostring(this)
+    if barstate.ishistory
+        label.new(
+             barIndex, 0, labelText, color = bgColor, style = label.style_label_center,
+             textcolor = textColor, size = size.huge
+         )
+
+//@variable A 2x3 matrix filled with 1s.
+matrix&lt;int&gt; m1 = matrix.new&lt;int&gt;(2, 3, 1)
+//@variable A 2x3 matrix filled with 2s.
+matrix&lt;int&gt; m2 = matrix.new&lt;int&gt;(2, 3, 2)
+
+//@variable The transpose of `m1`.
+t1 = m1.transpose()
+//@variable The transpose of `m2`.
+t2 = m2.transpose()
+
+if bar_index == last_bar_index - 1
+    // Display the original matrices.
+    m1.debugLabel(note = &quot;Matrix 1&quot;)
+    m2.debugLabel(bar_index + 10, note = &quot;Matrix 2&quot;)
+    // Append the rows of `m2` to the end of `m1` and display `m1`.
+    m1.concat(m2)
+    m1.debugLabel(bar_index + 20, color.blue, note = &quot;Appended rows&quot;)
+    // Append the rows of `t2` to the end of `t1`, then display the transpose of `t1.
+    t1.concat(t2)
+    t1.transpose().debugLabel(bar_index + 30, color.purple, note = &quot;Appended columns&quot;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="matrix-calculations">
+<span id="pagematrices-matrixcalculations"></span><h2><a class="toc-backref" href="#id28">Matrix calculations</a><a class="headerlink" href="#matrix-calculations" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="element-wise-calculations">
+<span id="pagematrices-matrixcalculations-elementwisecalculations"></span><h3><a class="toc-backref" href="#id29">Element-wise calculations</a><a class="headerlink" href="#element-wise-calculations" title="Permalink to this headline">¶</a></h3>
+<p>Pine scripts can calculate the <em>average</em>, <em>minimum</em>, <em>maximum</em>, and <em>mode</em> of all elements within a matrix via
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.avg">matrix.avg()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.min">matrix.min()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.max">matrix.max()</a>,
+and <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.mode">matrix.mode()</a>.
+These functions operate the same as their <code class="docutils literal notranslate"><span class="pre">array.*</span></code> equivalents, allowing users to run element-wise calculations
+on a matrix, its <a class="reference internal" href="#pagematrices-copyingamatrix-submatrices"><span class="std std-ref">submatrices</span></a>, and its <a class="reference internal" href="#pagematrices-rowsandcolumns"><span class="std std-ref">rows and columns</span></a>
+using the same syntax. For example, the built-in <code class="docutils literal notranslate"><span class="pre">*.avg()</span></code> functions called on a 3x3 matrix with values 1-9 and an
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_array">array</a> with the same nine elements will both return a value of 5.</p>
+<p>The script below uses <code class="docutils literal notranslate"><span class="pre">*.avg()</span></code>, <code class="docutils literal notranslate"><span class="pre">*.max()</span></code>, and <code class="docutils literal notranslate"><span class="pre">*.min()</span></code> methods to calculate developing averages and extremes of OHLC data
+in a period. It adds a new column of <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_open">open</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_high">high</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_low">low</a>, and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_close">close</a> values to the end of the <code class="docutils literal notranslate"><span class="pre">ohlcData</span></code> matrix
+whenever <code class="docutils literal notranslate"><span class="pre">queueColumn</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code>. When <code class="docutils literal notranslate"><span class="pre">false</span></code>, the script uses the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.get">get()</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.set">set()</a> matrix methods to adjust the elements in
+the last column for developing HLC values in the current period. It uses the <code class="docutils literal notranslate"><span class="pre">ohlcData</span></code> matrix, a
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.submatrix">submatrix()</a>, and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.row">row()</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.col">col()</a> arrays to calculate the developing OHLC4
+and HL2 averages over <code class="docutils literal notranslate"><span class="pre">length</span></code> periods, the maximum high and minimum low over <code class="docutils literal notranslate"><span class="pre">length</span></code> periods, and the current period’s
+developing OHLC4 price:</p>
+<img alt="../_images/Matrices-Matrix-calculations-Element-wise-calculations-1.png" src="../_images/Matrices-Matrix-calculations-Element-wise-calculations-1.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Element-wise calculations example&quot;, &quot;Developing values&quot;, overlay = true)
+
+//@variable The number of data points in the averages.
+int length = input.int(3, &quot;Length&quot;, 1)
+//@variable The timeframe of each reset period.
+string timeframe = input.timeframe(&quot;D&quot;, &quot;Reset Timeframe&quot;)
+
+//@variable A 4x`length` matrix of OHLC values.
+var matrix&lt;float&gt; ohlcData = matrix.new&lt;float&gt;(4, length)
+
+//@variable Is `true` at the start of a new bar at the `timeframe`.
+bool queueColumn = timeframe.change(timeframe)
+
+if queueColumn
+    // Add new values to the end column of `ohlcData`.
+    ohlcData.add_col(length, array.from(open, high, low, close))
+    // Remove the oldest column from `ohlcData`.
+    ohlcData.remove_col(0)
+else
+    // Adjust the last element of column 1 for new highs.
+    if high &gt; ohlcData.get(1, length - 1)
+        ohlcData.set(1, length - 1, high)
+    // Adjust the last element of column 2 for new lows.
+    if low &lt; ohlcData.get(2, length - 1)
+        ohlcData.set(2, length - 1, low)
+    // Adjust the last element of column 3 for the new closing price.
+    ohlcData.set(3, length - 1, close)
+
+//@variable The `matrix.avg()` of all elements in `ohlcData`.
+avgOHLC4 = ohlcData.avg()
+//@variable The `matrix.avg()` of all elements in rows 1 and 2, i.e., the average of all `high` and `low` values.
+avgHL2   = ohlcData.submatrix(from_row = 1, to_row = 3).avg()
+//@variable The `matrix.max()` of all values in `ohlcData`. Equivalent to `ohlcData.row(1).max()`.
+maxHigh = ohlcData.max()
+//@variable The `array.min()` of all `low` values in `ohlcData`. Equivalent to `ohlcData.min()`.
+minLow = ohlcData.row(2).min()
+//@variable The `array.avg()` of the last column in `ohlcData`, i.e., the current OHLC4.
+ohlc4Value = ohlcData.col(length - 1).avg()
+
+plot(avgOHLC4, &quot;Average OHLC4&quot;, color.purple, 2)
+plot(avgHL2, &quot;Average HL2&quot;, color.navy, 2)
+plot(maxHigh, &quot;Max High&quot;, color.green)
+plot(minLow, &quot;Min Low&quot;, color.red)
+plot(ohlc4Value, &quot;Current OHLC4&quot;, color.blue)
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Note that:</dt>
+<dd><ul class="first last simple">
+<li>In this example, we used <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_array">array.*()</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_matrix">matrix.*()</a> methods interchangeably to
+demonstrate their similarities in syntax and behavior.</li>
+<li>Users can calculate the matrix equivalent of <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array.sum">array.sum()</a>
+by multiplying the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.avg">matrix.avg()</a> by the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.elements_count">matrix.elements_count()</a>.</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="special-calculations">
+<span id="pagematrices-matrixcalculations-specialcalculations"></span><h3><a class="toc-backref" href="#id30">Special calculations</a><a class="headerlink" href="#special-calculations" title="Permalink to this headline">¶</a></h3>
+<p>Pine Script<sup>®</sup> features several built-in functions for performing essential matrix arithmetic and linear algebra operations,
+including <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.sum">matrix.sum()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.diff">matrix.diff()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.mult">matrix.mult()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.pow">matrix.pow()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.det">matrix.det()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.inv">matrix.inv()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.pinv">matrix.pinv()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.rank">matrix.rank()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.trace">matrix.trace()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.eigenvalues">matrix.eigenvalues()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.eigenvectors">matrix.eigenvectors()</a>,
+and <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.kron">matrix.kron()</a>.
+These functions are advanced features that facilitate a variety of matrix calculations and transformations.</p>
+<p>Below, we explain a few fundamental functions with some basic examples.</p>
+<div class="section" id="matrix-sum-and-matrix-diff">
+<span id="pagematrices-matrixcalculations-specialcalculations-matrixsumandmatrixdiff"></span><h4><a class="toc-backref" href="#id31">`matrix.sum()` and `matrix.diff()`</a><a class="headerlink" href="#matrix-sum-and-matrix-diff" title="Permalink to this headline">¶</a></h4>
+<p>Scripts can perform addition and subtraction of two matrices with the same shape or a matrix and a scalar value
+using the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.sum">matrix.sum()</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.diff">matrix.diff()</a> functions. These functions
+use the values from the <code class="docutils literal notranslate"><span class="pre">id2</span></code> matrix or scalar to add to or subtract from the elements in <code class="docutils literal notranslate"><span class="pre">id1</span></code>.</p>
+<p>This script demonstrates a simple example of matrix addition and subtraction in Pine. It creates a 3x3 matrix, calculates
+its <a class="reference internal" href="#pagematrices-manipulatingamatrix-transposing"><span class="std std-ref">transpose</span></a>, then calculates the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.sum">matrix.sum()</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.diff">matrix.diff()</a> of the two matrices.
+This example displays the original matrix, its
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.transpose">transpose</a>,
+and the resulting sum and difference matrices in labels on the chart:</p>
+<img alt="../_images/Matrices-Matrix-calculations-Special-calculations-1.png" src="../_images/Matrices-Matrix-calculations-Special-calculations-1.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Matrix sum and diff example&quot;)
+
+//@function Displays the rows of a matrix in a label with a note.
+//@param    this The matrix to display.
+//@param    barIndex The `bar_index` to display the label at.
+//@param    bgColor The background color of the label.
+//@param    textColor The color of the label&#39;s text.
+//@param    note The text to display above the rows.
+method debugLabel(
+     matrix&lt;float&gt; this, int barIndex = bar_index, color bgColor = color.blue,
+     color textColor = color.white, string note = &quot;&quot;
+ ) =&gt;
+    labelText = note + &quot;\n&quot; + str.tostring(this)
+    if barstate.ishistory
+        label.new(
+             barIndex, 0, labelText, color = bgColor, style = label.style_label_center,
+             textcolor = textColor, size = size.huge
+         )
+
+//@variable A 3x3 matrix.
+m = matrix.new&lt;float&gt;()
+
+// Add rows to `m`.
+m.add_row(0, array.from(0.5, 1.0, 1.5))
+m.add_row(1, array.from(2.0, 2.5, 3.0))
+m.add_row(2, array.from(3.5, 4.0, 4.5))
+
+if bar_index == last_bar_index - 1
+    // Display `m`.
+    m.debugLabel(note = &quot;A&quot;)
+    // Get and display the transpose of `m`.
+    matrix&lt;float&gt; t = m.transpose()
+    t.debugLabel(bar_index + 10, note = &quot;Aᵀ&quot;)
+    // Calculate the sum of the two matrices. The resulting matrix is symmetric.
+    matrix.sum(m, t).debugLabel(bar_index + 20, color.green, note = &quot;A + Aᵀ&quot;)
+    // Calculate the difference between the two matrices. The resulting matrix is antisymmetric.
+    matrix.diff(m, t).debugLabel(bar_index + 30, color.red, note = &quot;A - Aᵀ&quot;)
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Note that:</dt>
+<dd><ul class="first last simple">
+<li>In this example, we’ve labeled the original matrix as “A” and the transpose as “A<sup>T</sup>”.</li>
+<li>Adding “A” and “A<sup>T</sup>” produces a <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.is_symmetric">symmetric</a>
+matrix, and subtracting them produces an <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.is_antisymmetric">antisymmetric</a> matrix.</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="matrix-mult">
+<span id="pagematrices-matrixcalculations-specialcalculations-matrixmult"></span><h4><a class="toc-backref" href="#id32">`matrix.mult()`</a><a class="headerlink" href="#matrix-mult" title="Permalink to this headline">¶</a></h4>
+<p>Scripts can multiply two matrices via the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.mult">matrix.mult()</a>
+function. This function also facilitates the multiplication of a matrix by an
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_array">array</a> or a scalar value.</p>
+<p>In the case of multiplying two matrices, unlike addition and subtraction, matrix multiplication does not require two matrices
+to share the same shape. However, the number of columns in the first matrix must equal the number of rows in the second one.
+The resulting matrix returned by <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.mult">matrix.mult()</a>
+will contain the same number of rows as <code class="docutils literal notranslate"><span class="pre">id1</span></code> and the same number of columns as <code class="docutils literal notranslate"><span class="pre">id2</span></code>. For instance, a 2x3 matrix multiplied
+by a 3x4 matrix will produce a matrix with two rows and four columns, as shown below. Each value within the resulting matrix is the
+<a class="reference external" href="https://en.wikipedia.org/wiki/Dot_product" rel="nofollow">dot product</a> of the corresponding row in <code class="docutils literal notranslate"><span class="pre">id1</span></code> and column in <code class="docutils literal notranslate"><span class="pre">id2</span></code>:</p>
+<img alt="../_images/Matrices-Matrix-calculations-Special-calculations-2.png" src="../_images/Matrices-Matrix-calculations-Special-calculations-2.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Matrix mult example&quot;)
+
+//@function Displays the rows of a matrix in a label with a note.
+//@param    this The matrix to display.
+//@param    barIndex The `bar_index` to display the label at.
+//@param    bgColor The background color of the label.
+//@param    textColor The color of the label&#39;s text.
+//@param    note The text to display above the rows.
+method debugLabel(
+     matrix&lt;float&gt; this, int barIndex = bar_index, color bgColor = color.blue,
+     color textColor = color.white, string note = &quot;&quot;
+ ) =&gt;
+    labelText = note + &quot;\n&quot; + str.tostring(this)
+    if barstate.ishistory
+        label.new(
+             barIndex, 0, labelText, color = bgColor, style = label.style_label_center,
+             textcolor = textColor, size = size.huge
+         )
+
+//@variable A 2x3 matrix.
+a = matrix.new&lt;float&gt;()
+//@variable A 3x4 matrix.
+b = matrix.new&lt;float&gt;()
+
+// Add rows to `a`.
+a.add_row(0, array.from(1, 2, 3))
+a.add_row(1, array.from(4, 5, 6))
+
+// Add rows to `b`.
+b.add_row(0, array.from(0.5, 1.0, 1.5, 2.0))
+b.add_row(1, array.from(2.5, 3.0, 3.5, 4.0))
+b.add_row(0, array.from(4.5, 5.0, 5.5, 6.0))
+
+if bar_index == last_bar_index - 1
+    //@variable The result of `a` * `b`.
+    matrix&lt;float&gt; ab = a.mult(b)
+    // Display `a`, `b`, and `ab` matrices.
+    debugLabel(a, note = &quot;A&quot;)
+    debugLabel(b, bar_index + 10, note = &quot;B&quot;)
+    debugLabel(ab, bar_index + 20, color.green, note = &quot;A * B&quot;)
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Note that:</dt>
+<dd><ul class="first last simple">
+<li>In contrast to the multiplication of scalars, matrix multiplication is <em>non-commutative</em>, i.e., <code class="docutils literal notranslate"><span class="pre">matrix.mult(a,</span> <span class="pre">b)</span></code>
+does not necessarily produce the same result as <code class="docutils literal notranslate"><span class="pre">matrix.mult(b,</span> <span class="pre">a)</span></code>. In the context of our example, the latter will
+raise a runtime error because the number of columns in <code class="docutils literal notranslate"><span class="pre">b</span></code> doesn’t equal the number of rows in <code class="docutils literal notranslate"><span class="pre">a</span></code>.</li>
+</ul>
+</dd>
+</dl>
+<p>When multiplying a matrix and an <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_array">array</a>, this function
+treats the operation the same as multiplying <code class="docutils literal notranslate"><span class="pre">id1</span></code> by a single-column matrix, but it returns an
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_array">array</a> with the same number of elements as the number
+of rows in <code class="docutils literal notranslate"><span class="pre">id1</span></code>. When <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.mult">matrix.mult()</a> passes
+a scalar as its <code class="docutils literal notranslate"><span class="pre">id2</span></code> value, the function returns a new matrix whose elements are the elements in <code class="docutils literal notranslate"><span class="pre">id1</span></code> multiplied by the <code class="docutils literal notranslate"><span class="pre">id2</span></code> value.</p>
+</div>
+<div class="section" id="matrix-det">
+<span id="pagematrices-matrixcalculations-specialcalculations-matrixdet"></span><h4><a class="toc-backref" href="#id33">`matrix.det()`</a><a class="headerlink" href="#matrix-det" title="Permalink to this headline">¶</a></h4>
+<p>A <em>determinant</em> is a scalar value associated with a <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.is_square">square</a>
+matrix that describes some of its characteristics, namely its invertibility. If a matrix has an
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.inv">inverse</a>, its determinant is nonzero. Otherwise, the matrix is
+<em>singular</em> (non-invertible). Scripts can calculate the determinant of a matrix via
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.det">matrix.det()</a>.</p>
+<p>Programmers can use determinants to detect similarities between matrices, identify <em>full-rank</em> and <em>rank-deficient</em> matrices,
+and solve systems of linear equations, among other applications.</p>
+<p>For example, this script utilizes determinants to solve a system of linear equations with a matching number of unknown values using
+<a class="reference external" href="https://en.wikipedia.org/wiki/Cramer's_rule" rel="nofollow">Cramer’s rule</a>. The user-defined <code class="docutils literal notranslate"><span class="pre">solve()</span></code> function returns an
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_array">array</a> containing solutions for each unknown value in the system,
+where the n-th element of the array is the determinant of the coefficient matrix with the n-th column replaced by the column of constants
+divided by the determinant of the original coefficients.</p>
+<p>In this script, we’ve defined the matrix <code class="docutils literal notranslate"><span class="pre">m</span></code> that holds coefficients and constants for these three equations:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>3 * x0 + 4 * x1 - 1 * x2 = 8
+5 * x0 - 2 * x1 + 1 * x2 = 4
+2 * x0 - 2 * x1 + 1 * x2 = 1
+</pre></div>
+</div>
+<p>The solution to this system is <code class="docutils literal notranslate"><span class="pre">(x0</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">x1</span> <span class="pre">=</span> <span class="pre">2,</span> <span class="pre">x2</span> <span class="pre">=</span> <span class="pre">3)</span></code>. The script calculates these values from <code class="docutils literal notranslate"><span class="pre">m</span></code> via <code class="docutils literal notranslate"><span class="pre">m.solve()</span></code> and plots them on the chart:</p>
+<img alt="../_images/Matrices-Matrix-calculations-Special-calculations-3.png" src="../_images/Matrices-Matrix-calculations-Special-calculations-3.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Determinants example&quot;, &quot;Cramer&#39;s Rule&quot;)
+
+//@function Solves a system of linear equations with a matching number of unknowns using Cramer&#39;s rule.
+//@param    this An augmented matrix containing the coefficients for each unknown and the results of
+//          the equations. For example, a row containing the values 2, -1, and 3 represents the equation
+//          `2 * x0 + (-1) * x1 = 3`, where `x0` and `x1` are the unknown values in the system.
+//@returns  An array containing solutions for each variable in the system.
+solve(matrix&lt;float&gt; this) =&gt;
+    //@variable The coefficient matrix for the system of equations.
+    matrix&lt;float&gt; coefficients = this.submatrix(from_column = 0, to_column = this.columns() - 1)
+    //@variable The array of resulting constants for each equation.
+    array&lt;float&gt; constants = this.col(this.columns() - 1)
+    //@variable An array containing solutions for each unknown in the system.
+    array&lt;float&gt; result = array.new&lt;float&gt;()
+
+    //@variable The determinant value of the coefficient matrix.
+    float baseDet = coefficients.det()
+    matrix&lt;float&gt; modified = na
+    for col = 0 to coefficients.columns() - 1
+        modified := coefficients.copy()
+        modified.add_col(col, constants)
+        modified.remove_col(col + 1)
+
+        // Calculate the solution for the column&#39;s unknown by dividing the determinant of `modified` by the `baseDet`.
+        result.push(modified.det() / baseDet)
+
+    result
+
+//@variable A 3x4 matrix containing coefficients and results for a system of three equations.
+m = matrix.new&lt;float&gt;()
+
+// Add rows for the following equations:
+// Equation 1: 3 * x0 + 4 * x1 - 1 * x2 = 8
+// Equation 2: 5 * x0 - 2 * x1 + 1 * x2 = 4
+// Equation 3: 2 * x0 - 2 * x1 + 1 * x2 = 1
+m.add_row(0, array.from(3.0, 4.0, -1.0, 8.0))
+m.add_row(1, array.from(5.0, -2.0, 1.0, 4.0))
+m.add_row(2, array.from(2.0, -2.0, 1.0, 1.0))
+
+//@variable An array of solutions to the unknowns in the system of equations represented by `m`.
+solutions = solve(m)
+
+plot(solutions.get(0), &quot;x0&quot;, color.red, 3)   // Plots 1.
+plot(solutions.get(1), &quot;x1&quot;, color.green, 3) // Plots 2.
+plot(solutions.get(2), &quot;x2&quot;, color.blue, 3)  // Plots 3.
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Note that:</dt>
+<dd><ul class="first last simple">
+<li>Solving systems of equations is particularly useful for <em>regression analysis</em>, e.g., linear and polynomial regression.</li>
+<li>Cramer’s rule works fine for small systems of equations. However, it’s computationally inefficient on larger systems.
+Other methods, such as <a class="reference external" href="https://en.wikipedia.org/wiki/Gaussian_elimination" rel="nofollow">Gaussian elimination</a>, are often preferred for such use cases.</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="matrix-inv-and-matrix-pinv">
+<span id="pagematrices-matrixcalculations-specialcalculations-matrixinvandmatrixpinv"></span><h4><a class="toc-backref" href="#id34">`matrix.inv()` and `matrix.pinv()`</a><a class="headerlink" href="#matrix-inv-and-matrix-pinv" title="Permalink to this headline">¶</a></h4>
+<p>For any non-singular <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.is_square">square</a> matrix,
+there is an inverse matrix that yields the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.is_identity">identity</a> matrix when
+<a class="reference internal" href="#pagematrices-matrixcalculations-specialcalculations-matrixmult"><span class="std std-ref">multiplied</span></a> by the original. Inverses have utility in various matrix
+transformations and solving systems of equations. Scripts can calculate the inverse of a matrix <strong>when one exists</strong> via the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.inv">matrix.inv()</a> function.</p>
+<p>For singular (non-invertible) matrices, one can calculate a generalized inverse
+(<a class="reference external" href="https://en.wikipedia.org/wiki/Moore–Penrose_inverse" rel="nofollow">pseudoinverse</a>), regardless of whether the matrix is square or
+has a nonzero <span class="xref std std-ref">determinant</span>, via the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.pinv">matrix.pinv()</a> function.
+Keep in mind that unlike a true inverse, the product of a pseudoinverse and the original matrix does not necessarily equal the identity
+matrix unless the original matrix <em>is invertible</em>.</p>
+<p>The following example forms a 2x2 <code class="docutils literal notranslate"><span class="pre">m</span></code> matrix from user inputs, then uses the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.inv">m.inv()</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.pinv">m.pinv()</a> methods
+to calculate the inverse or pseudoinverse of <code class="docutils literal notranslate"><span class="pre">m</span></code>. The script displays the original matrix,
+its inverse or pseudoinverse, and their product in labels on the chart:</p>
+<img alt="../_images/Matrices-Matrix-calculations-Special-calculations-4.png" src="../_images/Matrices-Matrix-calculations-Special-calculations-4.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Inverse example&quot;)
+
+// Element inputs for the 2x2 matrix.
+float r0c0 = input.float(4.0, &quot;Row 0, Col 0&quot;)
+float r0c1 = input.float(3.0, &quot;Row 0, Col 1&quot;)
+float r1c0 = input.float(2.0, &quot;Row 1, Col 0&quot;)
+float r1c1 = input.float(1.0, &quot;Row 1, Col 1&quot;)
+
+//@function Displays the rows of a matrix in a label with a note.
+//@param    this The matrix to display.
+//@param    barIndex The `bar_index` to display the label at.
+//@param    bgColor The background color of the label.
+//@param    textColor The color of the label&#39;s text.
+//@param    note The text to display above the rows.
+method debugLabel(
+     matrix&lt;float&gt; this, int barIndex = bar_index, color bgColor = color.blue,
+     color textColor = color.white, string note = &quot;&quot;
+ ) =&gt;
+    labelText = note + &quot;\n&quot; + str.tostring(this)
+    if barstate.ishistory
+        label.new(
+             barIndex, 0, labelText, color = bgColor, style = label.style_label_center,
+             textcolor = textColor, size = size.huge
+         )
+
+//@variable A 2x2 matrix of input values.
+m = matrix.new&lt;float&gt;()
+
+// Add input values to `m`.
+m.add_row(0, array.from(r0c0, r0c1))
+m.add_row(1, array.from(r1c0, r1c1))
+
+//@variable Is `true` if `m` is square with a nonzero determinant, indicating invertibility.
+bool isInvertible = m.is_square() and m.det()
+
+//@variable The inverse or pseudoinverse of `m`.
+mInverse = isInvertible ? m.inv() : m.pinv()
+
+//@variable The product of `m` and `mInverse`. Returns the identity matrix when `isInvertible` is `true`.
+matrix&lt;float&gt; product = m.mult(mInverse)
+
+if bar_index == last_bar_index - 1
+    // Display `m`, `mInverse`, and their `product`.
+    m.debugLabel(note = &quot;Original&quot;)
+    mInverse.debugLabel(bar_index + 10, color.purple, note = isInvertible ? &quot;Inverse&quot; : &quot;Pseudoinverse&quot;)
+    product.debugLabel(bar_index + 20, color.green, note = &quot;Product&quot;)
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Note that:</dt>
+<dd><ul class="first last simple">
+<li>This script will only call <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.inv">m.inv()</a>
+when <code class="docutils literal notranslate"><span class="pre">isInvertible</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code>, i.e., when <code class="docutils literal notranslate"><span class="pre">m</span></code> is
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.is_square">square</a> and has a nonzero
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.det">determinant</a>. Otherwise, it uses
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.pinv">m.pinv()</a> to calculate the generalized inverse.</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="matrix-rank">
+<span id="pagematrices-matrixcalculations-specialcalculations-matrixrank"></span><h4><a class="toc-backref" href="#id35">`matrix.rank()`</a><a class="headerlink" href="#matrix-rank" title="Permalink to this headline">¶</a></h4>
+<p>The <em>rank</em> of a matrix represents the number of linearly independent vectors (rows or columns) it contains. In essence,
+matrix rank measures the number of vectors one cannot express as a linear combination of others, or in other words,
+the number of vectors that contain <strong>unique</strong> information. Scripts can calculate the rank of a matrix via
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.rank">matrix.rank()</a>.</p>
+<p>This script identifies the number of linearly independent vectors in two 3x3 matrices (<code class="docutils literal notranslate"><span class="pre">m1</span></code> and <code class="docutils literal notranslate"><span class="pre">m2</span></code>) and plots the
+values in a separate pane. As we see on the chart, the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.rank">m1.rank()</a>
+value is 3 because each vector is unique. The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.rank">m2.rank()</a> value,
+on the other hand, is 1 because it has just one unique vector:</p>
+<img alt="../_images/Matrices-Matrix-calculations-Special-calculations-5.png" src="../_images/Matrices-Matrix-calculations-Special-calculations-5.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Matrix rank example&quot;)
+
+//@variable A 3x3 full-rank matrix.
+m1 = matrix.new&lt;float&gt;()
+//@variable A 3x3 rank-deficient matrix.
+m2 = matrix.new&lt;float&gt;()
+
+// Add linearly independent vectors to `m1`.
+m1.add_row(0, array.from(3, 2, 3))
+m1.add_row(1, array.from(4, 6, 6))
+m1.add_row(2, array.from(7, 4, 9))
+
+// Add linearly dependent vectors to `m2`.
+m2.add_row(0, array.from(1, 2, 3))
+m2.add_row(1, array.from(2, 4, 6))
+m2.add_row(2, array.from(3, 6, 9))
+
+// Plot `matrix.rank()` values.
+plot(m1.rank(), color = color.green, linewidth = 3)
+plot(m2.rank(), color = color.red, linewidth = 3)
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Note that:</dt>
+<dd><ul class="first last simple">
+<li>The highest rank value a matrix can have is the minimum of its number of rows and columns. A matrix with the maximum
+possible rank is known as a <em>full-rank</em> matrix, and any matrix without full rank is known as a <em>rank-deficient</em> matrix.</li>
+<li>The <a class="reference internal" href="#pagematrices-matrixcalculations-specialcalculations-matrixdet"><span class="std std-ref">determinants</span></a> of full-rank square matrices are nonzero,
+and such matrices have <a class="reference internal" href="#pagematrices-matrixcalculations-specialcalculations-matrixinvandmatrixpinv"><span class="std std-ref">inverses</span></a>.
+Conversely, the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.det">determinant</a> of a rank-deficient matrix is always 0.</li>
+<li>For any matrix that contains nothing but the same value in each of its elements (e.g., a matrix filled with 0), the rank is always 0 since
+none of the vectors hold unique information. For any other matrix with distinct values, the minimum possible rank is 1.</li>
+</ul>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="error-handling">
+<span id="pagematrices-errorhandling"></span><h2><a class="toc-backref" href="#id36">Error handling</a><a class="headerlink" href="#error-handling" title="Permalink to this headline">¶</a></h2>
+<p>In addition to usual <strong>compiler</strong> errors, which occur during a script’s compilation due to improper syntax,
+scripts using matrices can raise specific <strong>runtime</strong> errors during their execution. When a script raises a runtime error,
+it displays a red exclamation point next to the script title. Users can view the error message by clicking this icon.</p>
+<p>In this section, we discuss runtime errors that users may encounter while utilizing matrices in their scripts.</p>
+<div class="section" id="the-row-column-index-xx-is-out-of-bounds-row-column-size-is-yy">
+<span id="pagematrices-errorhandling-indexisoutofbounds"></span><h3><a class="toc-backref" href="#id37">The row/column index (xx) is out of bounds, row/column size is (yy).</a><a class="headerlink" href="#the-row-column-index-xx-is-out-of-bounds-row-column-size-is-yy" title="Permalink to this headline">¶</a></h3>
+<p>This runtime error occurs when trying to access indices outside the matrix dimensions with functions
+including <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.get">matrix.get()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.set">matrix.set()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.fill">matrix.fill()</a>,
+and <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.submatrix">matrix.submatrix()</a>, as well
+as some of the functions relating to the <a class="reference internal" href="#pagematrices-rowsandcolumns"><span class="std std-ref">rows and columns</span></a> of a matrix.</p>
+<p>For example, this code contains two lines that will produce this runtime error. The
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.set">m.set()</a> method references a <code class="docutils literal notranslate"><span class="pre">row</span></code>
+index that doesn’t exist (2). The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.submatrix">m.submatrix()</a>
+method references all column indices up to <code class="docutils literal notranslate"><span class="pre">to_column</span> <span class="pre">-</span> <span class="pre">1</span></code>. A <code class="docutils literal notranslate"><span class="pre">to_column</span></code> value of 4 results in a runtime
+error because the last column index referenced (3) does not exist in <code class="docutils literal notranslate"><span class="pre">m</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Out of bounds demo&quot;)
+
+//@variable A 2x3 matrix with a max row index of 1 and max column index of 2.
+matrix&lt;float&gt; m = matrix.new&lt;float&gt;(2, 3, 0.0)
+
+m.set(row = 2, column = 0, value = 1.0)     // The `row` index is out of bounds on this line. The max value is 1.
+m.submatrix(from_column = 1, to_column = 4) // The `to_column` index is invalid on this line. The max value is 3.
+
+if bar_index == last_bar_index - 1
+    label.new(bar_index, 0, str.tostring(m), color = color.navy, textcolor = color.white, size = size.huge)
+</pre></div>
+</div>
+<p>Users can avoid this error in their scripts by ensuring their function calls do not reference indices greater than
+or equal to the number of rows/columns.</p>
+</div>
+<div class="section" id="the-array-size-does-not-match-the-number-of-rows-columns-in-the-matrix">
+<span id="pagematrices-errorhandling-arraysizedoesnotmatch"></span><h3><a class="toc-backref" href="#id38">The array size does not match the number of rows/columns in the matrix.</a><a class="headerlink" href="#the-array-size-does-not-match-the-number-of-rows-columns-in-the-matrix" title="Permalink to this headline">¶</a></h3>
+<p>When using <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.add_row">matrix.add_row()</a>
+and <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.add_col">matrix.add_col()</a> functions to
+<a class="reference internal" href="#pagematrices-rowsandcolumns-inserting"><span class="std std-ref">insert</span></a> rows and columns into a non-empty matrix, the size of the inserted array
+must align with the matrix dimensions. The size of an inserted row must match the number of columns, and the size of an inserted
+column must match the number of rows. Otherwise, the script will raise this runtime error. For example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Invalid array size demo&quot;)
+
+// Declare an empty matrix.
+m = matrix.new&lt;float&gt;()
+
+m.add_col(0, array.from(1, 2))    // Add a column. Changes the shape of `m` to 2x1.
+m.add_col(1, array.from(1, 2, 3)) // Raises a runtime error because `m` has 2 rows, not 3.
+
+plot(m.col(0).get(1))
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Note that:</dt>
+<dd><ul class="first last simple">
+<li>When <code class="docutils literal notranslate"><span class="pre">m</span></code> is empty, one can insert a row or column array of <em>any</em> size, as shown in the first <code class="docutils literal notranslate"><span class="pre">m.add_col()</span></code> line.</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="cannot-call-matrix-methods-when-the-id-of-matrix-is-na">
+<span id="pagematrices-errorhandling-cannotcallmethodswhenmatrixisna"></span><h3><a class="toc-backref" href="#id39">Cannot call matrix methods when the ID of matrix is ‘na’.</a><a class="headerlink" href="#cannot-call-matrix-methods-when-the-id-of-matrix-is-na" title="Permalink to this headline">¶</a></h3>
+<p>When a matrix variable is assigned to <code class="docutils literal notranslate"><span class="pre">na</span></code>, it means that the variable doesn’t reference an existing object.
+Consequently, one cannot use built-in <code class="docutils literal notranslate"><span class="pre">matrix.*()</span></code> functions and methods with it. For example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;na matrix methods demo&quot;)
+
+//@variable A `matrix` variable assigned to `na`.
+matrix&lt;float&gt; m = na
+
+mCopy = m.copy() // Raises a runtime error. You can&#39;t copy a matrix that doesn&#39;t exist.
+
+if bar_index == last_bar_index - 1
+    label.new(bar_index, 0, str.tostring(mCopy), color = color.navy, textcolor = color.white, size = size.huge)
+</pre></div>
+</div>
+<p>To resolve this error, assign <code class="docutils literal notranslate"><span class="pre">m</span></code> to a valid matrix instance before using <code class="docutils literal notranslate"><span class="pre">matrix.*()</span></code> functions.</p>
+</div>
+<div class="section" id="matrix-is-too-large-maximum-size-of-the-matrix-is-100-000-elements">
+<span id="pagematrices-errorhandling-matrixistoolarge"></span><h3><a class="toc-backref" href="#id40">Matrix is too large. Maximum size of the matrix is 100,000 elements.</a><a class="headerlink" href="#matrix-is-too-large-maximum-size-of-the-matrix-is-100-000-elements" title="Permalink to this headline">¶</a></h3>
+<p>The total number of elements in a matrix
+(<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.elements_count">matrix.elements_count()</a>)
+cannot exceed <strong>100,000</strong>, regardless of its shape. For example, this script will raise an error because it
+<a class="reference internal" href="#pagematrices-rowsandcolumns-inserting"><span class="std std-ref">inserts</span></a> 1000 rows with 101 elements into the <code class="docutils literal notranslate"><span class="pre">m</span></code> matrix:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Matrix too large demo&quot;)
+
+var matrix&lt;float&gt; m = matrix.new&lt;float&gt;()
+
+if bar_index == 0
+    for i = 1 to 1000
+        // This raises an error because the script adds 101 elements on each iteration.
+        // 1000 rows * 101 elements per row = 101000 total elements. This is too large.
+        m.add_row(m.rows(), array.new&lt;float&gt;(101, i))
+
+plot(m.get(0, 0))
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-row-column-index-must-be-0-from-row-column-to-row-column">
+<span id="pagematrices-errorhandling-indexfrommustbelessthanindexto"></span><h3><a class="toc-backref" href="#id41">The row/column index must be 0 &lt;= from_row/column &lt; to_row/column.</a><a class="headerlink" href="#the-row-column-index-must-be-0-from-row-column-to-row-column" title="Permalink to this headline">¶</a></h3>
+<p>When using <code class="docutils literal notranslate"><span class="pre">matrix.*()</span></code> functions with <code class="docutils literal notranslate"><span class="pre">from_row/column</span></code> and <code class="docutils literal notranslate"><span class="pre">to_row/column</span></code> indices, the <code class="docutils literal notranslate"><span class="pre">from_*</span></code>
+values must be less than the corresponding <code class="docutils literal notranslate"><span class="pre">to_*</span></code> values, with the minimum possible value being 0.
+Otherwise, the script will raise a runtime error.</p>
+<p>For example, this script shows an attempt to declare a <a class="reference internal" href="#pagematrices-copyingamatrix-submatrices"><span class="std std-ref">submatrix</span></a>
+from a 4x4 <code class="docutils literal notranslate"><span class="pre">m</span></code> matrix with a <code class="docutils literal notranslate"><span class="pre">from_row</span></code> value of 2 and a <code class="docutils literal notranslate"><span class="pre">to_row</span></code> value of 2, which will result in
+an error:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Invalid from_row, to_row demo&quot;)
+
+//@variable A 4x4 matrix filled with a random value.
+matrix&lt;float&gt; m = matrix.new&lt;float&gt;(4, 4, math.random())
+
+matrix&lt;float&gt; mSub = m.submatrix(from_row = 2, to_row = 2) // Raises an error. `from_row` can&#39;t equal `to_row`.
+
+plot(mSub.get(0, 0))
+</pre></div>
+</div>
+</div>
+<div class="section" id="matrices-id1-and-id2-must-have-an-equal-number-of-rows-and-columns-to-be-added">
+<span id="pagematrices-errorhandling-matricesmusthaveequalrowsandcolumns"></span><h3><a class="toc-backref" href="#id42">Matrices ‘id1’ and ‘id2’ must have an equal number of rows and columns to be added.</a><a class="headerlink" href="#matrices-id1-and-id2-must-have-an-equal-number-of-rows-and-columns-to-be-added" title="Permalink to this headline">¶</a></h3>
+<p>When using <a class="reference internal" href="#pagematrices-matrixcalculations-specialcalculations-matrixsumandmatrixdiff"><span class="std std-ref">matrix.sum() and matrix.diff()</span></a>
+functions, the <code class="docutils literal notranslate"><span class="pre">id1</span></code> and <code class="docutils literal notranslate"><span class="pre">id2</span></code> matrices must have the same number of rows and the same number of columns.
+Attempting to add or subtract two matrices with mismatched dimensions will raise an error, as demonstrated by this code:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Invalid sum dimensions demo&quot;)
+
+//@variable A 2x3 matrix.
+matrix&lt;float&gt; m1 = matrix.new&lt;float&gt;(2, 3, 1)
+//@variable A 3x4 matrix.
+matrix&lt;float&gt; m2 = matrix.new&lt;float&gt;(3, 4, 2)
+
+mSum = matrix.sum(m1, m2) // Raises an error. `m1` and `m2` don&#39;t have matching dimensions.
+
+plot(mSum.get(0, 0))
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-number-of-columns-in-the-id1-matrix-must-equal-the-number-of-rows-in-the-matrix-or-the-number-of-elements-in-the-array-id2">
+<span id="pagematrices-errorhandling-id1columnsmustequalid2rows"></span><h3><a class="toc-backref" href="#id43">The number of columns in the ‘id1’ matrix must equal the number of rows in the matrix (or the number of elements in the array) ‘id2’.</a><a class="headerlink" href="#the-number-of-columns-in-the-id1-matrix-must-equal-the-number-of-rows-in-the-matrix-or-the-number-of-elements-in-the-array-id2" title="Permalink to this headline">¶</a></h3>
+<p>When using <a class="reference internal" href="#pagematrices-matrixcalculations-specialcalculations-matrixmult"><span class="std std-ref">matrix.mult()</span></a> to multiply an <code class="docutils literal notranslate"><span class="pre">id1</span></code> matrix by
+an <code class="docutils literal notranslate"><span class="pre">id2</span></code> matrix or array, the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.rows">matrix.rows()</a> or
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array.size">array.size()</a> of <code class="docutils literal notranslate"><span class="pre">id2</span></code> must equal the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.columns">matrix.columns()</a> in <code class="docutils literal notranslate"><span class="pre">id1</span></code>.
+If they don’t align, the script will raise this error.</p>
+<p>For example, this script tries to multiply two 2x3 matrices. While <em>adding</em> these matrices is possible, <em>multiplying</em> them is not:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Invalid mult dimensions demo&quot;)
+
+//@variable A 2x3 matrix.
+matrix&lt;float&gt; m1 = matrix.new&lt;float&gt;(2, 3, 1)
+//@variable A 2x3 matrix.
+matrix&lt;float&gt; m2 = matrix.new&lt;float&gt;(2, 3, 2)
+
+mSum = matrix.mult(m1, m2) // Raises an error. The number of columns in `m1` and rows in `m2` aren&#39;t equal.
+
+plot(mSum.get(0, 0))
+</pre></div>
+</div>
+</div>
+<div class="section" id="operation-not-available-for-non-square-matrices">
+<span id="pagematrices-errorhandling-operationnotavailablefornonsquarematrices"></span><h3><a class="toc-backref" href="#id44">Operation not available for non-square matrices.</a><a class="headerlink" href="#operation-not-available-for-non-square-matrices" title="Permalink to this headline">¶</a></h3>
+<p>Some matrix operations, including <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.inv">matrix.inv()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.det">matrix.det()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.eigenvalues">matrix.eigenvalues()</a>,
+and <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_matrix.inv">matrix.eigenvectors()</a>
+only work with <strong>square</strong> matrices, i.e., matrices with the same number of rows and columns. When attempting to
+execute such functions on non-square matrices, the script will raise an error stating the operation isn’t available
+or that it cannot calculate the result for the matrix <code class="docutils literal notranslate"><span class="pre">id</span></code>. For example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Non-square demo&quot;)
+
+//@variable A 3x5 matrix.
+matrix&lt;float&gt; m = matrix.new&lt;float&gt;(3, 5, 1)
+
+plot(m.det()) // Raises a runtime error. You can&#39;t calculate the determinant of a 3x5 matrix.
+</pre></div>
+</div>
+<a class="reference external image-reference" href="https://www.tradingview.com/"><div align="center" class="align-center"><img alt="../_images/TradingView-Logo-Block.svg" src="../_images/TradingView-Logo-Block.svg" width="200px" /></div>
+</a>
+</div>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="Arrays.html" title="previous chapter (use the left arrow)">Arrays</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="Maps.html" title="next chapter (use the right arrow)">Maps</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Maps.html" title="Maps"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Arrays.html" title="Arrays"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Language</a> &#187;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="../_static/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="../_static/js/theme.js"></script>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Options</span>
+    v: v5
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Languages</dt>
+      
+        <strong>
+        <dd><a href="Matrices.html">en</a></dd>
+        </strong>
+      
+    </dl>
+    <dl>
+      <dt>Versions</dt>
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v3/language/Matrices.html">v3</a></dd>
+        
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v4/language/Matrices.html">v4</a></dd>
+        
+      
+        <strong>
+        <dd><a href="Matrices.html">v5</a></dd>
+        </strong>
+      
+    </dl>
+  </div>
+</div>
+<script type="text/javascript">
+    jQuery(function () {
+        SphinxRtdTheme.Navigation.enable(false);
+    });
+</script>
+  <div class="footer">
+    &copy; Copyright 2023, TradingView.
+  </div>
+  </body>
+
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/language/Matrices.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:57:40 GMT -->
+</html>

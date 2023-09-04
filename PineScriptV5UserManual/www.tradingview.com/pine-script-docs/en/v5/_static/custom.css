@@ -1,0 +1,13 @@
+/* Wrapper's style for pine code blocks */
+.highlight > pre {
+	font-family: Menlo, Ubuntu Mono, Consolas, source-code-pro, monospace;
+	background-color: #e3effe;
+	border-radius: 10px;
+	padding: 0 20px;
+	padding-top: 18px;
+	margin: 20px 0;
+	font-size: 13px;
+	line-height: 18px;
+	overflow-x: scroll;
+	border-left: none;
+}

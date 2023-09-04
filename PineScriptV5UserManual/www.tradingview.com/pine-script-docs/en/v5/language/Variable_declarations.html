@@ -1,0 +1,544 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/language/Variable_declarations.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:56:03 GMT -->
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Variable declarations &#8212; Pine Script® v5 User Manual v5 documentation</title>
+    <link rel="stylesheet" href="../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../../../../static.tradingview.com/static/bundles/pine-highlighter-v01.js"></script>
+    <script type="text/javascript" src="../_static/highlight-pine-code.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Conditional structures" href="Conditional_structures.html" />
+    <link rel="prev" title="Operators" href="Operators.html" />
+  
+   
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Conditional_structures.html" title="Conditional structures"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Operators.html" title="Operators"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Language</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="../index.html" class="text-logo">Pine Script<sup>®</sup> v5 User Manual</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Introduction.html">Welcome to Pine Script<sup>®</sup> v5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primer/index.html">Pine Script<sup>®</sup> primer</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Language</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Execution_model.html">Execution model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Time_series.html">Time series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Script_structure.html">Script structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Identifiers.html">Identifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Operators.html">Operators</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Variable declarations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#variable-reassignment">Variable reassignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#declaration-modes">Declaration modes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Conditional_structures.html">Conditional structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Type_system.html">Type system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Built-ins.html">Built-ins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="User-defined_functions.html">User-defined functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Objects.html">Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Methods.html">Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Arrays.html">Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Matrices.html">Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Maps.html">Maps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../writing/index.html">Writing scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Error_messages.html">Error messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Release_notes.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migration_guides/index.html">Migration guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Where_can_I_get_more_information.html">Where can I get more information?</a></li>
+</ul>
+
+    
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="https://www.tradingview.com/pine-script-docs/en/v5/search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../index.html">User Manual</a></li>
+              
+                <li><a href="index.html">Language</a></li>
+              
+              <li>Variable declarations</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <a class="reference external image-reference" href="../Introduction.html"><div align="right" class="align-right"><img alt="Pine Script® logo" height="100" src="../_images/Pine-script-logo.svg" width="100" /></div>
+</a>
+<div class="section" id="variable-declarations">
+<span id="pagevariabledeclarations"></span><h1>Variable declarations<a class="headerlink" href="#variable-declarations" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#introduction" id="id1">Introduction</a><ul>
+<li><a class="reference internal" href="#initialization-with-na" id="id2">Initialization with `na`</a></li>
+<li><a class="reference internal" href="#tuple-declarations" id="id3">Tuple declarations</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#variable-reassignment" id="id4">Variable reassignment</a></li>
+<li><a class="reference internal" href="#declaration-modes" id="id5">Declaration modes</a><ul>
+<li><a class="reference internal" href="#on-each-bar" id="id6">On each bar</a></li>
+<li><a class="reference internal" href="#var" id="id7">`var`</a></li>
+<li><a class="reference internal" href="#varip" id="id8">`varip`</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="introduction">
+<h2><a class="toc-backref" href="#id1">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Variables are <a class="reference internal" href="Identifiers.html#pageidentifiers"><span class="std std-ref">identifiers</span></a> that hold values.
+They must be <em>declared</em> in your code before you use them.
+The syntax of variable declarations is:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[&lt;declaration_mode&gt;] [&lt;type&gt;] &lt;identifier&gt; = &lt;expression&gt; | &lt;structure&gt;
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;tuple_declaration&gt; = &lt;function_call&gt; | &lt;structure&gt;
+</pre></div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">|</span></code> means “or”, and parts enclosed in square brackets (<code class="docutils literal notranslate"><span class="pre">[]</span></code>) can appear zero or one time.</li>
+<li>&lt;declaration_mode&gt; is the variable’s <a class="reference internal" href="#pagevariabledeclarations-declarationmodes"><span class="std std-ref">declaration mode</span></a>.
+It can be <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_var">var</a> or
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_varip">varip</a>, or nothing.</li>
+<li>&lt;type&gt; is optional, as in almost all Pine Script<sup>®</sup> variable declarations (see <a class="reference internal" href="Type_system.html#pagetypesystem-types"><span class="std std-ref">types</span></a>).</li>
+<li>&lt;identifier&gt; is the variable’s <a class="reference internal" href="Identifiers.html#pageidentifiers"><span class="std std-ref">name</span></a>.</li>
+<li>&lt;expression&gt; can be a literal, a variable, an expression or a function call.</li>
+<li>&lt;structure&gt; can be an <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_if">if</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_for">for</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_while">while</a> or
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_switch">switch</a> <em>structure</em>.</li>
+<li>&lt;tuple_declaration&gt; is a comma-separated list of variable names enclosed in square brackets (<code class="docutils literal notranslate"><span class="pre">[]</span></code>), e.g.,
+<code class="docutils literal notranslate"><span class="pre">[ma,</span> <span class="pre">upperBand,</span> <span class="pre">lowerBand]</span></code>.</li>
+</ul>
+<p>These are all valid variable declarations. The last one requires four lines:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>BULL_COLOR = color.lime
+i = 1
+len = input(20, &quot;Length&quot;)
+float f = 10.5
+closeRoundedToTick = math.round_to_mintick(close)
+st = ta.supertrend(4, 14)
+var barRange = float(na)
+var firstBarOpen = open
+varip float lastClose = na
+[macdLine, signalLine, histLine] = ta.macd(close, 12, 26, 9)
+plotColor = if close &gt; open
+    color.green
+else
+    color.red
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The above statements all contain the <code class="docutils literal notranslate"><span class="pre">=</span></code> assignment operator because they are <strong>variable declarations</strong>.
+When you see similar lines using the <a class="reference internal" href="Operators.html#pageoperators-reassignmentoperator"><span class="std std-ref">:=</span></a> reassignment operator,
+the code is <strong>reassigning</strong> a value to a variable that was <strong>already declared</strong>.
+Those are <strong>variable reassignments</strong>.
+Be sure you understand the distinction as this is a common stumbling block for newcomers to Pine Script<sup>®</sup>.
+See the next <a class="reference internal" href="#pagevariabledeclarations-variablereassignment"><span class="std std-ref">Variable reassignment</span></a> section for details.</p>
+</div>
+<p>The formal syntax of a variable declaration is:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;variable_declaration&gt;
+    [&lt;declaration_mode&gt;] [&lt;type&gt;] &lt;identifier&gt; = &lt;expression&gt; | &lt;structure&gt;
+    |
+    &lt;tuple_declaration&gt; = &lt;function_call&gt; | &lt;structure&gt;
+
+&lt;declaration_mode&gt;
+    var | varip
+
+&lt;type&gt;
+    int | float | bool | color | string | line | linefill | label | box | table | array&lt;type&gt; | matrix&lt;type&gt; | UDF
+</pre></div>
+</div>
+<div class="section" id="initialization-with-na">
+<h3><a class="toc-backref" href="#id2">Initialization with `na`</a><a class="headerlink" href="#initialization-with-na" title="Permalink to this headline">¶</a></h3>
+<p>In most cases, an explicit type declaration is redundant
+because type is automatically inferred from the value
+on the right of the <code class="docutils literal notranslate"><span class="pre">=</span></code> at compile time,
+so the decision to use them is often a matter of preference. For example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>baseLine0 = na          // compile time error!
+float baseLine1 = na    // OK
+baseLine2 = float(na)   // OK
+</pre></div>
+</div>
+<p>In the first line of the example, the compiler cannot determine the type of the <code class="docutils literal notranslate"><span class="pre">baseLine0</span></code> variable
+because <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a> is a generic value of no particular type.
+The declaration of the <code class="docutils literal notranslate"><span class="pre">baseLine1</span></code> variable is correct because its
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_float">float</a> type is declared explicitly.
+The declaration of the <code class="docutils literal notranslate"><span class="pre">baseLine2</span></code> variable is also correct because its type can be derived from the expression <code class="docutils literal notranslate"><span class="pre">float(na)</span></code>,
+which is an explicit cast of the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a>
+value to the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_float">float</a> type.
+The declarations of <code class="docutils literal notranslate"><span class="pre">baseLine1</span></code> and <code class="docutils literal notranslate"><span class="pre">baseLine2</span></code> are equivalent.</p>
+</div>
+<div class="section" id="tuple-declarations">
+<span id="pagevariabledeclarations-tupledeclarations"></span><h3><a class="toc-backref" href="#id3">Tuple declarations</a><a class="headerlink" href="#tuple-declarations" title="Permalink to this headline">¶</a></h3>
+<p>Function calls or structures are allowed to return multiple values.
+When we call them and want to store the values they return,
+a <em>tuple declaration</em> must be used, which is a comma-separated set of one or more values enclosed in brackets.
+This allows us to declare multiple variables simultaneously.
+As an example, the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_ta{dot}bb">ta.bb()</a>
+built-in function for Bollinger bands returns three values:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[bbMiddle, bbUpper, bbLower] = ta.bb(close, 5, 4)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="variable-reassignment">
+<span id="pagevariabledeclarations-variablereassignment"></span><h2><a class="toc-backref" href="#id4">Variable reassignment</a><a class="headerlink" href="#variable-reassignment" title="Permalink to this headline">¶</a></h2>
+<p>A variable reassignment is done using the <a class="reference internal" href="Operators.html#pageoperators-reassignmentoperator"><span class="std std-ref">:=</span></a> reassignment operator.
+It can only be done after a variable has been first declared and given an initial value.
+Reassigning a new value to a variable is often necessary in calculations,
+and it is always necessary when a variable from the global scope must be assigned a new value from within a structure’s local block, e.g.:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;&quot;, &quot;&quot;, true)
+sensitivityInput = input.int(2, &quot;Sensitivity&quot;, minval = 1, tooltip = &quot;Higher values make color changes less sensitive.&quot;)
+ma = ta.sma(close, 20)
+maUp = ta.rising(ma, sensitivityInput)
+maDn = ta.falling(ma, sensitivityInput)
+
+// On first bar only, initialize color to gray
+var maColor = color.gray
+if maUp
+    // MA has risen for two bars in a row; make it lime.
+    maColor := color.lime
+else if maDn
+    // MA has fallen for two bars in a row; make it fuchsia.
+    maColor := color.fuchsia
+
+plot(ma, &quot;MA&quot;, maColor, 2)
+</pre></div>
+</div>
+<p>Note that:</p>
+<ul class="simple">
+<li>We initialize <code class="docutils literal notranslate"><span class="pre">maColor</span></code> on the first bar only, so it preserves its value across bars.</li>
+<li>On every bar, the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_if">if</a>
+statement checks if the MA has been rising or falling for the user-specified number of bars
+(the default is 2). When that happens, the value of <code class="docutils literal notranslate"><span class="pre">maColor</span></code> must be reassigned a new value
+from within the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_if">if</a> local blocks.
+To do this, we use the <a class="reference internal" href="Operators.html#pageoperators-reassignmentoperator"><span class="std std-ref">:=</span></a> reassignment operator.</li>
+<li>If we did not use the <a class="reference internal" href="Operators.html#pageoperators-reassignmentoperator"><span class="std std-ref">:=</span></a> reassignment operator,
+the effect would be to initialize a new <code class="docutils literal notranslate"><span class="pre">maColor</span></code> local variable which would have the same name
+as that of the global scope, but actually be a very confusing independent entity that would persist
+only for the length of the local block, and then disappear without a trace.</li>
+</ul>
+<p>All user-defined variables in Pine Script<sup>®</sup> are <em>mutable</em>, which means their value can be changed using the <a class="reference internal" href="Operators.html#pageoperators-reassignmentoperator"><span class="std std-ref">:=</span></a> reassignment operator.
+Assigning a new value to a variable may change its <em>form</em> (see the page on Pine Script<sup>®</sup>’s <a class="reference internal" href="Type_system.html#pagetypesystem"><span class="std std-ref">type system</span></a> for more information).
+A variable can be assigned a new value as many times as needed during the script’s execution on one bar,
+so a script can contain any number of reassignments of one variable.
+A variable’s <a class="reference internal" href="#pagevariabledeclarations-declarationmodes"><span class="std std-ref">declaration mode</span></a> determines how new values assigned to a variable will be saved.</p>
+</div>
+<div class="section" id="declaration-modes">
+<span id="pagevariabledeclarations-declarationmodes"></span><h2><a class="toc-backref" href="#id5">Declaration modes</a><a class="headerlink" href="#declaration-modes" title="Permalink to this headline">¶</a></h2>
+<p>Understanding the impact that declaration modes have on the behavior of variables requires
+prior knowledge of Pine Script<sup>®</sup>’s <a class="reference internal" href="Execution_model.html#pageexecutionmodel"><span class="std std-ref">execution model</span></a>.</p>
+<p>When you declare a variable, if a declaration mode is specified, it must come first.
+Three modes can be used:</p>
+<ul class="simple">
+<li>“On each bar”, when none is specified</li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_var">var</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_varip">varip</a></li>
+</ul>
+<div class="section" id="on-each-bar">
+<h3><a class="toc-backref" href="#id6">On each bar</a><a class="headerlink" href="#on-each-bar" title="Permalink to this headline">¶</a></h3>
+<p>When no explicit declaration mode is specified, i.e.
+no <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_var">var</a> or
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_varip">varip</a> keyword is used,
+the variable is declared and initialized on each bar, e.g.,
+the following declarations from our first set of examples in this page’s introduction:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>BULL_COLOR = color.lime
+i = 1
+len = input(20, &quot;Length&quot;)
+float f = 10.5
+closeRoundedToTick = math.round_to_mintick(close)
+st = ta.supertrend(4, 14)
+[macdLine, signalLine, histLine] = ta.macd(close, 12, 26, 9)
+plotColor = if close &gt; open
+    color.green
+else
+    color.red
+</pre></div>
+</div>
+</div>
+<div class="section" id="var">
+<span id="pagevariabledeclarations-var"></span><h3><a class="toc-backref" href="#id7">`var`</a><a class="headerlink" href="#var" title="Permalink to this headline">¶</a></h3>
+<p>When the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_var">var</a> keyword is used,
+the variable is only initialized once, on the first bar if the declaration is in the global scope,
+or the first time the local block is executed if the declaration is inside a local block.
+After that, it will preserve its last value on successive bars, until we reassign a new value to it.
+This behavior is very useful in many cases where a variable’s value must persist through the iterations of a script across successive bars.
+For example, suppose we’d like to count the number of green bars on the chart:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Green Bars Count&quot;)
+var count = 0
+isGreen = close &gt;= open
+if isGreen
+    count := count + 1
+plot(count)
+</pre></div>
+</div>
+<img alt="../_images/VariableDeclarations-GreenBarsCount.png" src="../_images/VariableDeclarations-GreenBarsCount.png" />
+<p>Without the <code class="docutils literal notranslate"><span class="pre">var</span></code> modifier, variable <code class="docutils literal notranslate"><span class="pre">count</span></code> would be reset to zero (thus losing its value)
+every time a new bar update triggered a script recalculation.</p>
+<p>Declaring variables on the first bar only is often useful to manage drawings more efficiently.
+Suppoose we want to extend the last bar’s <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_close">close</a>
+line to the right of the right chart. We could write:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Inefficient version&quot;, &quot;&quot;, true)
+closeLine = line.new(bar_index - 1, close, bar_index, close, extend = extend.right, width = 3)
+line.delete(closeLine[1])
+</pre></div>
+</div>
+<p>but this is inefficient because we are creating and deleting the line on each historical bar and
+on each update in the realtime bar. It is more efficient to use:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Efficient version&quot;, &quot;&quot;, true)
+var closeLine = line.new(bar_index - 1, close, bar_index, close, extend = extend.right, width = 3)
+if barstate.islast
+    line.set_xy1(closeLine, bar_index - 1, close)
+    line.set_xy2(closeLine, bar_index, close)
+</pre></div>
+</div>
+<p>Note that:</p>
+<ul class="simple">
+<li>We initialize <code class="docutils literal notranslate"><span class="pre">closeLine</span></code> on the first bar only,
+using the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_var">var</a> declaration mode</li>
+<li>We restrict the execution of the rest of our code to the chart’s last bar by enclosing our code
+that updates the line in an <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_if">if</a>
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_barstate{dot}islast">barstate.islast</a> structure.</li>
+</ul>
+<p>There is a very slight penalty performance for using the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_var">var</a> declaration mode.
+For that reason, when declaring constants, it is preferable not to use <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_var">var</a> if performance is a concern,
+unless the initialization involves calculations that take longer than the maintenance penalty, e.g., functions with complex code or string manipulations.</p>
+</div>
+<div class="section" id="varip">
+<span id="pagevariabledeclarations-varip"></span><h3><a class="toc-backref" href="#id8">`varip`</a><a class="headerlink" href="#varip" title="Permalink to this headline">¶</a></h3>
+<p>Understanding the behavior of variables using the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_varip">varip</a> declaration mode
+requires prior knowledge of Pine Script<sup>®</sup>’s <a class="reference internal" href="Execution_model.html#pageexecutionmodel"><span class="std std-ref">execution model</span></a> and <a class="reference internal" href="../concepts/Bar_states.html#pagebarstates"><span class="std std-ref">bar states</span></a>.</p>
+<p>The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_varip">varip</a>
+keyword can be used to declare variables that escape the <em>rollback process</em>,
+which is explained in the page on Pine Script<sup>®</sup>’s <a class="reference internal" href="Execution_model.html#pageexecutionmodel"><span class="std std-ref">execution model</span></a>.</p>
+<p>Whereas scripts only execute once at the close of historical bars, when a script is running in realtime,
+it executes every time the chart’s feed detects a price or volume update.
+At every realtime update, Pine Script<sup>®</sup>’s runtime normally resets the values of a script’s variables to their last committed value,
+i.e., the value they held when the previous bar closed.
+This is generally handy, as each realtime script execution starts from a known state, which simplifies script logic.</p>
+<p>Sometimes, however, script logic requires code to be able to save variable values <strong>between different executions</strong> in the realtime bar.
+Declaring variables with <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_varip">varip</a>  makes that possible.
+The “ip” in <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_varip">varip</a> stands for <em>intrabar persist</em>.</p>
+<p>Let’s look at the following code, which does not use <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_varip">varip</a>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;&quot;)
+int updateNo = na
+if barstate.isnew
+    updateNo := 1
+else
+    updateNo := updateNo + 1
+
+plot(updateNo, style = plot.style_circles)
+</pre></div>
+</div>
+<p>On historical bars, <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_barstate{dot}isnew">barstate.isnew</a> is always true,
+so the plot shows a value of “1” because the <code class="docutils literal notranslate"><span class="pre">else</span></code> part of the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_if">if</a> structure is never executed.
+On realtime bars, <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_barstate{dot}isnew">barstate.isnew</a>
+is only <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_true">true</a> when the script first executes on the bar’s “open”.
+The plot will then briefly display “1” until subsequent executions occur.
+On the next executions during the realtime bar, the second branch of the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_if">if</a> statement is executed because
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_barstate{dot}isnew">barstate.isnew</a> is no longer true.
+Since <code class="docutils literal notranslate"><span class="pre">updateNo</span></code> is initialized to <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a> at each execution,
+the <code class="docutils literal notranslate"><span class="pre">updateNo</span> <span class="pre">+</span> <span class="pre">1</span></code> expression yields <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a>,
+so nothing is plotted on further realtime executions of the script.</p>
+<p>If we now use <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_varip">varip</a>
+to declare the <code class="docutils literal notranslate"><span class="pre">updateNo</span></code> variable, the script behaves very differently:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;&quot;)
+varip int updateNo = na
+if barstate.isnew
+    updateNo := 1
+else
+    updateNo := updateNo + 1
+
+plot(updateNo, style = plot.style_circles)
+</pre></div>
+</div>
+<p>The difference now is that <code class="docutils literal notranslate"><span class="pre">updateNo</span></code> tracks the number of realtime updates that occur on each realtime bar.
+This can happen because the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_varip">varip</a>
+declaration allows the value of <code class="docutils literal notranslate"><span class="pre">updateNo</span></code> to be preserved between realtime updates;
+it is no longer rolled back at each realtime execution of the script.
+The test on <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_barstate{dot}isnew">barstate.isnew</a>
+allows us to reset the update count when a new realtime bar comes in.</p>
+<p>Because <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_varip">varip</a>
+only affects the behavior of your code in the realtime bar,
+it follows that backtest results on strategies designed using logic based on
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_varip">varip</a>
+variables will not be able to reproduce that behavior on historical bars, which will invalidate test results on them.
+This also entails that plots on historical bars will not be able to reproduce the script’s behavior in realtime.</p>
+<a class="reference external image-reference" href="https://www.tradingview.com/"><div align="center" class="align-center"><img alt="../_images/TradingView-Logo-Block.svg" src="../_images/TradingView-Logo-Block.svg" width="200px" /></div>
+</a>
+</div>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="Operators.html" title="previous chapter (use the left arrow)">Operators</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="Conditional_structures.html" title="next chapter (use the right arrow)">Conditional structures</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Conditional_structures.html" title="Conditional structures"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Operators.html" title="Operators"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Language</a> &#187;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="../_static/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="../_static/js/theme.js"></script>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Options</span>
+    v: v5
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Languages</dt>
+      
+        <strong>
+        <dd><a href="Variable_declarations.html">en</a></dd>
+        </strong>
+      
+    </dl>
+    <dl>
+      <dt>Versions</dt>
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v3/language/Variable_declarations.html">v3</a></dd>
+        
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v4/language/Variable_declarations.html">v4</a></dd>
+        
+      
+        <strong>
+        <dd><a href="Variable_declarations.html">v5</a></dd>
+        </strong>
+      
+    </dl>
+  </div>
+</div>
+<script type="text/javascript">
+    jQuery(function () {
+        SphinxRtdTheme.Navigation.enable(false);
+    });
+</script>
+  <div class="footer">
+    &copy; Copyright 2023, TradingView.
+  </div>
+  </body>
+
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/language/Variable_declarations.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:56:03 GMT -->
+</html>

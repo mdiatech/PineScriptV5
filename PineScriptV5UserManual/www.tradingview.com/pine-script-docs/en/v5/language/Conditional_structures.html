@@ -1,0 +1,563 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/language/Conditional_structures.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:56:03 GMT -->
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Conditional structures &#8212; Pine Script® v5 User Manual v5 documentation</title>
+    <link rel="stylesheet" href="../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../../../../static.tradingview.com/static/bundles/pine-highlighter-v01.js"></script>
+    <script type="text/javascript" src="../_static/highlight-pine-code.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Loops" href="Loops.html" />
+    <link rel="prev" title="Variable declarations" href="Variable_declarations.html" />
+  
+   
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Loops.html" title="Loops"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Variable_declarations.html" title="Variable declarations"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Language</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="../index.html" class="text-logo">Pine Script<sup>®</sup> v5 User Manual</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Introduction.html">Welcome to Pine Script<sup>®</sup> v5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primer/index.html">Pine Script<sup>®</sup> primer</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Language</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Execution_model.html">Execution model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Time_series.html">Time series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Script_structure.html">Script structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Identifiers.html">Identifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variable_declarations.html">Variable declarations</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Conditional structures</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#if-structure">`if` structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#switch-structure">`switch` structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matching-local-block-type-requirement">Matching local block type requirement</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Type_system.html">Type system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Built-ins.html">Built-ins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="User-defined_functions.html">User-defined functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Objects.html">Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Methods.html">Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Arrays.html">Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Matrices.html">Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Maps.html">Maps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../writing/index.html">Writing scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Error_messages.html">Error messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Release_notes.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migration_guides/index.html">Migration guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Where_can_I_get_more_information.html">Where can I get more information?</a></li>
+</ul>
+
+    
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="https://www.tradingview.com/pine-script-docs/en/v5/search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../index.html">User Manual</a></li>
+              
+                <li><a href="index.html">Language</a></li>
+              
+              <li>Conditional structures</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <a class="reference external image-reference" href="../Introduction.html"><div align="right" class="align-right"><img alt="Pine Script® logo" height="100" src="../_images/Pine-script-logo.svg" width="100" /></div>
+</a>
+<div class="section" id="conditional-structures">
+<span id="pageconditionalstructures"></span><h1>Conditional structures<a class="headerlink" href="#conditional-structures" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#introduction" id="id1">Introduction</a></li>
+<li><a class="reference internal" href="#if-structure" id="id2">`if` structure</a><ul>
+<li><a class="reference internal" href="#if-used-for-its-side-effects" id="id3">`if` used for its side effects</a></li>
+<li><a class="reference internal" href="#if-used-to-return-a-value" id="id4">`if` used to return a value</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#switch-structure" id="id5">`switch` structure</a><ul>
+<li><a class="reference internal" href="#switch-with-an-expression" id="id6">`switch` with an expression</a></li>
+<li><a class="reference internal" href="#switch-without-an-expression" id="id7">`switch` without an expression</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#matching-local-block-type-requirement" id="id8">Matching local block type requirement</a></li>
+</ul>
+</div>
+<div class="section" id="introduction">
+<h2><a class="toc-backref" href="#id1">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>The conditional structures in Pine Script<sup>®</sup> are <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_if">if</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_switch">switch</a>. They can be used:</p>
+<ul class="simple">
+<li>For their side effects, i.e., when they don’t return a value but do things,
+like reassign values to variables or call functions.</li>
+<li>To return a value or a tuple which can then be assigned to one (or more, in the case of tuples) variable.</li>
+</ul>
+<p>Conditional structures, like the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_for">for</a>
+and <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_while">while</a> structures, can be embedded; you can use an
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_if">if</a> or
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_switch">switch</a>
+inside another structure.</p>
+<p>Some Pine Script<sup>®</sup> built-in functions cannot be called from within the local blocks of conditional structures. They are:
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_alertcondition">alertcondition()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_barcolor">barcolor()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_fill">fill()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_hline">hline()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_indicator">indicator()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_library">library()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plot">plot()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plotbar">plotbar()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plotcandle">plotcandle()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plotchar">plotchar()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plotshape">plotshape()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_strategy">strategy()</a>.
+This does not entail their functionality cannot be controlled by conditions
+evaluated by your script — only that it cannot be done by including them in conditional structures.
+Note that while <code class="docutils literal notranslate"><span class="pre">input*.()</span></code> function calls are allowed in local blocks,
+their functionality is the same as if they were in the script’s global scope.</p>
+<p>The local blocks in conditional structures must be indented by four spaces or a tab.</p>
+</div>
+<div class="section" id="if-structure">
+<span id="pageconditionalstructures-if"></span><h2><a class="toc-backref" href="#id2">`if` structure</a><a class="headerlink" href="#if-structure" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="if-used-for-its-side-effects">
+<h3><a class="toc-backref" href="#id3">`if` used for its side effects</a><a class="headerlink" href="#if-used-for-its-side-effects" title="Permalink to this headline">¶</a></h3>
+<p>An <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_if">if</a>
+structure used for its side effects has the following syntax:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>if &lt;expression&gt;
+    &lt;local_block&gt;
+{else if &lt;expression&gt;
+    &lt;local_block&gt;}
+[else
+    &lt;local_block&gt;]
+</pre></div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li>Parts enclosed in square brackets (<code class="docutils literal notranslate"><span class="pre">[]</span></code>) can appear zero or one time, and those enclosed in curly braces (<code class="docutils literal notranslate"><span class="pre">{}</span></code>) can appear zero or more times.</li>
+<li>&lt;expression&gt; must be of “bool” type or be auto-castable to that type,
+which is only possible for “int” or “float” values (see the <a class="reference internal" href="Type_system.html#pagetypesystem-types"><span class="std std-ref">Type system</span></a> page).</li>
+<li>&lt;local_block&gt; consists of zero or more statements followed by a return value, which can be a tuple of values.
+It must be indented by four spaces or a tab.</li>
+<li>There can be zero or more <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if</span></code> clauses.</li>
+<li>There can be zero or one <code class="docutils literal notranslate"><span class="pre">else</span></code> clause.</li>
+</ul>
+<p>When the &lt;expression&gt; following the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_if">if</a>
+evaluates to <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_true">true</a>,
+the first local block is executed, the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_if">if</a>
+structure’s execution ends, and the value(s) evaluated at the end of the local block are returned.</p>
+<p>When the &lt;expression&gt; following the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_if">if</a>
+evaluates to <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_false">false</a>,
+the successive <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if</span></code> clauses are evaluated, if there are any.
+When the &lt;expression&gt; of one evaluates to <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_true">true</a>,
+its local block is executed, the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_if">if</a>
+structure’s execution ends, and the value(s) evaluated at the end of the local block are returned.</p>
+<p>When no &lt;expression&gt; has evaluated to <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_true">true</a>
+and an <code class="docutils literal notranslate"><span class="pre">else</span></code> clause exists, its local block is executed, the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_if">if</a>
+structure’s execution ends, and the value(s) evaluated at the end of the local block are returned.</p>
+<p>When no &lt;expression&gt; has evaluated to <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_true">true</a>
+and no <code class="docutils literal notranslate"><span class="pre">else</span></code> clause exists, <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a> is returned.</p>
+<p>Using <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_if">if</a>
+structures for their side effects can be useful to manage the order flow in strategies, for example.
+While the same functionality can often be achieved using the <code class="docutils literal notranslate"><span class="pre">when</span></code> parameter in
+<code class="docutils literal notranslate"><span class="pre">strategy.*()</span></code> calls, code using <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_if">if</a>
+structures is easier to read:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>if (ta.crossover(source, lower))
+    strategy.entry(&quot;BBandLE&quot;, strategy.long, stop=lower,
+                   oca_name=&quot;BollingerBands&quot;,
+                   oca_type=strategy.oca.cancel, comment=&quot;BBandLE&quot;)
+else
+    strategy.cancel(id=&quot;BBandLE&quot;)
+</pre></div>
+</div>
+<p>Restricting the execution of your code to specific bars ican be done using
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_if">if</a>
+structures, as we do here to restrict updates to our label to the chart’s last bar:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;&quot;, &quot;&quot;, true)
+var ourLabel = label.new(bar_index, na, na, color = color(na), textcolor = color.orange)
+if barstate.islast
+    label.set_xy(ourLabel, bar_index + 2, hl2[1])
+    label.set_text(ourLabel, str.tostring(bar_index + 1, &quot;# bars in chart&quot;))
+</pre></div>
+</div>
+<p>Note that:</p>
+<ul class="simple">
+<li>We initialize the <code class="docutils literal notranslate"><span class="pre">ourLabel</span></code> variable on the script’s first bar only, as we use the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_var">var</a> declaration mode.
+The value used to initialize the variable is provided by the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_label{dot}new">label.new()</a> function call,
+which returns a label ID pointing to the label it creates.
+We use that call to set the label’s properties because once set, they will persist until we change them.</li>
+<li>What happens next is that on each successive bar the Pine Script<sup>®</sup> runtime will skip the initialization of <code class="docutils literal notranslate"><span class="pre">ourLabel</span></code>,
+and the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_if">if</a>
+structure’s condition (<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_barstate{dot}islast">barstate.islast</a>)
+is evaluated. It returns <code class="docutils literal notranslate"><span class="pre">false</span></code> on all bars until the last one,
+so the script does nothing on most historical bars after bar zero.</li>
+<li>On the last bar, <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_barstate{dot}islast">barstate.islast</a>
+becomes true and the structure’s local block executes,
+modifying on each chart update the properties of our label, which displays the number of bars in the dataset.</li>
+<li>We want to display the label’s text without a background,
+so we make the label’s background <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a>
+in the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_label{dot}new">label.new()</a> function call,
+and we use <code class="docutils literal notranslate"><span class="pre">hl2[1]</span></code> for the label’s <em>y</em> position because we don’t want it to move all the time.
+By using the average of the <strong>previous</strong> bar’s <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_high">high</a>
+and <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_low">low</a> values,
+the label doesn’t move until the moment when the next realtime bar opens.</li>
+<li>We use <code class="docutils literal notranslate"><span class="pre">bar_index</span> <span class="pre">+</span> <span class="pre">2</span></code> in our <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_label{dot}set_xy">label.set_xy()</a>
+call to offset the label to the right by two bars.</li>
+</ul>
+</div>
+<div class="section" id="if-used-to-return-a-value">
+<h3><a class="toc-backref" href="#id4">`if` used to return a value</a><a class="headerlink" href="#if-used-to-return-a-value" title="Permalink to this headline">¶</a></h3>
+<p>An <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_if">if</a>
+structure used to return one or more values has the following syntax:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[&lt;declaration_mode&gt;] [&lt;type&gt;] &lt;identifier&gt; = if &lt;expression&gt;
+    &lt;local_block&gt;
+{else if &lt;expression&gt;
+    &lt;local_block&gt;}
+[else
+    &lt;local_block&gt;]
+</pre></div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li>Parts enclosed in square brackets (<code class="docutils literal notranslate"><span class="pre">[]</span></code>) can appear zero or one time, and those enclosed in curly braces (<code class="docutils literal notranslate"><span class="pre">{}</span></code>) can appear zero or more times.</li>
+<li>&lt;declaration_mode&gt; is the variable’s <a class="reference internal" href="Variable_declarations.html#pagevariabledeclarations-declarationmodes"><span class="std std-ref">declaration mode</span></a></li>
+<li>&lt;type&gt; is optional, as in almost all Pine Script<sup>®</sup> variable declarations (see <a class="reference internal" href="Type_system.html#pagetypesystem-types"><span class="std std-ref">types</span></a>)</li>
+<li>&lt;identifier&gt; is the variable’s <a class="reference internal" href="Identifiers.html#pageidentifiers"><span class="std std-ref">name</span></a></li>
+<li>&lt;expression&gt; can be a literal, a variable, an expression or a function call.</li>
+<li>&lt;local_block&gt; consists of zero or more statements followed by a return value, which can be a tuple of values.
+It must be indented by four spaces or a tab.</li>
+<li>The value assigned to the variable is the return value of the &lt;local_block&gt;, or
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a> if no local block is executed.</li>
+</ul>
+<p>This is an example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;&quot;, &quot;&quot;, true)
+string barState = if barstate.islastconfirmedhistory
+    &quot;islastconfirmedhistory&quot;
+else if barstate.isnew
+    &quot;isnew&quot;
+else if barstate.isrealtime
+    &quot;isrealtime&quot;
+else
+    &quot;other&quot;
+
+f_print(_text) =&gt;
+    var table _t = table.new(position.middle_right, 1, 1)
+    table.cell(_t, 0, 0, _text, bgcolor = color.yellow)
+f_print(barState)
+</pre></div>
+</div>
+<p>It is possible to omit the <em>else</em> block. In this case, if the <code class="docutils literal notranslate"><span class="pre">condition</span></code>
+is false, an <em>empty</em> value (<code class="docutils literal notranslate"><span class="pre">na</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code>, or <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>) will be assigned to the
+<code class="docutils literal notranslate"><span class="pre">var_declarationX</span></code> variable.</p>
+<p>This is an example showing how
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a>
+is returned when no local block is executed. If <code class="docutils literal notranslate"><span class="pre">close</span> <span class="pre">&gt;</span> <span class="pre">open</span></code> is <code class="docutils literal notranslate"><span class="pre">false</span></code> in here,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a> is returned:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>x = if close &gt; open
+    close
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="switch-structure">
+<span id="pageconditionalstructures-switch"></span><h2><a class="toc-backref" href="#id5">`switch` structure</a><a class="headerlink" href="#switch-structure" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_switch">switch</a>
+structure exists in two forms. One switches on the different values of a key expression:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[[&lt;declaration_mode&gt;] [&lt;type&gt;] &lt;identifier&gt; = ]switch &lt;expression&gt;
+    {&lt;expression&gt; =&gt; &lt;local_block&gt;}
+    =&gt; &lt;local_block&gt;
+</pre></div>
+</div>
+<p>The other form does not use an expression as a key; it switches on the evaluation of different expressions:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[[&lt;declaration_mode&gt;] [&lt;type&gt;] &lt;identifier&gt; = ]switch
+    {&lt;expression&gt; =&gt; &lt;local_block&gt;}
+    =&gt; &lt;local_block&gt;
+</pre></div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li>Parts enclosed in square brackets (<code class="docutils literal notranslate"><span class="pre">[]</span></code>) can appear zero or one time, and those enclosed in curly braces (<code class="docutils literal notranslate"><span class="pre">{}</span></code>) can appear zero or more times.</li>
+<li>&lt;declaration_mode&gt; is the variable’s <a class="reference internal" href="Variable_declarations.html#pagevariabledeclarations-declarationmodes"><span class="std std-ref">declaration mode</span></a></li>
+<li>&lt;type&gt; is optional, as in almost all Pine Script<sup>®</sup> variable declarations (see <a class="reference internal" href="Type_system.html#pagetypesystem-types"><span class="std std-ref">types</span></a>)</li>
+<li>&lt;identifier&gt; is the variable’s <a class="reference internal" href="Identifiers.html#pageidentifiers"><span class="std std-ref">name</span></a></li>
+<li>&lt;expression&gt; can be a literal, a variable, an expression or a function call.</li>
+<li>&lt;local_block&gt; consists of zero or more statements followed by a return value, which can be a tuple of values.
+It must be indented by four spaces or a tab.</li>
+<li>The value assigned to the variable is the return value of the &lt;local_block&gt;, or
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a> if no local block is executed.</li>
+<li>The <code class="docutils literal notranslate"><span class="pre">=&gt;</span> <span class="pre">&lt;local_block&gt;</span></code> at the end allows you to specify a return value which acts as a default to be used when no other case in the structure is executed.</li>
+</ul>
+<p>Only one local block of a <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_switch">switch</a>
+structure is executed. It is thus a <em>structured switch</em> that doesn’t <em>fall through</em> cases.
+Consequently, <code class="docutils literal notranslate"><span class="pre">break</span></code> statements are unnecessary.</p>
+<p>Both forms are allowed as the value used to initialize a variable.</p>
+<p>As with the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_if">if</a> structure,
+if no local block is exectuted, <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a> is returned.</p>
+<div class="section" id="switch-with-an-expression">
+<h3><a class="toc-backref" href="#id6">`switch` with an expression</a><a class="headerlink" href="#switch-with-an-expression" title="Permalink to this headline">¶</a></h3>
+<p>Let’s look at an example of a <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_switch">switch</a>
+using an expression:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Switch using an expression&quot;, &quot;&quot;, true)
+
+string maType = input.string(&quot;EMA&quot;, &quot;MA type&quot;, options = [&quot;EMA&quot;, &quot;SMA&quot;, &quot;RMA&quot;, &quot;WMA&quot;])
+int maLength = input.int(10, &quot;MA length&quot;, minval = 2)
+
+float ma = switch maType
+    &quot;EMA&quot; =&gt; ta.ema(close, maLength)
+    &quot;SMA&quot; =&gt; ta.sma(close, maLength)
+    &quot;RMA&quot; =&gt; ta.rma(close, maLength)
+    &quot;WMA&quot; =&gt; ta.wma(close, maLength)
+    =&gt;
+        runtime.error(&quot;No matching MA type found.&quot;)
+        float(na)
+
+plot(ma)
+</pre></div>
+</div>
+<p>Note that:</p>
+<ul class="simple">
+<li>The expression we are switching on is the variable <code class="docutils literal notranslate"><span class="pre">maType</span></code>, which is of “input int” type
+(see here for an explanation of what the “<a class="reference internal" href="Type_system.html#pagetypesystem-input"><span class="std std-ref">input</span></a>” form is).
+Since it cannot change during the execution of the script, this guarantees that whichever
+MA type the user selects will be executing on each bar, which is a requirement for functions like
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_ta{dot}ema">ta.ema()</a>
+which require a “simple int” argument for their <code class="docutils literal notranslate"><span class="pre">length</span></code> parameter.</li>
+<li>If no matching value is found for <code class="docutils literal notranslate"><span class="pre">maType</span></code>, the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_switch">switch</a>
+executes the last local block introduced by <code class="docutils literal notranslate"><span class="pre">=&gt;</span></code>, which acts as a catch-all. We generate a runtime error in that block.
+We also end it with <code class="docutils literal notranslate"><span class="pre">float(na)</span></code> so the local block returns a value whose type is compatible with that of the other local blocks in the structure,
+to avoid a compilation error.</li>
+</ul>
+</div>
+<div class="section" id="switch-without-an-expression">
+<h3><a class="toc-backref" href="#id7">`switch` without an expression</a><a class="headerlink" href="#switch-without-an-expression" title="Permalink to this headline">¶</a></h3>
+<p>This is an example of a <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_switch">switch</a>
+structure wich does not use an exppression:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+strategy(&quot;Switch without an expression&quot;, &quot;&quot;, true)
+
+bool longCondition  = ta.crossover( ta.sma(close, 14), ta.sma(close, 28))
+bool shortCondition = ta.crossunder(ta.sma(close, 14), ta.sma(close, 28))
+
+switch
+    longCondition  =&gt; strategy.entry(&quot;Long ID&quot;, strategy.long)
+    shortCondition =&gt; strategy.entry(&quot;Short ID&quot;, strategy.short)
+</pre></div>
+</div>
+<p>Note that:</p>
+<ul>
+<li><p class="first">We are using the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_switch">switch</a>
+to select the appropriate strategy order to emit, depending on whether
+the <code class="docutils literal notranslate"><span class="pre">longCondition</span></code> or <code class="docutils literal notranslate"><span class="pre">shortCondition</span></code> “bool” variables are <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
+</li>
+<li><p class="first">The building conditions of <code class="docutils literal notranslate"><span class="pre">longCondition</span></code> and <code class="docutils literal notranslate"><span class="pre">shortCondition</span></code>
+are exclusive. While they can both be <code class="docutils literal notranslate"><span class="pre">false</span></code> simultaneously, they cannot be <code class="docutils literal notranslate"><span class="pre">true</span></code> at the same time.
+The fact that only <strong>one</strong> local block of the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_switch">switch</a>
+structure is ever executed is thus not an issue for us.</p>
+</li>
+<li><p class="first">We evaluate the calls to <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_ta{dot}crossover">ta.crossover()</a>
+and <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_ta{dot}crossunder">ta.crossunder()</a> <strong>prior</strong> to entry in the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_switch">switch</a> structure.
+Not doing so, as in the following example, would prevent the functions to be executed on each bar,
+which would result in a compiler warning and erratic behavior:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+strategy(&quot;Switch without an expression&quot;, &quot;&quot;, true)
+
+switch
+    // Compiler warning! Will not calculate correctly!
+    ta.crossover( ta.sma(close, 14), ta.sma(close, 28)) =&gt; strategy.entry(&quot;Long ID&quot;, strategy.long)
+    ta.crossunder(ta.sma(close, 14), ta.sma(close, 28)) =&gt; strategy.entry(&quot;Short ID&quot;, strategy.short)
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="matching-local-block-type-requirement">
+<span id="pageconditionalstructures-matchinglocalblocktyperequirement"></span><h2><a class="toc-backref" href="#id8">Matching local block type requirement</a><a class="headerlink" href="#matching-local-block-type-requirement" title="Permalink to this headline">¶</a></h2>
+<p>When multiple local blocks are used in structures, the type of the return value of all its local blocks must match. This applies only if the structure is used to assign a value to a variable in a declaration, because a variable can only have one type, and if the statement returns two incompatible types in its branches, the variable type cannot be properly determined. If the structure is not assigned anywhere, its branches can return different values.</p>
+<p>This code compiles fine because <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_close">close</a>
+and <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_open">open</a> are both of the <code class="docutils literal notranslate"><span class="pre">float</span></code> type:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>x = if close &gt; open
+    close
+else
+    open
+</pre></div>
+</div>
+<p>This code does not compile because the first local block returns a <code class="docutils literal notranslate"><span class="pre">float</span></code> value, while the second one returns a <cite>string`</cite>, and the result of the <code class="docutils literal notranslate"><span class="pre">if</span></code>-statement is assigned to the <code class="docutils literal notranslate"><span class="pre">x</span></code> variable:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// Compilation error!
+x = if close &gt; open
+    close
+else
+    &quot;open&quot;
+</pre></div>
+</div>
+<a class="reference external image-reference" href="https://www.tradingview.com/"><div align="center" class="align-center"><img alt="../_images/TradingView-Logo-Block.svg" src="../_images/TradingView-Logo-Block.svg" width="200px" /></div>
+</a>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="Variable_declarations.html" title="previous chapter (use the left arrow)">Variable declarations</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="Loops.html" title="next chapter (use the right arrow)">Loops</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Loops.html" title="Loops"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Variable_declarations.html" title="Variable declarations"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Language</a> &#187;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="../_static/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="../_static/js/theme.js"></script>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Options</span>
+    v: v5
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Languages</dt>
+      
+        <strong>
+        <dd><a href="Conditional_structures.html">en</a></dd>
+        </strong>
+      
+    </dl>
+    <dl>
+      <dt>Versions</dt>
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v3/language/Conditional_structures.html">v3</a></dd>
+        
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v4/language/Conditional_structures.html">v4</a></dd>
+        
+      
+        <strong>
+        <dd><a href="Conditional_structures.html">v5</a></dd>
+        </strong>
+      
+    </dl>
+  </div>
+</div>
+<script type="text/javascript">
+    jQuery(function () {
+        SphinxRtdTheme.Navigation.enable(false);
+    });
+</script>
+  <div class="footer">
+    &copy; Copyright 2023, TradingView.
+  </div>
+  </body>
+
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/language/Conditional_structures.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:56:03 GMT -->
+</html>

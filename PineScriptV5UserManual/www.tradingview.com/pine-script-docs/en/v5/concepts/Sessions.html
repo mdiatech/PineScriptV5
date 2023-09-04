@@ -1,0 +1,473 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/concepts/Sessions.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:56:27 GMT -->
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Sessions &#8212; Pine Script® v5 User Manual v5 documentation</title>
+    <link rel="stylesheet" href="../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../../../../static.tradingview.com/static/bundles/pine-highlighter-v01.js"></script>
+    <script type="text/javascript" src="../_static/highlight-pine-code.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Strategies" href="Strategies.html" />
+    <link rel="prev" title="Repainting" href="Repainting.html" />
+  
+   
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Strategies.html" title="Strategies"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Repainting.html" title="Repainting"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Concepts</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="../index.html" class="text-logo">Pine Script<sup>®</sup> v5 User Manual</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Introduction.html">Welcome to Pine Script<sup>®</sup> v5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primer/index.html">Pine Script<sup>®</sup> primer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../language/index.html">Language</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Concepts</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Alerts.html">Alerts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Backgrounds.html">Backgrounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bar_coloring.html">Bar coloring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bar_plotting.html">Bar plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bar_states.html">Bar states</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chart_information.html">Chart information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Colors.html">Colors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fills.html">Fills</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Inputs.html">Inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Levels.html">Levels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Libraries.html">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lines_and_boxes.html">Lines and boxes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Non-standard_charts_data.html">Non-standard charts data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Plots.html">Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Repainting.html">Repainting</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Sessions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#session-strings">Session strings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#session-states">Session states</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-sessions-with-request-security">Using sessions with `request.security()`</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Strategies.html">Strategies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Tables.html">Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Text_and_shapes.html">Text and shapes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Time.html">Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Timeframes.html">Timeframes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../writing/index.html">Writing scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Error_messages.html">Error messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Release_notes.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migration_guides/index.html">Migration guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Where_can_I_get_more_information.html">Where can I get more information?</a></li>
+</ul>
+
+    
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="https://www.tradingview.com/pine-script-docs/en/v5/search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../index.html">User Manual</a></li>
+              
+                <li><a href="index.html">Concepts</a></li>
+              
+              <li>Sessions</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <a class="reference external image-reference" href="../Introduction.html"><div align="right" class="align-right"><img alt="Pine Script® logo" height="100" src="../_images/Pine-script-logo.svg" width="100" /></div>
+</a>
+<span class="target" id="pagesessions"></span><div class="section" id="sessions">
+<h1>Sessions<a class="headerlink" href="#sessions" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#introduction" id="id1">Introduction</a></li>
+<li><a class="reference internal" href="#session-strings" id="id2">Session strings</a><ul>
+<li><a class="reference internal" href="#session-string-specifications" id="id3">Session string specifications</a></li>
+<li><a class="reference internal" href="#using-session-strings" id="id4">Using session strings</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#session-states" id="id5">Session states</a></li>
+<li><a class="reference internal" href="#using-sessions-with-request-security" id="id6">Using sessions with `request.security()`</a></li>
+</ul>
+</div>
+<div class="section" id="introduction">
+<h2><a class="toc-backref" href="#id1">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Session information is usable in three different ways in Pine Script<sup>®</sup>:</p>
+<ol class="arabic simple">
+<li><strong>Session strings</strong> containing from-to start times and day information that can be used in functions
+such as <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_time">time()</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_time_close">time_close()</a>
+to detect when bars are in a particular time period, with the option of limiting valid sessions to specific days.
+The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input{dot}session">input.session()</a> function
+provides a way to allow script users to define session values through a script’s “Inputs” tab
+(see the <a class="reference internal" href="Inputs.html#pageinputs-sessioninput"><span class="std std-ref">Session input</span></a> section for more information).</li>
+<li><strong>Session states</strong> built-in variables such as <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_session{dot}ismarket">session.ismarket</a>
+can identify which session a bar belongs to.</li>
+<li>When fetching data with <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a>
+you can also choose to return data from <em>regular</em> sessions only or <em>extended</em> sessions.
+In this case, the definition of <strong>regular and extended sessions</strong> is that of the exchange.
+It is part of the instrument’s properties — not user-defined, as in point #1.
+This notion of <em>regular</em> and <em>extended</em> sessions is the same one used in the chart’s interface,
+in the “Chart Settings/Symbol/Session” field, for example.</li>
+</ol>
+<p>The following sections cover both methods of using session information in Pine Script<sup>®</sup>.</p>
+<p>Note that:</p>
+<ul class="simple">
+<li>Not all user accounts on TradingView have access to extended session information.</li>
+<li>There is no special “session” type in Pine Script<sup>®</sup>. Instead, session strings are of “string” type
+but must conform to the session string syntax.</li>
+</ul>
+</div>
+<div class="section" id="session-strings">
+<h2><a class="toc-backref" href="#id2">Session strings</a><a class="headerlink" href="#session-strings" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="session-string-specifications">
+<h3><a class="toc-backref" href="#id3">Session string specifications</a><a class="headerlink" href="#session-string-specifications" title="Permalink to this headline">¶</a></h3>
+<p>Session strings used with <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_time">time()</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_time_close">time_close()</a> must have a specific format.
+Their syntax is:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;time_period&gt;:&lt;days&gt;
+</pre></div>
+</div>
+<p>Where:</p>
+<ul class="simple">
+<li>&lt;time_period&gt; uses times in “hhmm” format, with “hh” in 24-hour format, so <code class="docutils literal notranslate"><span class="pre">1700</span></code> for 5PM.
+The time periods are in the “hhmm-hhmm” format, and a comma can separate multiple time periods
+to specify combinations of discrete periods.</li>
+</ul>
+<dl class="docutils">
+<dt>For example, - &lt;days&gt; is a set of digits from 1 to 7 that specifies on which days the session is valid.</dt>
+<dd>1 is Sunday, 7 is Saturday.</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><strong>The default days are</strong>: <code class="docutils literal notranslate"><span class="pre">1234567</span></code>, which is different in Pine Script<sup>®</sup> v5 than in earlier versions where
+<code class="docutils literal notranslate"><span class="pre">23456</span></code> (weekdays) is used. For v5 code to reproduce the behavior from previous versions,
+it should explicitly mention weekdays, as in <code class="docutils literal notranslate"><span class="pre">&quot;0930-1700:23456&quot;</span></code>.</p>
+</div>
+<p>These are examples of session strings:</p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">&quot;24x7&quot;</span></code></dt>
+<dd>A 7-day, 24-hour session beginning at midnight.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&quot;0000-0000:1234567&quot;</span></code></dt>
+<dd>Equivalent to the previous example.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&quot;0000-0000&quot;</span></code></dt>
+<dd>Equivalent to the previous two examples because the default days are <code class="docutils literal notranslate"><span class="pre">1234567</span></code>.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&quot;0000-0000:23456&quot;</span></code></dt>
+<dd>The same as the previous example, but only Monday to Friday.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&quot;2000-1630:1234567&quot;</span></code></dt>
+<dd>An overnight session that begins at 20:00 and ends at 16:30 the next day.
+It is valid on all days of the week.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&quot;0930-1700:146&quot;</span></code></dt>
+<dd>A session that begins at 9:30 and ends at 17:00 on Sundays (1), Wednesdays (4), and Fridays (6).</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&quot;1700-1700:23456&quot;</span></code></dt>
+<dd>An <em>overnight session</em>. The Monday session starts Sunday at 17:00 and ends Monday at 17:00.
+It is valid Monday through Friday.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&quot;1000-1001:26&quot;</span></code></dt>
+<dd>A weird session that lasts only one minute on
+Mondays (2) and Fridays (6).</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&quot;0900-1600,1700-2000&quot;</span></code></dt>
+<dd>A session that begins at 9:00, breaks from 16:00 to 17:00, and continues until 20:00.
+Applies to every day of the week.</dd>
+</dl>
+</div>
+<div class="section" id="using-session-strings">
+<h3><a class="toc-backref" href="#id4">Using session strings</a><a class="headerlink" href="#using-session-strings" title="Permalink to this headline">¶</a></h3>
+<p>Session properties defined with session strings are independent of the exchange-defined sessions determining when an instrument can be traded.
+Programmers have complete liberty in creating whatever session definitions suit their purpose,
+which is usually to detect when bars belong to specific time periods.
+This is accomplished in Pine Script<sup>®</sup> by using one of the following two signatures of the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_time">time()</a> function:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>time(timeframe, session, timezone) → series int
+time(timeframe, session) → series int
+</pre></div>
+</div>
+<p>Here, we use <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_time">time()</a>
+with a <code class="docutils literal notranslate"><span class="pre">session</span></code> argument to display the market’s opening
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_high">high</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_low">low</a> values on an intraday chart:</p>
+<img alt="../_images/Sessions-UsingSessionStrings-01.png" src="../_images/Sessions-UsingSessionStrings-01.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Opening high/low&quot;, overlay = true)
+
+sessionInput = input.session(&quot;0930-0935&quot;)
+
+sessionBegins(sess) =&gt;
+    t = time(&quot;&quot;, sess)
+    timeframe.isintraday and (not barstate.isfirst) and na(t[1]) and not na(t)
+
+var float hi = na
+var float lo = na
+if sessionBegins(sessionInput)
+    hi := high
+    lo := low
+
+plot(lo, &quot;lo&quot;, color.fuchsia, 2, plot.style_circles)
+plot(hi, &quot;hi&quot;, color.lime,    2, plot.style_circles)
+</pre></div>
+</div>
+<p>Note that:</p>
+<ul>
+<li><p class="first">We use a session input to allow users to specify the time they want to detect.
+We are only looking for the session’s beginning time on bars,
+so we use a five-minute gap between the beginning and end time of our <code class="docutils literal notranslate"><span class="pre">&quot;0930-0935&quot;</span></code> default value.</p>
+</li>
+<li><p class="first">We create a <code class="docutils literal notranslate"><span class="pre">sessionBegins()</span></code> function to detect the beginning of a session.
+Its <code class="docutils literal notranslate"><span class="pre">time(&quot;&quot;,</span> <span class="pre">sess)</span></code> call uses an empty string for the function’s <code class="docutils literal notranslate"><span class="pre">timeframe</span></code> parameter,
+which means it uses the chart’s timeframe, whatever that is.
+The function returns <code class="docutils literal notranslate"><span class="pre">true</span></code> when:</p>
+<blockquote>
+<div><ul class="simple">
+<li>The chart uses an intraday timeframe (seconds or minutes).</li>
+<li>The script isn’t on the chart’s first bar, which we ensure with <code class="docutils literal notranslate"><span class="pre">(not</span> <span class="pre">barstate.isfirst)</span></code>.
+This check prevents the code from always detecting a
+session beginning on the first bar because <code class="docutils literal notranslate"><span class="pre">na(t[1])</span> <span class="pre">and</span> <span class="pre">not</span> <span class="pre">na(t)</span></code> is always <code class="docutils literal notranslate"><span class="pre">true</span></code> there.</li>
+<li>The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_time">time()</a> call
+has returned <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a> on the previous bar
+because it wasn’t in the session’s time period, and it has returned a value that is not
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a> on the current bar,
+which means the bar is <strong>in</strong> the session’s time period.</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="session-states">
+<span id="pagesessions-sessionstates"></span><h2><a class="toc-backref" href="#id5">Session states</a><a class="headerlink" href="#session-states" title="Permalink to this headline">¶</a></h2>
+<p>Three built-in variables allow you to distinguish the type of session the current bar belongs to.
+They are only helpful on intraday timeframes:</p>
+<ul class="simple">
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_session{dot}ismarket">session.ismarket</a>
+returns <code class="docutils literal notranslate"><span class="pre">true</span></code> when the bar belongs to regular trading hours.</li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_session{dot}ispremarket">session.ispremarket</a>
+returns <code class="docutils literal notranslate"><span class="pre">true</span></code> when the bar belongs to the extended session preceding regular trading hours.</li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_session{dot}ispostmarket">session.ispostmarket</a>
+returns <code class="docutils literal notranslate"><span class="pre">true</span></code> when the bar belongs to the extended session following regular trading hours.</li>
+</ul>
+</div>
+<div class="section" id="using-sessions-with-request-security">
+<span id="pagesessions-usingsessionswithrequestsecurity"></span><h2><a class="toc-backref" href="#id6">Using sessions with `request.security()`</a><a class="headerlink" href="#using-sessions-with-request-security" title="Permalink to this headline">¶</a></h2>
+<p>When your TradingView account provides access to extended sessions,
+you can choose to see their bars with the “Settings/Symbol/Session” field.
+There are two types of sessions:</p>
+<ul class="simple">
+<li><strong>regular</strong> (which does not include pre- and post-market data), and</li>
+<li><strong>extended</strong> (which includes pre- and post-market data).</li>
+</ul>
+<p>Scripts using the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a>
+function to access data can return extended session data or not. This is an example where only regular session data is fetched:</p>
+<img alt="../_images/Sessions-RegularAndExtendedSessions-01.png" src="../_images/Sessions-RegularAndExtendedSessions-01.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Example 1: Regular Session Data&quot;)
+regularSessionData = request.security(&quot;NASDAQ:AAPL&quot;, timeframe.period, close, barmerge.gaps_on)
+plot(regularSessionData, style = plot.style_linebr)
+</pre></div>
+</div>
+<p>If you want the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a> call to return extended session data,
+you must first use the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_ticker{dot}new">ticker.new()</a> function
+to build the first argument of the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a> call:</p>
+<img alt="../_images/Sessions-RegularAndExtendedSessions-02.png" src="../_images/Sessions-RegularAndExtendedSessions-02.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Example 2: Extended Session Data&quot;)
+t = ticker.new(&quot;NASDAQ&quot;, &quot;AAPL&quot;, session.extended)
+extendedSessionData = request.security(t, timeframe.period, close, barmerge.gaps_on)
+plot(extendedSessionData, style = plot.style_linebr)
+</pre></div>
+</div>
+<p>Note that the previous chart’s gaps in the script’s plot are now filled. Also, keep in mind
+that our example scripts do not produce the background coloring on the chart;
+it is due to the chart’s settings showing extended hours.</p>
+<p>The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_ticker{dot}new">ticker.new()</a>
+function has the following signature:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ticker.new(prefix, ticker, session, adjustment) → simple string
+</pre></div>
+</div>
+<p>Where:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">prefix</span></code> is the exchange prefix, e.g., <code class="docutils literal notranslate"><span class="pre">&quot;NASDAQ&quot;</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">ticker</span></code> is a symbol name, e.g., <code class="docutils literal notranslate"><span class="pre">&quot;AAPL&quot;</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">session</span></code> can be <code class="docutils literal notranslate"><span class="pre">session.extended</span></code> or <code class="docutils literal notranslate"><span class="pre">session.regular</span></code>.
+Note that this is <strong>not</strong> a session string.</li>
+<li><code class="docutils literal notranslate"><span class="pre">adjustment</span></code> adjusts prices using different criteria: <code class="docutils literal notranslate"><span class="pre">adjustment.none</span></code>, <code class="docutils literal notranslate"><span class="pre">adjustment.splits</span></code>, <code class="docutils literal notranslate"><span class="pre">adjustment.dividends</span></code>.</li>
+</ul>
+<p>Our first example could be rewritten as:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Example 1: Regular Session Data&quot;)
+t = ticker.new(&quot;NASDAQ&quot;, &quot;AAPL&quot;, session.regular)
+regularSessionData = request.security(t, timeframe.period, close, barmerge.gaps_on)
+plot(regularSessionData, style = plot.style_linebr)
+</pre></div>
+</div>
+<p>If you want to use the same session specifications used for the chart’s main
+symbol, omit the third argument in <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_ticker{dot}new">ticker.new()</a>; it is optional.
+If you want your code to declare your intention explicitly,
+use the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_syminfo{dot}session">syminfo.session</a>
+built-in variable. It holds the session type of the chart’s main symbol:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Example 1: Regular Session Data&quot;)
+t = ticker.new(&quot;NASDAQ&quot;, &quot;AAPL&quot;, syminfo.session)
+regularSessionData = request.security(t, timeframe.period, close, barmerge.gaps_on)
+plot(regularSessionData, style = plot.style_linebr)
+</pre></div>
+</div>
+<a class="reference external image-reference" href="https://www.tradingview.com/"><div align="center" class="align-center"><img alt="../_images/TradingView-Logo-Block.svg" src="../_images/TradingView-Logo-Block.svg" width="200px" /></div>
+</a>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="Repainting.html" title="previous chapter (use the left arrow)">Repainting</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="Strategies.html" title="next chapter (use the right arrow)">Strategies</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Strategies.html" title="Strategies"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Repainting.html" title="Repainting"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Concepts</a> &#187;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="../_static/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="../_static/js/theme.js"></script>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Options</span>
+    v: v5
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Languages</dt>
+      
+        <strong>
+        <dd><a href="Sessions.html">en</a></dd>
+        </strong>
+      
+    </dl>
+    <dl>
+      <dt>Versions</dt>
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v3/concepts/Sessions.html">v3</a></dd>
+        
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v4/concepts/Sessions.html">v4</a></dd>
+        
+      
+        <strong>
+        <dd><a href="Sessions.html">v5</a></dd>
+        </strong>
+      
+    </dl>
+  </div>
+</div>
+<script type="text/javascript">
+    jQuery(function () {
+        SphinxRtdTheme.Navigation.enable(false);
+    });
+</script>
+  <div class="footer">
+    &copy; Copyright 2023, TradingView.
+  </div>
+  </body>
+
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/concepts/Sessions.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:56:28 GMT -->
+</html>

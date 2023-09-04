@@ -1,0 +1,652 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/writing/Limitations.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:57:05 GMT -->
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Limitations &#8212; Pine Script® v5 User Manual v5 documentation</title>
+    <link rel="stylesheet" href="../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../../../../static.tradingview.com/static/bundles/pine-highlighter-v01.js"></script>
+    <script type="text/javascript" src="../_static/highlight-pine-code.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="FAQ" href="../Faq.html" />
+    <link rel="prev" title="Publishing scripts" href="Publishing.html" />
+  
+   
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../Faq.html" title="FAQ"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Publishing.html" title="Publishing scripts"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Writing scripts</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="../index.html" class="text-logo">Pine Script<sup>®</sup> v5 User Manual</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Introduction.html">Welcome to Pine Script<sup>®</sup> v5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primer/index.html">Pine Script<sup>®</sup> primer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../language/index.html">Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepts</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Writing scripts</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Style_guide.html">Style guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Debugging.html">Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Publishing.html">Publishing scripts</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Limitations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#time">Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#chart-visuals">Chart visuals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#request-calls">`request.*()` calls</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#script-size-and-memory">Script size and memory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#other-limitations">Other limitations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Error_messages.html">Error messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Release_notes.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migration_guides/index.html">Migration guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Where_can_I_get_more_information.html">Where can I get more information?</a></li>
+</ul>
+
+    
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="https://www.tradingview.com/pine-script-docs/en/v5/search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../index.html">User Manual</a></li>
+              
+                <li><a href="index.html">Writing scripts</a></li>
+              
+              <li>Limitations</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <a class="reference external image-reference" href="../Introduction.html"><div align="right" class="align-right"><img alt="Pine Script® logo" height="100" src="../_images/Pine-script-logo.svg" width="100" /></div>
+</a>
+<div class="section" id="limitations">
+<span id="pagelimitations"></span><h1>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#introduction" id="id1">Introduction</a></li>
+<li><a class="reference internal" href="#time" id="id2">Time</a><ul>
+<li><a class="reference internal" href="#script-compilation" id="id3">Script compilation</a></li>
+<li><a class="reference internal" href="#script-execution" id="id4">Script execution</a></li>
+<li><a class="reference internal" href="#loop-execution" id="id5">Loop execution</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#chart-visuals" id="id6">Chart visuals</a><ul>
+<li><a class="reference internal" href="#plot-limits" id="id7">Plot limits</a></li>
+<li><a class="reference internal" href="#line-box-and-label-limits" id="id8">Line, box, and label limits</a></li>
+<li><a class="reference internal" href="#table-limits" id="id9">Table limits</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#request-calls" id="id10">`request.*()` calls</a><ul>
+<li><a class="reference internal" href="#number-of-calls" id="id11">Number of calls</a></li>
+<li><a class="reference internal" href="#intrabars" id="id12">Intrabars</a></li>
+<li><a class="reference internal" href="#tuple-element-limit" id="id13">Tuple element limit</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#script-size-and-memory" id="id14">Script size and memory</a><ul>
+<li><a class="reference internal" href="#compiled-tokens" id="id15">Compiled tokens</a></li>
+<li><a class="reference internal" href="#local-blocks" id="id16">Local blocks</a></li>
+<li><a class="reference internal" href="#variables" id="id17">Variables</a></li>
+<li><a class="reference internal" href="#collections" id="id18">Collections</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#other-limitations" id="id19">Other limitations</a><ul>
+<li><a class="reference internal" href="#maximum-bars-back" id="id20">Maximum bars back</a></li>
+<li><a class="reference internal" href="#maximum-bars-forward" id="id21">Maximum bars forward</a></li>
+<li><a class="reference internal" href="#chart-bars" id="id22">Chart bars</a></li>
+<li><a class="reference internal" href="#trade-orders-in-backtesting" id="id23">Trade orders in backtesting</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="introduction">
+<h2><a class="toc-backref" href="#id1">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>As is mentioned in our <a class="reference internal" href="../Introduction.html#pagewelcometopine"><span class="std std-ref">Welcome</span></a> page:</p>
+<blockquote>
+<div><em>Because each script uses computational resources in the cloud, we must impose limits in order to share these resources fairly among our users.
+We strive to set as few limits as possible, but will of course have to implement as many as needed for the platform to run smoothly.
+Limitations apply to the amount of data requested from additional symbols, execution time, memory usage and script size.</em></div></blockquote>
+<p>If you develop complex scripts using Pine Script<sup>®</sup>, sooner or later you will run into some of the limitations we impose.
+This section provides you with an overview of the limitations that you may encounter.
+There are currently no means for Pine Script<sup>®</sup> programmers to get data on the resources consumed by their scripts.
+We hope this will change in the future.</p>
+<p>In the meantime, when you are considering large projects, it is safest to make a proof of concept
+in order to assess the probability of your script running into limitations later in your project.</p>
+<p>Here are the limits imposed in the Pine Script<sup>®</sup> environment.</p>
+</div>
+<div class="section" id="time">
+<h2><a class="toc-backref" href="#id2">Time</a><a class="headerlink" href="#time" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="script-compilation">
+<h3><a class="toc-backref" href="#id3">Script compilation</a><a class="headerlink" href="#script-compilation" title="Permalink to this headline">¶</a></h3>
+<p>Scripts must compile before they are executed on charts. Compilation occurs when you save a script from the editor or when you add a script to the chart.
+A two-minute limit is imposed on compilation time, which will depend on the size and complexity of your script,
+and whether or not a cached version of a previous compilation is available.
+When a compile exceeds the two-minute limit, a warning is issued.
+Heed that warning by shortening your script because after three consecutives warnings a one-hour ban on compilation attempts is enforced.
+The first thing to consider when optimizing code is to avoid repetitions by using functions to encapsulate oft-used segments,
+and call functions instead of repeating code.</p>
+</div>
+<div class="section" id="script-execution">
+<h3><a class="toc-backref" href="#id4">Script execution</a><a class="headerlink" href="#script-execution" title="Permalink to this headline">¶</a></h3>
+<p>Once a script is compiled it can be executed.
+See the <a class="reference internal" href="../language/Execution_model.html#pageexecutionmodel-events"><span class="std std-ref">Events triggering the execution of a script</span></a> for a list of the events triggering the execution of a script.
+The time allotted for the script to execute on all bars of a dataset varies with account types. The limit is 20 seconds for basic accounts, 40 for others.</p>
+</div>
+<div class="section" id="loop-execution">
+<h3><a class="toc-backref" href="#id5">Loop execution</a><a class="headerlink" href="#loop-execution" title="Permalink to this headline">¶</a></h3>
+<p>The execution time for any loop on any single bar is limited to 500 milliseconds.
+The outer loop of embedded loops counts as one loop, so it will time out first.
+Keep in mind that even though a loop may execute under the 500 ms time limit on a given bar,
+the time it takes to execute on all the dataset’s bars may nonetheless cause your script to exceed the total execution time limit.
+For example, the limit on total execution time will make it impossible for you script to execute a 400 ms loop on each bar of a 20,000-bar dataset
+because your script would then need 8000 seconds to execute.</p>
+</div>
+</div>
+<div class="section" id="chart-visuals">
+<h2><a class="toc-backref" href="#id6">Chart visuals</a><a class="headerlink" href="#chart-visuals" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="plot-limits">
+<h3><a class="toc-backref" href="#id7">Plot limits</a><a class="headerlink" href="#plot-limits" title="Permalink to this headline">¶</a></h3>
+<p>A maximum of 64 plot counts are allowed per script. The functions that generate plot counts are:</p>
+<ul class="simple">
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plot">plot()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plotarrow">plotarrow()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plotbar">plotbar()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plotcandle">plotcandle()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plotchar">plotchar()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plotshape">plotshape()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_alertcondition">alertcondition()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_bgcolor">bgcolor()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_fill">fill()</a>, but only if its <code class="docutils literal notranslate"><span class="pre">color</span></code> is of the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_series">series</a> form.</li>
+</ul>
+<p>The following functions do not generate plot counts:</p>
+<ul class="simple">
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_hline">hline()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}new">line.new()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_label{dot}new">label.new()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_table{dot}new">table.new()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_box{dot}new">box.new()</a></li>
+</ul>
+<p>One function call can generate up to seven plot counts, depending on the function and how it is called.
+When your script exceeds the maximum of 64 plot counts, the runtime error message will display the plot count generated by your script.
+Once you reach that point, you can determine how many plot counts a function call generates by commenting it out in a script.
+As long as your script still throws an error, you will be able to see how the actual plot count decreases after you have commented out a line.</p>
+<p>The following example shows different function calls and the number of plot counts each one will generate:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Plot count example&quot;)
+
+bool isUp = close &gt; open
+color isUpColor = isUp ? color.green : color.red
+bool isDn = not isUp
+color isDnColor = isDn ? color.red : color.green
+
+// Uses one plot count each.
+p1 = plot(close, color = color.white)
+p2 = plot(open, color = na)
+
+// Uses two plot counts for the `close` and `color` series.
+plot(close, color = isUpColor)
+
+// Uses one plot count for the `close` series.
+plotarrow(close, colorup = color.green, colordown = color.red)
+
+// Uses two plot counts for the `close` and `colorup` series.
+plotarrow(close, colorup = isUpColor)
+
+// Uses three plot counts for the `close`, `colorup`, and the `colordown` series.
+plotarrow(close - open, colorup = isUpColor, colordown = isDnColor)
+
+// Uses four plot counts for the `open`, `high`, `low`, and `close` series.
+plotbar(open, high, low, close, color = color.white)
+
+// Uses five plot counts for the `open`, `high`, `low`, `close`, and `color` series.
+plotbar(open, high, low, close, color = isUpColor)
+
+// Uses four plot counts for the `open`, `high`, `low`, and `close` series.
+plotcandle(open, high, low, close, color = color.white, wickcolor = color.white, bordercolor = color.purple)
+
+// Uses five plot counts for the `open`, `high`, `low`, `close`, and `color` series.
+plotcandle(open, high, low, close, color = isUpColor, wickcolor = color.white, bordercolor = color.purple)
+
+// Uses six plot counts for the `open`, `high`, `low`, `close`, `color`, and `wickcolor` series.
+plotcandle(open, high, low, close, color = isUpColor, wickcolor = isUpColor , bordercolor = color.purple)
+
+// Uses seven plot counts for the `open`, `high`, `low`, `close`, `color`, `wickcolor`, and `bordercolor` series.
+plotcandle(open, high, low, close, color = isUpColor, wickcolor = isUpColor , bordercolor = isUp ? color.lime : color.maroon)
+
+// Uses one plot count for the `close` series.
+plotchar(close, color = color.white, text = &quot;|&quot;, textcolor = color.white)
+
+// Uses two plot counts for the `close`` and `color` series.
+plotchar(close, color = isUpColor, text = &quot;—&quot;, textcolor = color.white)
+
+// Uses three plot counts for the `close`, `color`, and `textcolor` series.
+plotchar(close, color = isUpColor, text = &quot;O&quot;, textcolor = isUp ? color.yellow : color.white)
+
+// Uses one plot count for the `close` series.
+plotshape(close, color = color.white, textcolor = color.white)
+
+// Uses two plot counts for the `close` and `color` series.
+plotshape(close, color = isUpColor, textcolor = color.white)
+
+// Uses three plot counts for the `close`, `color`, and `textcolor` series.
+plotshape(close, color = isUpColor, textcolor = isUp ? color.yellow : color.white)
+
+// Uses one plot count.
+alertcondition(close &gt; open, &quot;close &gt; open&quot;, &quot;Up bar alert&quot;)
+
+// Uses one plot count.
+bgcolor(isUp ? color.yellow : color.white)
+
+// Uses one plot count for the `color` series.
+fill(p1, p2, color = isUpColor)
+</pre></div>
+</div>
+<p>This example generates a plot count of 56. If we were to add two more instances of the last call to
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plotcandle">plotcandle()</a>,
+the script would throw an error stating that the script now uses 70 plot counts, as each additional call to
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plotcandle">plotcandle()</a>
+generates seven plot counts, and 56 + (7 * 2) is 70.</p>
+</div>
+<div class="section" id="line-box-and-label-limits">
+<h3><a class="toc-backref" href="#id8">Line, box, and label limits</a><a class="headerlink" href="#line-box-and-label-limits" title="Permalink to this headline">¶</a></h3>
+<p>Contrary to plots which can cover the entire dataset, by default, only the last 50 lines drawn by a script are visible on charts.
+The same goes for boxes and labels. You can increase the quantity of drawing objects preserved on charts up to a maximum of 500 by using the
+<code class="docutils literal notranslate"><span class="pre">max_lines_count</span></code>, <code class="docutils literal notranslate"><span class="pre">max_boxes_count</span></code> or <code class="docutils literal notranslate"><span class="pre">max_labels_count</span></code> parameters in the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_indicator">indicator()</a> or
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_strategy">strategy()</a> declaration statements.</p>
+<p>In this example we set the maximum quantity of last labels shown on the chart to 100:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Label limits example&quot;, max_labels_count = 100, overlay = true)
+label.new(bar_index, high, str.tostring(high, format.mintick))
+</pre></div>
+</div>
+<p>It’s important to note that when you set any of the attributes of a drawing object to na, it still counts as a drawing on the chart and thus contributes to a script’s drawing totals.
+To demonstrate this, the following script draws a “Buy” and “Sell” label on each bar with <code class="docutils literal notranslate"><span class="pre">x</span></code> values determined by the <code class="docutils literal notranslate"><span class="pre">longCondition</span></code> and <code class="docutils literal notranslate"><span class="pre">shortCondition</span></code> variables.
+The “Buy” label’s <code class="docutils literal notranslate"><span class="pre">x</span></code> value is na when the bar index is even, and the “Sell” label’s <code class="docutils literal notranslate"><span class="pre">x</span></code> value is na when the bar index is odd.
+Although the <code class="docutils literal notranslate"><span class="pre">max_labels_count</span></code> is 10 in this example, we can see that the script displays fewer than ten labels on the chart since the ones with na values also count toward the total:</p>
+<img alt="../_images/Limitations-LabelsWithNa-1.png" src="../_images/Limitations-LabelsWithNa-1.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+
+// Approximate maximum number of label drawings
+MAX_LABELS = 10
+
+indicator(&quot;labels with na&quot;, overlay = false, max_labels_count = MAX_LABELS)
+
+// Add background color for the last MAX_LABELS bars.
+bgcolor(bar_index &gt; last_bar_index - MAX_LABELS ? color.new(color.green, 80) : na)
+
+longCondition =  bar_index % 2 != 0
+shortCondition = bar_index % 2 == 0
+
+// Add &quot;Buy&quot; and &quot;Sell&quot; labels on each new bar.
+label.new(longCondition ? bar_index : na,  0, text = &quot;Buy&quot;, color = color.new(color.green, 0), style = label.style_label_up)
+label.new(shortCondition ? bar_index : na, 0, text = &quot;Sell&quot;, color = color.new(color.red, 0), style = label.style_label_down)
+
+plot(longCondition  ? 1 : 0)
+plot(shortCondition ? 1 : 0)
+</pre></div>
+</div>
+<p>If we want the script to display the desired number of labels, we need to eliminate the ones with na <code class="docutils literal notranslate"><span class="pre">x</span></code> values so that they don’t add to the script’s label count.
+This example conditionally draws the “Buy” and “Sell” labels rather than always drawing them and setting their attributes to na on alternating bars:</p>
+<img alt="../_images/Limitations-LabelsWithNa-2.png" src="../_images/Limitations-LabelsWithNa-2.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+
+// Approximate maximum number of label drawings
+MAX_LABELS = 10
+
+indicator(&quot;conditional labels&quot;, overlay = false, max_labels_count = MAX_LABELS)
+
+// Add background color for the last MAX_LABELS bars.
+bgcolor(bar_index &gt; last_bar_index - MAX_LABELS ? color.new(color.green, 80) : na)
+
+longCondition =  bar_index % 2 != 0
+shortCondition = bar_index % 2 == 0
+
+// Add a &quot;Buy&quot; label when `longCondition` is true.
+if longCondition
+    label.new(bar_index,  0, text = &quot;Buy&quot;, color = color.new(color.green, 0), style = label.style_label_up)
+// Add a &quot;Sell&quot; label when `shortCondition` is true.
+if shortCondition
+    label.new(bar_index, 0, text = &quot;Sell&quot;, color = color.new(color.red, 0), style = label.style_label_down)
+
+plot(longCondition  ? 1 : 0)
+plot(shortCondition ? 1 : 0)
+</pre></div>
+</div>
+</div>
+<div class="section" id="table-limits">
+<h3><a class="toc-backref" href="#id9">Table limits</a><a class="headerlink" href="#table-limits" title="Permalink to this headline">¶</a></h3>
+<p>A maximum of nine tables can be displayed by a script, one for each of the possible locations:
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_position{dot}bottom_center">position.bottom_center</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_position{dot}bottom_left">position.bottom_left</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_position{dot}bottom_right">position.bottom_right</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_position{dot}middle_center">position.middle_center</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_position{dot}middle_left">position.middle_left</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_position{dot}middle_right">position.middle_right</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_position{dot}top_center">position.top_center</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_position{dot}top_left">position.top_left</a>,
+or <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_position{dot}top_right">position.top_right</a>.
+If you place two tables in the same position, only the most recently added table will be visible.</p>
+</div>
+</div>
+<div class="section" id="request-calls">
+<span id="pagelimitations-requestcalls"></span><h2><a class="toc-backref" href="#id10">`request.*()` calls</a><a class="headerlink" href="#request-calls" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="number-of-calls">
+<h3><a class="toc-backref" href="#id11">Number of calls</a><a class="headerlink" href="#number-of-calls" title="Permalink to this headline">¶</a></h3>
+<p>A script cannot make more than 40 calls to <code class="docutils literal notranslate"><span class="pre">request.*()</span></code> functions. All instances of calls to these functions are counted,
+even if they are included in code blocks or functions that are never actually used in the script’s logic. The functions counting towards this limit are:
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security_lower_tf">request.security_lower_tf()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}quandl">request.quandl()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}financial">request.financial()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}dividends">request.dividends()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}earnings">request.earnings()</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}splits">request.splits()</a>.</p>
+</div>
+<div class="section" id="intrabars">
+<h3><a class="toc-backref" href="#id12">Intrabars</a><a class="headerlink" href="#intrabars" title="Permalink to this headline">¶</a></h3>
+<p>When accessing lower timeframes, with
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a>
+or <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security_lower_tf">request.security_lower_tf()</a>,
+a maximum of 100,000 intrabars can be used in calculations.</p>
+<p>The quantity of chart bars covered with 100,000 intrabars will vary with the ratio of the chart’s timeframe to the lower timeframe used,
+and with the average number of intrabars contained in each chart bar.
+For example, when using a 1min lower timeframe, chart bars at the 60min timeframe of an active 24x7 market will usually contain 60 intrabars each.
+Because 100,000 / 60 = 1666.67, the quantity of chart bars covered by the 100,000 intrabars will typically be 1666.
+On markets where 60min chart bars do not always contain 60 1min intrabars, more chart bars will be covered.</p>
+</div>
+<div class="section" id="tuple-element-limit">
+<h3><a class="toc-backref" href="#id13">Tuple element limit</a><a class="headerlink" href="#tuple-element-limit" title="Permalink to this headline">¶</a></h3>
+<p>All the <code class="docutils literal notranslate"><span class="pre">request.*()</span></code> functions in one script taken together cannot return more than 127 tuple values. Below we have an example showing what can cause this error and how to work around it:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Tuple values error&quot;)
+
+// CAUSES ERROR:
+[v1, v2, v3,...] = request.security(syminfo.tickerid, &quot;1D&quot;, [s1, s2, s3,...])
+
+// Works fine:
+type myType
+    int v1
+    int v2
+    int v3
+    ...
+
+myObj = request.security(syminfo.tickerid, &quot;1D&quot;, myType.new())
+</pre></div>
+</div>
+<p>Note that:</p>
+<blockquote>
+<div><ul class="simple">
+<li>In this example, we have a <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a>
+function with at least three values in our tuple, and we could either have more than 127 values in our tuple above or more than 127 values between multiple
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a> functions to throw this error.</li>
+<li>We get around the error by simply creating a <span class="xref std std-ref">User-defined object</span> that can hold the same values without throwing an error.</li>
+<li>Using the <code class="docutils literal notranslate"><span class="pre">myType.new()</span></code> function is functionally the same as listing the same values in our <code class="docutils literal notranslate"><span class="pre">[s1,</span> <span class="pre">s2,</span> <span class="pre">s3,...]</span></code> tuple.</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="script-size-and-memory">
+<h2><a class="toc-backref" href="#id14">Script size and memory</a><a class="headerlink" href="#script-size-and-memory" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="compiled-tokens">
+<h3><a class="toc-backref" href="#id15">Compiled tokens</a><a class="headerlink" href="#compiled-tokens" title="Permalink to this headline">¶</a></h3>
+<p>Before a script is executed, it is compiled into a tokenized Intermediate Language (IL).
+Using an IL allows Pine Script<sup>®</sup> to accommodate longer scripts by applying various optimizations before it is executed.
+The compiled form of indicators and strategies is limited to 68,000 tokens; libraries have a limit of 1 million tokens.
+There is no way to inspect the number of tokens created during compilation; you will only know your script exceeds the limit when the compiler reaches it.</p>
+<p>Replacing code repetitions with function calls and using libraries to offload some of the workload
+are the most efficient ways to decrease the number of tokens your compiled script will generate.</p>
+<p>The size of variable names and comments do not affect the number of compiled tokens.</p>
+</div>
+<div class="section" id="local-blocks">
+<h3><a class="toc-backref" href="#id16">Local blocks</a><a class="headerlink" href="#local-blocks" title="Permalink to this headline">¶</a></h3>
+<p>Local blocks are segments of indented code used in function definitions or in
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_if">if</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_switch">switch</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_for">for</a> or
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_while">while</a> structures, which allow for one or more local blocks.</p>
+<p>Scripts are limited to 500 local blocks.</p>
+</div>
+<div class="section" id="variables">
+<h3><a class="toc-backref" href="#id17">Variables</a><a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h3>
+<p>A maximum of 1000 variables are allowed per scope. Pine scripts always contain one global scope, and can contain zero or more local scopes.
+Local scopes are created by indented code such as can be found in functions or
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_if">if</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_switch">switch</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_for">for</a> or
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_while">while</a> structures, which allow for one or more local blocks.
+Each local block counts as one local scope.</p>
+<p>The branches of a conditional expression using a
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_{question}{colon}">?:</a> ternary operator do not count as local blocks.</p>
+</div>
+<div class="section" id="collections">
+<h3><a class="toc-backref" href="#id18">Collections</a><a class="headerlink" href="#collections" title="Permalink to this headline">¶</a></h3>
+<p>Pine Script<sup>®</sup> collections (<a class="reference internal" href="../language/Arrays.html#pagearrays"><span class="std std-ref">arrays</span></a>, <a class="reference internal" href="../language/Matrices.html#pagematrices"><span class="std std-ref">matrices</span></a>,
+and <a class="reference internal" href="../language/Maps.html#pagemaps"><span class="std std-ref">maps</span></a>) can have a maximum of 100,000 elements. Each key-value pair in a map
+contains two elements, meaning <a class="reference internal" href="../language/Maps.html#pagemaps"><span class="std std-ref">maps</span></a> can contain a maximum of 50,000 key-value pairs.</p>
+</div>
+</div>
+<div class="section" id="other-limitations">
+<h2><a class="toc-backref" href="#id19">Other limitations</a><a class="headerlink" href="#other-limitations" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="maximum-bars-back">
+<h3><a class="toc-backref" href="#id20">Maximum bars back</a><a class="headerlink" href="#maximum-bars-back" title="Permalink to this headline">¶</a></h3>
+<p>References to past values using the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_op_[]">[]</a>
+history-referencing operator are dependent on the size of the historical buffer maintained by the Pine Script<sup>®</sup> runtime, which is limited to a maximum of 5000 bars.
+<a class="reference external" href="https://www.tradingview.com/support/solutions/43000587849">This Help Center page</a>
+discusses the historical buffer and how to change its size using either the <code class="docutils literal notranslate"><span class="pre">max_bars_back</span></code> parameter or the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_max_bars_back">max_bars_back()</a> function.</p>
+</div>
+<div class="section" id="maximum-bars-forward">
+<h3><a class="toc-backref" href="#id21">Maximum bars forward</a><a class="headerlink" href="#maximum-bars-forward" title="Permalink to this headline">¶</a></h3>
+<p>When positioning drawings using <code class="docutils literal notranslate"><span class="pre">xloc.bar_index</span></code>, it is possible to use bar index values greater than that of the current bar as <em>x</em> coordinates.
+A maximum of 500 bars in the future can be referenced.</p>
+<p>This example shows how we use the <cite>maxval</cite> parameter in our
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input{dot}int">input.int()</a>
+function call to cap the user-defined number of bars forward we draw a projection line so that it never exceeds the limit:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Max bars forward example&quot;, overlay = true)
+
+// This function draws a `line` using bar index x-coordinates.
+drawLine(bar1, y1, bar2, y2) =&gt;
+    // Only execute this code on the last bar.
+    if barstate.islast
+        // Create the line only the first time this function is executed on the last bar.
+        var line lin = line.new(bar1, y1, bar2, y2, xloc.bar_index)
+        // Change the line&#39;s properties on all script executions on the last bar.
+        line.set_xy1(lin, bar1, y1)
+        line.set_xy2(lin, bar2, y2)
+
+// Input determining how many bars forward we draw the `line`.
+int forwardBarsInput = input.int(10, &quot;Forward Bars to Display&quot;, minval = 1, maxval = 500)
+
+// Calculate the line&#39;s left and right points.
+int   leftBar  = bar_index[2]
+float leftY    = high[2]
+int   rightBar = leftBar + forwardBarsInput
+float rightY   = leftY + (ta.change(high)[1] * forwardBarsInput)
+
+// This function call is executed on all bars, but it only draws the `line` on the last bar.
+drawLine(leftBar, leftY, rightBar, rightY)
+</pre></div>
+</div>
+</div>
+<div class="section" id="chart-bars">
+<h3><a class="toc-backref" href="#id22">Chart bars</a><a class="headerlink" href="#chart-bars" title="Permalink to this headline">¶</a></h3>
+<p>The number of bars appearing on charts is dependent on the amount of historical data available for the chart’s symbol and timeframe,
+and on the type of account you hold. When the required historical date is available, the minimum number of chart bars is:</p>
+<blockquote>
+<div><ul class="simple">
+<li>20,000 bars for the Premium plan.</li>
+<li>10,000 bars for Pro and Pro+ plans.</li>
+<li>5000 bars for other plans.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="trade-orders-in-backtesting">
+<h3><a class="toc-backref" href="#id23">Trade orders in backtesting</a><a class="headerlink" href="#trade-orders-in-backtesting" title="Permalink to this headline">¶</a></h3>
+<p>A maximum of 9000 orders can be placed when backtesting strategies.
+When using Deep Backtesting, the limit is 200,000.</p>
+<a class="reference external image-reference" href="https://www.tradingview.com/"><div align="center" class="align-center"><img alt="../_images/TradingView-Logo-Block.svg" src="../_images/TradingView-Logo-Block.svg" width="200px" /></div>
+</a>
+</div>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="Publishing.html" title="previous chapter (use the left arrow)">Publishing scripts</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="../Faq.html" title="next chapter (use the right arrow)">FAQ</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../Faq.html" title="FAQ"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Publishing.html" title="Publishing scripts"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Writing scripts</a> &#187;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="../_static/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="../_static/js/theme.js"></script>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Options</span>
+    v: v5
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Languages</dt>
+      
+        <strong>
+        <dd><a href="Limitations.html">en</a></dd>
+        </strong>
+      
+    </dl>
+    <dl>
+      <dt>Versions</dt>
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v3/writing/Limitations.html">v3</a></dd>
+        
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v4/writing/Limitations.html">v4</a></dd>
+        
+      
+        <strong>
+        <dd><a href="Limitations.html">v5</a></dd>
+        </strong>
+      
+    </dl>
+  </div>
+</div>
+<script type="text/javascript">
+    jQuery(function () {
+        SphinxRtdTheme.Navigation.enable(false);
+    });
+</script>
+  <div class="footer">
+    &copy; Copyright 2023, TradingView.
+  </div>
+  </body>
+
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/writing/Limitations.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:57:06 GMT -->
+</html>

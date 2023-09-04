@@ -1,0 +1,522 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/concepts/Tables.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:56:40 GMT -->
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Tables &#8212; Pine Script® v5 User Manual v5 documentation</title>
+    <link rel="stylesheet" href="../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../../../../static.tradingview.com/static/bundles/pine-highlighter-v01.js"></script>
+    <script type="text/javascript" src="../_static/highlight-pine-code.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Text and shapes" href="Text_and_shapes.html" />
+    <link rel="prev" title="Strategies" href="Strategies.html" />
+  
+   
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Text_and_shapes.html" title="Text and shapes"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Strategies.html" title="Strategies"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Concepts</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="../index.html" class="text-logo">Pine Script<sup>®</sup> v5 User Manual</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Introduction.html">Welcome to Pine Script<sup>®</sup> v5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primer/index.html">Pine Script<sup>®</sup> primer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../language/index.html">Language</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Concepts</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Alerts.html">Alerts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Backgrounds.html">Backgrounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bar_coloring.html">Bar coloring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bar_plotting.html">Bar plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bar_states.html">Bar states</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chart_information.html">Chart information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Colors.html">Colors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fills.html">Fills</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Inputs.html">Inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Levels.html">Levels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Libraries.html">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lines_and_boxes.html">Lines and boxes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Non-standard_charts_data.html">Non-standard charts data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Plots.html">Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Repainting.html">Repainting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Sessions.html">Sessions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Strategies.html">Strategies</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Tables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-tables">Creating tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tips">Tips</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Text_and_shapes.html">Text and shapes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Time.html">Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Timeframes.html">Timeframes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../writing/index.html">Writing scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Error_messages.html">Error messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Release_notes.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migration_guides/index.html">Migration guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Where_can_I_get_more_information.html">Where can I get more information?</a></li>
+</ul>
+
+    
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="https://www.tradingview.com/pine-script-docs/en/v5/search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../index.html">User Manual</a></li>
+              
+                <li><a href="index.html">Concepts</a></li>
+              
+              <li>Tables</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <a class="reference external image-reference" href="../Introduction.html"><div align="right" class="align-right"><img alt="Pine Script® logo" height="100" src="../_images/Pine-script-logo.svg" width="100" /></div>
+</a>
+<div class="section" id="tables">
+<span id="pagetables"></span><h1>Tables<a class="headerlink" href="#tables" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#introduction" id="id1">Introduction</a></li>
+<li><a class="reference internal" href="#creating-tables" id="id2">Creating tables</a><ul>
+<li><a class="reference internal" href="#placing-a-single-value-in-a-fixed-position" id="id3">Placing a single value in a fixed position</a></li>
+<li><a class="reference internal" href="#coloring-the-chart-s-background" id="id4">Coloring the chart’s background</a></li>
+<li><a class="reference internal" href="#creating-a-display-panel" id="id5">Creating a display panel</a></li>
+<li><a class="reference internal" href="#displaying-a-heatmap" id="id6">Displaying a heatmap</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tips" id="id7">Tips</a></li>
+</ul>
+</div>
+<div class="section" id="introduction">
+<h2><a class="toc-backref" href="#id1">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Tables are objects that can be used to position information in specific and fixed locations in a script’s visual space.
+Contrary to all other plots or objects drawn in Pine Script<sup>®</sup>,
+tables are not anchored to specific bars; they <em>float</em> in a script’s space, whether in overlay or pane mode, in studies or strategies,
+independently of the chart bars being viewed or the zoom factor used.</p>
+<p>Tables contain cells arranged in columns and rows, much like a spreadsheet. They are created and populated in two distincts steps:</p>
+<ol class="arabic simple">
+<li>A table’s structure and key attributes are defined using <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_table{dot}new">table.new()</a>, which returns a table ID that acts like a pointer to the table, just like label, line, or array IDs do. The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_table{dot}new">table.new()</a> call will create the table object but does not display it.</li>
+<li>Once created, and for it to display, the table must be populated using one <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_table{dot}cell">table.cell()</a> call for each cell. Table cells can contain text, or not. This second step is when the width and height of cells are defined.</li>
+</ol>
+<p>Most attributes of a previously created table can be changed using <code class="docutils literal notranslate"><span class="pre">table.set_*()</span></code> setter functions.
+Attributes of previously populated cells can be modified using <code class="docutils literal notranslate"><span class="pre">table.cell_set_*()</span></code> functions.</p>
+<p>A table is positioned in an indicator’s space by anchoring it to one of nine references: the four corners or midpoints, including the center.
+Tables are positioned by expanding the table from its anchor, so a table anchored to the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_position{dot}middle_right">position.middle_right</a>
+reference will be drawn by expanding up, down and left from that anchor.</p>
+<p>Two modes are available to determine the width/height of table cells:</p>
+<ul class="simple">
+<li>A default automatic mode calculates the width/height of cells in a column/row using the widest/highest text in them.</li>
+<li>An explicit mode allows programmers to define the width/height of cells using a percentage of the indicator’s available x/y space.</li>
+</ul>
+<p>Displayed table contents always represent the last state of the table, as it was drawn on the script’s last execution, on the dataset’s last bar.
+Contrary to values displayed in the Data Window or in indicator values,
+variable contents displayed in tables will thus not change as a script user moves his cursor over specific chart bars.
+For this reason, it is strongly recommended to always restrict execution of all <code class="docutils literal notranslate"><span class="pre">table.*()</span></code> calls to either the first or last bars of the dataset. Accordingly:</p>
+<ul class="simple">
+<li>Use the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_var">var</a> keyword to declare tables.</li>
+<li>Enclose all other calls inside an <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_if">if</a> <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_barstate{dot}islast">barstate.islast</a> block.</li>
+</ul>
+<p><strong>Multiple tables can be used in one script, as long as they are each anchored to a different position. Each table object is identified by its own ID.
+Limits on the quantity of cells in all tables are determined by the total number of cells used in one script.</strong></p>
+</div>
+<div class="section" id="creating-tables">
+<h2><a class="toc-backref" href="#id2">Creating tables</a><a class="headerlink" href="#creating-tables" title="Permalink to this headline">¶</a></h2>
+<p>When creating a table using <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_table{dot}new">table.new()</a>, three parameters are mandatory:
+the table’s position and its number of columns and rows. Five other parameters are optional:
+the table’s background color, the color and width of the table’s outer frame,
+and the color and width of the borders around all cells, excluding the outer frame.
+All table attributes except its number of columns and rows can be modified using setter functions:
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_table{dot}set_position">table.set_position()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_table{dot}set_bgcolor">table.set_bgcolor()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_table{dot}set_frame_color">table.set_frame_color()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_table{dot}set_frame_width">table.set_frame_width()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_table{dot}set_border_color">table.set_border_color()</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_table{dot}set_border_width">table.set_border_width()</a>.</p>
+<p>Tables can be deleted using <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_table{dot}delete">table.delete()</a>,
+and their content can be selectively removed using <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_table{dot}clear">table.clear()</a>.</p>
+<p>When populating cells using <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_table{dot}cell">table.cell()</a>,
+you must supply an argument for four mandatory parameters: the table id the cell belongs to, its column and row index using indices that start at zero,
+and the text string the cell contains, which can be null.
+Seven other parameters are optional: the width and height of the cell, the text’s attributes (color, horizontal and vertical alignment, size), and the cell’s background color.
+All cell attributes can be modified using setter functions:
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_table{dot}cell_set_text">table.cell_set_text()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_table{dot}cell_set_width">table.cell_set_width()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_table{dot}cell_set_height">table.cell_set_height()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_table{dot}cell_set_text_color">table.cell_set_text_color()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_table{dot}cell_set_text_halign">table.cell_set_text_halign()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_table{dot}cell_set_text_valign">table.cell_set_text_valign()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_table{dot}cell_set_text_size">table.cell_set_text_size()</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_table{dot}cell_set_bgcolor">table.cell_set_bgcolor()</a>.</p>
+<p>Keep in mind that each successive call to <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_table{dot}cell">table.cell()</a>
+redefines <strong>all</strong> the cell’s properties, deleting any properties set by previous
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_table{dot}cell">table.cell()</a> calls on the same cell.</p>
+<div class="section" id="placing-a-single-value-in-a-fixed-position">
+<h3><a class="toc-backref" href="#id3">Placing a single value in a fixed position</a><a class="headerlink" href="#placing-a-single-value-in-a-fixed-position" title="Permalink to this headline">¶</a></h3>
+<p>Let’s create our first table, which will place the value of ATR in the upper-right corner of the chart. We first create a one-cell table,
+then populate that cell:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;ATR&quot;, &quot;&quot;, true)
+// We use `var` to only initialize the table on the first bar.
+var table atrDisplay = table.new(position.top_right, 1, 1)
+// We call `ta.atr()` outside the `if` block so it executes on each bar.
+myAtr = ta.atr(14)
+if barstate.islast
+    // We only populate the table on the last bar.
+    table.cell(atrDisplay, 0, 0, str.tostring(myAtr))
+</pre></div>
+</div>
+<img alt="../_images/Tables-ATR-1.png" src="../_images/Tables-ATR-1.png" />
+<p>Note that:</p>
+<ul class="simple">
+<li>We use the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_var">var</a> keyword when creating the table with
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_table{dot}new">table.new()</a>.</li>
+<li>We populate the cell inside an <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_if">if</a>
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_barstate{dot}islast">barstate.islast</a>
+block using <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_table{dot}cell">table.cell()</a>.</li>
+<li>When populating the cell, we do not specify the <code class="docutils literal notranslate"><span class="pre">width</span></code> or <code class="docutils literal notranslate"><span class="pre">height</span></code>. The width and height of our cell will thus adjust automatically to the text it contains.</li>
+<li>We call <code class="docutils literal notranslate"><span class="pre">ta.atr(14)</span></code> prior to entry in our <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_if">if</a> block so that it evaluates on each bar.
+Had we used <code class="docutils literal notranslate"><span class="pre">str.tostring(ta.atr(14))</span></code> inside the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_if">if</a> block,
+the function would not have evaluated correctly because it would be called on the dataset’s last bar without having calculated the necessary values from the previous bars.</li>
+</ul>
+<p>Let’s improve the usability and aesthethics of our script:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;ATR&quot;, &quot;&quot;, true)
+atrPeriodInput = input.int(14,  &quot;ATR period&quot;, minval = 1, tooltip = &quot;Using a period of 1 yields True Range.&quot;)
+
+var table atrDisplay = table.new(position.top_right, 1, 1, bgcolor = color.gray, frame_width = 2, frame_color = color.black)
+myAtr = ta.atr(atrPeriodInput)
+if barstate.islast
+    table.cell(atrDisplay, 0, 0, str.tostring(myAtr, format.mintick), text_color = color.white)
+</pre></div>
+</div>
+<img alt="../_images/Tables-ATR-2.png" src="../_images/Tables-ATR-2.png" />
+<p>Note that:</p>
+<ul class="simple">
+<li>We used <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_table{dot}new">table.new()</a> to define a background color, a frame color and its width.</li>
+<li>When populating the cell with <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_table{dot}cell">table.cell()</a>,
+we set the text to display in white.</li>
+<li>We pass <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_format{dot}mintick">format.mintick</a>
+as a second argument to the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_str{dot}tostring">str.tostring()</a>
+function to restrict the precision of ATR to the chart’s tick precision.</li>
+<li>We now use an input to allow the script user to specify the period of ATR. The input also includes a tooltip,
+which the user can see when he hovers over the “i” icon in the script’s “Settings/Inputs” tab.</li>
+</ul>
+</div>
+<div class="section" id="coloring-the-chart-s-background">
+<h3><a class="toc-backref" href="#id4">Coloring the chart’s background</a><a class="headerlink" href="#coloring-the-chart-s-background" title="Permalink to this headline">¶</a></h3>
+<p>This example uses a one-cell table to color the chart’s background on the bull/bear state of RSI:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Chart background&quot;, &quot;&quot;, true)
+bullColorInput = input.color(color.new(color.green, 95), &quot;Bull&quot;, inline = &quot;1&quot;)
+bearColorInput = input.color(color.new(color.red, 95), &quot;Bear&quot;, inline = &quot;1&quot;)
+// ————— Function colors chart bg on RSI bull/bear state.
+colorChartBg(bullColor, bearColor) =&gt;
+    var table bgTable = table.new(position.middle_center, 1, 1)
+    float r = ta.rsi(close, 20)
+    color bgColor = r &gt; 50 ? bullColor : r &lt; 50 ? bearColor : na
+    if barstate.islast
+        table.cell(bgTable, 0, 0, width = 100, height = 100, bgcolor = bgColor)
+
+colorChartBg(bullColorInput, bearColorInput)
+</pre></div>
+</div>
+<p>Note that:</p>
+<ul class="simple">
+<li>We provide users with inputs allowing them to specify the bull/bear colors to use for the background, and send those input colors as arguments to our <code class="docutils literal notranslate"><span class="pre">colorChartBg()</span></code> function.</li>
+<li>We create a new table only once, using the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_var">var</a> keyword to declare the table.</li>
+<li>We use <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_table{dot}cell">table.cell()</a> on the last bar only, to specify the cell’s properties.
+We make the cell the width and height of the indicator’s space, so it covers the whole chart.</li>
+</ul>
+</div>
+<div class="section" id="creating-a-display-panel">
+<h3><a class="toc-backref" href="#id5">Creating a display panel</a><a class="headerlink" href="#creating-a-display-panel" title="Permalink to this headline">¶</a></h3>
+<p>Tables are ideal to create sophisticated display panels. Not only do they make it possible for display panels to always be visible in a constant position,
+they provide more flexible formatting because each cell’s properties are controlled separately: background, text color, size and alignment, etc.</p>
+<p>Here, we create a basic display panel showing a user-selected quantity of MAs values. We display their period in the first column,
+then their value with a green/red/gray background that varies with price’s position with regards to each MA. When price is above/below the MA,
+the cell’s background is colored with the bull/bear color. When the MA falls between the current bar’s
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_open">open</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_close">close</a>, the cell’s background is of the neutral color.</p>
+<img alt="../_images/Tables-DisplayPanel-1.png" src="../_images/Tables-DisplayPanel-1.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Price vs MA&quot;, &quot;&quot;, true)
+
+var string GP1 = &quot;Moving averages&quot;
+int     masQtyInput    = input.int(20, &quot;Quantity&quot;, minval = 1, maxval = 40, group = GP1, tooltip = &quot;1-40&quot;)
+int     masStartInput  = input.int(20, &quot;Periods begin at&quot;, minval = 2, maxval = 200, group = GP1, tooltip = &quot;2-200&quot;)
+int     masStepInput   = input.int(20, &quot;Periods increase by&quot;, minval = 1, maxval = 100, group = GP1, tooltip = &quot;1-100&quot;)
+
+var string GP2 = &quot;Display&quot;
+string  tableYposInput = input.string(&quot;top&quot;, &quot;Panel position&quot;, inline = &quot;11&quot;, options = [&quot;top&quot;, &quot;middle&quot;, &quot;bottom&quot;], group = GP2)
+string  tableXposInput = input.string(&quot;right&quot;, &quot;&quot;, inline = &quot;11&quot;, options = [&quot;left&quot;, &quot;center&quot;, &quot;right&quot;], group = GP2)
+color   bullColorInput = input.color(color.new(color.green, 30), &quot;Bull&quot;, inline = &quot;12&quot;, group = GP2)
+color   bearColorInput = input.color(color.new(color.red, 30), &quot;Bear&quot;, inline = &quot;12&quot;, group = GP2)
+color   neutColorInput = input.color(color.new(color.gray, 30), &quot;Neutral&quot;, inline = &quot;12&quot;, group = GP2)
+
+var table panel = table.new(tableYposInput + &quot;_&quot; + tableXposInput, 2, masQtyInput + 1)
+if barstate.islast
+    // Table header.
+    table.cell(panel, 0, 0, &quot;MA&quot;, bgcolor = neutColorInput)
+    table.cell(panel, 1, 0, &quot;Value&quot;, bgcolor = neutColorInput)
+
+int period = masStartInput
+for i = 1 to masQtyInput
+    // ————— Call MAs on each bar.
+    float ma = ta.sma(close, period)
+    // ————— Only execute table code on last bar.
+    if barstate.islast
+        // Period in left column.
+        table.cell(panel, 0, i, str.tostring(period), bgcolor = neutColorInput)
+        // If MA is between the open and close, use neutral color. If close is lower/higher than MA, use bull/bear color.
+        bgColor = close &gt; ma ? open &lt; ma ? neutColorInput : bullColorInput : open &gt; ma ? neutColorInput : bearColorInput
+        // MA value in right column.
+        table.cell(panel, 1, i, str.tostring(ma, format.mintick), text_color = color.black, bgcolor = bgColor)
+    period += masStepInput
+</pre></div>
+</div>
+<p>Note that:</p>
+<ul class="simple">
+<li>Users can select the table’s position from the inputs, as well as the bull/bear/neutral colors to be used for the background of the right column’s cells.</li>
+<li>The table’s quantity of rows is determined using the number of MAs the user chooses to display. We add one row for the column headers.</li>
+<li>Even though we populate the table cells on the last bar only, we need to execute the calls to
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_ta{dot}sma">ta.sma()</a> on every bar so they produce the correct results.
+The compiler warning that appears when you compile the code can be safely ignored.</li>
+<li>We separate our inputs in two sections using <code class="docutils literal notranslate"><span class="pre">group</span></code>, and join the relevant ones on the same line using <code class="docutils literal notranslate"><span class="pre">inline</span></code>.
+We supply tooltips to document the limits of certain fields using <code class="docutils literal notranslate"><span class="pre">tooltip</span></code>.</li>
+</ul>
+</div>
+<div class="section" id="displaying-a-heatmap">
+<h3><a class="toc-backref" href="#id6">Displaying a heatmap</a><a class="headerlink" href="#displaying-a-heatmap" title="Permalink to this headline">¶</a></h3>
+<p>Our next project is a heatmap, which will indicate the bull/bear relationship of the current price relative to its past values.
+To do so, we will use a table positioned at the bottom of the chart. We will display colors only, so our table will contain no text;
+we will simply color the background of its cells to produce our heatmap. The heatmap uses a user-selectable lookback period.
+It loops across that period to determine if price is above/below each bar in that past,
+and displays a progressively lighter intensity of the bull/bear color as we go further in the past:</p>
+<img alt="../_images/Tables-Heatmap-1.png" src="../_images/Tables-Heatmap-1.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Price vs Past&quot;, &quot;&quot;, true)
+
+var int MAX_LOOKBACK = 300
+
+int     lookBackInput  = input.int(150, minval = 1, maxval = MAX_LOOKBACK, step = 10)
+color   bullColorInput = input.color(#00FF00ff, &quot;Bull&quot;, inline = &quot;11&quot;)
+color   bearColorInput = input.color(#FF0080ff, &quot;Bear&quot;, inline = &quot;11&quot;)
+
+// ————— Function draws a heatmap showing the position of the current `_src` relative to its past `_lookBack` values.
+drawHeatmap(src, lookBack) =&gt;
+    // float src     : evaluated price series.
+    // int   lookBack: number of past bars evaluated.
+    // Dependency: MAX_LOOKBACK
+
+    // Force historical buffer to a sufficient size.
+    max_bars_back(src, MAX_LOOKBACK)
+    // Only run table code on last bar.
+    if barstate.islast
+        var heatmap = table.new(position.bottom_center, lookBack, 1)
+        for i = 1 to lookBackInput
+            float transp = 100. * i / lookBack
+            if src &gt; src[i]
+                table.cell(heatmap, lookBack - i, 0, bgcolor = color.new(bullColorInput, transp))
+            else
+                table.cell(heatmap, lookBack - i, 0, bgcolor = color.new(bearColorInput, transp))
+
+drawHeatmap(high, lookBackInput)
+</pre></div>
+</div>
+<p>Note that:</p>
+<ul class="simple">
+<li>We define a maximum lookback period as a <code class="docutils literal notranslate"><span class="pre">MAX_LOOKBACK</span></code> constant. This is an important value and we use it for two purposes:
+to specify the number of columns we will create in our one-row table, and to specify the lookback period required for the <code class="docutils literal notranslate"><span class="pre">_src</span></code> argument in our function,
+so that we force Pine Script<sup>®</sup> to create a historical buffer size that will allow us to refer to the required quantity of past values of <code class="docutils literal notranslate"><span class="pre">_src</span></code> in our
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_for">for</a> loop.</li>
+<li>We offer users the possibility of configuring the bull/bear colors in the inputs and we use <code class="docutils literal notranslate"><span class="pre">inline</span></code> to place the color selections on the same line.</li>
+<li>Inside our function, we enclose our table-creation code in an
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_if">if</a> <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_barstate{dot}islast">barstate.islast</a>
+construct so that it only runs on the last bar of the chart.</li>
+<li>The initialization of the table is done inside the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_if">if</a> statement.
+Because of that, and the fact that it uses the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_var">var</a> keyword,
+initialization only occurs the first time the script executes on a last bar.
+Note that this behavior is different from the usual <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_var">var</a> declarations in the script’s global scope,
+where initialization occurs on the first bar of the dataset, at <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_bar_index">bar_index</a> zero.</li>
+<li>We do not specify an argument to the <code class="docutils literal notranslate"><span class="pre">text</span></code> parameter in our <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_table{dot}cell">table.cell()</a> calls, so an empty string is used.</li>
+<li>We calculate our transparency in such a way that the intensity of the colors decreases as we go further in history.</li>
+<li>We use dynamic color generation to create different transparencies of our base colors as needed.</li>
+<li>Contrary to other objects displayed in Pine scripts, this heatmap’s cells are not linked to chart bars.
+The configured lookback period determines how many table cells the heatmap contains, and the heatmap will not change as the chart is panned horizontally, or scaled.</li>
+<li>The maximum number of cells that can be displayed in the scritp’s visual space will depend on your viewing device’s resolution and the portion of the display used by your chart.
+Higher resolution screens and wider windows will allow more table cells to be displayed.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="tips">
+<h2><a class="toc-backref" href="#id7">Tips</a><a class="headerlink" href="#tips" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>When creating tables in strategy scripts, keep in mind that unless the strategy uses <code class="docutils literal notranslate"><span class="pre">calc_on_every_tick</span> <span class="pre">=</span> <span class="pre">true</span></code>, table code enclosed in <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_if">if</a> <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_barstate{dot}islast">barstate.islast</a> blocks will not execute on each realtime update, so the table will not display as you expect.</li>
+<li>Keep in mind that successive calls to <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_table{dot}cell">table.cell()</a> overwrite the cell’s properties specified by previous <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_table{dot}cell">table.cell()</a> calls. Use the setter functions to modify a cell’s properties.</li>
+<li>Remember to control the execution of your table code wisely by restricting it to the necessary bars only. This saves server resources and your charts will display faster, so everybody wins.</li>
+</ul>
+<a class="reference external image-reference" href="https://www.tradingview.com/"><div align="center" class="align-center"><img alt="../_images/TradingView-Logo-Block.svg" src="../_images/TradingView-Logo-Block.svg" width="200px" /></div>
+</a>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="Strategies.html" title="previous chapter (use the left arrow)">Strategies</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="Text_and_shapes.html" title="next chapter (use the right arrow)">Text and shapes</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Text_and_shapes.html" title="Text and shapes"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Strategies.html" title="Strategies"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Concepts</a> &#187;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="../_static/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="../_static/js/theme.js"></script>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Options</span>
+    v: v5
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Languages</dt>
+      
+        <strong>
+        <dd><a href="Tables.html">en</a></dd>
+        </strong>
+      
+    </dl>
+    <dl>
+      <dt>Versions</dt>
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v3/concepts/Tables.html">v3</a></dd>
+        
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v4/concepts/Tables.html">v4</a></dd>
+        
+      
+        <strong>
+        <dd><a href="Tables.html">v5</a></dd>
+        </strong>
+      
+    </dl>
+  </div>
+</div>
+<script type="text/javascript">
+    jQuery(function () {
+        SphinxRtdTheme.Navigation.enable(false);
+    });
+</script>
+  <div class="footer">
+    &copy; Copyright 2023, TradingView.
+  </div>
+  </body>
+
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/concepts/Tables.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:56:41 GMT -->
+</html>

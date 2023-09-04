@@ -1,0 +1,1767 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/Release_notes.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:55:57 GMT -->
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Release notes &#8212; Pine Script® v5 User Manual v5 documentation</title>
+    <link rel="stylesheet" href="_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="../../../../static.tradingview.com/static/bundles/pine-highlighter-v01.js"></script>
+    <script type="text/javascript" src="_static/highlight-pine-code.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Migration guides" href="migration_guides/index.html" />
+    <link rel="prev" title="Error messages" href="Error_messages.html" />
+  
+   
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="migration_guides/index.html" title="Migration guides"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Error_messages.html" title="Error messages"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="index.html" class="text-logo">Pine Script<sup>®</sup> v5 User Manual</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Welcome to Pine Script<sup>®</sup> v5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="primer/index.html">Pine Script<sup>®</sup> primer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="language/index.html">Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/index.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="writing/index.html">Writing scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Error_messages.html">Error messages</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Release notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">2023</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#august-2023">August 2023</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#july-2023">July 2023</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#june-2023">June 2023</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#may-2023">May 2023</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#april-2023">April 2023</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#march-2023">March 2023</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#february-2023">February 2023</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#january-2023">January 2023</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">2022</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#december-2022">December 2022</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#november-2022">November 2022</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#october-2022">October 2022</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#september-2022">September 2022</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#august-2022">August 2022</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#july-2022">July 2022</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#june-2022">June 2022</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#may-2022">May 2022</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#april-2022">April 2022</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#march-2022">March 2022</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#february-2022">February 2022</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#january-2022">January 2022</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">2021</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#december-2021">December 2021</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#november-2021">November 2021</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#october-2021">October 2021</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#september-2021">September 2021</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#july-2021">July 2021</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#june-2021">June 2021</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#may-2021">May 2021</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#april-2021">April 2021</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#march-2021">March 2021</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#february-2021">February 2021</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#january-2021">January 2021</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id10">2020</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#december-2020">December 2020</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#november-2020">November 2020</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#october-2020">October 2020</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#september-2020">September 2020</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#august-2020">August 2020</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#july-2020">July 2020</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#june-2020">June 2020</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#may-2020">May 2020</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#april-2020">April 2020</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#march-2020">March 2020</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#february-2020">February 2020</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#january-2020">January 2020</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id11">2019</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#december-2019">December 2019</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#october-2019">October 2019</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#september-2019">September 2019</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#july-august-2019">July-August 2019</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#june-2019">June 2019</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id12">2018</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#october-2018">October 2018</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#april-2018">April 2018</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id13">2017</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#august-2017">August 2017</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#june-2017">June 2017</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#may-2017">May 2017</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#april-2017">April 2017</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#march-2017">March 2017</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#february-2017">February 2017</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id14">2016</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#december-2016">December 2016</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#october-2016">October 2016</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#september-2016">September 2016</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#july-2016">July 2016</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#march-2016">March 2016</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#february-2016">February 2016</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#january-2016">January 2016</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id15">2015</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#october-2015">October 2015</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#september-2015">September 2015</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#july-2015">July 2015</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#june-2015">June 2015</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#april-2015">April 2015</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#march-2015">March 2015</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#february-2015">February 2015</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id16">2014</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#august-2014">August 2014</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#july-2014">July 2014</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#june-2014">June 2014</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#april-2014">April 2014</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#february-2014">February 2014</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id17">2013</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="migration_guides/index.html">Migration guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Where_can_I_get_more_information.html">Where can I get more information?</a></li>
+</ul>
+
+    
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="https://www.tradingview.com/pine-script-docs/en/v5/search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="index.html">User Manual</a></li>
+              
+              <li>Release notes</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <a class="reference external image-reference" href="Introduction.html"><div align="right" class="align-right"><img alt="Pine Script® logo" height="100" src="_images/Pine-script-logo.svg" width="100" /></div>
+</a>
+<div class="section" id="release-notes">
+<span id="pagereleasenotes"></span><h1>Release notes<a class="headerlink" href="#release-notes" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#id1" id="id18">2023</a><ul>
+<li><a class="reference internal" href="#august-2023" id="id19">August 2023</a><ul>
+<li><a class="reference internal" href="#pine-script-maps" id="id20">Pine Script<sup>®</sup> Maps</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#july-2023" id="id21">July 2023</a></li>
+<li><a class="reference internal" href="#june-2023" id="id22">June 2023</a></li>
+<li><a class="reference internal" href="#may-2023" id="id23">May 2023</a></li>
+<li><a class="reference internal" href="#april-2023" id="id24">April 2023</a></li>
+<li><a class="reference internal" href="#march-2023" id="id25">March 2023</a></li>
+<li><a class="reference internal" href="#february-2023" id="id26">February 2023</a><ul>
+<li><a class="reference internal" href="#pine-script-methods" id="id27">Pine Script<sup>®</sup> Methods</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#january-2023" id="id28">January 2023</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id2" id="id29">2022</a><ul>
+<li><a class="reference internal" href="#december-2022" id="id30">December 2022</a><ul>
+<li><a class="reference internal" href="#pine-objects" id="id31">Pine Objects</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#november-2022" id="id32">November 2022</a></li>
+<li><a class="reference internal" href="#october-2022" id="id33">October 2022</a></li>
+<li><a class="reference internal" href="#september-2022" id="id34">September 2022</a></li>
+<li><a class="reference internal" href="#august-2022" id="id35">August 2022</a></li>
+<li><a class="reference internal" href="#july-2022" id="id36">July 2022</a></li>
+<li><a class="reference internal" href="#june-2022" id="id37">June 2022</a></li>
+<li><a class="reference internal" href="#may-2022" id="id38">May 2022</a></li>
+<li><a class="reference internal" href="#april-2022" id="id39">April 2022</a></li>
+<li><a class="reference internal" href="#march-2022" id="id40">March 2022</a><ul>
+<li><a class="reference internal" href="#table-merging-and-cell-tooltips" id="id41">Table merging and cell tooltips</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#february-2022" id="id42">February 2022</a></li>
+<li><a class="reference internal" href="#january-2022" id="id43">January 2022</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id9" id="id44">2021</a><ul>
+<li><a class="reference internal" href="#december-2021" id="id45">December 2021</a><ul>
+<li><a class="reference internal" href="#linefills" id="id46">Linefills</a></li>
+<li><a class="reference internal" href="#new-functions-for-string-manipulation" id="id47">New functions for string manipulation</a></li>
+<li><a class="reference internal" href="#textboxes" id="id48">Textboxes</a></li>
+<li><a class="reference internal" href="#new-built-in-variables" id="id49">New built-in variables</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#november-2021" id="id50">November 2021</a><ul>
+<li><a class="reference internal" href="#for-in" id="id51">for…in</a></li>
+<li><a class="reference internal" href="#function-overloads" id="id52">Function overloads</a></li>
+<li><a class="reference internal" href="#currency-conversion" id="id53">Currency conversion</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#october-2021" id="id54">October 2021</a><ul>
+<li><a class="reference internal" href="#new-features" id="id55">New features</a></li>
+<li><a class="reference internal" href="#changes" id="id56">Changes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#september-2021" id="id57">September 2021</a></li>
+<li><a class="reference internal" href="#july-2021" id="id58">July 2021</a></li>
+<li><a class="reference internal" href="#june-2021" id="id59">June 2021</a></li>
+<li><a class="reference internal" href="#may-2021" id="id60">May 2021</a></li>
+<li><a class="reference internal" href="#april-2021" id="id61">April 2021</a></li>
+<li><a class="reference internal" href="#march-2021" id="id62">March 2021</a></li>
+<li><a class="reference internal" href="#february-2021" id="id63">February 2021</a></li>
+<li><a class="reference internal" href="#january-2021" id="id64">January 2021</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id10" id="id65">2020</a><ul>
+<li><a class="reference internal" href="#december-2020" id="id66">December 2020</a></li>
+<li><a class="reference internal" href="#november-2020" id="id67">November 2020</a></li>
+<li><a class="reference internal" href="#october-2020" id="id68">October 2020</a></li>
+<li><a class="reference internal" href="#september-2020" id="id69">September 2020</a></li>
+<li><a class="reference internal" href="#august-2020" id="id70">August 2020</a></li>
+<li><a class="reference internal" href="#july-2020" id="id71">July 2020</a></li>
+<li><a class="reference internal" href="#june-2020" id="id72">June 2020</a></li>
+<li><a class="reference internal" href="#may-2020" id="id73">May 2020</a></li>
+<li><a class="reference internal" href="#april-2020" id="id74">April 2020</a></li>
+<li><a class="reference internal" href="#march-2020" id="id75">March 2020</a></li>
+<li><a class="reference internal" href="#february-2020" id="id76">February 2020</a></li>
+<li><a class="reference internal" href="#january-2020" id="id77">January 2020</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id11" id="id78">2019</a><ul>
+<li><a class="reference internal" href="#december-2019" id="id79">December 2019</a></li>
+<li><a class="reference internal" href="#october-2019" id="id80">October 2019</a></li>
+<li><a class="reference internal" href="#september-2019" id="id81">September 2019</a></li>
+<li><a class="reference internal" href="#july-august-2019" id="id82">July-August 2019</a></li>
+<li><a class="reference internal" href="#june-2019" id="id83">June 2019</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id12" id="id84">2018</a><ul>
+<li><a class="reference internal" href="#october-2018" id="id85">October 2018</a></li>
+<li><a class="reference internal" href="#april-2018" id="id86">April 2018</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id13" id="id87">2017</a><ul>
+<li><a class="reference internal" href="#august-2017" id="id88">August 2017</a></li>
+<li><a class="reference internal" href="#june-2017" id="id89">June 2017</a></li>
+<li><a class="reference internal" href="#may-2017" id="id90">May 2017</a></li>
+<li><a class="reference internal" href="#april-2017" id="id91">April 2017</a></li>
+<li><a class="reference internal" href="#march-2017" id="id92">March 2017</a></li>
+<li><a class="reference internal" href="#february-2017" id="id93">February 2017</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id14" id="id94">2016</a><ul>
+<li><a class="reference internal" href="#december-2016" id="id95">December 2016</a></li>
+<li><a class="reference internal" href="#october-2016" id="id96">October 2016</a></li>
+<li><a class="reference internal" href="#september-2016" id="id97">September 2016</a></li>
+<li><a class="reference internal" href="#july-2016" id="id98">July 2016</a></li>
+<li><a class="reference internal" href="#march-2016" id="id99">March 2016</a></li>
+<li><a class="reference internal" href="#february-2016" id="id100">February 2016</a></li>
+<li><a class="reference internal" href="#january-2016" id="id101">January 2016</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id15" id="id102">2015</a><ul>
+<li><a class="reference internal" href="#october-2015" id="id103">October 2015</a></li>
+<li><a class="reference internal" href="#september-2015" id="id104">September 2015</a></li>
+<li><a class="reference internal" href="#july-2015" id="id105">July 2015</a></li>
+<li><a class="reference internal" href="#june-2015" id="id106">June 2015</a></li>
+<li><a class="reference internal" href="#april-2015" id="id107">April 2015</a></li>
+<li><a class="reference internal" href="#march-2015" id="id108">March 2015</a></li>
+<li><a class="reference internal" href="#february-2015" id="id109">February 2015</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id16" id="id110">2014</a><ul>
+<li><a class="reference internal" href="#august-2014" id="id111">August 2014</a></li>
+<li><a class="reference internal" href="#july-2014" id="id112">July 2014</a></li>
+<li><a class="reference internal" href="#june-2014" id="id113">June 2014</a></li>
+<li><a class="reference internal" href="#april-2014" id="id114">April 2014</a></li>
+<li><a class="reference internal" href="#february-2014" id="id115">February 2014</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id17" id="id116">2013</a></li>
+</ul>
+</div>
+<p>This page contains release notes of notable changes in Pine Script<sup>®</sup>.</p>
+<div class="section" id="id1">
+<h2><a class="toc-backref" href="#id18">2023</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="august-2023">
+<h3><a class="toc-backref" href="#id19">August 2023</a><a class="headerlink" href="#august-2023" title="Permalink to this headline">¶</a></h3>
+<p>Added the following alert <a class="reference external" href="https://www.tradingview.com/support/solutions/43000531021">placeholders</a>:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">{{syminfo.currency}}</span></code> - Returns the currency code of the current symbol (“EUR”, “USD”, etc.).</li>
+<li><code class="docutils literal notranslate"><span class="pre">{{syminfo.basecurrency}}</span></code> - Returns the base currency code of the current symbol if the symbol refers to a currency pair. Otherwise, it returns <code class="docutils literal notranslate"><span class="pre">na</span></code>. For example, it returns “EUR” when the symbol is “EURUSD”.</li>
+</ul>
+<div class="section" id="pine-script-maps">
+<h4><a class="toc-backref" href="#id20">Pine Script<sup>®</sup> Maps</a><a class="headerlink" href="#pine-script-maps" title="Permalink to this headline">¶</a></h4>
+<p>Maps are collections that hold elements in the form of <em>key-value pairs</em>. They associate unique keys of a <em>fundamental type</em>
+with values of a <em>built-in</em> or <a class="reference internal" href="language/Type_system.html#pagetypesystem-userdefinedtypes"><span class="std std-ref">user-defined</span></a> type.
+Unlike <a class="reference internal" href="language/Arrays.html#pagearrays"><span class="std std-ref">arrays</span></a> and <a class="reference internal" href="language/Matrices.html#pagematrices"><span class="std std-ref">matrices</span></a>, these collections are <em>unordered</em> and do not utilize an
+internal lookup index. Instead, scripts access the values of maps by referencing the <em>keys</em> from the key-value pairs put into them.
+For more information on these new collections, see our <a class="reference internal" href="language/Maps.html#pagemaps"><span class="std std-ref">User Manual’s page on Maps</span></a>.</p>
+</div>
+</div>
+<div class="section" id="july-2023">
+<h3><a class="toc-backref" href="#id21">July 2023</a><a class="headerlink" href="#july-2023" title="Permalink to this headline">¶</a></h3>
+<p>Fixed an issue that caused strategies to occasionally calculate the sizes of limit orders incorrectly due to improper tick rounding of the <code class="docutils literal notranslate"><span class="pre">limit</span></code> price.</p>
+<p>Added a new built-in variable to the <code class="docutils literal notranslate"><span class="pre">strategy.*</span></code> namespace:</p>
+<ul class="simple">
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#var_strategy{dot}margin_liquidation_price">strategy.margin_liquidation_price</a> - When a strategy uses margin, returns the price value after which a margin call will occur.</li>
+</ul>
+</div>
+<div class="section" id="june-2023">
+<h3><a class="toc-backref" href="#id22">June 2023</a><a class="headerlink" href="#june-2023" title="Permalink to this headline">¶</a></h3>
+<p>New <code class="docutils literal notranslate"><span class="pre">syminfo.*</span></code> built-in variables were added:</p>
+<ul class="simple">
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#var_syminfo{dot}sector">syminfo.sector</a> - Returns the sector of the symbol.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#var_syminfo{dot}industry">syminfo.industry</a> - Returns the industry of the symbol.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#var_syminfo{dot}country">syminfo.country</a> - Returns the two-letter code of the country where the symbol is traded.</li>
+</ul>
+</div>
+<div class="section" id="may-2023">
+<h3><a class="toc-backref" href="#id23">May 2023</a><a class="headerlink" href="#may-2023" title="Permalink to this headline">¶</a></h3>
+<p>New parameter added to the <a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_strategy{dot}entry">strategy.entry()</a>,
+<a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_strategy{dot}order">strategy.order()</a>,
+<a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_strategy{dot}close">strategy.close()</a>,
+<a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_strategy{dot}close_all">strategy.close_all()</a>, and
+<a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_strategy{dot}exit">strategy.exit()</a> functions:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">disable_alert</span></code> - Disables order fill alerts for any orders placed by the function.</li>
+</ul>
+<p>Our “Indicator on indicator” feature, which allows a script to pass another indicator’s plot as a source value via the
+<a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_input{dot}source">input.source()</a> function, now supports
+multiple external inputs. Scripts can use a multitude of external inputs originating from up to 10 different indicators.</p>
+<p>We’ve added the following array functions:</p>
+<ul class="simple">
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_array{dot}every">array.every()</a> - Returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if all elements of the <code class="docutils literal notranslate"><span class="pre">id</span></code> array are <code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code> otherwise.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_array{dot}some">array.some()</a> - Returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if at least one element of the <code class="docutils literal notranslate"><span class="pre">id</span></code> array is <code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code> otherwise.</li>
+</ul>
+<p>These functions also work with arrays of <a class="reference external" href="../../../pine-script-reference/v5/index.html#op_int">int</a>
+and <a class="reference external" href="../../../pine-script-reference/v5/index.html#op_float">float</a> types, in which case zero values
+are considered <code class="docutils literal notranslate"><span class="pre">false</span></code>, and all others <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
+</div>
+<div class="section" id="april-2023">
+<h3><a class="toc-backref" href="#id24">April 2023</a><a class="headerlink" href="#april-2023" title="Permalink to this headline">¶</a></h3>
+<p>Fixed an issue with trailing stops in <a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_strategy{dot}exit">strategy.exit()</a> being filled on high/low prices rather than on intrabar prices.</p>
+<p>Fixed behavior of <a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_array{dot}mode">array.mode()</a>, <a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix{dot}mode">matrix.mode()</a> and <a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_ta{dot}mode">ta.mode()</a>. Now these functions will return the smallest value when the data has no most frequent value.</p>
+</div>
+<div class="section" id="march-2023">
+<h3><a class="toc-backref" href="#id25">March 2023</a><a class="headerlink" href="#march-2023" title="Permalink to this headline">¶</a></h3>
+<p>It is now possible to use seconds-based timeframe strings for the <code class="docutils literal notranslate"><span class="pre">timeframe</span></code> parameter in
+<a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a>
+and <a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_request{dot}security_lower_tf">request.security_lower_tf()</a>.</p>
+<p>A new function was added:</p>
+<ul class="simple">
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_request{dot}currency_rate">request.currency_rate()</a> - provides a daily rate to convert a value expressed in the <code class="docutils literal notranslate"><span class="pre">from</span></code> currency to another in the <code class="docutils literal notranslate"><span class="pre">to</span></code> currency.</li>
+</ul>
+</div>
+<div class="section" id="february-2023">
+<h3><a class="toc-backref" href="#id26">February 2023</a><a class="headerlink" href="#february-2023" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="pine-script-methods">
+<h4><a class="toc-backref" href="#id27">Pine Script<sup>®</sup> Methods</a><a class="headerlink" href="#pine-script-methods" title="Permalink to this headline">¶</a></h4>
+<p>Pine Script<sup>®</sup> methods are specialized functions associated with specific instances of built-in or user-defined types.
+They offer a more convenient syntax than standard functions, as users can access methods in the same way as object fields
+using the handy dot notation syntax. Pine Script<sup>®</sup> includes built-in methods for
+<a class="reference external" href="../../../pine-script-reference/v5/index.html#op_array">array</a>,
+<a class="reference external" href="../../../pine-script-reference/v5/index.html#op_matrix">matrix</a>, <a class="reference external" href="../../../pine-script-reference/v5/index.html#op_line">line</a>,
+<a class="reference external" href="../../../pine-script-reference/v5/index.html#op_linefill">linefill</a>, <a class="reference external" href="../../../pine-script-reference/v5/index.html#op_label">label</a>,
+<a class="reference external" href="../../../pine-script-reference/v5/index.html#op_box">box</a>, and <a class="reference external" href="../../../pine-script-reference/v5/index.html#op_table">table</a> types
+and facilitates user-defined methods with the new <a class="reference external" href="../../../pine-script-reference/v5/index.html#op_method">method</a> keyword.
+For more details on this new feature, see our <a class="reference internal" href="language/Methods.html#pagemethods"><span class="std std-ref">User Manual’s page on methods</span></a>.</p>
+</div>
+</div>
+<div class="section" id="january-2023">
+<h3><a class="toc-backref" href="#id28">January 2023</a><a class="headerlink" href="#january-2023" title="Permalink to this headline">¶</a></h3>
+<p>New array functions were added:</p>
+<ul class="simple">
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_array%7Bdot%7Dfirst">array.first()</a> - Returns the array’s first element.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_array%7Bdot%7Dlast">array.last()</a> - Returns the array’s last element.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id29">2022</a><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="december-2022">
+<h3><a class="toc-backref" href="#id30">December 2022</a><a class="headerlink" href="#december-2022" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="pine-objects">
+<h4><a class="toc-backref" href="#id31">Pine Objects</a><a class="headerlink" href="#pine-objects" title="Permalink to this headline">¶</a></h4>
+<p>Pine objects are instantiations of the new user-defined composite types (UDTs) declared using the <a class="reference external" href="../../../pine-script-reference/v5/index.html#op_type">type</a> keyword. Experienced programmers can think of UDTs as method-less classes. They allow users to create custom types that organize different values under one logical entity. A detailed rundown of the new functionality can be found in our <a class="reference external" href="language/Objects.html">User Manual’s page on objects</a>.</p>
+<p>A new function was added:</p>
+<ul class="simple">
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_ticker{dot}standard">ticker.standard()</a> - Creates a ticker to request data from a standard chart that is unaffected by modifiers like extended session, dividend adjustment, currency conversion, and the calculations of non-standard chart types: Heikin Ashi, Renko, etc.</li>
+</ul>
+<p>New <code class="docutils literal notranslate"><span class="pre">strategy.*</span></code> functions were added:</p>
+<ul class="simple">
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_strategy{dot}opentrades{dot}entry_comment">strategy.opentrades.entry_comment()</a>  - The function returns the comment message of the open trade’s entry.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_strategy{dot}closedtrades{dot}entry_comment">strategy.closedtrades.entry_comment()</a>  - The function returns the comment message of the closed trade’s entry.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_strategy{dot}closedtrades{dot}exit_comment">strategy.closedtrades.exit_comment()</a>  - The function returns the comment message of the closed trade’s exit.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="november-2022">
+<h3><a class="toc-backref" href="#id32">November 2022</a><a class="headerlink" href="#november-2022" title="Permalink to this headline">¶</a></h3>
+<p>Fixed behaviour of <a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_math{dot}round_to_mintick">math.round_to_mintick()</a> function. For ‘na’ values it returns ‘na’.</p>
+</div>
+<div class="section" id="october-2022">
+<h3><a class="toc-backref" href="#id33">October 2022</a><a class="headerlink" href="#october-2022" title="Permalink to this headline">¶</a></h3>
+<p>Pine Script<sup>®</sup> now has a new, more powerful and better-integrated editor. Read <a class="reference external" href="https://www.tradingview.com/blog/en/new-vsc-style-pine-script-editor-34159/">our blog</a> to find out everything to know about all the new features and upgrades.</p>
+<p>New overload for the <a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_fill">fill()</a> function was added. Now it can create vertical gradients. More info about it in the <a class="reference external" href="https://www.tradingview.com/blog/en/pine-script-vertical-gradients-33586/">blog post</a>.</p>
+<p>A new function was added:</p>
+<ul class="simple">
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_str{dot}format_time">str.format_time()</a> - Converts a timestamp to a formatted string using the specified format and time zone.</li>
+</ul>
+</div>
+<div class="section" id="september-2022">
+<h3><a class="toc-backref" href="#id34">September 2022</a><a class="headerlink" href="#september-2022" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">text_font_family</span></code> parameter now allows the selection of a monospace font in <a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_label{dot}new">label.new()</a>, <a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_box{dot}new">box.new()</a> and <a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_table{dot}cell">table.cell()</a> function calls, which makes it easier to align text vertically. Its arguments can be:</p>
+<ul class="simple">
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#var_font{dot}family_default">font.family_default</a> - Specifies the default font.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#var_font{dot}family_monospace">font.family_monospace</a> - Specifies a monospace font.</li>
+</ul>
+<p>The accompanying setter functions are:</p>
+<ul class="simple">
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_label{dot}set_text_font_family">label.set_text_font_family()</a>  - The function sets the font family of the text inside the label.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_box{dot}set_text_font_family">box.set_text_font_family()</a> - The function sets the font family of the text inside the box.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_table{dot}cell_set_text_font_family">table.cell_set_text_font_family()</a> - The function sets the font family of the text inside the cell.</li>
+</ul>
+</div>
+<div class="section" id="august-2022">
+<h3><a class="toc-backref" href="#id35">August 2022</a><a class="headerlink" href="#august-2022" title="Permalink to this headline">¶</a></h3>
+<p>A new label style <a class="reference external" href="../../../pine-script-reference/v5/index.html#var_label{dot}style_text_outline">label.style_text_outline</a> was added.</p>
+<p>A new parameter for the <a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_ta{dot}pivot_point_levels">ta.pivot_point_levels()</a> function was added:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">developing</span></code> - If <code class="docutils literal notranslate"><span class="pre">false</span></code>, the values are those calculated the last time the anchor condition was true. They remain constant until the anchor condition becomes true again. If <code class="docutils literal notranslate"><span class="pre">true</span></code>, the pivots are developing, i.e., they constantly recalculate on the data developing between the point of the last anchor (or bar zero if the anchor condition was never true) and the current bar. Cannot be <code class="docutils literal notranslate"><span class="pre">true</span></code> when <code class="docutils literal notranslate"><span class="pre">type</span></code> is set to <code class="docutils literal notranslate"><span class="pre">&quot;Woodie&quot;</span></code>.</li>
+</ul>
+<p>A new parameter for the <a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_box{dot}new">box.new()</a> function was added:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">text_wrap</span></code> - It defines whether the text is presented in a single line, extending past the width of the box if necessary, or wrapped so every line is no wider than the box itself.</li>
+</ul>
+<p>This parameter supports two arguments:</p>
+<ul class="simple">
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#var_text{dot}wrap_none">text.wrap_none</a> - Disabled wrapping mode for <a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_box{dot}new">box.new</a> and <a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_box{dot}set_text_wrap">box.set_text_wrap</a> functions.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#var_text{dot}wrap_auto">text.wrap_auto</a> - Automatic wrapping mode for <a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_box{dot}new">box.new</a> and <a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_box{dot}set_text_wrap">box.set_text_wrap</a> functions.</li>
+</ul>
+<p>New built-in functions were added:</p>
+<ul class="simple">
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_ta{dot}min">ta.min()</a> - Returns the all-time low value of <code class="docutils literal notranslate"><span class="pre">source</span></code> from the beginning of the chart up to the current bar.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_ta{dot}max">ta.max()</a> - Returns the all-time high value of <code class="docutils literal notranslate"><span class="pre">source</span></code> from the beginning of the chart up to the current bar.</li>
+</ul>
+<p>A new annotation <code class="docutils literal notranslate"><span class="pre">//&#64;strategy_alert_message</span></code> was added. If the annotation is added to the strategy, the text written after it will be automatically set as the default alert message in the <cite>Create Alert</cite> window.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+// @strategy_alert_message My Default Alert Message
+strategy(&quot;My Strategy&quot;)
+plot(close)
+</pre></div>
+</div>
+</div>
+<div class="section" id="july-2022">
+<h3><a class="toc-backref" href="#id36">July 2022</a><a class="headerlink" href="#july-2022" title="Permalink to this headline">¶</a></h3>
+<p>It is now possible to fine-tune where a script’s plot values are displayed through the introduction of
+new arguments for the <code class="docutils literal notranslate"><span class="pre">display</span></code> parameter of the
+<a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_plot">plot()</a>,
+<a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_plotchar">plotchar()</a>,
+<a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_plotshape">plotshape()</a>,
+<a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_plotarrow">plotarrow()</a>,
+<a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_plotcandle">plotcandle()</a>, and
+<a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_plotbar">plotbar()</a> functions.</p>
+<p>Four new arguments were added, complementing the previously available
+<a class="reference external" href="../../../pine-script-reference/v5/index.html#var_display{dot}all">display.all</a> and
+<a class="reference external" href="../../../pine-script-reference/v5/index.html#var_display{dot}none">display.none</a>:</p>
+<ul class="simple">
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#var_display{dot}data_window">display.data_window</a>
+displays the plot values in the Data Window, one of the items available from the chart’s right sidebar.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#var_display{dot}pane">display.pane</a>
+displays the plot in the pane where the script resides, as defined in with the <code class="docutils literal notranslate"><span class="pre">overlay</span></code> parameter of the script’s
+<a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_indicator">indicator()</a>,
+<a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_strategy">strategy()</a>, or
+<a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_library">library()</a> declaration statement.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#var_display{dot}price_scale">display.price_scale</a>
+controls the display of the plot’s label and price in the price scale, if the chart’s settings allow them.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#var_display{dot}status_line">display.status_line</a>
+displays the plot values in the script’s status line, next to the script’s name on the chart, if the chart’s settings allow them.</li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">display</span></code> parameter supports the addition and subtraction of its arguments:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">display.all</span> <span class="pre">-</span> <span class="pre">display.status_line</span></code> will display the plot’s information everywhere except in the script’s status line.</li>
+<li><code class="docutils literal notranslate"><span class="pre">display.price_scale</span> <span class="pre">+</span> <span class="pre">display.status_line</span></code> will display the plot in the price scale and status line only.</li>
+</ul>
+</div>
+<div class="section" id="june-2022">
+<h3><a class="toc-backref" href="#id37">June 2022</a><a class="headerlink" href="#june-2022" title="Permalink to this headline">¶</a></h3>
+<p>The behavior of the argument used with the <code class="docutils literal notranslate"><span class="pre">qty_percent</span></code> parameter of <a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_strategy{dot}exit">strategy.exit()</a> has changed. Previously, the percentages used on successive exit orders of the same position were calculated from the remaining position at any given time. Instead, the percentages now always apply to the initial position size. When executing the following strategy, for example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+strategy(&quot;strategy.exit() example&quot;, overlay = true)
+strategy.entry(&quot;Long&quot;, strategy.long, qty = 100)
+strategy.exit(&quot;Exit Long1&quot;, &quot;Long&quot;, trail_points = 50, trail_offset = 0, qty_percent = 20)
+strategy.exit(&quot;Exit Long2&quot;, &quot;Long&quot;, trail_points = 100, trail_offset = 0, qty_percent = 20)
+</pre></div>
+</div>
+<p>20% of the initial position will be closed on each <a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_strategy{dot}exit">strategy.exit()</a> call. Before, the first call would exit 20% of the initial position, and the second would exit 20% of the remaining 80% of the position, so only 16% of the initial position.</p>
+<p>Two new parameters for the built-in <a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_ta{dot}vwap">ta.vwap()</a> function were added:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">anchor</span></code> - Specifies the condition that triggers the reset of VWAP calculations. When <code class="docutils literal notranslate"><span class="pre">true</span></code>, calculations reset; when <code class="docutils literal notranslate"><span class="pre">false</span></code>, calculations proceed using the values accumulated since the previous reset.</li>
+<li><code class="docutils literal notranslate"><span class="pre">stdev_mult</span></code> -  If specified, the <a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_ta{dot}vwap">ta.vwap()</a> calculates the standard deviation bands based on the main VWAP series and returns a <code class="docutils literal notranslate"><span class="pre">[vwap,</span> <span class="pre">upper_band,</span> <span class="pre">lower_band]</span></code> tuple.</li>
+</ul>
+<p>New overloaded versions of the <a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_strategy{dot}close">strategy.close()</a>  and <a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_strategy{dot}close_all">strategy.close_all()</a> functions with the <code class="docutils literal notranslate"><span class="pre">immediately</span></code> parameter. When <code class="docutils literal notranslate"><span class="pre">immediately</span></code> is set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, the closing order will be executed on the tick where it has been placed, ignoring the strategy parameters that restrict the order execution to the open of the next bar.</p>
+<p>New built-in functions were added:</p>
+<ul class="simple">
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_timeframe{dot}change">timeframe.change()</a> - Returns <code class="docutils literal notranslate"><span class="pre">true</span></code> on the first bar of a new <code class="docutils literal notranslate"><span class="pre">timeframe</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code> otherwise.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_ta{dot}pivot_point_levels">ta.pivot_point_levels()</a>  - Returns a float array with numerical values representing 11 pivot point levels: <code class="docutils literal notranslate"><span class="pre">[P,</span> <span class="pre">R1,</span> <span class="pre">S1,</span> <span class="pre">R2,</span> <span class="pre">S2,</span> <span class="pre">R3,</span> <span class="pre">S3,</span> <span class="pre">R4,</span> <span class="pre">S4,</span> <span class="pre">R5,</span> <span class="pre">S5]</span></code>. Levels absent from the specified <code class="docutils literal notranslate"><span class="pre">type</span></code> return na values.</li>
+</ul>
+<p>New built-in variables were added:</p>
+<ul class="simple">
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#var_session{dot}isfirstbar">session.isfirstbar</a> - returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if the current bar is the first bar of the day’s session, <code class="docutils literal notranslate"><span class="pre">false</span></code> otherwise.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#var_session{dot}islastbar">session.islastbar</a> - returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if the current bar is the last bar of the day’s session, <code class="docutils literal notranslate"><span class="pre">false</span></code> otherwise.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#var_session{dot}isfirstbar_regular">session.isfirstbar_regular</a> - returns <code class="docutils literal notranslate"><span class="pre">true</span></code> on the first regular session bar of the day, <code class="docutils literal notranslate"><span class="pre">false</span></code> otherwise.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#var_session{dot}islastbar_regular">session.islastbar_regular</a> - returns <code class="docutils literal notranslate"><span class="pre">true</span></code> on the last regular session bar of the day, <code class="docutils literal notranslate"><span class="pre">false</span></code> otherwise.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#var_chart{dot}left_visible_bar_time">chart.left_visible_bar_time</a> - returns the <code class="docutils literal notranslate"><span class="pre">time</span></code> of the leftmost bar currently visible on the chart.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#var_chart{dot}right_visible_bar_time">chart.right_visible_bar_time</a> - returns the <code class="docutils literal notranslate"><span class="pre">time</span></code> of the rightmost bar currently visible on the chart.</li>
+</ul>
+</div>
+<div class="section" id="may-2022">
+<h3><a class="toc-backref" href="#id38">May 2022</a><a class="headerlink" href="#may-2022" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="../../../pine-script-reference/v5/index.html#op_matrix">Matrix</a> support has been added to the <a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a> function.</p>
+<p>The historical states of <a class="reference external" href="../../../pine-script-reference/v5/index.html#op_array">arrays</a> and <a class="reference external" href="../../../pine-script-reference/v5/index.html#op_matrix">matrices</a> can now be referenced with the  <a class="reference external" href="../../../pine-script-reference/v5/index.html#op_[]">[]</a> operator. In the example below, we reference the historic state of a matrix 10 bars ago:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;matrix.new&lt;float&gt; example&quot;)
+m = matrix.new&lt;float&gt;(1, 1, close)
+float x = na
+if bar_index &gt; 10
+    x := matrix.get(m[10], 0, 0)
+plot(x)
+plot(close)
+</pre></div>
+</div>
+<p>The <a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_ta{dot}change">ta.change()</a> function now can take values of <a class="reference external" href="../../../pine-script-reference/v5/index.html#op_int">int</a> and <a class="reference external" href="../../../pine-script-reference/v5/index.html#op_bool">bool</a> types as its <code class="docutils literal notranslate"><span class="pre">source</span></code> parameter and return the difference in the respective type.</p>
+<p>New built-in variables were added:</p>
+<ul class="simple">
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#var_chart{dot}bg_color">chart.bg_color</a> - Returns the color of the chart’s background from the <code class="docutils literal notranslate"><span class="pre">&quot;Chart</span> <span class="pre">settings/Appearance/Background&quot;</span></code> field.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#var_chart{dot}fg_color">chart.fg_color</a> - Returns a color providing optimal contrast with <a class="reference external" href="../../../pine-script-reference/v5/index.html#var_chart{dot}bg_color">chart.bg_color</a>.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#var_chart{dot}is_standard">chart.is_standard</a> - Returns true if the chart type is bars, candles, hollow candles, line, area or baseline, false otherwise.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#var_currency{dot}USDT">currency.USDT</a> - A constant for the Tether currency code.</li>
+</ul>
+<p>New functions were added:</p>
+<ul class="simple">
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_syminfo{dot}prefix">syminfo.prefix()</a> - returns the exchange prefix of the <code class="docutils literal notranslate"><span class="pre">symbol</span></code> passed to it, e.g. “NASDAQ” for “NASDAQ:AAPL”.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_syminfo{dot}ticker">syminfo.ticker()</a> - returns the ticker of the <code class="docutils literal notranslate"><span class="pre">symbol</span></code> passed to it without the exchange prefix, e.g. “AAPL” for “NASDAQ:AAPL”.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_request{dot}security_lower_tf">request.security_lower_tf()</a> - requests data from a lower timeframe than the chart’s.</li>
+</ul>
+<p>Added <code class="docutils literal notranslate"><span class="pre">use_bar_magnifier</span></code> parameter for the <a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_strategy">strategy()</a>  function. When <code class="docutils literal notranslate"><span class="pre">true</span></code>, the <a class="reference external" href="concepts/Strategies.html#broker-emulator">Broker Emulator</a> uses lower timeframe data during history backtesting to achieve more realistic results.</p>
+<p>Fixed behaviour of <a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_strategy{dot}exit">strategy.exit()</a> function when stop loss triggered at prices outside the bars price range.</p>
+<p>Added new <code class="docutils literal notranslate"><span class="pre">comment</span></code> and <code class="docutils literal notranslate"><span class="pre">alert</span></code> message parameters for the <a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_strategy{dot}exit">strategy.exit()</a> function:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">comment_profit</span></code> - additional notes on the order if the exit was triggered by crossing <code class="docutils literal notranslate"><span class="pre">profit</span></code> or <code class="docutils literal notranslate"><span class="pre">limit</span></code> specifically.</li>
+<li><code class="docutils literal notranslate"><span class="pre">comment_loss</span></code> - additional notes on the order if the exit was triggered by crossing <code class="docutils literal notranslate"><span class="pre">stop</span></code> or <code class="docutils literal notranslate"><span class="pre">loss</span></code> specifically.</li>
+<li><code class="docutils literal notranslate"><span class="pre">comment_trailing</span></code> - additional notes on the order if the exit was triggered by crossing <code class="docutils literal notranslate"><span class="pre">trail_offset</span></code> specifically.</li>
+<li><code class="docutils literal notranslate"><span class="pre">alert_profit</span></code> - text that will replace the <code class="docutils literal notranslate"><span class="pre">'{{strategy.order.alert_message}}'</span></code> placeholder if the exit was triggered by crossing <code class="docutils literal notranslate"><span class="pre">profit</span></code> or <code class="docutils literal notranslate"><span class="pre">limit</span></code> specifically.</li>
+<li><code class="docutils literal notranslate"><span class="pre">alert_loss</span></code> - text that will replace the <code class="docutils literal notranslate"><span class="pre">'{{strategy.order.alert_message}}'</span></code> placeholder if the exit was triggered by crossing <code class="docutils literal notranslate"><span class="pre">stop</span></code> or <code class="docutils literal notranslate"><span class="pre">loss</span></code> specifically.</li>
+<li><code class="docutils literal notranslate"><span class="pre">alert_trailing</span></code> - text that will replace the <code class="docutils literal notranslate"><span class="pre">'{{strategy.order.alert_message}}'</span></code> placeholder if the exit was triggered by crossing <code class="docutils literal notranslate"><span class="pre">trail_offset</span></code> specifically.</li>
+</ul>
+</div>
+<div class="section" id="april-2022">
+<h3><a class="toc-backref" href="#id39">April 2022</a><a class="headerlink" href="#april-2022" title="Permalink to this headline">¶</a></h3>
+<p>Added the <code class="docutils literal notranslate"><span class="pre">display</span></code> parameter to the following functions: <a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_barcolor">barcolor</a>, <a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_bgcolor">bgcolor</a>, <a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_fill">fill</a>, <a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_hline">hline</a>.</p>
+<p>A new function was added:</p>
+<ul class="simple">
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_request{dot}economic">request.economic()</a> - Economic data includes information such as the state of a country’s economy or of a particular industry.</li>
+</ul>
+<p>New built-in variables were added:</p>
+<ul class="simple">
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#var_strategy{dot}max_runup">strategy.max_runup</a> - Returns the maximum equity run-up value for the whole trading interval.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#var_syminfo{dot}volumetype">syminfo.volumetype</a> - Returns the volume type of the current symbol.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#var_chart{dot}is_heikinashi">chart.is_heikinashi</a> - Returns true if the chart type is Heikin Ashi, false otherwise.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#var_chart{dot}is_kagi">chart.is_kagi</a> - Returns true if the chart type is Kagi, false otherwise.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#var_chart{dot}is_linebreak">chart.is_linebreak</a> - Returns true if the chart type is Line break, false otherwise.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#var_chart{dot}is_pnf">chart.is_pnf</a> - Returns true if the chart type is Point &amp; figure, false otherwise.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#var_chart{dot}is_range">chart.is_range</a> - Returns true if the chart type is Range, false otherwise.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#var_chart{dot}is_renko">chart.is_renko</a> - Returns true if the chart type is Renko, false otherwise.</li>
+</ul>
+<p>New matrix functions were added:</p>
+<ul class="simple">
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix%7Bdot%7Dnew%3Ctype%3E">matrix.new&lt;type&gt;</a> - Creates a new matrix object. A matrix is a two-dimensional data structure containing rows and columns. All elements in the matrix must be of the type specified in the type template (“&lt;type&gt;”).</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix{dot}row">matrix.row()</a>  - Creates a one-dimensional array from the elements of a matrix row.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix{dot}col">matrix.col()</a>  - Creates a one-dimensional array from the elements of a matrix column.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix{dot}get">matrix.get()</a>  - Returns the element with the specified index of the matrix.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix{dot}set">matrix.set()</a>  - Assigns <code class="docutils literal notranslate"><span class="pre">value</span></code> to the element at the <code class="docutils literal notranslate"><span class="pre">column</span></code> and <code class="docutils literal notranslate"><span class="pre">row</span></code> index of the matrix.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix{dot}rows">matrix.rows()</a>  - Returns the number of rows in the matrix.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix{dot}columns">matrix.columns()</a>  - Returns the number of columns in the matrix.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix{dot}elements_count">matrix.elements_count()</a>  - Returns the total number of matrix elements.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix{dot}add_row">matrix.add_row()</a>  - Adds a row to the matrix. The row can consist of <code class="docutils literal notranslate"><span class="pre">na</span></code> values, or an array can be used to provide values.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix{dot}add_col">matrix.add_col()</a>  - Adds a column to the matrix. The column can consist of <code class="docutils literal notranslate"><span class="pre">na</span></code> values, or an array can be used to provide values.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix{dot}remove_row">matrix.remove_row()</a>  - Removes the row of the matrix and returns an array containing the removed row’s values.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix{dot}remove_col">matrix.remove_col()</a>  - Removes the column of the matrix and returns an array containing the removed column’s values.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix{dot}swap_rows">matrix.swap_rows()</a>  - Swaps the rows in the matrix.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix{dot}swap_columns">matrix.swap_columns()</a>  - Swaps the columns in the matrix.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix{dot}fill">matrix.fill()</a>  - Fills a rectangular area of the matrix defined by the indices <code class="docutils literal notranslate"><span class="pre">from_column</span></code> to <code class="docutils literal notranslate"><span class="pre">to_column</span></code>.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix{dot}copy">matrix.copy()</a>  - Creates a new matrix which is a copy of the original.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix{dot}submatrix">matrix.submatrix()</a>  - Extracts a submatrix within the specified indices.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix{dot}reverse">matrix.reverse()</a>  - Reverses the order of rows and columns in the matrix. The first row and first column become the last, and the last become the first.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix{dot}reshape">matrix.reshape()</a>  - Rebuilds the matrix to <code class="docutils literal notranslate"><span class="pre">rows</span></code> x <code class="docutils literal notranslate"><span class="pre">cols</span></code> dimensions.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix{dot}concat">matrix.concat()</a>  - Append one matrix to another.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix{dot}sum">matrix.sum()</a>  - Returns a new matrix resulting from the sum of two matrices, or of a matrix and a scalar (a numerical value).</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix{dot}diff">matrix.diff()</a>  - Returns a new matrix resulting from the subtraction between matrices, or of matrix and a scalar (a numerical value).</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix{dot}mult">matrix.mult()</a>  - Returns a new matrix resulting from the product between the matrices, or between a matrix and a scalar (a numerical value), or between a matrix and a vector (an array of values).</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix{dot}sort">matrix.sort()</a>  - Rearranges the rows in the <code class="docutils literal notranslate"><span class="pre">id</span></code> matrix following the sorted order of the values in the <code class="docutils literal notranslate"><span class="pre">column</span></code>.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix{dot}avg">matrix.avg()</a>  - Calculates the average of all elements in the matrix.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix{dot}max">matrix.max()</a>  - Returns the largest value from the matrix elements.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix{dot}min">matrix.min()</a>  - Returns the smallest value from the matrix elements.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix{dot}median">matrix.median()</a>  - Calculates the median (“the middle” value) of matrix elements.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix{dot}mode">matrix.mode()</a>  - Calculates the mode of the matrix, which is the most frequently occurring value from the matrix elements. When there are multiple values occurring equally frequently, the function returns the smallest of those values.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix{dot}pow">matrix.pow()</a>  - Calculates the product of the matrix by itself <code class="docutils literal notranslate"><span class="pre">power</span></code> times.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix{dot}det">matrix.det()</a>  - Returns the determinant of a square matrix.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix{dot}transpose">matrix.transpose()</a>  - Creates a new, transposed version of the matrix by interchanging the row and column index of each element.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix{dot}pinv">matrix.pinv()</a>  - Returns the pseudoinverse of a matrix.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix{dot}inv">matrix.inv()</a>  - Returns the inverse of a square matrix.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix{dot}rank">matrix.rank()</a>  - Calculates the rank of the matrix.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix{dot}eigenvalues">matrix.trace()</a>  - Calculates the trace of a matrix (the sum of the main diagonal’s elements).</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix{dot}eigenvectors">matrix.eigenvalues()</a>  - Returns an array containing the eigenvalues of a square matrix.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix{dot}">matrix.eigenvectors()</a>  - Returns a matrix of eigenvectors, in which each column is an eigenvector of the matrix.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix{dot}kronis_zero">matrix.kron()</a>  - Returns the Kronecker product for the two matrices.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix{dot}is_zero">matrix.is_zero()</a>  - Determines if all elements of the matrix are zero.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix{dot}is_identity">matrix.is_identity()</a>  - Determines if a matrix is an identity matrix (elements with ones on the main diagonal and zeros elsewhere).</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix{dot}is_binary">matrix.is_binary()</a>  - Determines if the matrix is binary (when all elements of the matrix are 0 or 1).</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix{dot}is_symmetric">matrix.is_symmetric()</a>  - Determines if a square matrix is symmetric (elements are symmetric with respect to the main diagonal).</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix{dot}is_antisymmetric">matrix.is_antisymmetric()</a>  - Determines if a matrix is antisymmetric (its transpose equals its negative).</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix{dot}is_diagonal">matrix.is_diagonal()</a>  - Determines if the matrix is diagonal (all elements outside the main diagonal are zero).</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix{dot}is_antidiagonal">matrix.is_antidiagonal()</a>  - Determines if the matrix is anti-diagonal (all elements outside the secondary diagonal are zero).</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix{dot}is_triangular">matrix.is_triangular()</a>  - Determines if the matrix is triangular (if all elements above or below the main diagonal are zero).</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix{dot}is_stochastic">matrix.is_stochastic()</a>  - Determines if the matrix is stochastic.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_matrix{dot}is_square">matrix.is_square()</a>  - Determines if the matrix is square (it has the same number of rows and columns).</li>
+</ul>
+<p>Added a new parameter for the <a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_strategy">strategy()</a> function:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">risk_free_rate</span></code> - The risk-free rate of return is the annual percentage change in the value of an investment with minimal or zero risk, used to calculate the Sharpe and Sortino ratios.</li>
+</ul>
+</div>
+<div class="section" id="march-2022">
+<h3><a class="toc-backref" href="#id40">March 2022</a><a class="headerlink" href="#march-2022" title="Permalink to this headline">¶</a></h3>
+<p>New array functions were added:</p>
+<ul class="simple">
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_array{dot}sort_indices">array.sort_indices()</a>  - returns an array of indices which, when used to index the original array, will access its elements in their sorted order.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_array{dot}percentrank">array.percentrank()</a> - returns the percentile rank of a value in the array.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_array{dot}percentile_nearest_rank">array.percentile_nearest_rank()</a> - returns the value for which the specified percentage of array values (percentile) are less than or equal to it, using the nearest-rank method.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_array{dot}percentile_linear_interpolation">array.percentile_linear_interpolation()</a> - returns the value for which the specified percentage of array values (percentile) are less than or equal to it, using linear interpolation.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_array{dot}abs">array.abs()</a> - returns an array containing the absolute value of each element in the original array.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_array{dot}binary_search">array.binary_search()</a> - returns the index of the value, or -1 if the value is not found.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_array{dot}binary_search_leftmost">array.binary_search_leftmost()</a> - returns the index of the value if it is found or the index of the next smallest element to the left of where the value would lie if it was in the array.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_array{dot}binary_search_rightmost">array.binary_search_rightmost()</a> - returns the index of the value if it is found or the index of the element to the right of where the value would lie if it was in the array.</li>
+</ul>
+<p>Added a new optional <code class="docutils literal notranslate"><span class="pre">nth</span></code> parameter for the <a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_array{dot}min">array.min()</a> and <a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_array{dot}max">array.max()</a> functions.</p>
+<p>Added <code class="docutils literal notranslate"><span class="pre">index</span></code> in <a class="reference external" href="../../../pine-script-reference/v5/index.html#op_for{dot}{dot}{dot}in">for..in</a> operator. It tracks the current iteration’s index.</p>
+<div class="section" id="table-merging-and-cell-tooltips">
+<h4><a class="toc-backref" href="#id41">Table merging and cell tooltips</a><a class="headerlink" href="#table-merging-and-cell-tooltips" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>It is now possible to merge several cells in a table. A merged cell doesn’t have to be a header: you can merge cells in any direction, as long as the resulting cell doesn’t affect any already merged cells and doesn’t go outside of the table’s bounds. Cells can be merged with the new  <a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_table{dot}merge_cells">table.merge_cells()</a> function.</li>
+<li>Tables now support tooltips, floating labels that appear when you hover over a table’s cell. To add a tooltip, pass a string to the <code class="docutils literal notranslate"><span class="pre">tooltip</span></code> argument of the <a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_table{dot}cell">table.cell()</a> function or use the new <a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_table{dot}cell_set_tooltip">table.cell_set_tooltip()</a> function.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="february-2022">
+<h3><a class="toc-backref" href="#id42">February 2022</a><a class="headerlink" href="#february-2022" title="Permalink to this headline">¶</a></h3>
+<p>Added templates and the ability to create arrays via templates. Instead of using one of the <code class="docutils literal notranslate"><span class="pre">array.new_*()</span></code> functions, a template function <a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_array%7Bdot%7Dnew%3Ctype%3E">array.new&lt;type&gt;</a> can be used. In the example below, we use this functionality to create an array filled with <code class="docutils literal notranslate"><span class="pre">float</span></code> values:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;array.new&lt;float&gt; example&quot;)
+length = 5
+var a = array.new&lt;float&gt;(length, close)
+if array.size(a) == length
+        array.remove(a, 0)
+        array.push(a, close)
+plot(array.sum(a) / length, &quot;SMA&quot;)
+</pre></div>
+</div>
+<p>New functions were added:</p>
+<ul class="simple">
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_timeframe{dot}in_seconds">timeframe.in_seconds(timeframe)</a> - converts the timeframe passed to the <code class="docutils literal notranslate"><span class="pre">timeframe</span></code> argument into seconds.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_input{dot}text_area">input.text_area()</a> - adds multiline text input area to the Script settings.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_strategy{dot}closedtrades{dot}entry_id">strategy.closedtrades.entry_id()</a> - returns the id of the closed trade’s entry.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_strategy{dot}closedtrades{dot}exit_id">strategy.closedtrades.exit_id()</a> - returns the id of the closed trade’s exit.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_strategy{dot}opentrades{dot}entry_id">strategy.opentrades.entry_id()</a> - returns the id of the open trade’s entry.</li>
+</ul>
+</div>
+<div class="section" id="january-2022">
+<h3><a class="toc-backref" href="#id43">January 2022</a><a class="headerlink" href="#january-2022" title="Permalink to this headline">¶</a></h3>
+<p>Added new functions to clone drawings:</p>
+<ul class="simple">
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_line{dot}copy">line.copy()</a></li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_label{dot}copy">label.copy()</a></li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_box{dot}copy">box.copy()</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id9">
+<h2><a class="toc-backref" href="#id44">2021</a><a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="december-2021">
+<h3><a class="toc-backref" href="#id45">December 2021</a><a class="headerlink" href="#december-2021" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="linefills">
+<h4><a class="toc-backref" href="#id46">Linefills</a><a class="headerlink" href="#linefills" title="Permalink to this headline">¶</a></h4>
+<p>The space between lines drawn in Pine Script<sup>®</sup> can now be filled! We’ve added a new <code class="docutils literal notranslate"><span class="pre">linefill</span></code> drawing type, along with a number of functions dedicated to manipulating it.
+Linefills are created by passing two lines and a color to the <code class="docutils literal notranslate"><span class="pre">linefill.new()</span></code> function, and their behavior is based on the lines they’re tied to:
+they extend in the same direction as the lines, move when their lines move, and are deleted when one of the two lines is deleted.</p>
+<p>New linefill-related functions:</p>
+<ul class="simple">
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_array{dot}new_linefill">array.new_linefill()</a></li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_linefill">linefill()</a></li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_linefill{dot}delete">linefill.delete()</a></li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_linefill{dot}get_line1">linefill.get_line1()</a></li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_linefill{dot}get_line2">linefill.get_line2()</a></li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_linefill{dot}new">linefill.new()</a></li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_linefill{dot}set_color">linefill.set_color()</a></li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#var_linefill{dot}all">linefill.all()</a></li>
+</ul>
+</div>
+<div class="section" id="new-functions-for-string-manipulation">
+<h4><a class="toc-backref" href="#id47">New functions for string manipulation</a><a class="headerlink" href="#new-functions-for-string-manipulation" title="Permalink to this headline">¶</a></h4>
+<p>Added a number of new functions that provide more ways to process strings, and introduce regular expressions to Pine Script<sup>®</sup>:</p>
+<ul class="simple">
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_str{dot}contains">str.contains(source, str)</a> - Determines if the <code class="docutils literal notranslate"><span class="pre">source</span></code> string contains the <code class="docutils literal notranslate"><span class="pre">str</span></code> substring.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_str{dot}pos">str.pos(source, str)</a> - Returns the position of the <code class="docutils literal notranslate"><span class="pre">str</span></code> string in the <code class="docutils literal notranslate"><span class="pre">source</span></code> string.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_str{dot}substring">str.substring(source, begin_pos, end_pos)</a> - Extracts a substring from the <code class="docutils literal notranslate"><span class="pre">source</span></code> string.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_str{dot}replace">str.replace(source, target, replacement, occurrence)</a> -
+Contrary to the existing <a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_str{dot}replace_all">str.replace_all()</a> function, <code class="docutils literal notranslate"><span class="pre">str.replace()</span></code> allows the selective replacement of a matched substring with a replacement string.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_str{dot}lower">str.lower(source)</a> and
+<a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_str%7Bdot%7Dupper">str.upper(source)</a> - Convert all letters of the <code class="docutils literal notranslate"><span class="pre">source</span></code> string to lower or upper case:</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_str{dot}startswith">str.startswith(source, str)</a> and
+<a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_str{dot}endswith">str.endswith(source, str)</a> - Determine if the <code class="docutils literal notranslate"><span class="pre">source</span></code> string starts or ends with the <code class="docutils literal notranslate"><span class="pre">str</span></code> substring.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_str{dot}match">str.match(source, regex)</a> - Extracts the substring matching the specified <a class="reference external" href="https://en.wikipedia.org/wiki/Regular_expression#Perl_and_PCRE" rel="nofollow">regular expression</a>.</li>
+</ul>
+</div>
+<div class="section" id="textboxes">
+<h4><a class="toc-backref" href="#id48">Textboxes</a><a class="headerlink" href="#textboxes" title="Permalink to this headline">¶</a></h4>
+<p>Box drawings now supports text. The <a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_box{dot}new">box.new()</a> function has five new parameters for text manipulation:
+<code class="docutils literal notranslate"><span class="pre">text</span></code>, <code class="docutils literal notranslate"><span class="pre">text_size</span></code>, <code class="docutils literal notranslate"><span class="pre">text_color</span></code>, <code class="docutils literal notranslate"><span class="pre">text_valign</span></code>, and <code class="docutils literal notranslate"><span class="pre">text_halign</span></code>. Additionally, five new functions to set the text properties of existing boxes were added:</p>
+<ul class="simple">
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_box{dot}set_text">box.set_text()</a></li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_box{dot}set_text_color">box.set_text_color()</a></li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_box{dot}set_text_size">box.set_text_size()</a></li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_box{dot}set_text_valign">box.set_text_valign()</a></li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_box{dot}set_text_halign">box.set_text_halign()</a></li>
+</ul>
+</div>
+<div class="section" id="new-built-in-variables">
+<h4><a class="toc-backref" href="#id49">New built-in variables</a><a class="headerlink" href="#new-built-in-variables" title="Permalink to this headline">¶</a></h4>
+<p>Added new built-in variables that return the <code class="docutils literal notranslate"><span class="pre">bar_index</span></code> and <code class="docutils literal notranslate"><span class="pre">time</span></code> values of the last bar in the dataset. Their values are known at the beginning of the script’s calculation:</p>
+<ul class="simple">
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#var_last_bar_index">last_bar_index</a> - Bar index of the last chart bar.</li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#var_last_bar_time">last_bar_time</a> - UNIX time of the last chart bar.</li>
+</ul>
+<p>New built-in <code class="docutils literal notranslate"><span class="pre">source</span></code> variable:</p>
+<ul class="simple">
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#var_hlcc4">hlcc4</a> - A shortcut for <code class="docutils literal notranslate"><span class="pre">(high</span> <span class="pre">+</span> <span class="pre">low</span> <span class="pre">+</span> <span class="pre">close</span> <span class="pre">+</span> <span class="pre">close)/4</span></code>. It averages the high and low values with the double-weighted close.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="november-2021">
+<h3><a class="toc-backref" href="#id50">November 2021</a><a class="headerlink" href="#november-2021" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="for-in">
+<h4><a class="toc-backref" href="#id51">for…in</a><a class="headerlink" href="#for-in" title="Permalink to this headline">¶</a></h4>
+<p>Added a new <a class="reference external" href="../../../pine-script-reference/v5/index.html#op_for{dot}{dot}{dot}in">for…in</a> operator to iterate over all elements of an array:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;My Script&quot;)
+int[] a1 = array.from(1, 3, 6, 3, 8, 0, -9, 5)
+
+highest(array) =&gt;
+    var int highestNum = na
+    for item in array
+        if na(highestNum) or item &gt; highestNum
+            highestNum := item
+    highestNum
+
+plot(highest(a1))
+</pre></div>
+</div>
+</div>
+<div class="section" id="function-overloads">
+<h4><a class="toc-backref" href="#id52">Function overloads</a><a class="headerlink" href="#function-overloads" title="Permalink to this headline">¶</a></h4>
+<p>Added function overloads. Several functions in a script can now share the same name, as long one of the following conditions is true:</p>
+<ul>
+<li><p class="first">Each overload has a different number of parameters:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Function overload&quot;)
+
+// Two parameters
+mult(x1, x2) =&gt;
+    x1 * x2
+
+// Three parameters
+mult(x1, x2, x3) =&gt;
+    x1 * x2 * x3
+
+plot(mult(7, 4))
+plot(mult(7, 4, 2))
+</pre></div>
+</div>
+</li>
+<li><p class="first">When overloads have the same number of parameters, all parameters in each overload must be explicitly typified, and their type combinations must be unique:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Function overload&quot;)
+
+// Accepts both &#39;int&#39; and &#39;float&#39; values - any &#39;int&#39; can be automatically cast to &#39;float&#39;
+mult(float x1, float x2) =&gt;
+    x1 * x2
+
+// Returns a &#39;bool&#39; value instead of a number
+mult(bool x1, bool x2) =&gt;
+    x1 and x2 ? true : false
+
+mult(string x1, string x2) =&gt;
+    str.tonumber(x1) * str.tonumber(x2)
+
+// Has three parameters, so explicit types are not required
+mult(x1, x2, x3) =&gt;
+    x1 * x2 * x3
+
+plot(mult(7, 4))
+plot(mult(7.5, 4.2))
+plot(mult(true, false) ? 1 : 0)
+plot(mult(&quot;5&quot;, &quot;6&quot;))
+plot(mult(7, 4, 2))
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="currency-conversion">
+<h4><a class="toc-backref" href="#id53">Currency conversion</a><a class="headerlink" href="#currency-conversion" title="Permalink to this headline">¶</a></h4>
+<p>Added a new <cite>currency</cite> argument to most <code class="docutils literal notranslate"><span class="pre">request.*()</span></code> functions. If specified, price values returned by the function will be converted from the source currency to the target currency.
+The following functions are affected:</p>
+<ul class="simple">
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_request{dot}dividends">request.dividends()</a></li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_request{dot}earnings">request.earnings()</a></li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_request{dot}financial">request.financial()</a></li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="october-2021">
+<span id="pagereleasenotes-october2021"></span><h3><a class="toc-backref" href="#id54">October 2021</a><a class="headerlink" href="#october-2021" title="Permalink to this headline">¶</a></h3>
+<p>Pine Script<sup>®</sup> v5 is here!
+This is a list of the <strong>new</strong> features added to the language, and a few of the <strong>changes</strong> made.
+See the Pine Script<sup>®</sup> v5 <a class="reference internal" href="migration_guides/v4_to_v5_migration_guide.html#pagetopineversion5"><span class="std std-ref">Migration guide</span></a> for a complete list of the <strong>changes</strong> in v5.</p>
+<div class="section" id="new-features">
+<h4><a class="toc-backref" href="#id55">New features</a><a class="headerlink" href="#new-features" title="Permalink to this headline">¶</a></h4>
+<p>Libraries are a new type of publication. They allow you to create custom functions for reuse in other scripts. See this manual’s page on <a class="reference internal" href="concepts/Libraries.html#pagelibraries"><span class="std std-ref">Libraries</span></a>.</p>
+<p>Pine Script<sup>®</sup> now supports <a class="reference external" href="../../../pine-script-reference/v5/index.html#op_switch">switch</a> structures!
+They provide a more convenient and readable alternative to long ternary operators and <a class="reference external" href="../../../pine-script-reference/v5/index.html#op_if">if</a> statements.</p>
+<p><a class="reference external" href="../../../pine-script-reference/v5/index.html#op_while">while</a> loops are here!
+They allow you to create a loop that will only stop when its controlling condition is false, or a <code class="docutils literal notranslate"><span class="pre">break</span></code> command is used in the loop.</p>
+<p>New built-in array variables are maintained by the Pine Script<sup>®</sup> runtime to hold the IDs of all the active objects of the same type drawn by your script. They are
+<a class="reference external" href="../../../pine-script-reference/v5/index.html#var_label{dot}all">label.all</a>,
+<a class="reference external" href="../../../pine-script-reference/v5/index.html#var_line{dot}all">line.all</a>,
+<a class="reference external" href="../../../pine-script-reference/v5/index.html#var_box{dot}all">box.all</a> and
+<a class="reference external" href="../../../pine-script-reference/v5/index.html#var_table{dot}all">table.all</a>.</p>
+<p>The <a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_runtime{dot}error">runtime.error()</a>
+function makes it possible to halt the execution of a script and display a runtime error with a custom message.
+You can use any condition in your script to trigger the call.</p>
+<p>Parameter definitions in user-defined functions can now include a default value:
+a function defined as <code class="docutils literal notranslate"><span class="pre">f(x</span> <span class="pre">=</span> <span class="pre">1)</span> <span class="pre">=&gt;</span> <span class="pre">x</span></code> will return 1 when called as <code class="docutils literal notranslate"><span class="pre">f()</span></code>, i.e., without providing an argument for its <code class="docutils literal notranslate"><span class="pre">x</span></code> parameter.</p>
+<p>New variables and functions provide better script visibility on strategy information:</p>
+<ul class="simple">
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_strategy{dot}closedtrades{dot}entry_price">strategy.closedtrades.entry_price()</a> and
+<a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_strategy{dot}opentrades{dot}entry_price">strategy.opentrades.entry_price()</a></li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_strategy{dot}closedtrades{dot}entry_bar_index">strategy.closedtrades.entry_bar_index()</a> and
+<a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_strategy{dot}opentrades{dot}entry_bar_index">strategy.opentrades.entry_bar_index()</a></li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_strategy{dot}closedtrades{dot}entry_time">strategy.closedtrades.entry_time()</a> and
+<a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_strategy{dot}opentrades{dot}entry_time">strategy.opentrades.entry_time()</a></li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_strategy{dot}closedtrades{dot}size">strategy.closedtrades.size()</a> and
+<a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_strategy{dot}opentrades{dot}size">strategy.opentrades.size()</a></li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_strategy{dot}closedtrades{dot}profit">strategy.closedtrades.profit()</a> and
+<a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_strategy{dot}opentrades{dot}profit">strategy.opentrades.profit()</a></li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_strategy{dot}closedtrades{dot}commission">strategy.closedtrades.commission()</a> and
+<a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_strategy{dot}opentrades{dot}commission">strategy.opentrades.commission()</a></li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_strategy{dot}closedtrades{dot}max_runup">strategy.closedtrades.max_runup()</a> and
+<a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_strategy{dot}opentrades{dot}max_runup">strategy.opentrades.max_runup()</a></li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_strategy{dot}closedtrades{dot}max_drawdown">strategy.closedtrades.max_drawdown()</a> and
+<a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_strategy{dot}opentrades{dot}max_drawdown">strategy.opentrades.max_drawdown()</a></li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_strategy{dot}closedtrades{dot}exit_price">strategy.closedtrades.exit_price()</a></li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_strategy{dot}closedtrades{dot}exit_bar_index">strategy.closedtrades.exit_bar_index()</a></li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_strategy{dot}closedtrades{dot}exit_time">strategy.closedtrades.exit_time()</a></li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_strategy{dot}convert_to_account">strategy.convert_to_account()</a></li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_strategy{dot}convert_to_symbol">strategy.convert_to_symbol()</a></li>
+<li><a class="reference external" href="../../../pine-script-reference/v5/index.html#var_strategy{dot}account_currency">strategy.account_currency</a></li>
+</ul>
+<p>A new <a class="reference external" href="../../../pine-script-reference/v5/index.html#var_earnings{dot}standardized">earnings.standardized</a> constant for the
+<a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_request{dot}earnings">request.earnings()</a> function allows requesting standardized earnings data.</p>
+<p>A v4 to v5 converter is now included in the Pine Script<sup>®</sup> Editor.
+See the Pine Script<sup>®</sup> v5 <a class="reference internal" href="migration_guides/v4_to_v5_migration_guide.html#pagetopineversion5"><span class="std std-ref">Migration guide</span></a> for more information on converting your scripts to v5.</p>
+<p>The <a class="reference external" href="../../../pine-script-reference/v5/index.html">Reference Manual</a>
+now includes the systematic mention of the form and type (e.g., “simple int”) required for each function parameter.</p>
+<p>The <a class="reference internal" href="index.html#indexusermanual"><span class="std std-ref">User Manual</span></a> was reorganized and new content was added.</p>
+</div>
+<div class="section" id="changes">
+<h4><a class="toc-backref" href="#id56">Changes</a><a class="headerlink" href="#changes" title="Permalink to this headline">¶</a></h4>
+<p>Many built-in variables, functions and function arguments were renamed or moved to new namespaces in v5.
+The venerable <code class="docutils literal notranslate"><span class="pre">study()</span></code>, for example, is now <a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_indicator">indicator()</a>,
+and <code class="docutils literal notranslate"><span class="pre">security()</span></code> is now <a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a>.
+New namespaces now group related functions and variables together.
+This consolidation implements a more rational nomenclature and provides an orderly space to accommodate the many additions planned for Pine Script<sup>®</sup>.</p>
+<p>See the Pine Script<sup>®</sup> v5 <a class="reference internal" href="migration_guides/v4_to_v5_migration_guide.html#pagetopineversion5"><span class="std std-ref">Migration guide</span></a> for a complete list of the <strong>changes</strong> made in v5.</p>
+</div>
+</div>
+<div class="section" id="september-2021">
+<span id="pagereleasenotes-september2021"></span><h3><a class="toc-backref" href="#id57">September 2021</a><a class="headerlink" href="#september-2021" title="Permalink to this headline">¶</a></h3>
+<p>New parameter has been added for the <code class="docutils literal notranslate"><span class="pre">dividends()</span></code>, <code class="docutils literal notranslate"><span class="pre">earnings()</span></code>, <code class="docutils literal notranslate"><span class="pre">financial()</span></code>, <code class="docutils literal notranslate"><span class="pre">quandl()</span></code>, <code class="docutils literal notranslate"><span class="pre">security()</span></code>, and <code class="docutils literal notranslate"><span class="pre">splits()</span></code> functions:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">ignore_invalid_symbol</span></code> - determines the behavior of the function if the specified symbol is not found: if <code class="docutils literal notranslate"><span class="pre">false</span></code>, the script will halt and return a runtime error; if <code class="docutils literal notranslate"><span class="pre">true</span></code>, the function will return <code class="docutils literal notranslate"><span class="pre">na</span></code> and execution will continue.</li>
+</ul>
+</div>
+<div class="section" id="july-2021">
+<h3><a class="toc-backref" href="#id58">July 2021</a><a class="headerlink" href="#july-2021" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">tostring</span></code> now accepts “bool” and “string” types.</p>
+<p>New argument for <code class="docutils literal notranslate"><span class="pre">time</span></code> and <code class="docutils literal notranslate"><span class="pre">time_close</span></code> functions was added:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">timezone</span></code> - timezone of the <code class="docutils literal notranslate"><span class="pre">session</span></code> argument, can only be used when a session is specified. Can be written out in GMT notation (e.g. “GMT-5”) or as an <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones" rel="nofollow">IANA time zone database name</a> (e.g. “America/New_York”).</li>
+</ul>
+<p>It is now possible to place a drawing object in the future with <code class="docutils literal notranslate"><span class="pre">xloc</span> <span class="pre">=</span> <span class="pre">xloc.bar_index</span></code>.</p>
+<p>New argument for <code class="docutils literal notranslate"><span class="pre">study</span></code> and <code class="docutils literal notranslate"><span class="pre">strategy</span></code> functions was added:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">explicit_plot_zorder</span></code> - specifies the order in which the indicator’s plots, fills, and hlines are rendered. If true, the plots will be drawn based on the order in which they appear in the indicator’s code, each newer plot being drawn above the previous ones.</li>
+</ul>
+</div>
+<div class="section" id="june-2021">
+<h3><a class="toc-backref" href="#id59">June 2021</a><a class="headerlink" href="#june-2021" title="Permalink to this headline">¶</a></h3>
+<p>New variable was added:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">barstate.islastconfirmedhistory</span></code> - returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if script is executing on the dataset’s last bar when market is closed, or script is executing on the bar immediately preceding the real-time bar, if market is open. Returns <code class="docutils literal notranslate"><span class="pre">false</span></code> otherwise.</li>
+</ul>
+<p>New function was added:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">round_to_mintick(x)</span></code> - returns the value rounded to the symbol’s mintick, i.e. the nearest value that can be divided by <code class="docutils literal notranslate"><span class="pre">syminfo.mintick</span></code>, without the remainder, with ties rounding up.</li>
+</ul>
+<p>Expanded <code class="docutils literal notranslate"><span class="pre">tostring()</span></code> functionality. The function now accepts three new formatting arguments:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">format.mintick</span></code> to format to tick precision.</li>
+<li><code class="docutils literal notranslate"><span class="pre">format.volume</span></code> to abbreviate large values.</li>
+<li><code class="docutils literal notranslate"><span class="pre">format.percent</span></code> to format percentages.</li>
+</ul>
+</div>
+<div class="section" id="may-2021">
+<h3><a class="toc-backref" href="#id60">May 2021</a><a class="headerlink" href="#may-2021" title="Permalink to this headline">¶</a></h3>
+<p>Improved backtesting functionality by adding the Leverage mechanism.</p>
+<p>Added support for table drawings and functions for working with them.
+Tables are unique objects that are not anchored to specific bars; they float in a script’s space, independently of the chart bars being viewed or the zoom factor used.
+For more information, see the <a class="reference internal" href="concepts/Tables.html#pagetables"><span class="std std-ref">Tables</span></a> User Manual page.</p>
+<p>New functions were added:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">color.rgb(red,</span> <span class="pre">green,</span> <span class="pre">blue,</span> <span class="pre">transp)</span></code> - creates a new color with transparency using the RGB color model.</li>
+<li><code class="docutils literal notranslate"><span class="pre">color.from_gradient(value,</span> <span class="pre">bottom_value,</span> <span class="pre">top_value,</span> <span class="pre">bottom_color,</span> <span class="pre">top_color)</span></code> - returns color calculated from the linear gradient between bottom_color to top_color.</li>
+<li><code class="docutils literal notranslate"><span class="pre">color.r(color)</span></code>, <code class="docutils literal notranslate"><span class="pre">color.g(color)</span></code>, <code class="docutils literal notranslate"><span class="pre">color.b(color)</span></code>, <code class="docutils literal notranslate"><span class="pre">color.t(color)</span></code> - retrieves the value of one of the color components.</li>
+<li><code class="docutils literal notranslate"><span class="pre">array.from()</span></code> - takes a variable number of arguments with one of the types: <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">bool</span></code>, <code class="docutils literal notranslate"><span class="pre">string</span></code>, <code class="docutils literal notranslate"><span class="pre">label</span></code>, <code class="docutils literal notranslate"><span class="pre">line</span></code>, <code class="docutils literal notranslate"><span class="pre">color</span></code>, <code class="docutils literal notranslate"><span class="pre">box</span></code>, <code class="docutils literal notranslate"><span class="pre">table</span></code> and returns an array of the corresponding type.</li>
+</ul>
+<p>A new <code class="docutils literal notranslate"><span class="pre">box</span></code> drawing has been added to Pine Script<sup>®</sup>, making it possible to draw rectangles on charts using the Pine Script<sup>®</sup> syntax.
+For more details see the Pine Script<sup>®</sup> <a class="reference external" href="../../../pine-script-reference/v5/index.html#fun_box{dot}new">reference</a> and the <a class="reference internal" href="concepts/Lines_and_boxes.html#pagelinesandboxes"><span class="std std-ref">Lines and boxes</span></a> User Manual page.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">color.new</span></code> function can now accept series and input arguments, in which case, the colors will be calculated at runtime. For more information about this, see our <a class="reference internal" href="concepts/Colors.html#pagecolors"><span class="std std-ref">Colors</span></a> User Manual page.</p>
+</div>
+<div class="section" id="april-2021">
+<h3><a class="toc-backref" href="#id61">April 2021</a><a class="headerlink" href="#april-2021" title="Permalink to this headline">¶</a></h3>
+<p>New math constants were added:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">math.pi</span></code> - is a named constant for Archimedes’ constant. It is equal to 3.1415926535897932.</li>
+<li><code class="docutils literal notranslate"><span class="pre">math.phi</span></code> - is a named constant for the golden ratio. It is equal to  1.6180339887498948.</li>
+<li><code class="docutils literal notranslate"><span class="pre">math.rphi</span></code> - is a named constant for the golden ratio conjugate. It is equal to 0.6180339887498948.</li>
+<li><code class="docutils literal notranslate"><span class="pre">math.e</span></code> - is a named constant for Euler’s number. It is equal to 2.7182818284590452.</li>
+</ul>
+<p>New math functions were added:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">round(x,</span> <span class="pre">precision)</span></code> - returns the value of <code class="docutils literal notranslate"><span class="pre">x</span></code> rounded to the nearest integer, with ties rounding up. If the precision parameter is used, returns a float value rounded to that number of decimal places.</li>
+<li><code class="docutils literal notranslate"><span class="pre">median(source,</span> <span class="pre">length)</span></code> - returns the median of the series.</li>
+<li><code class="docutils literal notranslate"><span class="pre">mode(source,</span> <span class="pre">length)</span></code> - returns the mode of the series. If there are several values with the same frequency, it returns the smallest value.</li>
+<li><code class="docutils literal notranslate"><span class="pre">range(source,</span> <span class="pre">length)</span></code> - returns the difference between the <code class="docutils literal notranslate"><span class="pre">min</span></code> and <code class="docutils literal notranslate"><span class="pre">max</span></code> values in a series.</li>
+<li><code class="docutils literal notranslate"><span class="pre">todegrees(radians)</span></code> - returns an approximately equivalent angle in degrees from an angle measured in radians.</li>
+<li><code class="docutils literal notranslate"><span class="pre">toradians(degrees)</span></code> - returns an approximately equivalent angle in radians from an angle measured in degrees.</li>
+<li><code class="docutils literal notranslate"><span class="pre">random(min,</span> <span class="pre">max,</span> <span class="pre">seed)</span></code> - returns a pseudo-random value. The function will generate a different sequence of values for each script execution. Using the same value for the optional seed argument will produce a repeatable sequence.</li>
+</ul>
+<p>New functions were added:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">session.ismarket</span></code> - returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if the current bar is a part of the regular trading hours (i.e. market hours), <code class="docutils literal notranslate"><span class="pre">false</span></code> otherwise.</li>
+<li><code class="docutils literal notranslate"><span class="pre">session.ispremarket</span></code> - returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if the current bar is a part of the pre-market, <code class="docutils literal notranslate"><span class="pre">false</span></code> otherwise.</li>
+<li><code class="docutils literal notranslate"><span class="pre">session.ispostmarket</span></code> - returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if the current bar is a part of the post-market, <code class="docutils literal notranslate"><span class="pre">false</span></code> otherwise.</li>
+<li><code class="docutils literal notranslate"><span class="pre">str.format</span></code>  - converts the values to strings based on the specified formats. Accepts certain <code class="docutils literal notranslate"><span class="pre">number</span></code> modifiers: <code class="docutils literal notranslate"><span class="pre">integer</span></code>, <code class="docutils literal notranslate"><span class="pre">currency</span></code>, <code class="docutils literal notranslate"><span class="pre">percent</span></code>.</li>
+</ul>
+</div>
+<div class="section" id="march-2021">
+<h3><a class="toc-backref" href="#id62">March 2021</a><a class="headerlink" href="#march-2021" title="Permalink to this headline">¶</a></h3>
+<p>New assignment operators were added:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">+=</span></code>  - addition assignment</li>
+<li><code class="docutils literal notranslate"><span class="pre">-=</span></code>  - subtraction assignment</li>
+<li><code class="docutils literal notranslate"><span class="pre">*=</span></code>  - multiplication assignment</li>
+<li><code class="docutils literal notranslate"><span class="pre">/=</span></code>  - division assignment</li>
+<li><code class="docutils literal notranslate"><span class="pre">%=</span></code>  - modulus assignment</li>
+</ul>
+<p>New parameters for inputs customization were added:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">inline</span></code> - combines all the input calls with the same inline value in one line.</li>
+<li><code class="docutils literal notranslate"><span class="pre">group</span></code> - creates a header above all inputs that use the same group string value. The string is also used as the header text.</li>
+<li><code class="docutils literal notranslate"><span class="pre">tooltip</span></code> - adds a tooltip icon to the <code class="docutils literal notranslate"><span class="pre">Inputs</span></code> menu. The tooltip string is shown when hovering over the tooltip icon.</li>
+</ul>
+<p>New argument for <code class="docutils literal notranslate"><span class="pre">fill</span></code> function was added:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">fillgaps</span></code> - controls whether fills continue on gaps when one of the <code class="docutils literal notranslate"><span class="pre">plot</span></code> calls returns an <code class="docutils literal notranslate"><span class="pre">na</span></code> value.</li>
+</ul>
+<p>A new keyword was added:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">varip</span></code> - is similar to the <code class="docutils literal notranslate"><span class="pre">var</span></code> keyword, but variables declared with <code class="docutils literal notranslate"><span class="pre">varip</span></code> retain their values between the updates of a real-time bar.</li>
+</ul>
+<p>New functions were added:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">tonumber()</span></code> - converts a string value into a float.</li>
+<li><code class="docutils literal notranslate"><span class="pre">time_close()</span></code> - returns the UNIX timestamp of the close of the current bar, based on the resolution and session that is passed to the function.</li>
+<li><code class="docutils literal notranslate"><span class="pre">dividends()</span></code> - requests dividends data for the specified symbol.</li>
+<li><code class="docutils literal notranslate"><span class="pre">earnings()</span></code> - requests earnings data for the specified symbol.</li>
+<li><code class="docutils literal notranslate"><span class="pre">splits()</span></code> - requests splits data for the specified symbol.</li>
+</ul>
+<p>New arguments for the study() function were added:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">resolution_gaps</span></code> - fills the gaps between values fetched from higher timeframes when using <code class="docutils literal notranslate"><span class="pre">resolution</span></code>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">format.percent</span></code> - formats the script output values as a percentage.</li>
+</ul>
+</div>
+<div class="section" id="february-2021">
+<h3><a class="toc-backref" href="#id63">February 2021</a><a class="headerlink" href="#february-2021" title="Permalink to this headline">¶</a></h3>
+<p>New variable was added:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">time_tradingday</span></code> - the beginning time of the trading day the current bar belongs to.</li>
+</ul>
+</div>
+<div class="section" id="january-2021">
+<h3><a class="toc-backref" href="#id64">January 2021</a><a class="headerlink" href="#january-2021" title="Permalink to this headline">¶</a></h3>
+<p>The following functions now accept a series length parameter:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://www.tradingview.com/pine-script-reference/v4/#fun_bb">bb()</a></li>
+<li><a class="reference external" href="https://www.tradingview.com/pine-script-reference/v4/#fun_bbw">bbw()</a></li>
+<li><a class="reference external" href="https://www.tradingview.com/pine-script-reference/v4/#fun_cci">cci()</a></li>
+<li><a class="reference external" href="https://www.tradingview.com/pine-script-reference/v4/#fun_cmo">cmo()</a></li>
+<li><a class="reference external" href="https://www.tradingview.com/pine-script-reference/v4/#fun_cog">cog()</a></li>
+<li><a class="reference external" href="https://www.tradingview.com/pine-script-reference/v4/#fun_correlation">correlation()</a></li>
+<li><a class="reference external" href="https://www.tradingview.com/pine-script-reference/v4/#fun_dev">dev()</a></li>
+<li><a class="reference external" href="https://www.tradingview.com/pine-script-reference/v4/#fun_falling">falling()</a></li>
+<li><a class="reference external" href="https://www.tradingview.com/pine-script-reference/v4/#fun_mfi">mfi()</a></li>
+<li><a class="reference external" href="https://www.tradingview.com/pine-script-reference/v4/#fun_percentile_linear_interpolation">percentile_linear_interpolation()</a></li>
+<li><a class="reference external" href="https://www.tradingview.com/pine-script-reference/v4/#fun_percentile_nearest_rank">percentile_nearest_rank()</a></li>
+<li><a class="reference external" href="https://www.tradingview.com/pine-script-reference/v4/#fun_percentrank">percentrank()</a></li>
+<li><a class="reference external" href="https://www.tradingview.com/pine-script-reference/v4/#fun_rising">rising()</a></li>
+<li><a class="reference external" href="https://www.tradingview.com/pine-script-reference/v4/#fun_roc">roc()</a></li>
+<li><a class="reference external" href="https://www.tradingview.com/pine-script-reference/v4/#fun_stdev">stdev()</a></li>
+<li><a class="reference external" href="https://www.tradingview.com/pine-script-reference/v4/#fun_stoch">stoch()</a></li>
+<li><a class="reference external" href="https://www.tradingview.com/pine-script-reference/v4/#fun_variance">variance()</a></li>
+<li><a class="reference external" href="https://www.tradingview.com/pine-script-reference/v4/#fun_wpr">wpr()</a></li>
+</ul>
+<p>A new type of alerts was added - script alerts. More information can be found in our <a class="reference external" href="https://www.tradingview.com/support/solutions/43000597494/">Help Center</a>.</p>
+</div>
+</div>
+<div class="section" id="id10">
+<h2><a class="toc-backref" href="#id65">2020</a><a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="december-2020">
+<h3><a class="toc-backref" href="#id66">December 2020</a><a class="headerlink" href="#december-2020" title="Permalink to this headline">¶</a></h3>
+<p>New array types were added:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">array.new_line()</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">array.new_label()</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">array.new_string()</span></code></li>
+</ul>
+<p>New functions were added:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">str.length()</span></code> - returns number of chars in source string.</li>
+<li><code class="docutils literal notranslate"><span class="pre">array.join()</span></code> - concatenates all of the elements in the array into a string and separates these elements with the specified separator.</li>
+<li><code class="docutils literal notranslate"><span class="pre">str.split()</span></code> - splits a string at a given substring separator.</li>
+</ul>
+</div>
+<div class="section" id="november-2020">
+<h3><a class="toc-backref" href="#id67">November 2020</a><a class="headerlink" href="#november-2020" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>New <code class="docutils literal notranslate"><span class="pre">max_labels_count</span></code> and <code class="docutils literal notranslate"><span class="pre">max_lines_count</span></code> parameters were added to the study and strategy functions. Now you can manage the number of lines and labels by setting values for these parameters from 1 to 500.</li>
+</ul>
+<p>New function was added:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">array.range()</span></code> - return the difference between the min and max values in the array.</li>
+</ul>
+</div>
+<div class="section" id="october-2020">
+<h3><a class="toc-backref" href="#id68">October 2020</a><a class="headerlink" href="#october-2020" title="Permalink to this headline">¶</a></h3>
+<p>The behavior of <code class="docutils literal notranslate"><span class="pre">rising()</span></code> and <code class="docutils literal notranslate"><span class="pre">falling()</span></code> functions have changed. For example, <code class="docutils literal notranslate"><span class="pre">rising(close,3)</span></code> is now calculated as following:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>close[0] &gt; close[1] and close[1] &gt; close[2] and close[2] &gt; close[3]
+</pre></div>
+</div>
+</div>
+<div class="section" id="september-2020">
+<h3><a class="toc-backref" href="#id69">September 2020</a><a class="headerlink" href="#september-2020" title="Permalink to this headline">¶</a></h3>
+<p>Added support for <code class="docutils literal notranslate"><span class="pre">input.color</span></code> to the <code class="docutils literal notranslate"><span class="pre">input()</span></code> function. Now you can provide script users with color selection through the script’s “Settings/Inputs” tab with the same color widget used throughout the TradingView user interface. Learn more about this feature in our <a class="reference external" href="https://www.tradingview.com/blog/en/create-color-inputs-in-pine-20751/">blog</a>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=4
+study(&quot;My Script&quot;, overlay = true)
+color c_labelColor = input(color.green, &quot;Main Color&quot;, input.color)
+var l = label.new(bar_index, close, yloc = yloc.abovebar, text = &quot;Colored label&quot;)
+label.set_x(l, bar_index)
+label.set_color(l, c_labelColor)
+</pre></div>
+</div>
+<img alt="_images/ReleaseNotes-input_color.png" src="_images/ReleaseNotes-input_color.png" />
+<p>Added support for arrays and functions for working with them. You can now use the powerful new array feature to build custom datasets. See our <a class="reference external" href="https://www.tradingview.com/pine-script-docs/en/v4/essential/Arrays.html">User Manual page on arrays</a> and our <a class="reference external" href="https://www.tradingview.com/blog/en/arrays-are-now-available-in-pine-script-20052/">blog</a>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=4
+study(&quot;My Script&quot;)
+a = array.new_float(0)
+for i = 0 to 5
+    array.push(a, close[i] - open[i])
+plot(array.get(a, 4))
+</pre></div>
+</div>
+<p>The following functions now accept a series length parameter. Learn more about this feature in our <a class="reference external" href="https://www.tradingview.com/blog/en/pine-functions-support-dynamic-length-arguments-20554/">blog</a>:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://www.tradingview.com/pine-script-reference/v4/#fun_alma">alma()</a></li>
+<li><a class="reference external" href="https://www.tradingview.com/pine-script-reference/v4/#fun_change">change()</a></li>
+<li><a class="reference external" href="https://www.tradingview.com/pine-script-reference/v4/#fun_highest">highest()</a></li>
+<li><a class="reference external" href="https://www.tradingview.com/pine-script-reference/v4/#fun_highestbars">highestbars()</a></li>
+<li><a class="reference external" href="https://www.tradingview.com/pine-script-reference/v4/#fun_linreg">linreg()</a></li>
+<li><a class="reference external" href="https://www.tradingview.com/pine-script-reference/v4/#fun_lowest">lowest()</a></li>
+<li><a class="reference external" href="https://www.tradingview.com/pine-script-reference/v4/#fun_lowestbars">lowestbars()</a></li>
+<li><a class="reference external" href="https://www.tradingview.com/pine-script-reference/v4/#fun_mom">mom()</a></li>
+<li><a class="reference external" href="https://www.tradingview.com/pine-script-reference/v4/#fun_sma">sma()</a></li>
+<li><a class="reference external" href="https://www.tradingview.com/pine-script-reference/v4/#fun_sum">sum()</a></li>
+<li><a class="reference external" href="https://www.tradingview.com/pine-script-reference/v4/#fun_vwma">vwma()</a></li>
+<li><a class="reference external" href="https://www.tradingview.com/pine-script-reference/v4/#fun_wma">wma()</a></li>
+</ul>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=4
+study(&quot;My Script&quot;, overlay = true)
+length = input(10, &quot;Length&quot;, input.integer, minval = 1, maxval = 100)
+avgBar = avg(highestbars(length), lowestbars(length))
+float dynLen = nz(abs(avgBar) + 1, length)
+dynSma = sma(close, int(dynLen))
+plot(dynSma)
+</pre></div>
+</div>
+</div>
+<div class="section" id="august-2020">
+<h3><a class="toc-backref" href="#id70">August 2020</a><a class="headerlink" href="#august-2020" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Optimized script compilation time. Scripts now compile 1.5 to 2 times faster.</li>
+</ul>
+</div>
+<div class="section" id="july-2020">
+<h3><a class="toc-backref" href="#id71">July 2020</a><a class="headerlink" href="#july-2020" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Minor bug fixes and improvements.</li>
+</ul>
+</div>
+<div class="section" id="june-2020">
+<h3><a class="toc-backref" href="#id72">June 2020</a><a class="headerlink" href="#june-2020" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>New <code class="docutils literal notranslate"><span class="pre">resolution</span></code> parameter was added to the <code class="docutils literal notranslate"><span class="pre">study</span></code> function. Now you can add MTF functionality to scripts and decide the timeframe you want the indicator to run on.</li>
+</ul>
+<img alt="_images/ReleaseNotes-Mtf.png" src="_images/ReleaseNotes-Mtf.png" />
+<p>Please note that you need to reapply the indicator in order for the <cite>resolution</cite> parameter to appear.</p>
+<ul>
+<li><p class="first">The <code class="docutils literal notranslate"><span class="pre">tooltip</span></code> argument was added to the <code class="docutils literal notranslate"><span class="pre">label.new</span></code> function along with the <code class="docutils literal notranslate"><span class="pre">label.set_tooltip</span></code> function:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=4
+study(&quot;My Script&quot;, overlay=true)
+var l=label.new(bar_index, close, yloc=yloc.abovebar, text=&quot;Label&quot;)
+label.set_x(l,bar_index)
+label.set_tooltip(l, &quot;Label Tooltip&quot;)
+</pre></div>
+</div>
+</li>
+</ul>
+<img alt="_images/ReleaseNotes-Tooltip.png" src="_images/ReleaseNotes-Tooltip.png" />
+<ul class="simple">
+<li>Added an ability to create <a class="reference external" href="https://www.tradingview.com/support/solutions/43000481368">alerts on strategies</a>.</li>
+<li>A new function <a class="reference external" href="https://www.tradingview.com/pine-script-reference/v4/#fun_line{dot}get_price">line.get_price()</a> can be used to determine the price level at which the line is located on a certain bar.</li>
+<li>New <a class="reference external" href="https://www.tradingview.com/pine-script-reference/v4/#fun_label{dot}new">label styles</a> allow you to position the label pointer in any direction.</li>
+</ul>
+<img alt="_images/ReleaseNotes-new_label_styles.png" src="_images/ReleaseNotes-new_label_styles.png" />
+<ul class="simple">
+<li>Find and Replace was added to Pine Script<sup>®</sup> Editor. To use this, press CTRL+F (find) or CTRL+H (find and replace).</li>
+</ul>
+<img alt="_images/ReleaseNotes-FindReplace.jpg" src="_images/ReleaseNotes-FindReplace.jpg" />
+<ul>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">timezone</span></code> argument was added for time functions. Now you can specify timezone for <code class="docutils literal notranslate"><span class="pre">second</span></code>, <code class="docutils literal notranslate"><span class="pre">minute</span></code>, <code class="docutils literal notranslate"><span class="pre">hour</span></code>, <code class="docutils literal notranslate"><span class="pre">year</span></code>, <code class="docutils literal notranslate"><span class="pre">month</span></code>, <code class="docutils literal notranslate"><span class="pre">dayofmonth</span></code>, <code class="docutils literal notranslate"><span class="pre">dayofweek</span></code> functions:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=4
+study(&quot;My Script&quot;)
+plot(hour(1591012800000, &quot;GMT+1&quot;))
+</pre></div>
+</div>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">syminfo.basecurrency</span></code> variable was added. Returns the base currency code of the current symbol. For EURUSD symbol returns EUR.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="may-2020">
+<h3><a class="toc-backref" href="#id73">May 2020</a><a class="headerlink" href="#may-2020" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if</span></code> statement was added</li>
+<li>The behavior of <code class="docutils literal notranslate"><span class="pre">security()</span></code> function has changed: the <code class="docutils literal notranslate"><span class="pre">expression</span></code> parameter can be series or tuple.</li>
+</ul>
+</div>
+<div class="section" id="april-2020">
+<h3><a class="toc-backref" href="#id74">April 2020</a><a class="headerlink" href="#april-2020" title="Permalink to this headline">¶</a></h3>
+<p>New function was added:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">quandl()</span></code> - request quandl data for a symbol</li>
+</ul>
+</div>
+<div class="section" id="march-2020">
+<h3><a class="toc-backref" href="#id75">March 2020</a><a class="headerlink" href="#march-2020" title="Permalink to this headline">¶</a></h3>
+<p>New function was added:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">financial()</span></code> - request financial data for a symbol</li>
+</ul>
+<p>New functions for common indicators were added:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">cmo()</span></code> - Chande Momentum Oscillator</li>
+<li><code class="docutils literal notranslate"><span class="pre">mfi()</span></code> - Money Flow Index</li>
+<li><code class="docutils literal notranslate"><span class="pre">bb()</span></code> - Bollinger Bands</li>
+<li><code class="docutils literal notranslate"><span class="pre">bbw()</span></code> - Bollinger Bands Width</li>
+<li><code class="docutils literal notranslate"><span class="pre">kc()</span></code> - Keltner Channels</li>
+<li><code class="docutils literal notranslate"><span class="pre">kcw()</span></code> - Keltner Channels Width</li>
+<li><code class="docutils literal notranslate"><span class="pre">dmi()</span></code> - DMI/ADX</li>
+<li><code class="docutils literal notranslate"><span class="pre">wpr()</span></code> - Williams % R</li>
+<li><code class="docutils literal notranslate"><span class="pre">hma()</span></code> - Hull Moving Average</li>
+<li><code class="docutils literal notranslate"><span class="pre">supertrend()</span></code> - SuperTrend</li>
+</ul>
+<p>Added a detailed description of all the fields in the <a class="reference external" href="https://www.tradingview.com/support/solutions/43000561856/">Strategy Tester Report</a></p>
+</div>
+<div class="section" id="february-2020">
+<h3><a class="toc-backref" href="#id76">February 2020</a><a class="headerlink" href="#february-2020" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p class="first">New Pine Script<sup>®</sup> indicator VWAP Anchored was added. Now you can specify the time period: Session, Month, Week, Year.</p>
+</li>
+<li><p class="first">Fixed a problem with calculating <code class="docutils literal notranslate"><span class="pre">percentrank</span></code> function. Now it can return a zero value, which did not happen before due to an incorrect calculation.</p>
+</li>
+<li><p class="first">The default <code class="docutils literal notranslate"><span class="pre">transparency</span></code> parameter for the <code class="docutils literal notranslate"><span class="pre">plot()</span></code>, <code class="docutils literal notranslate"><span class="pre">plotshape()</span></code>, and <code class="docutils literal notranslate"><span class="pre">plotchar()</span></code> functions is now 0%.</p>
+</li>
+<li><p class="first">For the functions <code class="docutils literal notranslate"><span class="pre">plot()</span></code>, <code class="docutils literal notranslate"><span class="pre">plotshape()</span></code>, <code class="docutils literal notranslate"><span class="pre">plotchar()</span></code>, <code class="docutils literal notranslate"><span class="pre">plotbar()</span></code>, <code class="docutils literal notranslate"><span class="pre">plotcandle()</span></code>, <code class="docutils literal notranslate"><span class="pre">plotarrow()</span></code>, you can set the <code class="docutils literal notranslate"><span class="pre">display</span></code> parameter, which controls the display of the plot. The following values can be assigned to it:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">display.none</span></code> - the plot is not displayed</li>
+<li><code class="docutils literal notranslate"><span class="pre">display.all</span></code> - the plot is displayed (Default)</li>
+</ul>
+</li>
+<li><p class="first">The <code class="docutils literal notranslate"><span class="pre">textalign</span></code> argument was added to the <code class="docutils literal notranslate"><span class="pre">label.new</span></code> function along with the <code class="docutils literal notranslate"><span class="pre">label.set_textalign</span></code> function. Using those, you can control the alignment of the label’s text:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=4
+study(&quot;My Script&quot;, overlay = true)
+var l = label.new(bar_index, high, text=&quot;Right\n aligned\n text&quot;, textalign=text.align_right)
+label.set_xy(l, bar_index, high)
+</pre></div>
+</div>
+<img alt="_images/ReleaseNotes-Label_text_align.png" src="_images/ReleaseNotes-Label_text_align.png" />
+</li>
+</ul>
+</div>
+<div class="section" id="january-2020">
+<h3><a class="toc-backref" href="#id77">January 2020</a><a class="headerlink" href="#january-2020" title="Permalink to this headline">¶</a></h3>
+<p>New built-in variables were added:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">iii</span></code> - Intraday Intensity Index</li>
+<li><code class="docutils literal notranslate"><span class="pre">wvad</span></code> - Williams Variable Accumulation/Distribution</li>
+<li><code class="docutils literal notranslate"><span class="pre">wad</span></code> - Williams Accumulation/Distribution</li>
+<li><code class="docutils literal notranslate"><span class="pre">obv</span></code> - On Balance Volume</li>
+<li><code class="docutils literal notranslate"><span class="pre">pvt</span></code> - Price-Volume Trend</li>
+<li><code class="docutils literal notranslate"><span class="pre">nvi</span></code> - Negative Volume Index</li>
+<li><code class="docutils literal notranslate"><span class="pre">pvi</span></code> - Positive Volume Index</li>
+</ul>
+<p>New parameters were added for <code class="docutils literal notranslate"><span class="pre">strategy.close()</span></code>:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">qty</span></code> -  the number of contracts/shares/lots/units to exit a trade with</li>
+<li><code class="docutils literal notranslate"><span class="pre">qty_percent</span></code> - defines the percentage of entered contracts/shares/lots/units to exit a trade with</li>
+<li><code class="docutils literal notranslate"><span class="pre">comment</span></code> - addtional notes on the order</li>
+</ul>
+<p>New parameter was added for <code class="docutils literal notranslate"><span class="pre">strategy.close_all</span></code>:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">comment</span></code> - additional notes on the order</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id11">
+<h2><a class="toc-backref" href="#id78">2019</a><a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="december-2019">
+<h3><a class="toc-backref" href="#id79">December 2019</a><a class="headerlink" href="#december-2019" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p class="first">Warning messages were added.</p>
+<p>For example, if you don’t specify exit parameters for <code class="docutils literal notranslate"><span class="pre">strategy.exit</span></code> - <code class="docutils literal notranslate"><span class="pre">profit</span></code>, <code class="docutils literal notranslate"><span class="pre">limit</span></code>, <code class="docutils literal notranslate"><span class="pre">loss</span></code>, <code class="docutils literal notranslate"><span class="pre">stop</span></code> or one of the following pairs: <code class="docutils literal notranslate"><span class="pre">trail_offset</span></code> and <code class="docutils literal notranslate"><span class="pre">trail_price</span></code> / <code class="docutils literal notranslate"><span class="pre">trail_points</span></code> - you will see a warning message in the console in the Pine Script<sup>®</sup> editor.</p>
+</li>
+<li><p class="first">Increased the maximum number of arguments in <code class="docutils literal notranslate"><span class="pre">max</span></code>, <code class="docutils literal notranslate"><span class="pre">min</span></code>, <code class="docutils literal notranslate"><span class="pre">avg</span></code> functions. Now you can use up to ten arguments in these functions.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="october-2019">
+<h3><a class="toc-backref" href="#id80">October 2019</a><a class="headerlink" href="#october-2019" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">plotchar()</span></code> function now supports most of the Unicode symbols:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=4
+study(&quot;My Script&quot;, overlay=true)
+plotchar(open &gt; close, char=&quot;🐻&quot;)
+</pre></div>
+</div>
+<img alt="_images/ReleaseNotes-Bears_in_plotchar.png" src="_images/ReleaseNotes-Bears_in_plotchar.png" />
+</li>
+<li><p class="first">New <code class="docutils literal notranslate"><span class="pre">bordercolor</span></code> argument of the <code class="docutils literal notranslate"><span class="pre">plotcandle()</span></code> function allows you to change the color of candles’ borders:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=4
+study(&quot;My Script&quot;)
+plotcandle(open, high, low, close, title=&#39;Title&#39;, color = open &lt; close ? color.green : color.red, wickcolor=color.black, bordercolor=color.orange)
+</pre></div>
+</div>
+</li>
+<li><p class="first">New variables added:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">syminfo.description</span></code> - returns a description of the current symbol</li>
+<li><code class="docutils literal notranslate"><span class="pre">syminfo.currency</span></code> - returns the currency code of the current symbol (EUR, USD, etc.)</li>
+<li><code class="docutils literal notranslate"><span class="pre">syminfo.type</span></code> - returns the type of the current symbol (stock, futures, index, etc.)</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="september-2019">
+<h3><a class="toc-backref" href="#id81">September 2019</a><a class="headerlink" href="#september-2019" title="Permalink to this headline">¶</a></h3>
+<p>New parameters to the <code class="docutils literal notranslate"><span class="pre">strategy</span></code> function were added:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">process_orders_on_close</span></code> allows the broker emulator to try to execute orders after calculating the strategy at the bar’s close</li>
+<li><code class="docutils literal notranslate"><span class="pre">close_entries_rule</span></code> allows to define the sequence used for closing positions</li>
+</ul>
+<p>Some fixes were made:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">fill()</span></code> function now works correctly with <code class="docutils literal notranslate"><span class="pre">na</span></code> as the <code class="docutils literal notranslate"><span class="pre">color</span></code> parameter value</li>
+<li><code class="docutils literal notranslate"><span class="pre">sign()</span></code> function now calculates correctly for literals and constants</li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">str.replace_all(source,</span> <span class="pre">target,</span> <span class="pre">replacement)</span></code> function was added. It replaces each occurrence of a <code class="docutils literal notranslate"><span class="pre">target</span></code> string in the <code class="docutils literal notranslate"><span class="pre">source</span></code> string with a <code class="docutils literal notranslate"><span class="pre">replacement</span></code> string</p>
+</div>
+<div class="section" id="july-august-2019">
+<h3><a class="toc-backref" href="#id82">July-August 2019</a><a class="headerlink" href="#july-august-2019" title="Permalink to this headline">¶</a></h3>
+<p>New variables added:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">timeframe.isseconds</span></code> returns true when current resolution is in seconds</li>
+<li><code class="docutils literal notranslate"><span class="pre">timeframe.isminutes</span></code> returns true when current resolution is in minutes</li>
+<li><code class="docutils literal notranslate"><span class="pre">time_close</span></code> returns the current bar’s close time</li>
+</ul>
+<p>The behavior of some functions, variables and operators has changed:</p>
+<ul>
+<li><p class="first">The <code class="docutils literal notranslate"><span class="pre">time</span></code> variable returns the correct open time of the bar for more special cases than before</p>
+</li>
+<li><p class="first">An optional <em>seconds</em> parameter of the <code class="docutils literal notranslate"><span class="pre">timestamp()</span></code> function allows you to set the time to within seconds</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">security()</span></code> function:</p>
+<ul>
+<li><p class="first">Added the possibility of requesting resolutions in seconds:</p>
+<p>1, 5, 15, 30 seconds (chart resolution should be less than or equal to the requested resolution)</p>
+</li>
+<li><p class="first">Reduced the maximum value that can be requested in some of the other resolutions:</p>
+<p>from 1 to 1440 minutes</p>
+<p>from 1 to 365 days</p>
+<p>from 1 to 52 weeks</p>
+<p>from 1 to 12 months</p>
+</li>
+</ul>
+</li>
+<li><p class="first">Changes to the evaluation of ternary operator branches:</p>
+<p>In Pine Script<sup>®</sup> v3, during the execution of a ternary operator, both its branches are calculated, so when this script is added to the chart, a long position is opened, even if the long() function is not called:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=3
+strategy(title = &quot;My Strategy&quot;)
+long() =&gt;
+    strategy.entry(&quot;long&quot;, true, 1, when = open &gt; high[1])
+    1
+c = 0
+c := true ? 1 : long()
+plot(c)
+</pre></div>
+</div>
+<p>Pine Script<sup>®</sup> v4 contains built-in functions with side effects ( <code class="docutils literal notranslate"><span class="pre">line.new</span></code> and <code class="docutils literal notranslate"><span class="pre">label.new</span></code> ). If calls to these functions are present in both branches of a ternary operator, both function calls would be executed following v3 conventions. Thus, in Pine Script<sup>®</sup> v4, only the branch corresponding to the evaluated condition is calculated. While this provides a viable solution in some cases, it will modify the behavior of scripts which depended on the fact that both branches of a ternary were evaluated. The solution is to pre-evaluate expressions prior to the ternary operator. The conversion utility takes this requirement into account when converting scripts from v3 to v4, so that script behavior will be identical in v3 and v4.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="june-2019">
+<h3><a class="toc-backref" href="#id83">June 2019</a><a class="headerlink" href="#june-2019" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Support for drawing objects. Added <em>label</em> and <em>line</em> drawings</li>
+<li><code class="docutils literal notranslate"><span class="pre">var</span></code> keyword for one time variable initialization</li>
+<li>Type system improvements:<ul>
+<li><em>series string</em> data type</li>
+<li>functions for explicit type casting</li>
+<li>syntax for explicit variable type declaration</li>
+<li>new <em>input</em> type forms</li>
+</ul>
+</li>
+<li>Renaming of built-ins and a version 3 to 4 converter utility</li>
+<li><code class="docutils literal notranslate"><span class="pre">max_bars_back</span></code> function to control series variables internal history buffer sizes</li>
+<li>Pine Script<sup>®</sup> documentation versioning</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id12">
+<h2><a class="toc-backref" href="#id84">2018</a><a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="october-2018">
+<h3><a class="toc-backref" href="#id85">October 2018</a><a class="headerlink" href="#october-2018" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>To increase the number of indicators available to the whole community, Invite-Only scripts can now be published by Premium users only.</li>
+</ul>
+</div>
+<div class="section" id="april-2018">
+<h3><a class="toc-backref" href="#id86">April 2018</a><a class="headerlink" href="#april-2018" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Improved the Strategy Tester by reworking the Maximum Drawdown calculation formula.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id13">
+<h2><a class="toc-backref" href="#id87">2017</a><a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="august-2017">
+<h3><a class="toc-backref" href="#id88">August 2017</a><a class="headerlink" href="#august-2017" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>With the new argument <code class="docutils literal notranslate"><span class="pre">show_last</span></code> in the plot-type functions, you can restrict the number of bars that the plot is displayed on.</li>
+</ul>
+</div>
+<div class="section" id="june-2017">
+<h3><a class="toc-backref" href="#id89">June 2017</a><a class="headerlink" href="#june-2017" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>A major script publishing improvement: it is now possible to update your script without publishing a new one via the Update button in the publishing dialog.</li>
+</ul>
+</div>
+<div class="section" id="may-2017">
+<h3><a class="toc-backref" href="#id90">May 2017</a><a class="headerlink" href="#may-2017" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Expanded the type system by adding a new type of constants that can be calculated during compilation.</li>
+</ul>
+</div>
+<div class="section" id="april-2017">
+<h3><a class="toc-backref" href="#id91">April 2017</a><a class="headerlink" href="#april-2017" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Expanded the keyword argument functionality: it is now possible to use keyword arguments in all built-in functions.</li>
+<li>A new <code class="docutils literal notranslate"><span class="pre">barstate.isconfirmed</span></code> variable has been added to the list of variables that return bar status. It lets you create indicators that are calculated based on the closed bars only.</li>
+<li>The <code class="docutils literal notranslate"><span class="pre">options</span></code> argument for the <code class="docutils literal notranslate"><span class="pre">input()</span></code> function creates an input with a set of options defined by the script’s author.</li>
+</ul>
+</div>
+<div class="section" id="march-2017">
+<h3><a class="toc-backref" href="#id92">March 2017</a><a class="headerlink" href="#march-2017" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Pine Script<sup>®</sup> v3 is here! Some important changes:<ul>
+<li>Changes to the default behavior of the <code class="docutils literal notranslate"><span class="pre">security()</span></code> function: it can no longer access the future data by default. This can be changes with the <code class="docutils literal notranslate"><span class="pre">lookahead</span></code> parameter.</li>
+<li>An implicit conversion of boolean values to numeric values was replaced with an implicit conversion of numeric values (integer and float) to boolean values.</li>
+<li>Self-referenced and forward-referenced variables were removed. Any PineScript code that used those language constructions can be equivalently rewritten using mutable variables.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="february-2017">
+<h3><a class="toc-backref" href="#id93">February 2017</a><a class="headerlink" href="#february-2017" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Several improvements to the strategy tester and the strategy report:<ul>
+<li>New Buy &amp; Hold equity graph – a new graph that lets you compare performance of your strategy versus a “buy and hold”, i.e if you just bought a security and held onto it without trading.</li>
+<li>Added percentage values to the absolute currency values.</li>
+<li>Added Buy &amp; Hold Return to display the final value of Buy &amp; Hold Equity based on last price.</li>
+<li>Added Sharpe Ratio – it shows the relative effectiveness of the investment portfolio (security), a measure that indicates the average return minus the risk-free return divided by the standard deviation of return on an investment.</li>
+<li>Slippage lets you simulate a situation when orders are filled at a worse price than expected. It can be set through the Properties dialog or through the slippage argument in the <code class="docutils literal notranslate"><span class="pre">strategy()</span></code> function.</li>
+<li>Commission allows yot to add commission for placed orders in percent of order value, fixed price or per contract. The amount of commission paid is shown in the Commission Paid field. The commission size and its type can be set through the Properties dialog or through the commission_type and commission_value arguments in the <code class="docutils literal notranslate"><span class="pre">strategy()</span></code> function.</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id14">
+<h2><a class="toc-backref" href="#id94">2016</a><a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="december-2016">
+<h3><a class="toc-backref" href="#id95">December 2016</a><a class="headerlink" href="#december-2016" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Added invite-only scripts. The invite-only indicators are visible in the Community Scripts, but nobody can use them without explicit permission from the author, and only the author can see the source code.</li>
+</ul>
+</div>
+<div class="section" id="october-2016">
+<h3><a class="toc-backref" href="#id96">October 2016</a><a class="headerlink" href="#october-2016" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Introduded indicator revisions. Each time an indicator is saved, it gets a new revision, and it is possible to easily switch to any past revision from the Pine Script<sup>®</sup> Editor.</li>
+</ul>
+</div>
+<div class="section" id="september-2016">
+<h3><a class="toc-backref" href="#id97">September 2016</a><a class="headerlink" href="#september-2016" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>It is now possible to publish indicators with protected source code. These indicators are available in the public Script Library, and any user can use them, but only the author can see the source code.</li>
+</ul>
+</div>
+<div class="section" id="july-2016">
+<h3><a class="toc-backref" href="#id98">July 2016</a><a class="headerlink" href="#july-2016" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Improved the behavior of the <code class="docutils literal notranslate"><span class="pre">fill()</span></code> function: one call can now support several different colors.</li>
+</ul>
+</div>
+<div class="section" id="march-2016">
+<h3><a class="toc-backref" href="#id99">March 2016</a><a class="headerlink" href="#march-2016" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Color type variables now have an additional parameter to set default transparency. The transparency can be set with the <code class="docutils literal notranslate"><span class="pre">color.new()</span></code> function, or by adding an alpha-channel value to a hex color code.</li>
+</ul>
+</div>
+<div class="section" id="february-2016">
+<h3><a class="toc-backref" href="#id100">February 2016</a><a class="headerlink" href="#february-2016" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Added <code class="docutils literal notranslate"><span class="pre">for</span></code> loops and keywords <code class="docutils literal notranslate"><span class="pre">break</span></code> and <code class="docutils literal notranslate"><span class="pre">continue</span></code>.</li>
+<li>Pine Script<sup>®</sup> now supports mutable variables! Use the <code class="docutils literal notranslate"><span class="pre">:=</span></code> operator to assign a new value to a variable that has already been defined.</li>
+<li>Multiple improvements and bug fixes for strategies.</li>
+</ul>
+</div>
+<div class="section" id="january-2016">
+<h3><a class="toc-backref" href="#id101">January 2016</a><a class="headerlink" href="#january-2016" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>A new <code class="docutils literal notranslate"><span class="pre">alertcondition()</span></code> function allows for creating custom alert conditions in Pine Script<sup>®</sup>-based indicators.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id15">
+<h2><a class="toc-backref" href="#id102">2015</a><a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="october-2015">
+<h3><a class="toc-backref" href="#id103">October 2015</a><a class="headerlink" href="#october-2015" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Pine has graduated to v2! The new version of Pine Script<sup>®</sup> added support for <code class="docutils literal notranslate"><span class="pre">if</span></code> statements, making it easier to write more readable and concise code.</li>
+</ul>
+</div>
+<div class="section" id="september-2015">
+<h3><a class="toc-backref" href="#id104">September 2015</a><a class="headerlink" href="#september-2015" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Added backtesting functionality to Pine Script<sup>®</sup>. It is now possible to create trading strategies, i.e. scripts that can send, modify and cancel orders to buy or sell. Strategies allow you to perform backtesting (emulation of strategy trading on historical data) and forward testing (emulation of strategy trading on real-time data) according to your algorithms. Detailed information about the strategy’s calculations and the order fills can be seen in the newly added Strategy Tester tab.</li>
+</ul>
+</div>
+<div class="section" id="july-2015">
+<h3><a class="toc-backref" href="#id105">July 2015</a><a class="headerlink" href="#july-2015" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>A new <code class="docutils literal notranslate"><span class="pre">editable</span></code> parameter allows hiding the plot from the Style menu in the indicator settings so that it is not possible to edit its style. The parameter has been added to all the following functions: all plot-type functions, <code class="docutils literal notranslate"><span class="pre">barcolor()</span></code>, <code class="docutils literal notranslate"><span class="pre">bgcolor()</span></code>, <code class="docutils literal notranslate"><span class="pre">hline()</span></code>, and <code class="docutils literal notranslate"><span class="pre">fill()</span></code>.</li>
+</ul>
+</div>
+<div class="section" id="june-2015">
+<h3><a class="toc-backref" href="#id106">June 2015</a><a class="headerlink" href="#june-2015" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Added two new functions to display custom barsets using PineScipt: <code class="docutils literal notranslate"><span class="pre">plotbar()</span></code> and <code class="docutils literal notranslate"><span class="pre">plotcandle()</span></code>.</li>
+</ul>
+</div>
+<div class="section" id="april-2015">
+<h3><a class="toc-backref" href="#id107">April 2015</a><a class="headerlink" href="#april-2015" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Added two new shapes to the <code class="docutils literal notranslate"><span class="pre">plotshape()</span></code> function: shape.labelup and shape.labeldown.</li>
+<li>PineScipt Editor has been improved and moved to a new panel at the bottom of the page.</li>
+<li>Added a new <code class="docutils literal notranslate"><span class="pre">step</span></code> argument for the <code class="docutils literal notranslate"><span class="pre">input()</span></code> function, allowing to specify the step size for the indicator’s inputs.</li>
+</ul>
+</div>
+<div class="section" id="march-2015">
+<h3><a class="toc-backref" href="#id108">March 2015</a><a class="headerlink" href="#march-2015" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Added support for inputs with the <code class="docutils literal notranslate"><span class="pre">source</span></code> type to the <code class="docutils literal notranslate"><span class="pre">input()</span></code> function, allowing to select the data source for the indicator’s calculations from its settings.</li>
+</ul>
+</div>
+<div class="section" id="february-2015">
+<h3><a class="toc-backref" href="#id109">February 2015</a><a class="headerlink" href="#february-2015" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Added a new <code class="docutils literal notranslate"><span class="pre">text</span></code> argument to <code class="docutils literal notranslate"><span class="pre">plotshape()</span></code> and <code class="docutils literal notranslate"><span class="pre">plotchar()</span></code> functions.</li>
+<li>Added four new shapes to the <code class="docutils literal notranslate"><span class="pre">plotshape()</span></code> function: shape.arrowup, shape.arrowdown, shape.square, shape.diamond.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id16">
+<h2><a class="toc-backref" href="#id110">2014</a><a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="august-2014">
+<h3><a class="toc-backref" href="#id111">August 2014</a><a class="headerlink" href="#august-2014" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Improved the script sharing capabilities, changed the layout of the Indicators menu and separated published scripts from ideas.</li>
+</ul>
+</div>
+<div class="section" id="july-2014">
+<h3><a class="toc-backref" href="#id112">July 2014</a><a class="headerlink" href="#july-2014" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Added three new plotting functions, <code class="docutils literal notranslate"><span class="pre">plotshape()</span></code>, <code class="docutils literal notranslate"><span class="pre">plotchar()</span></code>, and <code class="docutils literal notranslate"><span class="pre">plotarrow()</span></code> for situations when you need to highlight specific bars on a chart without drawing a line.</li>
+<li>Integrated QUANDL data into Pine Script<sup>®</sup>. The data can be accessed by passing the QUANDL ticker to the <code class="docutils literal notranslate"><span class="pre">security</span></code> function.</li>
+</ul>
+</div>
+<div class="section" id="june-2014">
+<h3><a class="toc-backref" href="#id113">June 2014</a><a class="headerlink" href="#june-2014" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Added Pine Script<sup>®</sup> sharing, enabling programmers and traders to share their scripts with the rest of the TradingView community.</li>
+</ul>
+</div>
+<div class="section" id="april-2014">
+<h3><a class="toc-backref" href="#id114">April 2014</a><a class="headerlink" href="#april-2014" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Added line wrapping.</li>
+</ul>
+</div>
+<div class="section" id="february-2014">
+<h3><a class="toc-backref" href="#id115">February 2014</a><a class="headerlink" href="#february-2014" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Added support for inputs, allowing users to edit the indicator inputs through the properties window, without needing to edit the Pine script.</li>
+<li>Added self-referencing variables.</li>
+<li>Added support for multiline functions.</li>
+<li>Implemented the type-casting mechanism, automatically casting constant and simple float and int values to series when it is required.</li>
+<li>Added several new functions and improved the existing ones:<ul>
+<li><code class="docutils literal notranslate"><span class="pre">barssince()</span></code> and <code class="docutils literal notranslate"><span class="pre">valuewhen()</span></code> allow you to check conditions on historical data easier.</li>
+<li>The new <code class="docutils literal notranslate"><span class="pre">barcolor()</span></code> function lets you specify a color for a bar based on filling of a certain condition.</li>
+<li>Similar to the <code class="docutils literal notranslate"><span class="pre">barcolor()</span></code> function, the <code class="docutils literal notranslate"><span class="pre">bgcolor()</span></code> function changes the color of the background.</li>
+<li>Reworked the <code class="docutils literal notranslate"><span class="pre">security()</span></code> function, further expanding its functionality.</li>
+<li>Improved the <code class="docutils literal notranslate"><span class="pre">fill()</span></code> function, enabling it to be used more than once in one script.</li>
+<li>Added the <code class="docutils literal notranslate"><span class="pre">round()</span></code> function to round and convert float values to integers.</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id17">
+<h2><a class="toc-backref" href="#id116">2013</a><a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>The first version of Pine Script<sup>®</sup> is introduced to all TradingView users, initially as an open beta, on December 13th.</li>
+</ul>
+<a class="reference external image-reference" href="https://www.tradingview.com/"><div align="center" class="align-center"><img alt="_images/TradingView-Logo-Block.svg" src="_images/TradingView-Logo-Block.svg" width="200px" /></div>
+</a>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="Error_messages.html" title="previous chapter (use the left arrow)">Error messages</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="migration_guides/index.html" title="next chapter (use the right arrow)">Migration guides</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="migration_guides/index.html" title="Migration guides"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Error_messages.html" title="Error messages"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="_static/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="_static/js/theme.js"></script>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Options</span>
+    v: v5
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Languages</dt>
+      
+        <strong>
+        <dd><a href="Release_notes.html">en</a></dd>
+        </strong>
+      
+    </dl>
+    <dl>
+      <dt>Versions</dt>
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v3/Release_notes.html">v3</a></dd>
+        
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v4/Release_notes.html">v4</a></dd>
+        
+      
+        <strong>
+        <dd><a href="Release_notes.html">v5</a></dd>
+        </strong>
+      
+    </dl>
+  </div>
+</div>
+<script type="text/javascript">
+    jQuery(function () {
+        SphinxRtdTheme.Navigation.enable(false);
+    });
+</script>
+  <div class="footer">
+    &copy; Copyright 2023, TradingView.
+  </div>
+  </body>
+
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/Release_notes.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:55:59 GMT -->
+</html>

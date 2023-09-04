@@ -1,0 +1,471 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/language/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:55:56 GMT -->
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Language &#8212; Pine Script® v5 User Manual v5 documentation</title>
+    <link rel="stylesheet" href="../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../../../../static.tradingview.com/static/bundles/pine-highlighter-v01.js"></script>
+    <script type="text/javascript" src="../_static/highlight-pine-code.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Execution model" href="Execution_model.html" />
+    <link rel="prev" title="Next steps" href="../primer/Next_steps.html" />
+  
+   
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Execution_model.html" title="Execution model"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../primer/Next_steps.html" title="Next steps"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="../index.html" class="text-logo">Pine Script<sup>®</sup> v5 User Manual</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Introduction.html">Welcome to Pine Script<sup>®</sup> v5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primer/index.html">Pine Script<sup>®</sup> primer</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Language</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Execution_model.html">Execution model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Time_series.html">Time series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Script_structure.html">Script structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Identifiers.html">Identifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variable_declarations.html">Variable declarations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Conditional_structures.html">Conditional structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Type_system.html">Type system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Built-ins.html">Built-ins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="User-defined_functions.html">User-defined functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Objects.html">Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Methods.html">Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Arrays.html">Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Matrices.html">Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Maps.html">Maps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../writing/index.html">Writing scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Error_messages.html">Error messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Release_notes.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migration_guides/index.html">Migration guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Where_can_I_get_more_information.html">Where can I get more information?</a></li>
+</ul>
+
+    
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="https://www.tradingview.com/pine-script-docs/en/v5/search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../index.html">User Manual</a></li>
+              
+              <li>Language</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <div class="section" id="language">
+<span id="indexlanguage"></span><h1>Language<a class="headerlink" href="#language" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound" id="languagetoc">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Execution_model.html">Execution model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Execution_model.html#calculation-based-on-historical-bars">Calculation based on historical bars</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Execution_model.html#calculation-based-on-realtime-bars">Calculation based on realtime bars</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Execution_model.html#events-triggering-the-execution-of-a-script">Events triggering the execution of a script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Execution_model.html#more-information">More information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Execution_model.html#historical-values-of-functions">Historical values of functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Execution_model.html#why-this-behavior">Why this behavior?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Execution_model.html#exceptions">Exceptions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Time_series.html">Time series</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Script_structure.html">Script structure</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Script_structure.html#version">Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Script_structure.html#declaration-statement">Declaration statement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Script_structure.html#code">Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Script_structure.html#comments">Comments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Script_structure.html#line-wrapping">Line wrapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Script_structure.html#compiler-annotations">Compiler annotations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Identifiers.html">Identifiers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Operators.html">Operators</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Operators.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Operators.html#arithmetic-operators">Arithmetic operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Operators.html#comparison-operators">Comparison operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Operators.html#logical-operators">Logical operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Operators.html#ternary-operator">`?:` ternary operator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Operators.html#history-referencing-operator">`[ ]` history-referencing operator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Operators.html#operator-precedence">Operator precedence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Operators.html#assignement-operator">`=` assignement operator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Operators.html#reassignement-operator">`:=` reassignement operator</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Variable_declarations.html">Variable declarations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Variable_declarations.html#introduction">Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Variable_declarations.html#initialization-with-na">Initialization with `na`</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Variable_declarations.html#tuple-declarations">Tuple declarations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Variable_declarations.html#variable-reassignment">Variable reassignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variable_declarations.html#declaration-modes">Declaration modes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Variable_declarations.html#on-each-bar">On each bar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Variable_declarations.html#var">`var`</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Variable_declarations.html#varip">`varip`</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Conditional_structures.html">Conditional structures</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Conditional_structures.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Conditional_structures.html#if-structure">`if` structure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Conditional_structures.html#if-used-for-its-side-effects">`if` used for its side effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Conditional_structures.html#if-used-to-return-a-value">`if` used to return a value</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Conditional_structures.html#switch-structure">`switch` structure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Conditional_structures.html#switch-with-an-expression">`switch` with an expression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Conditional_structures.html#switch-without-an-expression">`switch` without an expression</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Conditional_structures.html#matching-local-block-type-requirement">Matching local block type requirement</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Loops.html">Loops</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Loops.html#introduction">Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Loops.html#when-loops-are-not-needed">When loops are not needed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Loops.html#when-loops-are-necessary">When loops are necessary</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Loops.html#for">`for`</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loops.html#while">`while`</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Type_system.html">Type system</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Type_system.html#introduction">Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Type_system.html#forms">Forms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Type_system.html#types">Types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Type_system.html#using-forms-and-types">Using forms and types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Type_system.html#id1">Forms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Type_system.html#id2">Types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Type_system.html#na-value">`na` value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Type_system.html#type-templates">Type templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Type_system.html#type-casting">Type casting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Type_system.html#tuples">Tuples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Built-ins.html">Built-ins</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Built-ins.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Built-ins.html#built-in-variables">Built-in variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Built-ins.html#built-in-functions">Built-in functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="User-defined_functions.html">User-defined functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="User-defined_functions.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="User-defined_functions.html#single-line-functions">Single-line functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="User-defined_functions.html#multi-line-functions">Multi-line functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="User-defined_functions.html#scopes-in-the-script">Scopes in the script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="User-defined_functions.html#functions-that-return-multiple-results">Functions that return multiple results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="User-defined_functions.html#limitations">Limitations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Objects.html">Objects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Objects.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Objects.html#creating-objects">Creating objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Objects.html#changing-field-values">Changing field values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Objects.html#collecting-objects">Collecting objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Objects.html#copying-objects">Copying objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Objects.html#shadowing">Shadowing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Methods.html">Methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Methods.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Methods.html#built-in-methods">Built-in methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Methods.html#user-defined-methods">User-defined methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Methods.html#method-overloading">Method overloading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Methods.html#advanced-example">Advanced example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Arrays.html">Arrays</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Arrays.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Arrays.html#declaring-arrays">Declaring arrays</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Arrays.html#using-var-and-varip-keywords">Using `var` and `varip` keywords</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Arrays.html#reading-and-writing-array-elements">Reading and writing array elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Arrays.html#looping-through-array-elements">Looping through array elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Arrays.html#scope">Scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Arrays.html#history-referencing">History referencing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Arrays.html#inserting-and-removing-array-elements">Inserting and removing array elements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Arrays.html#inserting">Inserting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Arrays.html#removing">Removing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Arrays.html#using-an-array-as-a-stack">Using an array as a stack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Arrays.html#using-an-array-as-a-queue">Using an array as a queue</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Arrays.html#calculations-on-arrays">Calculations on arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Arrays.html#manipulating-arrays">Manipulating arrays</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Arrays.html#concatenation">Concatenation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Arrays.html#copying">Copying</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Arrays.html#joining">Joining</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Arrays.html#sorting">Sorting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Arrays.html#reversing">Reversing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Arrays.html#slicing">Slicing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Arrays.html#searching-arrays">Searching arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Arrays.html#error-handling">Error handling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Arrays.html#index-xx-is-out-of-bounds-array-size-is-yy">Index xx is out of bounds. Array size is yy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Arrays.html#cannot-call-array-methods-when-id-of-array-is-na">Cannot call array methods when ID of array is ‘na’</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Arrays.html#array-is-too-large-maximum-size-is-100000">Array is too large. Maximum size is 100000</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Arrays.html#cannot-create-an-array-with-a-negative-size">Cannot create an array with a negative size</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Arrays.html#cannot-use-shift-if-array-is-empty">Cannot use <cite>shift()</cite> if array is empty.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Arrays.html#cannot-use-pop-if-array-is-empty">Cannot use <cite>pop()</cite> if array is empty.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Arrays.html#index-from-should-be-less-than-index-to">Index ‘from’ should be less than index ‘to’</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Arrays.html#slice-is-out-of-bounds-of-the-parent-array">Slice is out of bounds of the parent array</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Matrices.html">Matrices</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Matrices.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Matrices.html#declaring-a-matrix">Declaring a matrix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Matrices.html#using-var-and-varip-keywords">Using `var` and `varip` keywords</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Matrices.html#reading-and-writing-matrix-elements">Reading and writing matrix elements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Matrices.html#matrix-get-and-matrix-set">`matrix.get()` and `matrix.set()`</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Matrices.html#matrix-fill">`matrix.fill()`</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Matrices.html#rows-and-columns">Rows and columns</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Matrices.html#retrieving">Retrieving</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Matrices.html#inserting">Inserting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Matrices.html#removing">Removing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Matrices.html#swapping">Swapping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Matrices.html#replacing">Replacing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Matrices.html#looping-through-a-matrix">Looping through a matrix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Matrices.html#for">`for`</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Matrices.html#for-in">`for…in`</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Matrices.html#copying-a-matrix">Copying a matrix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Matrices.html#shallow-copies">Shallow copies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Matrices.html#deep-copies">Deep copies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Matrices.html#submatrices">Submatrices</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Matrices.html#scope-and-history">Scope and history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Matrices.html#inspecting-a-matrix">Inspecting a matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Matrices.html#manipulating-a-matrix">Manipulating a matrix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Matrices.html#reshaping">Reshaping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Matrices.html#reversing">Reversing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Matrices.html#transposing">Transposing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Matrices.html#sorting">Sorting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Matrices.html#concatenating">Concatenating</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Matrices.html#matrix-calculations">Matrix calculations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Matrices.html#element-wise-calculations">Element-wise calculations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Matrices.html#special-calculations">Special calculations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Matrices.html#error-handling">Error handling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Matrices.html#the-row-column-index-xx-is-out-of-bounds-row-column-size-is-yy">The row/column index (xx) is out of bounds, row/column size is (yy).</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Matrices.html#the-array-size-does-not-match-the-number-of-rows-columns-in-the-matrix">The array size does not match the number of rows/columns in the matrix.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Matrices.html#cannot-call-matrix-methods-when-the-id-of-matrix-is-na">Cannot call matrix methods when the ID of matrix is ‘na’.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Matrices.html#matrix-is-too-large-maximum-size-of-the-matrix-is-100-000-elements">Matrix is too large. Maximum size of the matrix is 100,000 elements.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Matrices.html#the-row-column-index-must-be-0-from-row-column-to-row-column">The row/column index must be 0 &lt;= from_row/column &lt; to_row/column.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Matrices.html#matrices-id1-and-id2-must-have-an-equal-number-of-rows-and-columns-to-be-added">Matrices ‘id1’ and ‘id2’ must have an equal number of rows and columns to be added.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Matrices.html#the-number-of-columns-in-the-id1-matrix-must-equal-the-number-of-rows-in-the-matrix-or-the-number-of-elements-in-the-array-id2">The number of columns in the ‘id1’ matrix must equal the number of rows in the matrix (or the number of elements in the array) ‘id2’.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Matrices.html#operation-not-available-for-non-square-matrices">Operation not available for non-square matrices.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Maps.html">Maps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Maps.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Maps.html#declaring-a-map">Declaring a map</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Maps.html#using-var-and-varip-keywords">Using `var` and `varip` keywords</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Maps.html#reading-and-writing">Reading and writing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Maps.html#putting-and-getting-key-value-pairs">Putting and getting key-value pairs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Maps.html#inspecting-keys-and-values">Inspecting keys and values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Maps.html#removing-key-value-pairs">Removing key-value pairs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Maps.html#combining-maps">Combining maps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Maps.html#looping-through-a-map">Looping through a map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Maps.html#copying-a-map">Copying a map</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Maps.html#shallow-copies">Shallow copies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Maps.html#deep-copies">Deep copies</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Maps.html#scope-and-history">Scope and history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Maps.html#maps-of-other-collections">Maps of other collections</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="../primer/Next_steps.html" title="previous chapter (use the left arrow)">Next steps</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="Execution_model.html" title="next chapter (use the right arrow)">Execution model</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Execution_model.html" title="Execution model"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../primer/Next_steps.html" title="Next steps"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="../_static/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="../_static/js/theme.js"></script>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Options</span>
+    v: v5
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Languages</dt>
+      
+        <strong>
+        <dd><a href="index.html">en</a></dd>
+        </strong>
+      
+    </dl>
+    <dl>
+      <dt>Versions</dt>
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v3/language/index.html">v3</a></dd>
+        
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v4/language/index.html">v4</a></dd>
+        
+      
+        <strong>
+        <dd><a href="index.html">v5</a></dd>
+        </strong>
+      
+    </dl>
+  </div>
+</div>
+<script type="text/javascript">
+    jQuery(function () {
+        SphinxRtdTheme.Navigation.enable(false);
+    });
+</script>
+  <div class="footer">
+    &copy; Copyright 2023, TradingView.
+  </div>
+  </body>
+
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/language/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:55:56 GMT -->
+</html>

@@ -1,0 +1,956 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/language/Type_system.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:56:03 GMT -->
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Type system &#8212; Pine Script® v5 User Manual v5 documentation</title>
+    <link rel="stylesheet" href="../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../../../../static.tradingview.com/static/bundles/pine-highlighter-v01.js"></script>
+    <script type="text/javascript" src="../_static/highlight-pine-code.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Built-ins" href="Built-ins.html" />
+    <link rel="prev" title="Loops" href="Loops.html" />
+  
+   
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Built-ins.html" title="Built-ins"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Loops.html" title="Loops"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Language</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="../index.html" class="text-logo">Pine Script<sup>®</sup> v5 User Manual</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Introduction.html">Welcome to Pine Script<sup>®</sup> v5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primer/index.html">Pine Script<sup>®</sup> primer</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Language</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Execution_model.html">Execution model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Time_series.html">Time series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Script_structure.html">Script structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Identifiers.html">Identifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variable_declarations.html">Variable declarations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Conditional_structures.html">Conditional structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loops.html">Loops</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Type system</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-forms-and-types">Using forms and types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#na-value">`na` value</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#type-templates">Type templates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#type-casting">Type casting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tuples">Tuples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Built-ins.html">Built-ins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="User-defined_functions.html">User-defined functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Objects.html">Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Methods.html">Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Arrays.html">Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Matrices.html">Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Maps.html">Maps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../writing/index.html">Writing scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Error_messages.html">Error messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Release_notes.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migration_guides/index.html">Migration guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Where_can_I_get_more_information.html">Where can I get more information?</a></li>
+</ul>
+
+    
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="https://www.tradingview.com/pine-script-docs/en/v5/search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../index.html">User Manual</a></li>
+              
+                <li><a href="index.html">Language</a></li>
+              
+              <li>Type system</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <a class="reference external image-reference" href="../Introduction.html"><div align="right" class="align-right"><img alt="Pine Script® logo" height="100" src="../_images/Pine-script-logo.svg" width="100" /></div>
+</a>
+<div class="section" id="type-system">
+<span id="pagetypesystem"></span><h1>Type system<a class="headerlink" href="#type-system" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#introduction" id="id3">Introduction</a><ul>
+<li><a class="reference internal" href="#forms" id="id4">Forms</a></li>
+<li><a class="reference internal" href="#types" id="id5">Types</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#using-forms-and-types" id="id6">Using forms and types</a><ul>
+<li><a class="reference internal" href="#id1" id="id7">Forms</a><ul>
+<li><a class="reference internal" href="#const" id="id8">const</a></li>
+<li><a class="reference internal" href="#input" id="id9">input</a></li>
+<li><a class="reference internal" href="#simple" id="id10">simple</a></li>
+<li><a class="reference internal" href="#series" id="id11">series</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id2" id="id12">Types</a><ul>
+<li><a class="reference internal" href="#int" id="id13">int</a></li>
+<li><a class="reference internal" href="#float" id="id14">float</a></li>
+<li><a class="reference internal" href="#bool" id="id15">bool</a></li>
+<li><a class="reference internal" href="#color" id="id16">color</a></li>
+<li><a class="reference internal" href="#string" id="id17">string</a></li>
+<li><a class="reference internal" href="#plot-and-hline" id="id18">plot and hline</a></li>
+<li><a class="reference internal" href="#line-linefill-label-box-and-table" id="id19">line, linefill, label, box and table</a></li>
+<li><a class="reference internal" href="#collections" id="id20">Collections</a></li>
+<li><a class="reference internal" href="#user-defined-types" id="id21">User-defined types</a></li>
+<li><a class="reference internal" href="#void" id="id22">void</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#na-value" id="id23">`na` value</a></li>
+<li><a class="reference internal" href="#type-templates" id="id24">Type templates</a></li>
+<li><a class="reference internal" href="#type-casting" id="id25">Type casting</a></li>
+<li><a class="reference internal" href="#tuples" id="id26">Tuples</a></li>
+</ul>
+</div>
+<div class="section" id="introduction">
+<h2><a class="toc-backref" href="#id3">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Pine Script<sup>®</sup>’s type system is important because it determines what sort of values can be used when calling Pine Script<sup>®</sup> functions, which is a requirement to do pretty much anything in Pine Script<sup>®</sup>.
+While it is possible to write very simple scripts without knowing anything about the type system,
+a reasonable understanding of it is necessary to achieve any degree of profiency with the language,
+and in-depth knowledge of its subtleties will allow you to exploit the full potential of Pine Script<sup>®</sup>.</p>
+<p>The type system uses the <em>form type</em> pair to qualify the type of all values, be they literals, a variable, the result of an expression,
+the value returned by functions or the arguments supplied when calling a function.</p>
+<p>The <em>form</em> expresses when a value is known.</p>
+<p>The <em>type</em> denotes the nature of a value.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">We will often use “type” to refer to the “form type” pair.</p>
+</div>
+<p>The type system is intimately linked to Pine Script<sup>®</sup>’s <a class="reference internal" href="Execution_model.html#pageexecutionmodel"><span class="std std-ref">execution model</span></a> and <a class="reference internal" href="Time_series.html#pagetimeseries"><span class="std std-ref">time series</span></a> concepts.
+Understanding all three is key to making the most of the power of Pine Script<sup>®</sup>.</p>
+<div class="section" id="forms">
+<span id="pagetypesystem-forms"></span><h3><a class="toc-backref" href="#id4">Forms</a><a class="headerlink" href="#forms" title="Permalink to this headline">¶</a></h3>
+<p>Pine Script<sup>®</sup> <strong>forms</strong> identify when a variable’s value is known. They are:</p>
+<ul class="simple">
+<li>“const” for values known at compile time (when adding an indicator to a chart or saving it in the Pine Script<sup>®</sup> Editor)</li>
+<li>“input” for values known at input time (when values are changed in a script’s “Settings/Inputs” tab)</li>
+<li>“simple” for values known at bar zero (when the script begins execution on the chart’s first historical bar)</li>
+<li>“series” for values known on each bar (any time during the execution of a script on any bar)</li>
+</ul>
+<p>Forms are organized in the following hierarchy: <strong>const &lt; input &lt; simple &lt; series</strong>, where “const” is considered a <em>weaker</em> form than “input”, for example, and “series” <em>stronger</em> than “simple”.
+The form hierarchy translates into the rule that, whenever a given form is required, a weaker form is also allowed.</p>
+<p>An expression’s result is always of the strongest form used in the expression’s calculation. Furthermore, once a variable acquires a stronger form, that state is irreversible;
+it can never be converted back to a weaker form. A variable of “series” form can thus never be converted back to a “simple” form, for use with a function that requires arguments of that form.</p>
+<p>Note that of all these forms, only the “series” form allows values to change dynamically, bar to bar, during the script’s execution over each bar of the chart’s history.
+Such values include <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_close">close</a> or <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_hlc3">hlc3</a> or any variable calculated using values of “series” form.
+Variables of “const”, “input” or “simple” forms cannot change values once execution of the script has begun.</p>
+</div>
+<div class="section" id="types">
+<span id="pagetypesystem-types"></span><h3><a class="toc-backref" href="#id5">Types</a><a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h3>
+<p>Pine Script<sup>®</sup> <strong>types</strong> identify the nature of a value. They are:</p>
+<ul class="simple">
+<li>The fundamental types: “int”, “float”, “bool”, “color” and “string”</li>
+<li>The special types: “plot”, “hline”, “line”, “linefill”, “label”, “box”, “table”, “array”, “matrix”, and “map”</li>
+<li>User-defined types (UDTs)</li>
+<li>“void”</li>
+</ul>
+<p>Each fundamental type refers to the nature of the value contained in a variable:
+<code class="docutils literal notranslate"><span class="pre">1</span></code> is of type “int”, <code class="docutils literal notranslate"><span class="pre">1.0</span></code> is of type “float”, <code class="docutils literal notranslate"><span class="pre">&quot;AAPL&quot;</span></code> is of type “string”, etc.
+Variables of special types contain an ID referring to an object of the type’s name.
+A variable of type “label” contains an ID (or <em>pointer</em>) referring to a label, and so on.
+The “void” type means no value is returned.</p>
+<p>The Pine Script<sup>®</sup> compiler can automatically convert some types into others when a value is not of the required type. The auto-casting rules are: <strong>int</strong> 🠆 <strong>float</strong> 🠆 <strong>bool</strong>.
+See the <a class="reference internal" href="#pagetypesystem-typecasting"><span class="std std-ref">Type casting</span></a> section of this page for more information on type casting.</p>
+<p>Except for parameter definitions appearing in function signatures, Pine Script<sup>®</sup> forms are implicit in code;
+they are never declared because they are always determined by the compiler.
+Types, however, can be specified when declaring variables, e.g.:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;&quot;, &quot;&quot;, true)
+int periodInput = input.int(100, &quot;Period&quot;, minval = 2)
+float ma = ta.sma(close, periodInput)
+bool xUp = ta.crossover(close, ma)
+color maColor = close &gt; ma ? color.lime : color.fuchsia
+plot(ma, &quot;MA&quot;, maColor)
+plotchar(xUp, &quot;Cross Up&quot;, &quot;▲&quot;, location.top, size = size.tiny)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="using-forms-and-types">
+<h2><a class="toc-backref" href="#id6">Using forms and types</a><a class="headerlink" href="#using-forms-and-types" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3><a class="toc-backref" href="#id7">Forms</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="const">
+<h4><a class="toc-backref" href="#id8">const</a><a class="headerlink" href="#const" title="Permalink to this headline">¶</a></h4>
+<p>Values of “const” form must be known at compile time, before your script has access to any information related to the symbol/timeframe information it is running on.
+Compilation occurs when you save a script in the Pine Script<sup>®</sup> Editor, which doesn’t even require it to already be running on your chart. “const” variables cannot change during the execution of a script.</p>
+<p>Variables of “const” form can be initialized using a <em>literal</em> value,
+or calculated from expressions using only literal values or other variables of “const” form.
+Our <a class="reference internal" href="../writing/Style_guide.html#pagestyleguide"><span class="std std-ref">Style guide</span></a> recommends using upper case SNAKE_CASE to name variables of “const” form.
+While it is not a requirement, “const” variables can be declared using the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_var">var</a> keyword so they are only initialized on the first bar of the dataset.
+See the <a class="reference internal" href="Variable_declarations.html#pagevariabledeclarations-var"><span class="std std-ref">section on `var`</span></a> for more information.</p>
+<p>These are examples of literal values:</p>
+<ul class="simple">
+<li><em>literal int</em>: <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">-1</span></code>, <code class="docutils literal notranslate"><span class="pre">42</span></code></li>
+<li><em>literal float</em>: <code class="docutils literal notranslate"><span class="pre">1.</span></code>, <code class="docutils literal notranslate"><span class="pre">1.0</span></code>, <code class="docutils literal notranslate"><span class="pre">3.14</span></code>, <code class="docutils literal notranslate"><span class="pre">6.02E-23</span></code>, <code class="docutils literal notranslate"><span class="pre">3e8</span></code></li>
+<li><em>literal bool</em>: <code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code></li>
+<li><em>literal string</em>: <code class="docutils literal notranslate"><span class="pre">&quot;A</span> <span class="pre">text</span> <span class="pre">literal&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Embedded</span> <span class="pre">single</span> <span class="pre">quotes</span> <span class="pre">'text'&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">'Embedded</span> <span class="pre">double</span> <span class="pre">quotes</span> <span class="pre">&quot;text&quot;'</span></code></li>
+<li><em>literal color</em>: <code class="docutils literal notranslate"><span class="pre">#FF55C6</span></code>, <code class="docutils literal notranslate"><span class="pre">#FF55C6ff</span></code></li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In Pine Script<sup>®</sup>, the built-in variables <code class="docutils literal notranslate"><span class="pre">open</span></code>, <code class="docutils literal notranslate"><span class="pre">high</span></code>, <code class="docutils literal notranslate"><span class="pre">low</span></code>, <code class="docutils literal notranslate"><span class="pre">close</span></code>, <code class="docutils literal notranslate"><span class="pre">volume</span></code>, <code class="docutils literal notranslate"><span class="pre">time</span></code>,
+<code class="docutils literal notranslate"><span class="pre">hl2</span></code>, <code class="docutils literal notranslate"><span class="pre">hlc3</span></code>, <code class="docutils literal notranslate"><span class="pre">ohlc4</span></code>, etc., are of “series” form because their values can change bar to bar.</p>
+</div>
+<p>The “const” form is a requirement for the arguments to the <code class="docutils literal notranslate"><span class="pre">title</span></code> and <code class="docutils literal notranslate"><span class="pre">shorttitle</span></code> parameters in
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_indicator">indicator()</a>, for example.
+All these are valid variables that can be used as arguments for those parameters when calling the function:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+NAME1 = &quot;My indicator&quot;
+var NAME2 = &quot;My Indicator&quot;
+var NAME3 = &quot;My&quot; + &quot;Indicator&quot;
+var NAME4 = NAME2 + &quot; No. 2&quot;
+indicator(NAME4, &quot;&quot;, true)
+plot(close)
+</pre></div>
+</div>
+<p>This will trigger a compilation error:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+var NAME = &quot;My indicator for &quot; + syminfo.type
+indicator(NAME, &quot;&quot;, true)
+plot(close)
+</pre></div>
+</div>
+<p>The reason for the error is that the <code class="docutils literal notranslate"><span class="pre">NAME</span></code> variable’s calculation depends on the value of
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_syminfo{dot}type">syminfo.type</a>
+which is a “simple string” (<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_syminfo{dot}type">syminfo.type</a>
+returns a string corresponding to the sector the chart’s symbol belongs to, eg., <code class="docutils literal notranslate"><span class="pre">&quot;crypto&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;forex&quot;</span></code>, etc.).</p>
+<p>Note that using the <code class="docutils literal notranslate"><span class="pre">:=</span></code> operator to assign a new value to a previously declared “const” variable will transform it into a “simple” variable, e.g., here with <code class="docutils literal notranslate"><span class="pre">name1</span></code>,
+for which we do not use an uppercase name because it is not of “const” form:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>var name1 = &quot;My Indicator &quot;
+var NAME2 = &quot;No. 2&quot;
+name1 := name1 + NAME2
+</pre></div>
+</div>
+</div>
+<div class="section" id="input">
+<span id="pagetypesystem-input"></span><h4><a class="toc-backref" href="#id9">input</a><a class="headerlink" href="#input" title="Permalink to this headline">¶</a></h4>
+<p>Values of “input” form are known when the values initialized through <code class="docutils literal notranslate"><span class="pre">input.*()</span></code> functions are determined.
+These functions determine the values that can be modified by script users in the script’s “Settings/Inputs” tab.
+When these values are changed, this always triggers a re-execution of the script from the beginning of the chart’s history (bar zero),
+so variables of “input” form are always known when the script begins execution, and they do not change during the script’s execution.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input{dot}source">input.source()</a> function yields a value of “series” type — not “input”.
+This is because built-in variables such as <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_open">open</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_high">high</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_low">low</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_close">close</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_hl2">hl2</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_hlc3">hlc3</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_ohlc4">ohlc4</a>, etc., are of “series” form.</p>
+</div>
+<p>The script plots the moving average of a user-defined source and period from a symbol and timeframe also determined through inputs:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;&quot;, &quot;&quot;, true)
+symbolInput = input.symbol(&quot;AAPL&quot;, &quot;Symbol&quot;)
+timeframeInput = input.timeframe(&quot;D&quot;, &quot;Timeframe&quot;)
+sourceInput = input.source(close, &quot;Source&quot;)
+periodInput = input(10, &quot;Period&quot;)
+v = request.security(symbolInput, timeframeInput, ta.sma(sourceInput, periodInput))
+plot(v)
+</pre></div>
+</div>
+<p>Note that:</p>
+<ul class="simple">
+<li>The <code class="docutils literal notranslate"><span class="pre">symbolInput</span></code>, <code class="docutils literal notranslate"><span class="pre">timeframeInput</span></code> and <code class="docutils literal notranslate"><span class="pre">periodInput</span></code> variables are of “input” form.</li>
+<li>The <code class="docutils literal notranslate"><span class="pre">sourceInput</span></code> variable is of “series” form because it is determined from a call to <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input{dot}source">input.source()</a>.</li>
+<li>Our <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a> call
+is valid because its <code class="docutils literal notranslate"><span class="pre">symbol</span></code> and <code class="docutils literal notranslate"><span class="pre">timeframe</span></code> parameters require a “simple” argument and the “input” form we use is weaker than “simple”.
+The function’s <code class="docutils literal notranslate"><span class="pre">expression</span></code> parameter requires a “series” form argument, and that is what form our <code class="docutils literal notranslate"><span class="pre">sourceInput</span></code> variable is.
+Note that because a “series” form is required there, we could have used “const”, “input” or “simple” forms as well.</li>
+<li>As per our style guide’s recommendations, we use the “Input” suffix with our input variables to help readers of our code remember the origin of these variables.</li>
+</ul>
+<p>Wherever an “input” form is required, a “const” form can also be used.</p>
+</div>
+<div class="section" id="simple">
+<h4><a class="toc-backref" href="#id10">simple</a><a class="headerlink" href="#simple" title="Permalink to this headline">¶</a></h4>
+<p>Values of “simple” form are known only when a script begins execution on the first bar of a chart’s history,
+and they never change during the execution of the script.
+Built-in variables of the <code class="docutils literal notranslate"><span class="pre">syminfo.*</span></code>, <code class="docutils literal notranslate"><span class="pre">timeframe.*</span></code> and <code class="docutils literal notranslate"><span class="pre">ticker.*</span></code> families, for example,
+all return results of “simple” form because their value depends on the chart’s symbol, which can only be detected when the script executes on it.</p>
+<p>A “simple” form argument is also required for the <code class="docutils literal notranslate"><span class="pre">length</span></code> argument of functions such as
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_ta{dot}ema">ta.ema()</a> or
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_ta{dot}rma">ta.rma()</a>
+which cannot work with dynamic lengths that could change during the script’s execution.</p>
+<p>Wherever a “simple” form is required, a “const” or “input” form can also be used.</p>
+</div>
+<div class="section" id="series">
+<h4><a class="toc-backref" href="#id11">series</a><a class="headerlink" href="#series" title="Permalink to this headline">¶</a></h4>
+<p>Values of “series” form (also sometimes called <em>dynamic</em>) provide the most flexibility because they can change on any bar,
+or even multiples times during the same bar, in loops for example.
+Built-in variables such as <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_open">open</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_close">close</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_high">high</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_time">time</a> or
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_volume">volume</a> are of “series” form,
+as would be the result of expressions calculated using them.
+Functions such as <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_barssince">barssince()</a> or
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_crossover">crossover()</a> yield a result of “series” form because it varies bar to bar,
+as does that of the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_[]">[]</a> history-referencing operator used to access past values of a time series.
+While the “series” form is the most common form used in Pine Script<sup>®</sup>, it is not always allowed as arguments to built-in functions.</p>
+<p>Suppose you want to display the value of pivots on your chart. This will require converting values into strings,
+so the string values your code will be using will be of “series string” type.
+The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_label{dot}new">label.new()</a> function
+can be used to place such “series string” text on the chart because its <code class="docutils literal notranslate"><span class="pre">text</span></code> parameter accepts arguments of “series” form:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;&quot;, &quot;&quot;, true)
+pivotBarsInput = input(3)
+hiP = ta.pivothigh(high, pivotBarsInput, pivotBarsInput)
+if not na(hiP)
+    label.new(bar_index[pivotBarsInput], hiP, str.tostring(hiP, format.mintick),
+     style = label.style_label_down,
+     color = na,
+     textcolor = color.silver)
+plotchar(hiP, &quot;hiP&quot;, &quot;•&quot;, location.top, size = size.tiny)
+</pre></div>
+</div>
+<p>Note that:</p>
+<ul class="simple">
+<li>The <code class="docutils literal notranslate"><span class="pre">str.tostring(hiP,</span> <span class="pre">format.mintick)</span></code> call we use to convert the pivot’s value to a string yields a “series string” result,
+which will work with <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_label{dot}new">label.new()</a>.</li>
+<li>While prices appear at the pivot, the pivots actually require <code class="docutils literal notranslate"><span class="pre">pivotBarsInput</span></code> bars to have elapsed before they can be detected.
+Pivot prices only appear on the pivot because we plot them in the past after the pivot’s detection,
+using <code class="docutils literal notranslate"><span class="pre">bar_index[pivotBarsInput]</span></code> (the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_bar_index">bar_index</a>’s value,
+offset <code class="docutils literal notranslate"><span class="pre">pivotBarsInput</span></code> bars back). In real time, these prices would only appear <code class="docutils literal notranslate"><span class="pre">pivotBarsInput</span></code> bars after the actual pivot.</li>
+<li>We print a blue dot using <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plotchar">plotchar()</a> when a pivot is detected in our code.</li>
+<li>Pine Script<sup>®</sup>’s <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plotshape">plotshape()</a> can also be used to position text on the chart,
+but because its <code class="docutils literal notranslate"><span class="pre">text</span></code> parameter requires a “const string” argument,
+we could not have used it in place of <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_label{dot}new">label.new()</a> in our script.</li>
+</ul>
+<p>Wherever a “series” form is required, a “const”, “input” or “simple” form can also be used.</p>
+</div>
+</div>
+<div class="section" id="id2">
+<h3><a class="toc-backref" href="#id12">Types</a><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="int">
+<h4><a class="toc-backref" href="#id13">int</a><a class="headerlink" href="#int" title="Permalink to this headline">¶</a></h4>
+<p>Integer literals must be written in decimal notation, e.g.:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1
+-1
+750
+</pre></div>
+</div>
+<p>Built-in variables such as
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_bar_index">bar_index</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_time">time</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_timenow">timenow</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_time_close">time_close</a>, or
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_dayofmonth">dayofmonth</a> all return values of type “int”.</p>
+</div>
+<div class="section" id="float">
+<h4><a class="toc-backref" href="#id14">float</a><a class="headerlink" href="#float" title="Permalink to this headline">¶</a></h4>
+<p>Floating-point literals contain a delimiter (the symbol <code class="docutils literal notranslate"><span class="pre">.</span></code>) and may also contain the symbol <code class="docutils literal notranslate"><span class="pre">e</span></code> or <code class="docutils literal notranslate"><span class="pre">E</span></code>
+(which means “multiply by 10 to the power of X”, where X is the number after the symbol <code class="docutils literal notranslate"><span class="pre">e</span></code>), e.g.:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>3.14159    // Rounded value of Pi (π)
+- 3.0
+6.02e23    // 6.02 * 10^23 (a very large value)
+1.6e-19    // 1.6 * 10^-19 (a very small value)
+</pre></div>
+</div>
+<p>The internal precision of floats in Pine Script<sup>®</sup> is 1e-10.</p>
+</div>
+<div class="section" id="bool">
+<h4><a class="toc-backref" href="#id15">bool</a><a class="headerlink" href="#bool" title="Permalink to this headline">¶</a></h4>
+<p>There are only two literals representing <em>bool</em> values:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>true    // true value
+false   // false value
+</pre></div>
+</div>
+<p>When an expression of type “bool” returns <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a>
+and it is used to test a conditional statement or operator, the “false” branch is executed.</p>
+</div>
+<div class="section" id="color">
+<span id="pagetypesystem-color"></span><h4><a class="toc-backref" href="#id16">color</a><a class="headerlink" href="#color" title="Permalink to this headline">¶</a></h4>
+<p>Color literals have the following format: <code class="docutils literal notranslate"><span class="pre">#RRGGBB</span></code> or <code class="docutils literal notranslate"><span class="pre">#RRGGBBAA</span></code>. The letter pairs represent <code class="docutils literal notranslate"><span class="pre">00</span></code> to <code class="docutils literal notranslate"><span class="pre">FF</span></code> hexadecimal values (0 to 255 in decimal) where:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">RR</span></code>, <code class="docutils literal notranslate"><span class="pre">GG</span></code> and <code class="docutils literal notranslate"><span class="pre">BB</span></code> pairs are the values for the color’s red, green and blue components</li>
+<li><code class="docutils literal notranslate"><span class="pre">AA</span></code> is an optional value for the color’s transparency (or <em>alpha</em> component) where <code class="docutils literal notranslate"><span class="pre">00</span></code> is invisible and <code class="docutils literal notranslate"><span class="pre">FF</span></code> opaque. When no <code class="docutils literal notranslate"><span class="pre">AA</span></code> pair is supplied, <code class="docutils literal notranslate"><span class="pre">FF</span></code> is used.</li>
+<li>The hexadecimal letters can be upper or lower case</li>
+</ul>
+<p>Examples:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#000000      // black color
+#FF0000      // red color
+#00FF00      // green color
+#0000FF      // blue color
+#FFFFFF      // white color
+#808080      // gray color
+#3ff7a0      // some custom color
+#FF000080    // 50% transparent red color
+#FF0000ff    // same as #FF0000, fully opaque red color
+#FF000000    // completely transparent color
+</pre></div>
+</div>
+<p>Pine Script<sup>®</sup> also has <a class="reference internal" href="../concepts/Colors.html#pagecolors-constantcolors"><span class="std std-ref">built-in color constants</span></a> such as
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_color{dot}green">color.green</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_color{dot}red">color.red</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_color{dot}orange">color.orange</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_color{dot}blue">color.blue</a>
+(the default color used in <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plot">plot()</a> and other plotting functions),  etc.</p>
+<p>When using color built-ins, is possible to add transparency information to them with
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_color{dot}new">color.new</a>.</p>
+<p>Note that when specifying red, green or blue components in <code class="docutils literal notranslate"><span class="pre">color.*()</span></code> functions, a 0-255 decimal value must be used.
+When specifying transparency in such functions, it is in the form of a 0-100 value (which can be of “float” type to access the underlying 255 potential valoues)
+where the scale 00-FF scale for color literals is inverted: 100 is thus invisible and 0 is opaque.</p>
+<p>Here is an example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Shading the chart&#39;s background&quot;, &quot;&quot;, true)
+BASE_COLOR = color.navy
+bgColor = dayofweek == dayofweek.monday    ? color.new(BASE_COLOR, 50) :
+          dayofweek == dayofweek.tuesday   ? color.new(BASE_COLOR, 60) :
+          dayofweek == dayofweek.wednesday ? color.new(BASE_COLOR, 70) :
+          dayofweek == dayofweek.thursday  ? color.new(BASE_COLOR, 80) :
+          dayofweek == dayofweek.friday    ? color.new(BASE_COLOR, 90) :
+          color.new(color.blue, 80)
+bgcolor(bgColor)
+</pre></div>
+</div>
+<p>See the page on <a class="reference internal" href="../concepts/Colors.html#pagecolors"><span class="std std-ref">colors</span></a> for more information on using colors in Pine Script<sup>®</sup>.</p>
+</div>
+<div class="section" id="string">
+<h4><a class="toc-backref" href="#id17">string</a><a class="headerlink" href="#string" title="Permalink to this headline">¶</a></h4>
+<p>String literals may be enclosed in single or double quotation marks, e.g.:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&quot;This is a double quoted string literal&quot;
+&#39;This is a single quoted string literal&#39;
+</pre></div>
+</div>
+<p>Single and double quotation marks are functionally equivalent.
+A string enclosed within double quotation marks
+may contain any number of single quotation marks, and vice versa:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&quot;It&#39;s an example&quot;
+&#39;The &quot;Star&quot; indicator&#39;
+</pre></div>
+</div>
+<p>You can escape the string’s delimiter in the string by using a backslash. For example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;It\&#39;s an example&#39;
+&quot;The \&quot;Star\&quot; indicator&quot;
+</pre></div>
+</div>
+<p>You can concatenate strings using the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator.</p>
+</div>
+<div class="section" id="plot-and-hline">
+<span id="pagetypesystem-plotandhline"></span><h4><a class="toc-backref" href="#id18">plot and hline</a><a class="headerlink" href="#plot-and-hline" title="Permalink to this headline">¶</a></h4>
+<p>Pine Script<sup>®</sup>’s <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_fill">fill()</a> function fills the space between two lines with a color.
+Both lines must have been plotted with either <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plot">plot()</a> or
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_hline">hline()</a> function calls.
+Each plotted line is referred to in the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_fill">fill()</a>
+function using IDs which are of “plot” or “hline” type, e.g.:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;&quot;, &quot;&quot;, true)
+plotID1 = plot(high)
+plotID2 = plot(math.max(close, open))
+fill(plotID1, plotID2, color.yellow)
+</pre></div>
+</div>
+<p>Note that there is no <code class="docutils literal notranslate"><span class="pre">plot</span></code> or <code class="docutils literal notranslate"><span class="pre">hline</span></code> keyword to explicitly declare the type of
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plot">plot()</a> or
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_hline">hline()</a> IDs.</p>
+</div>
+<div class="section" id="line-linefill-label-box-and-table">
+<h4><a class="toc-backref" href="#id19">line, linefill, label, box and table</a><a class="headerlink" href="#line-linefill-label-box-and-table" title="Permalink to this headline">¶</a></h4>
+<p>Drawings appeared in Pine Script<sup>®</sup> starting with v4. Each drawing has its own type:
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_line">line</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_linefill">linefill</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_label">label</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_box">box</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_table">table</a>.</p>
+<p>Each type is also used as a namespace containing all the built-in functions used to operate on each type of drawing.
+One of these is a <code class="docutils literal notranslate"><span class="pre">new()</span></code> constructor used to create an object of that type:
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}new">line.new()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_linefill{dot}new">linefill.new()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_label{dot}new">label.new()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_box{dot}new">box.new()</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_table{dot}new">table.new()</a>.</p>
+<p>These functions all return an ID which is a reference that uniquely identifies a drawing object.
+IDs are always of “series” form, thus their form and type is “series line”, “series label”, etc.
+Drawing IDs act like a pointer in that they are used to reference a specific instance of a drawing
+in all the functions of that drawing’s namespace.
+For example, the line ID returned by a <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}new">line.new()</a>
+call will then be used to refer to it when comes time to delete the line using
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}delete">line.delete()</a>.</p>
+</div>
+<div class="section" id="collections">
+<h4><a class="toc-backref" href="#id20">Collections</a><a class="headerlink" href="#collections" title="Permalink to this headline">¶</a></h4>
+<p>Collections in Pine Script<sup>®</sup> (<a class="reference internal" href="Arrays.html#pagearrays"><span class="std std-ref">arrays</span></a>, <a class="reference internal" href="Matrices.html#pagematrices"><span class="std std-ref">matrices</span></a>,
+and <a class="reference internal" href="Maps.html#pagemaps"><span class="std std-ref">maps</span></a>) utilize a reference ID, much like other special types (e.g., labels).
+The type of the ID defines the type of elements the collection will contain.
+In Pine, we specify array, matrix, and map types by appending a <a class="reference internal" href="#pagetypesystem-typetemplates"><span class="std std-ref">type template</span></a>
+to the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_array">array</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_matrix">matrix</a>,
+or <a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_map">map</a> keywords:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">array&lt;int&gt;</span></code> defines an array containing “int” elements.</li>
+<li><code class="docutils literal notranslate"><span class="pre">array&lt;label&gt;</span></code> defines an array containing “label” IDs.</li>
+<li><code class="docutils literal notranslate"><span class="pre">array&lt;UDT&gt;</span></code> defines an array containing objects of a <a class="reference internal" href="#pagetypesystem-userdefinedtypes"><span class="std std-ref">user-defined type (UDT)</span></a>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">matrix&lt;float&gt;</span></code> defines a matrix containing “float” elements.</li>
+<li><code class="docutils literal notranslate"><span class="pre">matrix&lt;UDT&gt;</span></code> defines a matrix containing objects of a <a class="reference internal" href="#pagetypesystem-userdefinedtypes"><span class="std std-ref">user-defined type (UDT)</span></a>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">map&lt;string,</span> <span class="pre">float&gt;</span></code> defines a map containing “string” keys and “float” values.</li>
+<li><code class="docutils literal notranslate"><span class="pre">map&lt;int,</span> <span class="pre">UDT&gt;</span></code> defines a map containing “int” keys and values of a <a class="reference internal" href="#pagetypesystem-userdefinedtypes"><span class="std std-ref">user-defined type (UDT)</span></a>.</li>
+</ul>
+<p>For example, one can declare an “int” array with a single element value of 10 in any of the following, equivalent ways:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>a1 = array.new&lt;int&gt;(1, 10)
+array&lt;int&gt; a2 = array.new&lt;int&gt;(1, 10)
+a3 = array.from(10)
+array&lt;int&gt; a4 = array.from(10)
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Note that:</dt>
+<dd><ul class="first last simple">
+<li>The <code class="docutils literal notranslate"><span class="pre">int[]</span></code> syntax can also specify an array of “int” elements, but its use is discouraged.
+No equivalent exists to specify the types of matrices or maps in that way.</li>
+<li>Type-specific built-ins exist for arrays, such as
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}new_int">array.new_int()</a>,
+but the more generic <a class="reference external" href="../../../../pine-script-reference/v5/index.html#type_array">array.new&lt;type&gt;</a>
+form is preferred, which would be <code class="docutils literal notranslate"><span class="pre">array.new&lt;int&gt;()</span></code> to create an array of “int” elements.</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="user-defined-types">
+<span id="pagetypesystem-userdefinedtypes"></span><h4><a class="toc-backref" href="#id21">User-defined types</a><a class="headerlink" href="#user-defined-types" title="Permalink to this headline">¶</a></h4>
+<p>The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_type">type</a>
+keyword allows the creation of <em>user-defined types</em> (UDTs) from which
+<a class="reference internal" href="Objects.html#pageobjects"><span class="std std-ref">objects</span></a> can be created.
+UDTs are composite types; they contain an arbitrary number of <em>fields</em> that can be of any type.
+The syntax to define a <em>user-defined type</em> is:</p>
+<p>where:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">export</span></code> is used to export the UDT from a library.
+See the <a class="reference internal" href="../concepts/Libraries.html#pagelibraries-objects"><span class="std std-ref">Libraries</span></a> page for more information.</li>
+<li><code class="docutils literal notranslate"><span class="pre">&lt;UDT_identifier&gt;</span></code> is the name of the user-defined type.</li>
+<li><code class="docutils literal notranslate"><span class="pre">&lt;field_type&gt;</span></code> is the type of the field.</li>
+<li><code class="docutils literal notranslate"><span class="pre">&lt;field_name&gt;</span></code> is the name of the field.</li>
+<li><code class="docutils literal notranslate"><span class="pre">&lt;value&gt;</span></code> is an optional default value for the field, which will be assigned to it when new objects of that UDT are created.
+The field’s default value will be <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a> if none is specified.
+The same rules as those governing the default values of parameters in function signatures apply to the default values of fields.
+For example, the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_[]">[]</a> history-referencing operator cannot be used with them,
+and expressions are not allowed.</li>
+</ul>
+<p>In this example, we create a UDT containing two fields to hold pivot information,
+the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_time">time</a> of the pivot’s bar
+and its price level:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>type pivotPoint
+    int openTime
+    float level
+</pre></div>
+</div>
+<p>User-defined types can be embedded, so a field can be of the same type as the UDT it belongs to.
+Here, we add a field to our previous <code class="docutils literal notranslate"><span class="pre">pivotPoint</span></code> type that will hold the pivot information for another pivot point:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>type pivotPoint
+    int openTime
+    float level
+    pivotPoint nextPivot
+</pre></div>
+</div>
+<p>Two built-in methods can be used with a UDT: <code class="docutils literal notranslate"><span class="pre">new()</span></code> and <code class="docutils literal notranslate"><span class="pre">copy()</span></code>. Read about them in the <a class="reference internal" href="Objects.html#pageobjects"><span class="std std-ref">Objects</span></a> page.</p>
+</div>
+<div class="section" id="void">
+<h4><a class="toc-backref" href="#id22">void</a><a class="headerlink" href="#void" title="Permalink to this headline">¶</a></h4>
+<p>There is a “void” type in Pine Script<sup>®</sup>. Functions having only side-effects and returning no usable result return the “void” type.
+An example of such a function is <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_alert">alert()</a>;
+it does something (triggers an alert event), but it returns no useful value.</p>
+<p>A “void” result cannot be used in an expression or assigned to a variable. No <code class="docutils literal notranslate"><span class="pre">void</span></code> keyword exists in Pine Script<sup>®</sup>, as variables cannot be declared using the “void” type.</p>
+</div>
+</div>
+</div>
+<div class="section" id="na-value">
+<span id="pagetypesystem-navalue"></span><h2><a class="toc-backref" href="#id23">`na` value</a><a class="headerlink" href="#na-value" title="Permalink to this headline">¶</a></h2>
+<p>In Pine Script<sup>®</sup>, there is a special value called <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a>, which is an acronym for <em>not available</em>, meaning
+the value of an expression or variable is undefined. It is similar to the <code class="docutils literal notranslate"><span class="pre">null</span></code> value in Java, or <code class="docutils literal notranslate"><span class="pre">None</span></code> in Python.</p>
+<p><a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a> values can be automatically cast to almost any type.
+In some cases, however, the compiler cannot automatically infer a type for an
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a> value because more than one automatic type-casting rule can be applied.
+For example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// Compilation error!
+myVar = na
+</pre></div>
+</div>
+<p>Here, the compiler cannot determine if <code class="docutils literal notranslate"><span class="pre">myVar</span></code> will be used to plot something, as in <code class="docutils literal notranslate"><span class="pre">plot(myVar)</span></code> where its type would be “float”, or to set some text as in
+<code class="docutils literal notranslate"><span class="pre">label.set_text(lb,</span> <span class="pre">text</span> <span class="pre">=</span> <span class="pre">myVar)</span></code> where its type would be “string”, or for some other purpose. Such cases must be explicitly resolved in one of two ways:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>float myVar = na
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>myVar = float(na)
+</pre></div>
+</div>
+<p>To test if some value is <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a>,
+a special function must be used: <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_na">na()</a>. For example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>myClose = na(myVar) ? 0 : close
+</pre></div>
+</div>
+<p>Do not use the <code class="docutils literal notranslate"><span class="pre">==</span></code> operator to test for <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a> values, as this method is unreliable.</p>
+<p>Designing your calculations so they are <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a>-resistant is often useful.
+In this example, we define a condition that is <code class="docutils literal notranslate"><span class="pre">true</span></code> when the bar’s <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_close">close</a>
+is higher than the previous one. For this calculation to work correctly on the dataset’s first bar where no previous close exists and <code class="docutils literal notranslate"><span class="pre">close[1]</span></code> will return
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a>, we use the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_nz">nz()</a> function to replace it with the current bar’s
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_open">open</a> for that special case:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>bool risingClose = close &gt; nz(close[1], open)
+</pre></div>
+</div>
+<p>Protecting against <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a> values can also be useful to prevent an initial
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a> value from propagating in a calculation’s result on all bars.
+This happens here because the initial value of <code class="docutils literal notranslate"><span class="pre">ath</span></code> is <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a>, and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_math{dot}max">math.max()</a> returns
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a> if one of its arguments is <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// Declare `ath` and initialize it with `na` on the first bar.
+var float ath = na
+// On all bars, calculate the maximum between the `high` and the previous value of `ath`.
+ath := math.max(ath, high)
+</pre></div>
+</div>
+<p>To protect against this, we could instead use:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>var float ath = na
+ath := math.max(nz(ath), high)
+</pre></div>
+</div>
+<p>where we are replacing any <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a> values of <code class="docutils literal notranslate"><span class="pre">ath</span></code> with zero. Even better would be:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>var float ath = high
+ath := math.max(ath, high)
+</pre></div>
+</div>
+</div>
+<div class="section" id="type-templates">
+<span id="pagetypesystem-typetemplates"></span><h2><a class="toc-backref" href="#id24">Type templates</a><a class="headerlink" href="#type-templates" title="Permalink to this headline">¶</a></h2>
+<p>Type templates specify the data types that collections (<a class="reference internal" href="Arrays.html#pagearrays"><span class="std std-ref">arrays</span></a>,
+<a class="reference internal" href="Matrices.html#pagematrices"><span class="std std-ref">matrices</span></a>, and <a class="reference internal" href="Maps.html#pagemaps"><span class="std std-ref">maps</span></a>) can contain.</p>
+<p>Templates for <a class="reference internal" href="Arrays.html#pagearrays"><span class="std std-ref">arrays</span></a> and <a class="reference internal" href="Matrices.html#pagematrices"><span class="std std-ref">matrices</span></a> consist
+of a single type identifier surrounded by angle brackets, e.g.,
+<code class="docutils literal notranslate"><span class="pre">&lt;int&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;label&gt;</span></code>, and <code class="docutils literal notranslate"><span class="pre">&lt;PivotPoint&gt;</span></code> (where <code class="docutils literal notranslate"><span class="pre">PivotPoint</span></code> is a
+<a class="reference internal" href="#pagetypesystem-userdefinedtypes"><span class="std std-ref">user-defined type (UDT)</span></a>).</p>
+<p>Templates for <a class="reference internal" href="Maps.html#pagemaps"><span class="std std-ref">maps</span></a> consist of two type identifiers enclosed in angle brackets,
+where the first specifies the type of <em>keys</em> in each key-value pair, and the second specifies the <em>value</em> type.
+For example, <code class="docutils literal notranslate"><span class="pre">&lt;string,</span> <span class="pre">float&gt;</span></code> is a type template for a map that holds <code class="docutils literal notranslate"><span class="pre">string</span></code> keys and <code class="docutils literal notranslate"><span class="pre">float</span></code> values.</p>
+<p>Users can construct type templates from:</p>
+<ul class="simple">
+<li>Fundamental types: “int”, “float”, “bool”, “color”, and “string”</li>
+<li>The following special types: “line”, “linefill”, “label”, “box”, and “table”</li>
+<li><a class="reference internal" href="#pagetypesystem-userdefinedtypes"><span class="std std-ref">User-defined types (UDTs)</span></a></li>
+</ul>
+<dl class="docutils">
+<dt>Note that:</dt>
+<dd><ul class="first last simple">
+<li><a class="reference internal" href="Maps.html#pagemaps"><span class="std std-ref">Maps</span></a> can use any of these types as <em>values</em>, but they can only accept
+fundamental types as <em>keys</em>.</li>
+</ul>
+</dd>
+</dl>
+<p>Scripts use type templates to declare variables that point to collections,
+and when creating new collection instances. For example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Type templates demo&quot;)
+
+//@variable A variable initially assigned to `na` that accepts arrays of `int` values.
+array&lt;int&gt; intArray = na
+//@variable An empty matrix that holds `float` values.
+floatMatrix = matrix.new&lt;float&gt;()
+//@variable An empty map that holds `string` keys and `color` values.
+stringColorMap = map.new&lt;string, color&gt;()
+</pre></div>
+</div>
+</div>
+<div class="section" id="type-casting">
+<span id="pagetypesystem-typecasting"></span><h2><a class="toc-backref" href="#id25">Type casting</a><a class="headerlink" href="#type-casting" title="Permalink to this headline">¶</a></h2>
+<p>There is an automatic type-casting mechanism in Pine Script<sup>®</sup> which can <em>cast</em> (or convert) certain types to another.
+The auto-casting rules are: <strong>“int” 🠆 “float” 🠆 “bool”</strong>, which means that when a “float” is required, an “int” can be used in its place,
+and when a “bool” value is required, an “int” or “float” value can be used in its place.</p>
+<p>See auto-casting in action in this code:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;&quot;)
+plotshape(close)
+</pre></div>
+</div>
+<p>Note that:</p>
+<ul class="simple">
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plotshape">plotshape()</a> requires a “series bool” argument for its first parameter named <code class="docutils literal notranslate"><span class="pre">series</span></code>.
+The <code class="docutils literal notranslate"><span class="pre">true</span></code>/<code class="docutils literal notranslate"><span class="pre">false</span></code> value of that “bool” argument determines if the function plots a shape or not.</li>
+<li>We are here calling <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plotshape">plotshape()</a> with
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_close">close</a> as its first argument.
+This would not be allowed without Pine’s auto-casting rules, which allow a “float” to be cast to a “bool”.
+When a “float” is cast to a “bool”, any non-zero values are converted to <code class="docutils literal notranslate"><span class="pre">true</span></code>, and zero values are converted to <code class="docutils literal notranslate"><span class="pre">false</span></code>.
+As a result of this, our code will plot an “X” on all bars,
+as long as <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_close">close</a> is not equal to zero.</li>
+</ul>
+<p>It may sometimes be necessary to cast one type into another because auto-casting rules will not suffice.
+For these cases, explicit type-casting functions exist. They are:
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_int">int()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_float">float()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_bool">bool()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_color">color()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_string">string()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line">line()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_linefill">linefill()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_label">label()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_box">box()</a>, and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_table">table()</a>.</p>
+<p>This is code that will not compile because we fail to convert the type of the argument used for <code class="docutils literal notranslate"><span class="pre">length</span></code> when calling
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_ta{dot}sma">ta.sma()</a>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;&quot;)
+len = 10.0
+s = ta.sma(close, len) // Compilation error!
+plot(s)
+</pre></div>
+</div>
+<p>The code fails to compile with the following error:
+<em>Cannot call ‘ta.sma` with argument ‘length’=’len’. An argument of ‘const float’ type was used but a ‘series int’ is expected</em>.
+The compiler is telling us that we supplied a “float” value where an “int” is required. There is no auto-casting rule that can automatically cast a “float” to an “int”,
+so we will need to do the job ourselves. For this, we will use the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_int">int()</a>
+function to force the type conversion of the value we supply as a length to <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_ta{dot}sma">ta.sma()</a> from “float” to “int”:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;&quot;)
+len = 10.0
+s = ta.sma(close, int(len))
+plot(s)
+</pre></div>
+</div>
+<p>Explicit type-casting can also be useful when declaring variables and initializing them to <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a> which can be done in two ways:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// Cast `na` to the &quot;label&quot; type.
+lbl = label(na)
+// Explicitly declare the type of the new variable.
+label lbl = na
+</pre></div>
+</div>
+</div>
+<div class="section" id="tuples">
+<span id="pagetypesystem-tuples"></span><h2><a class="toc-backref" href="#id26">Tuples</a><a class="headerlink" href="#tuples" title="Permalink to this headline">¶</a></h2>
+<p>A <em>tuple</em> is a comma-separated set of expressions enclosed in brackets that can be used when a function or
+a local block must return more than one variable as a result. For example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>calcSumAndMult(a, b) =&gt;
+    sum = a + b
+    mult = a * b
+    [sum, mult]
+</pre></div>
+</div>
+<p>In this example there is a two-element tuple on the last statement of the function’s code block,
+which is the result returned by the function. Tuple elements can be of any type.
+There is also a special syntax for calling functions that return tuples,
+which uses a <em>tuple declaration</em> on the left side of the equal sign in what is a multi-variable declaration.
+The result of a function such as <code class="docutils literal notranslate"><span class="pre">calcSumAndMult()</span></code> that returns a tuple must be assigned to a <em>tuple declaration</em>, i.e.,
+a set of comma-separated list of <em>new</em> variables that will receive the values returned by the function.
+Here, the value of the <code class="docutils literal notranslate"><span class="pre">sum</span></code> and <code class="docutils literal notranslate"><span class="pre">mult</span></code> variables calculated by the function will be assigned to the <code class="docutils literal notranslate"><span class="pre">s</span></code> and <code class="docutils literal notranslate"><span class="pre">m</span></code> variables:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[s, m] = calcSumAndMul(high, low)
+</pre></div>
+</div>
+<p>Note that the type of <code class="docutils literal notranslate"><span class="pre">s</span></code> and <code class="docutils literal notranslate"><span class="pre">m</span></code> cannot be explicitly defined; it is always inferred by the type of the function return results.</p>
+<p>Tuples can be useful to request multiple values in one
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a> call:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>roundedOHLC() =&gt;
+    [math.round_to_mintick(open), math.round_to_mintick(high), math.round_to_mintick(low), math.round_to_mintick(close)]
+[op, hi, lo, cl] = request.security(syminfo.tickerid, &quot;D&quot;, roundedOHLC())
+</pre></div>
+</div>
+<p>or:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[op, hi, lo, cl] = request.security(syminfo.tickerid, &quot;D&quot;, [math.round_to_mintick(open), math.round_to_mintick(high), math.round_to_mintick(low), math.round_to_mintick(close)])
+</pre></div>
+</div>
+<p>or this form if no rounding is required</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[op, hi, lo, cl] = request.security(syminfo.tickerid, &quot;D&quot;, [open, high, low, close])
+</pre></div>
+</div>
+<p>Tuples can also be used as return results of local blocks,
+in an <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_if">if</a> statement for example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[v1, v2] = if close &gt; open
+    [high, close]
+else
+    [close, low]
+</pre></div>
+</div>
+<p>They cannot be used in ternaries, however, because the return values of a ternary statement are not considered as local blocks.
+This is not allowed:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// Not allowed.
+[v1, v2] = close &gt; open ? [high, close] : [close, low]
+</pre></div>
+</div>
+<p>Please note that the items within a tuple returned from a function may be of simple or series form, depending on its contents.
+If a tuple contains a series value, all other elements within the tuple will also be of the series form. For example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;tuple_typeforms&quot;)
+
+makeTicker(simple string prefix, simple string ticker) =&gt;
+    tId = prefix + &quot;:&quot; + ticker // simple string
+    source = close  // series float
+    [tId, source]
+
+// Both variables are series now.
+[tId, source] = makeTicker(&quot;BATS&quot;, &quot;AAPL&quot;)
+
+// Error cannot call &#39;request.security&#39; with &#39;series string&#39; tId.
+r = request.security(tId, &quot;&quot;, source)
+
+plot(r)
+</pre></div>
+</div>
+<a class="reference external image-reference" href="https://www.tradingview.com/"><div align="center" class="align-center"><img alt="../_images/TradingView-Logo-Block.svg" src="../_images/TradingView-Logo-Block.svg" width="200px" /></div>
+</a>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="Loops.html" title="previous chapter (use the left arrow)">Loops</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="Built-ins.html" title="next chapter (use the right arrow)">Built-ins</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Built-ins.html" title="Built-ins"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Loops.html" title="Loops"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Language</a> &#187;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="../_static/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="../_static/js/theme.js"></script>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Options</span>
+    v: v5
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Languages</dt>
+      
+        <strong>
+        <dd><a href="Type_system.html">en</a></dd>
+        </strong>
+      
+    </dl>
+    <dl>
+      <dt>Versions</dt>
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v3/language/Type_system.html">v3</a></dd>
+        
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v4/language/Type_system.html">v4</a></dd>
+        
+      
+        <strong>
+        <dd><a href="Type_system.html">v5</a></dd>
+        </strong>
+      
+    </dl>
+  </div>
+</div>
+<script type="text/javascript">
+    jQuery(function () {
+        SphinxRtdTheme.Navigation.enable(false);
+    });
+</script>
+  <div class="footer">
+    &copy; Copyright 2023, TradingView.
+  </div>
+  </body>
+
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/language/Type_system.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:56:03 GMT -->
+</html>

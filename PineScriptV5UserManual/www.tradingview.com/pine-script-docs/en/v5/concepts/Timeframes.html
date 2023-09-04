@@ -1,0 +1,349 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/concepts/Timeframes.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:57:01 GMT -->
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Timeframes &#8212; Pine Script® v5 User Manual v5 documentation</title>
+    <link rel="stylesheet" href="../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../../../../static.tradingview.com/static/bundles/pine-highlighter-v01.js"></script>
+    <script type="text/javascript" src="../_static/highlight-pine-code.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Writing scripts" href="../writing/index.html" />
+    <link rel="prev" title="Time" href="Time.html" />
+  
+   
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../writing/index.html" title="Writing scripts"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Time.html" title="Time"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Concepts</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="../index.html" class="text-logo">Pine Script<sup>®</sup> v5 User Manual</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Introduction.html">Welcome to Pine Script<sup>®</sup> v5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primer/index.html">Pine Script<sup>®</sup> primer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../language/index.html">Language</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Concepts</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Alerts.html">Alerts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Backgrounds.html">Backgrounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bar_coloring.html">Bar coloring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bar_plotting.html">Bar plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bar_states.html">Bar states</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chart_information.html">Chart information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Colors.html">Colors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fills.html">Fills</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Inputs.html">Inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Levels.html">Levels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Libraries.html">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lines_and_boxes.html">Lines and boxes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Non-standard_charts_data.html">Non-standard charts data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Plots.html">Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Repainting.html">Repainting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Sessions.html">Sessions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Strategies.html">Strategies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Tables.html">Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Text_and_shapes.html">Text and shapes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Time.html">Time</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Timeframes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timeframe-string-specifications">Timeframe string specifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#comparing-timeframes">Comparing timeframes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../writing/index.html">Writing scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Error_messages.html">Error messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Release_notes.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migration_guides/index.html">Migration guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Where_can_I_get_more_information.html">Where can I get more information?</a></li>
+</ul>
+
+    
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="https://www.tradingview.com/pine-script-docs/en/v5/search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../index.html">User Manual</a></li>
+              
+                <li><a href="index.html">Concepts</a></li>
+              
+              <li>Timeframes</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <a class="reference external image-reference" href="../Introduction.html"><div align="right" class="align-right"><img alt="Pine Script® logo" height="100" src="../_images/Pine-script-logo.svg" width="100" /></div>
+</a>
+<div class="section" id="timeframes">
+<span id="pagetimeframes"></span><h1>Timeframes<a class="headerlink" href="#timeframes" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#introduction" id="id1">Introduction</a></li>
+<li><a class="reference internal" href="#timeframe-string-specifications" id="id2">Timeframe string specifications</a></li>
+<li><a class="reference internal" href="#comparing-timeframes" id="id3">Comparing timeframes</a></li>
+</ul>
+</div>
+<div class="section" id="introduction">
+<h2><a class="toc-backref" href="#id1">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>The <em>timeframe</em> of a chart is sometimes also referred to as its <em>interval</em> or <em>resolution</em>.
+It is the unit of time represented by one bar on the chart.
+All standard chart types use a timeframe: “Bars”, “Candles”, “Hollow Candles”, “Line”, “Area” and “Baseline”.
+One non-standard chart type also uses timeframes: “Heikin Ashi”.</p>
+<p>Programmers interested in accessing data from multiple timeframes will need to become familiar with how
+timeframes are expressed in Pine Script<sup>®</sup>, and how to use them.</p>
+<p><strong>Timeframe strings</strong> come into play in different contexts:</p>
+<ul class="simple">
+<li>They must be used in <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a>
+when requesting data from another symbol and/or timeframe.
+See the page on <a class="reference internal" href="Other_timeframes_and_data.html#pageothertimeframesanddata"><span class="std std-ref">Other timeframes and data</span></a> to explore the use of
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a>.</li>
+<li>They can be used as an argument to <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_time">time()</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_time_close">time_close()</a>
+functions, to return the time of a higher timeframe bar.
+This, in turn, can be used to detect changes in higher timeframes from the chart’s timeframe
+without using <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a>.
+See the <a class="reference internal" href="Time.html#pagetime-testingforchangesinhighertimeframes"><span class="std std-ref">Testing for changes in higher timeframes</span></a> section to see how to do this.</li>
+<li>The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input{dot}session">input.timeframe()</a> function
+provides a way to allow script users to define a timeframe through a script’s “Inputs” tab
+(see the <a class="reference internal" href="Inputs.html#pageinputs-timeframeinput"><span class="std std-ref">Timeframe input</span></a> section for more information).</li>
+<li>The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_indicator">indicator()</a>
+declaration statement has an optional <code class="docutils literal notranslate"><span class="pre">timeframe</span></code> parameter that can be used to provide
+multi-timeframe capabilities to simple scripts without using
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a>.</li>
+<li>Many built-in variables provide information on the timeframe used by the chart the script is running on.
+See the <a class="reference internal" href="Chart_information.html#pagechartinformation-charttimeframe"><span class="std std-ref">Chart timeframe</span></a> section for more information on them,
+including <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_timeframe{dot}period">timeframe.period</a>
+which returns a string in Pine Script<sup>®</sup>’s timeframe specification format.</li>
+</ul>
+</div>
+<div class="section" id="timeframe-string-specifications">
+<h2><a class="toc-backref" href="#id2">Timeframe string specifications</a><a class="headerlink" href="#timeframe-string-specifications" title="Permalink to this headline">¶</a></h2>
+<p>Timeframe strings follow these rules:</p>
+<ul>
+<li><p class="first">They are composed of the multiplier and the timeframe unit, e.g., “1S”, “30” (30 minutes), “1D” (one day), “3M” (three months).</p>
+</li>
+<li><p class="first">The unit is represented by a single letter, with no letter used for minutes: “S” for seconds, “D” for days, “W” for weeks and “M” for months.</p>
+</li>
+<li><p class="first">When no multiplier is used, 1 is assumed: “S” is equivalent to “1S”, “D” to “1D, etc. If only “1” is used, it is interpreted as “1min”,
+since no unit letter identifier is used for minutes.</p>
+</li>
+<li><p class="first">There is no “hour” unit; “1H” is <strong>not</strong> valid. The correct format for one hour is “60” (remember no unit letter is specified for minutes).</p>
+</li>
+<li><p class="first">The valid multipliers vary for each timeframe unit:</p>
+<blockquote>
+<div><ul class="simple">
+<li>For seconds, only the discrete 1, 5, 10, 15 and 30 multipliers are valid.</li>
+<li>For minutes, 1 to 1440.</li>
+<li>For days, 1 to 365.</li>
+<li>For weeks, 1 to 52.</li>
+<li>For months, 1 to 12.</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="comparing-timeframes">
+<span id="pagetimeframes-comparingtimeframes"></span><h2><a class="toc-backref" href="#id3">Comparing timeframes</a><a class="headerlink" href="#comparing-timeframes" title="Permalink to this headline">¶</a></h2>
+<p>It can be useful to compare different timeframe strings to determine,
+for example, if the timeframe used on the chart is lower than the higher timeframes used in the script,
+as using timeframes lower than the chart is usually not a good idea.
+See the <a class="reference internal" href="Other_timeframes_and_data.html#pageothertimeframesanddata-requestingdatafromalowertimeframe"><span class="std std-ref">Requesting data of a lower timeframe</span></a> section
+for more information on the subject.</p>
+<p>Converting timeframe strings to a representation in fractional minutes provides a way to compare them
+using a universal unit. This script uses the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_timeframe{dot}in_seconds">timeframe.in_seconds()</a>
+function to convert a timeframe into float seconds and then converts the result into minutes:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Timeframe in minutes example&quot;, &quot;&quot;, true)
+string tfInput = input.timeframe(defval = &quot;&quot;, title = &quot;Input TF&quot;)
+
+float chartTFInMinutes = timeframe.in_seconds() / 60
+float inputTFInMinutes = timeframe.in_seconds(tfInput) / 60
+
+var table t = table.new(position.top_right, 1, 1)
+string txt = &quot;Chart TF: &quot;    + str.tostring(chartTFInMinutes, &quot;#.##### minutes&quot;) +
+&quot;\nInput TF: &quot; + str.tostring(inputTFInMinutes, &quot;#.##### minutes&quot;)
+if barstate.isfirst
+    table.cell(t, 0, 0, txt, bgcolor = color.yellow)
+else if barstate.islast
+    table.cell_set_text(t, 0, 0, txt)
+
+if chartTFInMinutes &gt; inputTFInMinutes
+    runtime.error(&quot;The chart&#39;s timeframe must not be higher than the input&#39;s timeframe.&quot;)
+</pre></div>
+</div>
+<p>Note that:</p>
+<ul class="simple">
+<li>We use the built-in <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_timeframe{dot}in_seconds">timeframe.in_seconds()</a> function
+to convert the chart and the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input{dot}session">input.timeframe()</a>
+function into seconds, then divide by 60 to convert into minutes.</li>
+<li>We use two calls to the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_timeframe{dot}in_seconds">timeframe.in_seconds()</a>
+function in the initialization of the <code class="docutils literal notranslate"><span class="pre">chartTFInMinutes</span></code> and <code class="docutils literal notranslate"><span class="pre">inputTFInMinutes</span></code> variables.
+In the first instance, we do not supply an argument for its <code class="docutils literal notranslate"><span class="pre">timeframe</span></code> parameter, so the function returns the chart’s timeframe in seconds.
+In the second call, we supply the timeframe selected by the script’s user through the call to
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input{dot}session">input.timeframe()</a>.</li>
+<li>Next, we validate the timeframes to ensure that the input timeframe is equal to or higher than the chart’s timeframe.
+If it is not, we generate a runtime error.</li>
+<li>We finally print the two timeframe values converted to minutes.</li>
+</ul>
+<a class="reference external image-reference" href="https://www.tradingview.com/"><div align="center" class="align-center"><img alt="../_images/TradingView-Logo-Block.svg" src="../_images/TradingView-Logo-Block.svg" width="200px" /></div>
+</a>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="Time.html" title="previous chapter (use the left arrow)">Time</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="../writing/index.html" title="next chapter (use the right arrow)">Writing scripts</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../writing/index.html" title="Writing scripts"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Time.html" title="Time"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Concepts</a> &#187;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="../_static/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="../_static/js/theme.js"></script>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Options</span>
+    v: v5
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Languages</dt>
+      
+        <strong>
+        <dd><a href="Timeframes.html">en</a></dd>
+        </strong>
+      
+    </dl>
+    <dl>
+      <dt>Versions</dt>
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v3/concepts/Timeframes.html">v3</a></dd>
+        
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v4/concepts/Timeframes.html">v4</a></dd>
+        
+      
+        <strong>
+        <dd><a href="Timeframes.html">v5</a></dd>
+        </strong>
+      
+    </dl>
+  </div>
+</div>
+<script type="text/javascript">
+    jQuery(function () {
+        SphinxRtdTheme.Navigation.enable(false);
+    });
+</script>
+  <div class="footer">
+    &copy; Copyright 2023, TradingView.
+  </div>
+  </body>
+
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/concepts/Timeframes.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:57:01 GMT -->
+</html>

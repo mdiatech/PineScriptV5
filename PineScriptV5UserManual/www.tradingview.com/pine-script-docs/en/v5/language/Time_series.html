@@ -1,0 +1,280 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/language/Time_series.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:56:02 GMT -->
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Time series &#8212; Pine Script® v5 User Manual v5 documentation</title>
+    <link rel="stylesheet" href="../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../../../../static.tradingview.com/static/bundles/pine-highlighter-v01.js"></script>
+    <script type="text/javascript" src="../_static/highlight-pine-code.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Script structure" href="Script_structure.html" />
+    <link rel="prev" title="Execution model" href="Execution_model.html" />
+  
+   
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Script_structure.html" title="Script structure"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Execution_model.html" title="Execution model"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Language</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="../index.html" class="text-logo">Pine Script<sup>®</sup> v5 User Manual</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Introduction.html">Welcome to Pine Script<sup>®</sup> v5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primer/index.html">Pine Script<sup>®</sup> primer</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Language</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Execution_model.html">Execution model</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Time series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Script_structure.html">Script structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Identifiers.html">Identifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variable_declarations.html">Variable declarations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Conditional_structures.html">Conditional structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Type_system.html">Type system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Built-ins.html">Built-ins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="User-defined_functions.html">User-defined functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Objects.html">Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Methods.html">Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Arrays.html">Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Matrices.html">Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Maps.html">Maps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../writing/index.html">Writing scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Error_messages.html">Error messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Release_notes.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migration_guides/index.html">Migration guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Where_can_I_get_more_information.html">Where can I get more information?</a></li>
+</ul>
+
+    
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="https://www.tradingview.com/pine-script-docs/en/v5/search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../index.html">User Manual</a></li>
+              
+                <li><a href="index.html">Language</a></li>
+              
+              <li>Time series</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <a class="reference external image-reference" href="../Introduction.html"><div align="right" class="align-right"><img alt="Pine Script® logo" height="100" src="../_images/Pine-script-logo.svg" width="100" /></div>
+</a>
+<div class="section" id="time-series">
+<span id="pagetimeseries"></span><h1>Time series<a class="headerlink" href="#time-series" title="Permalink to this headline">¶</a></h1>
+<p>Much of the power of Pine Script<sup>®</sup> stems from the fact that it is designed to process <em>time series</em> efficiently.
+Time series are not a form or a type; they are the fundamental structure Pine Script<sup>®</sup> uses to store the successive values of a variable over time,
+where each value is tethered to a point in time. Since charts are composed of bars, each representing a particular point in time,
+time series are the ideal data structure to work with values that may change with time.</p>
+<p>The notion of time series is intimately linked to Pine Script<sup>®</sup>’s <a class="reference internal" href="Execution_model.html#pageexecutionmodel"><span class="std std-ref">execution model</span></a> and <a class="reference internal" href="Type_system.html#pagetypesystem"><span class="std std-ref">type system</span></a> concepts.
+Understanding all three is key to making the most of the power of Pine Script<sup>®</sup>.</p>
+<p>Take the built-in <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_open">open</a> variable,
+which contains the “open” price of each bar in the dataset, the <em>dataset</em> being all the bars on any given chart.
+If your script is running on a 5min chart, then each value in the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_open">open</a>
+time series is the “open” price of the consecutive 5min chart bars.
+When your script refers to <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_open">open</a>,
+it is referring to the “open” price of the bar the script is executing on. To refer to past values in a time series,
+we use the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_[]">[]</a> history-referencing operator.
+When a script is executing on a given bar, <code class="docutils literal notranslate"><span class="pre">open[1]</span></code> refers to the value of the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_open">open</a>
+time series on the previous bar.</p>
+<p>While time series may remind programmers of arrays, they are totally different.
+Pine Script<sup>®</sup> does use an array data structure, but it is a completely different concept than a time series.</p>
+<p>Time series in Pine Script<sup>®</sup>, combined with its special type of runtime engine and built-in functions,
+are what makes it easy to compute the cumulative total of <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_close">close</a>
+values without using a <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_for">for</a> loop, with only <code class="docutils literal notranslate"><span class="pre">ta.cum(close)</span></code>.
+This is possible because although <code class="docutils literal notranslate"><span class="pre">ta.cum(close)</span></code> appears rather static in a script, it is in fact executed on each bar,
+so its value becomes increasingly larger as the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_close">close</a>
+value of each new bar is added to it. When the script reaches the rightmost bar of the chart,
+<code class="docutils literal notranslate"><span class="pre">ta.cum(close)</span></code> returns the sum of the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_close">close</a> value from all bars on the chart.</p>
+<p>Similarly, the mean of the difference between the last 14 <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_high">high</a>
+and <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_low">low</a> values can be expressed as <code class="docutils literal notranslate"><span class="pre">ta.sma(high</span> <span class="pre">-</span> <span class="pre">low,</span> <span class="pre">14)</span></code>,
+or the distance in bars since the last time the chart made five consecutive higher highs as <code class="docutils literal notranslate"><span class="pre">barssince(rising(high,</span> <span class="pre">5))</span></code>.</p>
+<p>Even the result of function calls on successive bars leaves a trace of values in a time series that can be referenced using the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_[]">[]</a> history-referencing operator.
+This can be useful, for example, when testing the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_close">close</a>
+of the current bar for a breach of the highest <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_high">high</a>
+in the last 10 bars, but excluding the current bar, which we could write as <code class="docutils literal notranslate"><span class="pre">breach</span> <span class="pre">=</span> <span class="pre">close</span> <span class="pre">&gt;</span> <span class="pre">highest(close,</span> <span class="pre">10)[1]</span></code>.
+The same statement could also be written as <code class="docutils literal notranslate"><span class="pre">breach</span> <span class="pre">=</span> <span class="pre">close</span> <span class="pre">&gt;</span> <span class="pre">highest(close[1],</span> <span class="pre">10)</span></code>.</p>
+<p>The same looping logic on all bars is applied to function calls such as <code class="docutils literal notranslate"><span class="pre">plot(open)</span></code>
+which will repeat on each bar, successively plotting on the chart the value of <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_high">open</a>
+for each bar.</p>
+<p>Do not confuse “time series” with the “series” form.
+The <em>time series</em> concept explains how consecutive values of variables are stored in Pine Script<sup>®</sup>; the “series” form denotes variables whose values can change bar to bar.
+Consider, for example, the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_timeframe{dot}period">timeframe.period</a>
+built-in variable which is of form “simple” and type “string”, so “simple string”.
+The “simple” form entails that the variable’s value is known on bar zero (the first bar where the script executes)
+and will not change during the script’s execution on all the chart’s bars. The variable’s value is the chart’s timeframe in string format,
+so <code class="docutils literal notranslate"><span class="pre">&quot;D&quot;</span></code> for a 1D chart, for example. Even though its value cannot change during the script,
+it would be syntactically correct in Pine Script<sup>®</sup> (though not very useful) to refer to its value 10 bars ago using <code class="docutils literal notranslate"><span class="pre">timeframe.period[10]</span></code>.
+This is possible because the successive values of <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_timeframe{dot}period">timeframe.period</a>
+for each bar are stored in a time series, even though all the values in that particular time series are similar.
+Note, however, that when the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_[]">[]</a> operator is used to access past values of a variable,
+it yields a result of “series” form, even though the variable without an offset is of another form,
+such as “simple” in the case of <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_timeframe{dot}period">timeframe.period</a>.</p>
+<p>When you grasp how time series can be efficiently handled using Pine Script<sup>®</sup>’s syntax and its <a class="reference internal" href="Execution_model.html#pageexecutionmodel"><span class="std std-ref">execution model</span></a>,
+you can define complex calculations using little code.</p>
+<a class="reference external image-reference" href="https://www.tradingview.com/"><div align="center" class="align-center"><img alt="../_images/TradingView-Logo-Block.svg" src="../_images/TradingView-Logo-Block.svg" width="200px" /></div>
+</a>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="Execution_model.html" title="previous chapter (use the left arrow)">Execution model</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="Script_structure.html" title="next chapter (use the right arrow)">Script structure</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Script_structure.html" title="Script structure"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Execution_model.html" title="Execution model"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Language</a> &#187;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="../_static/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="../_static/js/theme.js"></script>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Options</span>
+    v: v5
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Languages</dt>
+      
+        <strong>
+        <dd><a href="Time_series.html">en</a></dd>
+        </strong>
+      
+    </dl>
+    <dl>
+      <dt>Versions</dt>
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v3/language/Time_series.html">v3</a></dd>
+        
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v4/language/Time_series.html">v4</a></dd>
+        
+      
+        <strong>
+        <dd><a href="Time_series.html">v5</a></dd>
+        </strong>
+      
+    </dl>
+  </div>
+</div>
+<script type="text/javascript">
+    jQuery(function () {
+        SphinxRtdTheme.Navigation.enable(false);
+    });
+</script>
+  <div class="footer">
+    &copy; Copyright 2023, TradingView.
+  </div>
+  </body>
+
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/language/Time_series.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:56:02 GMT -->
+</html>

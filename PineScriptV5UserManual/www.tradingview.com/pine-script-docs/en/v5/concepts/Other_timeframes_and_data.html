@@ -1,0 +1,2053 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/concepts/Other_timeframes_and_data.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:57:07 GMT -->
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Other timeframes and data &#8212; Pine Script® v5 User Manual v5 documentation</title>
+    <link rel="stylesheet" href="../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../../../../static.tradingview.com/static/bundles/pine-highlighter-v01.js"></script>
+    <script type="text/javascript" src="../_static/highlight-pine-code.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  
+   
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="../index.html" class="text-logo">Pine Script<sup>®</sup> v5 User Manual</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul>
+<li class="toctree-l1"><a class="reference internal" href="../Introduction.html">Welcome to Pine Script<sup>®</sup> v5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primer/index.html">Pine Script<sup>®</sup> primer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../language/index.html">Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../writing/index.html">Writing scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Error_messages.html">Error messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Release_notes.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migration_guides/index.html">Migration guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Where_can_I_get_more_information.html">Where can I get more information?</a></li>
+</ul>
+
+    
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="https://www.tradingview.com/pine-script-docs/en/v5/search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../index.html">User Manual</a></li>
+              
+              <li>Other timeframes and data</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <a class="reference external image-reference" href="../Introduction.html"><div align="right" class="align-right"><img alt="Pine Script® logo" height="100" src="../_images/Pine-script-logo.svg" width="100" /></div>
+</a>
+<div class="section" id="other-timeframes-and-data">
+<span id="pageothertimeframesanddata"></span><h1>Other timeframes and data<a class="headerlink" href="#other-timeframes-and-data" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#introduction" id="id1">Introduction</a></li>
+<li><a class="reference internal" href="#common-characteristics" id="id2">Common characteristics</a><ul>
+<li><a class="reference internal" href="#use" id="id3">Use</a></li>
+<li><a class="reference internal" href="#gaps" id="id4">`gaps`</a></li>
+<li><a class="reference internal" href="#ignore-invalid-symbol" id="id5">`ignore_invalid_symbol`</a></li>
+<li><a class="reference internal" href="#currency" id="id6">`currency`</a></li>
+<li><a class="reference internal" href="#lookahead" id="id7">`lookahead`</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#request-security" id="id8">`request.security()`</a><ul>
+<li><a class="reference internal" href="#timeframes" id="id9">Timeframes</a></li>
+<li><a class="reference internal" href="#data-feeds" id="id10">Data feeds</a></li>
+<li><a class="reference internal" href="#information-requested" id="id11">Information requested</a><ul>
+<li><a class="reference internal" href="#arrays" id="id12">Arrays</a></li>
+<li><a class="reference internal" href="#built-ins" id="id13">Built-ins</a></li>
+<li><a class="reference internal" href="#calculated-variables" id="id14">Calculated variables</a></li>
+<li><a class="reference internal" href="#function-calls" id="id15">Function calls</a></li>
+<li><a class="reference internal" href="#tuples" id="id16">Tuples</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#other-contexts-with-ticker-new" id="id17">Other contexts, with `ticker.new()`</a></li>
+<li><a class="reference internal" href="#historical-vs-realtime-values" id="id18">Historical vs realtime values</a></li>
+<li><a class="reference internal" href="#avoiding-repainting" id="id19">Avoiding repainting</a></li>
+<li><a class="reference internal" href="#requesting-data-from-a-lower-timeframe" id="id20">Requesting data from a lower timeframe</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#request-security-lower-tf" id="id21">`request.security_lower_tf()`</a><ul>
+<li><a class="reference internal" href="#fetching-standard-prices-from-a-non-standard-chart" id="id22">Fetching standard prices from a non-standard chart</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#request-economic" id="id23">`request.economic()`</a></li>
+<li><a class="reference internal" href="#request-dividends-request-earnings-and-request-splits" id="id24">`request.dividends()`, `request.earnings()` and `request.splits()`</a></li>
+<li><a class="reference internal" href="#request-quandl" id="id25">`request.quandl()`</a></li>
+<li><a class="reference internal" href="#request-financial" id="id26">`request.financial()`</a><ul>
+<li><a class="reference internal" href="#calculated-financial-metrics" id="id27">Calculated financial metrics</a></li>
+<li><a class="reference internal" href="#financial-ids" id="id28">Financial IDs</a><ul>
+<li><a class="reference internal" href="#income-statements" id="id29">Income statements</a></li>
+<li><a class="reference internal" href="#balance-sheet" id="id30">Balance sheet</a></li>
+<li><a class="reference internal" href="#cash-flow" id="id31">Cash flow</a></li>
+<li><a class="reference internal" href="#statistics" id="id32">Statistics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="introduction">
+<h2><a class="toc-backref" href="#id1">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>The functions we present here all fetch data from other sources than the chart the script is running on.
+That data can be:</p>
+<ul class="simple">
+<li>From other another symbol, timeframe or context, with
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a>.</li>
+<li>From a lower timeframe than the chart’s, gathering intrabar information from intrabars using
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security_lower_tf">request.security_lower_tf()</a>.</li>
+<li>Financial data from <a class="reference external" href="https://www.factset.com/" rel="nofollow">FactSet</a>, with
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}financial">request.financial()</a>.</li>
+<li>Dividends, earnings and splits information from the exchange, with
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}dividends">request.dividends()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}earnings">request.earnings()</a> or
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}splits">request.splits()</a>.</li>
+<li>Information from the <a class="reference external" href="https://data.nasdaq.com/search" rel="nofollow">NASDAQ Data Link (formerly Quandl)</a>,
+with <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}quandl">request.quandl()</a>.</li>
+</ul>
+<p>These are the signatures of the functions in the <code class="docutils literal notranslate"><span class="pre">request</span></code> namespace:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>request.security(symbol, timeframe, expression, gaps, lookahead, ignore_invalid_symbol, currency) → series int/float/bool/color
+
+request.security_lower_tf(symbol, timeframe, expression, ignore_invalid_symbol, currency) → &lt;array with values of the same type as `expression`&gt;
+
+request.financial(symbol, financial_id, period, gaps, ignore_invalid_symbol, currency) → series float
+
+request.dividends(ticker, field, gaps, lookahead, ignore_invalid_symbol, currency) → series float
+request.earnings(ticker, field, gaps, lookahead, ignore_invalid_symbol, currency) → series float
+request.splits(ticker, field, gaps, lookahead, ignore_invalid_symbol, currency) → series float
+
+request.quandl(ticker, gaps, index, ignore_invalid_symbol, currency) → series float
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Functions in the <code class="docutils literal notranslate"><span class="pre">request.*()</span></code> family have many different applications, and their use can be rather involved.
+Accordingly, this page is quite lengthy.</p>
+</div>
+</div>
+<div class="section" id="common-characteristics">
+<span id="pageothertimeframesanddata-commoncharacteristics"></span><h2><a class="toc-backref" href="#id2">Common characteristics</a><a class="headerlink" href="#common-characteristics" title="Permalink to this headline">¶</a></h2>
+<p>Many of the functions in the <code class="docutils literal notranslate"><span class="pre">request</span></code> namespace share common properties and parameters.
+Before exploring each function in detail, let’s go over their common characteristics.</p>
+<div class="section" id="use">
+<h3><a class="toc-backref" href="#id3">Use</a><a class="headerlink" href="#use" title="Permalink to this headline">¶</a></h3>
+<p>While the <code class="docutils literal notranslate"><span class="pre">request.*()</span></code> functions return “series” results, which means they can be different on every bar,
+their parameters require arguments of either “const”, “input” or “simple” form
+because they must be known when the script begins execution on bar zero.
+This <strong>also</strong> entails that, except for the <code class="docutils literal notranslate"><span class="pre">expression</span></code> parameter in
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a>
+which allows a “series” argument, the arguments of <code class="docutils literal notranslate"><span class="pre">request.*()</span></code> function calls cannot vary during the execution of a script, e.g.:</p>
+<ul class="simple">
+<li>The argument used for the <code class="docutils literal notranslate"><span class="pre">symbol</span></code> parameter in a <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a>
+call must be a “simple string”. This means is can be determined through the script’s inputs, but it cannot then change on the script’s last bar, for example.
+The same goes for its <code class="docutils literal notranslate"><span class="pre">timeframe</span></code> parameter.</li>
+<li>All the other <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a> parameters except <code class="docutils literal notranslate"><span class="pre">expression</span></code>, i.e.,
+<code class="docutils literal notranslate"><span class="pre">gaps</span></code>, <code class="docutils literal notranslate"><span class="pre">lookahead</span></code>, <code class="docutils literal notranslate"><span class="pre">ignore_invalid_symbol</span></code> and <code class="docutils literal notranslate"><span class="pre">currency</span></code>, require a “const” argument,
+which means it must be known at compile time and cannot be determined through inputs.</li>
+<li><code class="docutils literal notranslate"><span class="pre">request.*()</span></code> functions cannot be used in local blocks of either conditional structures or loops, nor in library functions.
+They can be used in user-defined functions.</li>
+</ul>
+<p>Think of <code class="docutils literal notranslate"><span class="pre">request.*()</span></code> function calls as requiring all arguments needed for the function to execute on bar zero and
+not varying during the script’s execution on all bars.
+You can make multiple calls in one script and choose which result you will use based on “series” criteria that may vary bar to bar,
+but all the necessary calls whose results you will be selecting from will need to have been previously made by the script,
+available for choosing among them.</p>
+<p>Because of the fact that one cannot turn <code class="docutils literal notranslate"><span class="pre">request.*()</span></code> function calls on or off during the script’s execution,
+the only way to improve the performance of scripts using such functions is to minimize the number of different calls defined in the script.
+While a maximum of 40 calls can be made in any given script, programmers should strive to minimize the quantity of calls,
+as they have a sizable impact on script performance.</p>
+<p>A maximum of 40 calls to <code class="docutils literal notranslate"><span class="pre">request.*()</span></code> functions is allowed per script.
+See the page on <a class="reference internal" href="../writing/Limitations.html#pagelimitations-requestcalls"><span class="std std-ref">limitations</span></a> for more information.</p>
+</div>
+<div class="section" id="gaps">
+<span id="pageothertimeframesanddata-gaps"></span><h3><a class="toc-backref" href="#id4">`gaps`</a><a class="headerlink" href="#gaps" title="Permalink to this headline">¶</a></h3>
+<p>All the <code class="docutils literal notranslate"><span class="pre">request.*()</span></code> functions include the <code class="docutils literal notranslate"><span class="pre">gaps</span></code> parameter in their signature.
+<em>Gaps</em> are <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a> values
+(see the <a class="reference internal" href="../language/Type_system.html#pagetypesystem-navalue"><span class="std std-ref">section on `na`</span></a> if you are not familiar with it).</p>
+<p>A script running on a 60min chart has access to prices such as <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_close">close</a>
+on each bar of the chart. When retrieving data from other contexts, however, new values for that data may not be coming in for each new bar on the chart.
+When fetching daily data on our 60min chart, for example, new data will not be coming in on every chart bar.
+A choice must thus be made as to how the data from the outside context will be <em>merged</em> on chart bars.
+That behavior is what the <code class="docutils literal notranslate"><span class="pre">gaps</span></code> parameter controls.</p>
+<p>When functions do not return a value on each of the chart bars the calling script is running on,
+one must determine if the function should return <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a> values in those cases
+(<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_barmerge{dot}gaps_on">barmerge.gaps_on</a>),
+or the latest non-<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a> value returned by the function
+(<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_barmerge{dot}gaps_off">barmerge.gaps_off</a>).</p>
+<p>In cases where no gaps are allowed, the last non-<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a> value
+will repeat on chart bars until a new value comes in. This shows the diffence between using gaps or not:</p>
+<img alt="../_images/OtherTimeframesAndData-Gaps-01.png" src="../_images/OtherTimeframesAndData-Gaps-01.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;gaps&quot;, &quot;&quot;, true)
+noGaps = request.security(syminfo.tickerid, &quot;1&quot;, close)
+withGaps = request.security(syminfo.tickerid, &quot;1&quot;, close, gaps = barmerge.gaps_on)
+plot(noGaps, &quot;noGaps&quot;, color.blue, 3, plot.style_linebr)
+plot(withGaps, &quot;withGaps&quot;, color.fuchsia, 12, plot.style_linebr)
+bgcolor(barstate.isrealtime ? #00000020 : na)
+</pre></div>
+</div>
+<p>Note that:</p>
+<ul class="simple">
+<li>We are requesting the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_close">close</a> value
+from the chart’s symbol at the 1min timeframe, so we are viewing a 5sec chart to display higher timeframe values.</li>
+<li>We plot both our lines using the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_plot{dot}style_linebr">plot.style_linebr</a> style
+because it does not bridge over <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a> values,
+like the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_plot{dot}style_line">plot.style_line</a> style would.
+This way we can distinguish between bars where a value is returned, and others where <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a> is returned.</li>
+<li>The blue line plotting <code class="docutils literal notranslate"><span class="pre">noGaps</span></code> shows no gaps. We initialize <code class="docutils literal notranslate"><span class="pre">noGaps</span></code> using a <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a>
+call that does not specify a value for the <code class="docutils literal notranslate"><span class="pre">gaps</span></code> parameter, so the default
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_barmerge{dot}gaps_off">barmerge.gaps_off</a> is used.</li>
+<li>The fuchsia line plotting <code class="docutils literal notranslate"><span class="pre">withGaps</span></code> shows gaps.</li>
+<li>New values for the higher timeframe come in at the same time, whether we use gaps or not.</li>
+</ul>
+</div>
+<div class="section" id="ignore-invalid-symbol">
+<h3><a class="toc-backref" href="#id5">`ignore_invalid_symbol`</a><a class="headerlink" href="#ignore-invalid-symbol" title="Permalink to this headline">¶</a></h3>
+<p>All the <code class="docutils literal notranslate"><span class="pre">request.*()</span></code> functions include the <code class="docutils literal notranslate"><span class="pre">ignore_invalid_symbol</span></code> parameter in their signature.
+The parameter’s values can be <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code> (the default).
+It controls the behavior of functions when they are used with arguments that cannot produce valid results, e.g.:</p>
+<ul class="simple">
+<li>The symbol or ticker doesn’t exist.</li>
+<li>There is no financial information available for a symbol used with
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}financial">request.financial()</a>,
+(as is the case for crypto, forex or derivative instruments).
+This will also be the case when information for the particular <code class="docutils literal notranslate"><span class="pre">period</span></code> requested is not available.</li>
+</ul>
+<p>When the default <code class="docutils literal notranslate"><span class="pre">ignore_invalid_symbol</span> <span class="pre">=</span> <span class="pre">false</span></code> is used, a runtime error will be generated and the script will stop when no result can be returned.
+When <code class="docutils literal notranslate"><span class="pre">ignore_invalid_symbol</span> <span class="pre">=</span> <span class="pre">true</span></code> is used, rather than throwing a runtime error, the function will return <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a>.</p>
+<p>This script demonstrates how to use <code class="docutils literal notranslate"><span class="pre">ignore_invalid_symbol</span> <span class="pre">=</span> <span class="pre">true</span></code> to handle invalid results when requesting
+the shares outstanding for stocks. It will only display information on instruments where valid data can be obtained:</p>
+<img alt="../_images/OtherTimeframesAndData-IgnoreValidSymbol-01.png" src="../_images/OtherTimeframesAndData-IgnoreValidSymbol-01.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;&quot;, &quot;&quot;, true)
+printTable(txt) =&gt; var table t = table.new(position.middle_right, 1, 1), table.cell(t, 0, 0, txt, bgcolor = color.yellow, text_size = size.huge)
+TSO = request.financial(syminfo.tickerid, &quot;TOTAL_SHARES_OUTSTANDING&quot;, &quot;FQ&quot;, ignore_invalid_symbol = true)
+MarketCap = TSO * close
+if not na(MarketCap) and barstate.islast
+    txt = &quot;Market cap\n&quot; + str.tostring(MarketCap, format.volume) + &quot; &quot; + syminfo.currency
+    printTable(txt)
+</pre></div>
+</div>
+<p>Note that:</p>
+<ul class="simple">
+<li>We use <code class="docutils literal notranslate"><span class="pre">ignore_invalid_symbol</span> <span class="pre">=</span> <span class="pre">true</span></code> in our
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}financial">request.financial()</a> call.
+This will produce <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a> results when the function cannot return a valid value.</li>
+<li>We use the <code class="docutils literal notranslate"><span class="pre">TSO</span></code> value to calculate the stock’s <code class="docutils literal notranslate"><span class="pre">MarketCap</span></code>.</li>
+<li>The <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">na(MarketCap)</span></code> condition prevents us from displaying anything when <code class="docutils literal notranslate"><span class="pre">TSO</span></code>
+— and thus <code class="docutils literal notranslate"><span class="pre">MarketCap</span></code> — is <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a>.</li>
+<li>The <code class="docutils literal notranslate"><span class="pre">barstate.islast</span></code> condition ensures we only make a call to <code class="docutils literal notranslate"><span class="pre">printTable(txt)</span></code> on the chart’s last bar.
+It would be inefficient to call it on each bar.</li>
+<li>We format the displayed string and assign its content to the <code class="docutils literal notranslate"><span class="pre">txt</span></code> variable.
+<code class="docutils literal notranslate"><span class="pre">&quot;Market</span> <span class="pre">cap\n&quot;</span></code> is our legend, with a newline character.
+<code class="docutils literal notranslate"><span class="pre">str.tostring(MarketCap,</span> <span class="pre">format.volume)</span></code> converts the <code class="docutils literal notranslate"><span class="pre">MarketCap</span></code> “float” value to a string, formatting it like volume, by abbreviating large values.
+Adding <code class="docutils literal notranslate"><span class="pre">syminfo.currency</span></code> provides script users with the instrument’s quote currency.
+In our example, Tencent is traded on HKEX, Hong Kong’s stock exchange, so the currency is HKD, the Hong Kong dollar.</li>
+<li>We use a <a class="reference internal" href="Tables.html#pagetables"><span class="std std-ref">table</span></a> to display our script’s output. Our <code class="docutils literal notranslate"><span class="pre">printTable()</span></code> function declared just after our script’s
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_indicator">indicator()</a> declaration statement handles the table code.</li>
+</ul>
+</div>
+<div class="section" id="currency">
+<h3><a class="toc-backref" href="#id6">`currency`</a><a class="headerlink" href="#currency" title="Permalink to this headline">¶</a></h3>
+<p>All the <code class="docutils literal notranslate"><span class="pre">request.*()</span></code> functions also include the <code class="docutils literal notranslate"><span class="pre">currency</span></code> parameter in their signature.
+It allows conversion of the value returned by the function to another currency.
+The currency being converted <strong>from</strong> is the symbol’s quote currency, i.e., <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_syminfo{dot}currency">syminfo.currency</a>,
+which is determined by the exchange it trades on.
+The currency being converted <strong>to</strong> is the value used for the <code class="docutils literal notranslate"><span class="pre">currency</span></code> parameter,
+which can be any currency in the <a class="reference external" href="https://en.wikipedia.org/wiki/ISO_4217#Active_codes" rel="nofollow">ISO 4217 format</a>,
+or one of the currency built-ins in the <code class="docutils literal notranslate"><span class="pre">currency.XXX</span></code> format, such as <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_currency{dot}JPY">currency.JPY</a>.</p>
+<p>The conversion rates used are based on the FX_IDC pairs’ daily rates of the previous day, relative to the bar where the calculation occurs.
+When no instrument exists to determine a particular pair’s conversion rate, a spread is used. For example, to convert ZAR to USD,
+the <code class="docutils literal notranslate"><span class="pre">ZARUSD*USDHKD</span></code> spread would be used, as there is no instrument providing a <code class="docutils literal notranslate"><span class="pre">ZARUSD</span></code> rate.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Not all values returned by <code class="docutils literal notranslate"><span class="pre">request.*()</span></code> functions may be in currency, so it does not always make sense to convert them into another currency.
+When requesting financial information with <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}financial">request.financial()</a>
+or <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}quandl">request.quandl()</a>
+for example, many of the values are ratios, or expressed in other units than currency, such as <code class="docutils literal notranslate"><span class="pre">PIOTROSKI_F_SCORE</span></code> or <code class="docutils literal notranslate"><span class="pre">NUMBER_OF_EMPLOYEES</span></code>.
+It is the programmer’s responsibility to determine when currency conversion is applicable.</p>
+</div>
+</div>
+<div class="section" id="lookahead">
+<span id="pageothertimeframesanddata-lookahead"></span><h3><a class="toc-backref" href="#id7">`lookahead`</a><a class="headerlink" href="#lookahead" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">lookahead</span></code> parameter controls whether future data is returned by the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}dividends">request.dividends()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}earnings">request.earnings()</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}splits">request.splits()</a> functions.
+In order to avoid <em>future leak</em>, or <em>lookahead bias</em>, which produces unrealistic results, <strong>it should generally be avoided — or treated with extreme caution</strong>.
+<code class="docutils literal notranslate"><span class="pre">lookahead</span></code> is only useful in special circumstances, when it doesn’t compromise the integrity of your script’s logic, e.g.:</p>
+<ul class="simple">
+<li>When used with an offset on the series (such as <code class="docutils literal notranslate"><span class="pre">close[1]</span></code>), to produce non-repainting
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a> calls.</li>
+<li>When retrieving the underlying, normal chart data from non-standard charts.</li>
+<li>When using <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a>
+at intrabar timeframes, i.e., timeframes lower than the chart’s.</li>
+</ul>
+<p>The parameter only affects the script’s behavior on historical bars, as there are no future bars to look forward to in realtime, where the future is unknown — as it should.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Using <code class="docutils literal notranslate"><span class="pre">lookahead</span> <span class="pre">=</span> <span class="pre">barmerge.lookahead_on</span></code> when fetching price information, or calculations depending on prices, causes future leak,
+which means your script is using future information it should <strong>not</strong> have access to.
+Except in rare cases, this is a very bad idea. Using <code class="docutils literal notranslate"><span class="pre">request.*()</span></code> functions this way is misleading, and not allowed in script publications.
+It is considered a serious violation of <a class="reference external" href="https://www.tradingview.com/support/solutions/43000590599">Script publishing rules</a>,
+so it is your responsability, if you publish scripts, to ensure you do not mislead users of your script by using future information on historical bars.
+While your plots on historical bars will look great because your script will magically acquire prescience (which will not reproduce in realtime, by the way),
+you will be misleading users of your scripts — and yourself.</p>
+</div>
+<p>The default value for <code class="docutils literal notranslate"><span class="pre">lookahead</span></code> is <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_barmerge{dot}lookahead_off">barmerge.lookahead_off</a>.
+To enable it, use <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_barmerge{dot}lookahead_on">barmerge.lookahead_on</a>.</p>
+<p>This example shows why using <code class="docutils literal notranslate"><span class="pre">lookahead</span> <span class="pre">=</span> <span class="pre">barmerge.lookahead_on</span></code> to fetch price information can be so dangerous.
+We retrieve the 1min <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_high">high</a> from a 5sec chart
+and show the difference in results between using
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_barmerge{dot}lookahead_on">barmerge.lookahead_on</a> (bad, in red) and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_barmerge{dot}lookahead_off">barmerge.lookahead_off</a> (good, in gray):</p>
+<img alt="../_images/OtherTimeframesAndData-Lookahead-01.png" src="../_images/OtherTimeframesAndData-Lookahead-01.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;lookahead&quot;, &quot;&quot;, true)
+lookaheadOn  = request.security(syminfo.tickerid, &#39;1&#39;, high, lookahead = barmerge.lookahead_on)
+lookaheadOff = request.security(syminfo.tickerid, &#39;1&#39;, high, lookahead = barmerge.lookahead_off)
+plot(lookaheadOn,  &quot;lookaheadOn&quot;, color.new(color.red, 60), 6)
+plot(lookaheadOff, &quot;lookaheadOff&quot;,  color.gray, 2)
+bgcolor(barstate.isrealtime ? #00000020 : na)
+</pre></div>
+</div>
+<p>Note that:</p>
+<ul class="simple">
+<li>The red line shows the result of using lookahead. The black line does not use it.</li>
+<li>On historical bars, the red line is showing the 1min highs before they actually occur (see #1 and #2, where it is most obvious).</li>
+<li>In realtime (the bars after #3 with the silver background), there is no difference between the plots because there are no futures bars to look into.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In Pine Script<sup>®</sup> v1 and v2, <code class="docutils literal notranslate"><span class="pre">security()</span></code> did not include a <code class="docutils literal notranslate"><span class="pre">lookahead</span></code> parameter, but it behaved as it does in later versions of Pine Script<sup>®</sup>
+with <code class="docutils literal notranslate"><span class="pre">lookahead</span> <span class="pre">=</span> <span class="pre">barmerge.lookahead_on</span></code>, which means it was systematically using future data.
+Scripts written with Pine Script<sup>®</sup> v1 or v2 and using <code class="docutils literal notranslate"><span class="pre">security()</span></code> should therefore be treated with caution, unless they offset the series fetched,
+e.g., using <code class="docutils literal notranslate"><span class="pre">close[1]</span></code>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="request-security">
+<h2><a class="toc-backref" href="#id8">`request.security()`</a><a class="headerlink" href="#request-security" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a>
+function is used to request data from other contexts than the chart’s. Those different contexts may be:</p>
+<ul class="simple">
+<li>Other symbols</li>
+<li>Spreads</li>
+<li>Other timeframes (see the page on <a class="reference internal" href="Timeframes.html#pagetimeframes"><span class="std std-ref">Timeframes</span></a> to learn about about timeframe specifications in Pine Script<sup>®</sup>)</li>
+<li>Other chart types (see the page on <a class="reference internal" href="Non-standard_charts_data.html#pagenonstandardchartsdata"><span class="std std-ref">Non-standard chart data</span></a>)</li>
+<li>Other chart types or sessions, through <code class="docutils literal notranslate"><span class="pre">ticker.*()</span></code> functions
+(see this page’s <a class="reference internal" href="#pageothertimeframesanddata-othercontextswithtickernew"><span class="std std-ref">Other contexts, with `ticker.new()`</span></a> section)</li>
+</ul>
+<p>The function’s signature is:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>request.security(symbol, timeframe, expression, gaps, lookahead, ignore_resolve_errors, currency) → series int/float/bool/color/string
+request.security(symbol, timeframe, expression, gaps, lookahead, ignore_resolve_errors, currency) → series int[]/float[]/bool[]/color[]/string[]
+</pre></div>
+</div>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">symbol</span></code></dt>
+<dd><p class="first">This is the ticker identifier of the symbol whose information is to be fetched. It must be of “simple string” type and can be defined in multiple ways:</p>
+<blockquote class="last">
+<div><ul class="simple">
+<li>With a literal string containing either a simple ticker like <code class="docutils literal notranslate"><span class="pre">&quot;IBM&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;EURUSD&quot;</span></code>,
+or an exchange:symbol pair like <code class="docutils literal notranslate"><span class="pre">&quot;NYSE:IBM&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;OANDA:EURUSD&quot;</span></code>.
+When an exchange is not provided, a default exchange will be used when it is possible.
+You will obtain more reliable results by specifying the exchange.</li>
+<li>Using the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_syminfo{dot}ticker">syminfo.ticker</a> or
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_syminfo{dot}tickerid">syminfo.tickerid</a> built-in variables,
+which respectively return only the ticker or the exchange:ticker information of the chart’s symbol.
+It is recommended to use <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_syminfo{dot}tickerid">syminfo.tickerid</a>
+to avoid ambiguity. See the <a class="reference internal" href="Chart_information.html#pagechartinformation-symbolinformation"><span class="std std-ref">Symbol information</span></a> section for more information.
+Note that an empty string can also be supplied as a value, in which case the chart’s symbol is used.</li>
+<li>Spreads can also be used, e.g., <code class="docutils literal notranslate"><span class="pre">&quot;AAPL/BTCUSD&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;ETH/BTC&quot;</span></code>. Note that spreads will not replay in “Replay mode”.</li>
+<li>A ticker identifier created using <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_ticker{dot}new">ticker.new()</a>,
+which provides access to data from non-standard charts, extended hours or other contexts
+(see the <a class="reference internal" href="#pageothertimeframesanddata-othercontextswithtickernew"><span class="std std-ref">Other contexts, with `ticker.new()`</span></a> section of this page).</li>
+</ul>
+</div></blockquote>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">timeframe</span></code></dt>
+<dd>This is a “simple string” in <a class="reference internal" href="Timeframes.html#pagetimeframes"><span class="std std-ref">timeframe specifications</span></a> format.
+The timeframe of the main chart’s symbol is stored in the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_timeframe{dot}period">timeframe.period</a>
+built-in variable.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">expression</span></code></dt>
+<dd>This can be a “series int/float/bool/color” variable, expression, function call or tuple.
+It is the value that must be calculated in <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a>’s
+context and returned to the script.
+For more details, see the <a class="reference internal" href="#pageothertimeframesanddata-informationrequested"><span class="std std-ref">Information requested</span></a> section later in this page.</dd>
+</dl>
+<p>This script uses <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a>
+to fetch the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_high">high</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_low">low</a> values of a user-defined symbol and timeframe:</p>
+<img alt="../_images/OtherTimeframesAndData-RequestSecurity()-01.png" src="../_images/OtherTimeframesAndData-RequestSecurity()-01.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Symbol/TF&quot;)
+symbolInput = input.symbol(&quot;&quot;, &quot;Symbol &amp; timeframe&quot;, inline = &quot;1&quot;)
+tfInput = input.timeframe(&quot;&quot;, &quot;&quot;, inline = &quot;1&quot;)
+
+[hi, lo] = request.security(symbolInput, tfInput, [high, low])
+
+plot(hi, &quot;hi&quot;, color.lime, 3)
+plot(lo, &quot;lo&quot;, color.fuchsia, 3)
+plotchar(ta.change(time(tfInput)), &quot;ta.change(time(tfInput))&quot;, &quot;•&quot;, location.top, size = size.tiny)
+plotchar(barstate.isrealtime, &quot;barstate.isrealtime&quot;, &quot;•&quot;, location.bottom, color.red, size = size.tiny)
+</pre></div>
+</div>
+<p>Note that:</p>
+<ul class="simple">
+<li>As is revealed by the input values showing to the right of the script’s name on the chart, we are viewing higher timeframe
+information from the same symbol as the chart’s at 1min, but from the 5min timeframe.</li>
+<li>The lime line plots highs and the fuchsia line plots lows.</li>
+<li>We plot a blue dot when the higher timeframe change is detected by the script.</li>
+<li>On historical bars (those without a red dot at the bottom), new values come in on the higher timeframe’s last chart bar.
+Point #1 shows the value for the 03:15 5min timeframe coming in at the close of the 03:19 bar
+(keep in mind that scripts execute on the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_close">close</a> of historical bars).</li>
+<li>On realtime bars, the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a> values
+fluctuate with incoming data from the higher timeframe. At point #2, a new higher timeframe begins at 03:30,
+so the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_low">low</a> of that bar, which was fluctuating during the bar,
+becomes the current <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_low">low</a> value for the higher timeframe bar.
+That value, however, is uncertain because it could be superceded by any lower <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_low">low</a>
+coming in further realtime bars, until the close of the 03:34 bar. As it happens, none does,
+so the fuchsia line stays the same across the remaining realtime bars, until the 03:35 bar brings in a new higher timeframe bar.
+During that 03:30 5min timeframe, we can see the lime line (#3) fluctuating, as higher highs are made on successive bars.
+This reveals the repainting behavior of a <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a>
+call on realtime bars.</li>
+<li>Our inputs appear on a single line in the “Settings/Inputs” tab because we use <code class="docutils literal notranslate"><span class="pre">inline</span> <span class="pre">=</span> <span class="pre">&quot;1&quot;</span></code> in both <code class="docutils literal notranslate"><span class="pre">input.*()</span></code> calls.</li>
+<li>One <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a> call
+fetches both <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_high">high</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_low">low</a> values by using a <a class="reference internal" href="../language/Type_system.html#pagetypesystem-tuples"><span class="std std-ref">tuple</span></a>.</li>
+</ul>
+<div class="section" id="timeframes">
+<h3><a class="toc-backref" href="#id9">Timeframes</a><a class="headerlink" href="#timeframes" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a>
+function makes it possible for scripts to request data from other timeframes than the one the chart is running on,
+which can be done while also accessing another symbol, or not.
+When another timeframe is accessed, it can be:</p>
+<ul class="simple">
+<li>Higher than the chart’s (accessing 1D data from a 60min chart)</li>
+<li>Lower (accessing a 1min timeframe from a 60min chart)</li>
+<li>The same timeframe as the chart’s
+(when <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_timeframe{dot}period">timeframe.period</a> or an empty string is used)</li>
+</ul>
+<p>The behavior of <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a>
+when accessing higher and lower timeframes is very different. We assume in our discussions that higher timeframes are accessed,
+but we also discuss the special cases when <a class="reference internal" href="#pageothertimeframesanddata-requestingdatafromalowertimeframe"><span class="std std-ref">lower timeframes are accessed</span></a>
+in a dedicated section.</p>
+<p>Scripts not written specifically to use lower timeframe data, when they are published for a broader audience,
+should ideally include protection against running them on chart timeframes where
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a>
+would be accessing lower timeframes than the chart’s, as it will not produce reliable results in those cases.
+See the <a class="reference internal" href="Timeframes.html#pagetimeframes-comparingtimeframes"><span class="std std-ref">Comparing timeframes</span></a> section for a code example
+providing error-checking to avoid just that.</p>
+</div>
+<div class="section" id="data-feeds">
+<h3><a class="toc-backref" href="#id10">Data feeds</a><a class="headerlink" href="#data-feeds" title="Permalink to this headline">¶</a></h3>
+<p>Different data feeds supplied by exchanges/brokers can be used to display information about an instrument on charts:</p>
+<ul class="simple">
+<li>Intraday historical data (for timeframes &lt; 1D)</li>
+<li>End-of-day (EOD) historical data (for timeframes &gt;= 1D)</li>
+<li>Realtime feed (which may be delayed, depending on your type of account and the extra data services you may have purchased)</li>
+<li>Extended hours data (which may be available or not, depending on instruments and the type of account you hold on TradingView)</li>
+</ul>
+<p>Not all of these types of feed may exist for every instrument. “ICEEUR:BRN1!” for example, only has EOD data.</p>
+<p>For some instruments where both intraday and EOD historical feeds exist, volume data will not be the same because some trades (block trades, OTC trades, etc.)
+may only be reported at the end of the day. That volume will thus appear in the EOD feed, but not in the intraday feed.
+Differences in volume data are almost inexistent in the crypto sector, but commonplace in stocks.</p>
+<p>Slight prices discrepancies may also occur between both feeds, such that the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_high">high</a>
+for one day’s bar on the EOD feed may not match any of the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_high">high</a> values of intraday bars for that day.</p>
+<p>Another distinction between intraday and EOD feeds is that EOD feeds do not contain data from extended hours.</p>
+<p>These differences may account for variations in the values fetched by
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a>
+when it is accessing data from varying timeframes, thus shifting between intraday and EOD feeds.
+The differences may also cause discrepancies between data received in realtime vs the way it is reported on historical data.
+There are no steadfast rules about the variations.
+To understand their details, one must consult the exchange/broker information on the feeds available for each of their markets.
+As a rule, TradingView does not generate data; it relies on its data providers for the information displayed on charts.</p>
+</div>
+<div class="section" id="information-requested">
+<span id="pageothertimeframesanddata-informationrequested"></span><h3><a class="toc-backref" href="#id11">Information requested</a><a class="headerlink" href="#information-requested" title="Permalink to this headline">¶</a></h3>
+<p>The data fetched using <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a>
+is specified with the <code class="docutils literal notranslate"><span class="pre">expression</span></code> parameter. It can be of types “int”, “float”, “bool”, “color”, or an “array”. Strings are thus not allowed.</p>
+<p>The expression supplied to <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a>
+can be:</p>
+<ul class="simple">
+<li>An array</li>
+<li>A built-in variable or function, such as <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_time">time</a> or
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_ta{dot}crossover">ta.crossover()</a></li>
+<li>A variable previously calculated by your script, which will then be recalculated in
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a>’s context</li>
+<li>A user-defined function call</li>
+<li>A tuple</li>
+</ul>
+<div class="section" id="arrays">
+<h4><a class="toc-backref" href="#id12">Arrays</a><a class="headerlink" href="#arrays" title="Permalink to this headline">¶</a></h4>
+<p>One relatively new feature of Pine Script<sup>®</sup> is the inclusion of <a class="reference internal" href="../language/Arrays.html#pagearrays"><span class="std std-ref">arrays</span></a>, which we will go over in depth in a separate article.
+In short, arrays are an advanced topic, so not a recommended area to cover for a new Pine Script<sup>®</sup> programmer. They are special data structures that are
+one-dimensional and can be used to hold a collection of multiple values.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;New 60 Minute Highs&quot;)
+var highs = array.new_float(0)
+
+if ta.rising(high, 1)
+    array.push(highs, high)
+
+src = request.security(&#39;AAPL&#39;, &#39;60&#39;, highs)
+float[] srcArray = array.copy(src)
+plot(array.size(srcArray) &gt; 0 ? array.pop(srcArray) : na)
+</pre></div>
+</div>
+<p>Note that we are initializing an array at the first index by using the var keyword and adding new 2 bar highs to this array as they
+appear. We use this array structure in a security function so we can easily use a custom timeframe like <strong>60 minutes</strong> in our example.
+This allows us to use this same array format to use in a security call in combination with any timeframe.</p>
+</div>
+<div class="section" id="built-ins">
+<h4><a class="toc-backref" href="#id13">Built-ins</a><a class="headerlink" href="#built-ins" title="Permalink to this headline">¶</a></h4>
+<p>The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a> function is extremely
+versatile and can easily be used in combination with one of TradingView’s many built-in indicators. A common use case would be
+to plot different timeframes of a built-in indicator on the same chart.</p>
+<p>Consider for example you are on a 5 minute chart and want to plot the 20 period SMA for the 1 day timeframe you might try the following:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>src = request.security(&#39;AAPL&#39;, &#39;1D&#39;, close)
+sma = ta.sma(src, 20)
+</pre></div>
+</div>
+<p>This would actually give you incorrect output because when you are on a lower timeframe, the security function would probably return
+20 copies of the same daily bar since the current timeframe most likely falls on the same day. What you would want to do instead is pass in the built-in
+indicator directly into the security call and allow TradingView to calculate it properly on their end by doing the following instead:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sma = request.security(&#39;AAPL&#39;, &#39;1D&#39;, ta.sma(close, 20))
+</pre></div>
+</div>
+<p>Here is an example showing how you can easily plot a built-in indicator such as RSI
+for both the 5 minute and 30 minute timeframes on the same chart:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Relative Strength Index MTF&quot;, &quot;RSI&quot;)
+sym = input.symbol(&#39;AAPL&#39;)
+rsi1 = request.security(sym, &#39;5&#39;, ta.rsi(close, 14))
+rsi2 = request.security(sym, &#39;30&#39;, ta.rsi(close, 14))
+plot(rsi1, color=color.red)
+plot(rsi2, color=color.blue)
+</pre></div>
+</div>
+</div>
+<div class="section" id="calculated-variables">
+<h4><a class="toc-backref" href="#id14">Calculated variables</a><a class="headerlink" href="#calculated-variables" title="Permalink to this headline">¶</a></h4>
+<p>One can declare the following variable:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>spread = high - low
+</pre></div>
+</div>
+<p>and calculate it at <em>1 minute</em>, <em>15 minutes</em> and <em>60 minutes</em>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>spread_1 = request.security(syminfo.tickerid, &#39;1&#39;, spread)
+spread_15 = request.security(syminfo.tickerid, &#39;15&#39;, spread)
+spread_60 = request.security(syminfo.tickerid, &#39;60&#39;, spread)
+</pre></div>
+</div>
+<p>The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a> function
+returns a series which is then adapted to the time scale of
+the current chart’s symbol. This result can be either shown directly on
+the chart (i.e., with <code class="docutils literal notranslate"><span class="pre">plot</span></code>), or used in further calculations.
+The “Advance Decline Ratio” script illustrates a more
+involved use of <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Advance Decline Ratio&quot;, &quot;ADR&quot;)
+ratio(t1, t2, source) =&gt;
+    s1 = request.security(t1, timeframe.period, source)
+    s2 = request.security(t2, timeframe.period, source)
+    s1 / s2
+plot(ratio(&quot;USI:ADVN.NY&quot;, &quot;USI:DECL.NY&quot;, close))
+</pre></div>
+</div>
+<p>The script requests two additional securities. The results of the
+requests are then used in an arithmetic formula. As a result, we have a
+stock market indicator used by investors to measure the number of
+individual stocks participating in an upward or downward trend.</p>
+</div>
+<div class="section" id="function-calls">
+<h4><a class="toc-backref" href="#id15">Function calls</a><a class="headerlink" href="#function-calls" title="Permalink to this headline">¶</a></h4>
+<p>A more advanced way of using the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a> function
+would be to pass in a user defined function into the <code class="docutils literal notranslate"><span class="pre">expression</span></code> parameter. This would allow you to create a custom function and then
+use this function to plot the results for different timeframes or for different symbols on the same chart. Keep in mind that the same limitations
+for security functions apply when using function calls, so for example you wouldn’t be able to use a custom function that returns a string.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;`request.security()` User Defined Function Example&quot;)
+
+f_udf(_src, _length, _lbLength) =&gt;
+    uCount = 0, dCount = 0
+    for i = 0 to _length - 1 by 1
+        uCount += (nz(_src[i]) &gt; nz(src[i + _lbLength]) ? 1 : 0)
+        dCount += (nz(_src[i]) &lt; nz(src[i + _lbLength]) ? 1 : 0)
+    [uCount, dCount]
+
+[upCount, dnCount] = f_udf(close, 9, 4)
+sym = input.symbol(&#39;AAPL&#39;)
+// We are using a blank string for the timeframe so it defaults to the current timeframe
+plot(request.security(sym, &#39; &#39;, upCount)
+plot(request.security(sym, &#39; &#39;, dnCount)
+</pre></div>
+</div>
+<p>Note that: this is a bit more complicated example that plots the sum amount of bars that were higher than X bars ago and vice versa. We are using a
+user defined function to create a tuple with our output which is the sum of up bars and the sum of down bars. We pass in a variable
+from the tuple and Pine Script<sup>®</sup> handles the heavy lifting for us.</p>
+</div>
+<div class="section" id="tuples">
+<h4><a class="toc-backref" href="#id16">Tuples</a><a class="headerlink" href="#tuples" title="Permalink to this headline">¶</a></h4>
+<p>Tuples are a special data structure that is immutable (meaning it can’t be changed once it is created). They can be used to combine different variables
+into a single variable that you can reference much easier and using fewer lines of code. This is very handy for use cases where
+you would like to declare a variable once and then reference it multiple times such as the following:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;`request.security()` Tuple Example&quot;)
+[h5, l5] = request.security(&#39;AAPL&#39;, &#39;5&#39;, [high, low])
+plot(math.avg(h5, high))
+plot(math.avg(l5, low))
+plot(math.avg(h5, l5))
+</pre></div>
+</div>
+<p>Note that: we are creating a tuple variable using a request security function and we set the <code class="docutils literal notranslate"><span class="pre">expression</span></code> parameter to a tuple containing
+the 5 minute timeframe <code class="docutils literal notranslate"><span class="pre">high</span></code> and <code class="docutils literal notranslate"><span class="pre">low</span></code>. We are then plotting the average of the current timeframe and the aforementioned 5 minute timeframe
+as well as the midpoint of our tuple values.</p>
+</div>
+</div>
+<div class="section" id="other-contexts-with-ticker-new">
+<span id="pageothertimeframesanddata-othercontextswithtickernew"></span><h3><a class="toc-backref" href="#id17">Other contexts, with `ticker.new()`</a><a class="headerlink" href="#other-contexts-with-ticker-new" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_ticker{dot}new">ticker.new()</a>,</dt>
+<dd>which allows access to <a class="reference internal" href="Non-standard_charts_data.html#pagenonstandardchartsdata"><span class="std std-ref">Non-standard chart data</span></a> or <a class="reference internal" href="Sessions.html#pagesessions-usingsessionswithrequestsecurity"><span class="std std-ref">other sessions</span></a></dd>
+</dl>
+</div>
+<div class="section" id="historical-vs-realtime-values">
+<h3><a class="toc-backref" href="#id18">Historical vs realtime values</a><a class="headerlink" href="#historical-vs-realtime-values" title="Permalink to this headline">¶</a></h3>
+<p>The behavior of <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a>
+on historical and realtime bars is not the same. On historical bars, new values come in at the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_close">close</a> of the last chart bar in the higher timeframe bar.
+Values then do not move until another timeframe completes, which accounts for the staircase effect of higher timeframe values.
+In realtime, however, <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a>
+will return the <strong>current</strong> value of the incomplete higher timeframe bar, which causes it to vary during a realtime bar,
+and accross all bars until the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_close">close</a>
+of the last realtime bar marking the end of the higher timeframe bar, at which point its value is final.</p>
+<p>These fluctuating values of <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a>
+values in realtime can sometimes be just what is needed by a script’s logic — if it using volume information, for example,
+and needs the current volume transacted at the current point in time of the incomplete higher timeframe bar.
+Fluctuating values are also called <em>repainting</em> values.</p>
+<p>In other circumstances, for example when a script is using higher timeframe information to provide a broader context to the script
+executing on a lower timeframe, one will often need confirmed and stable — as opposed to fluctuating — higher timeframe values.
+These are called <em>non-repainting</em> values because they are fixed values from a the previously <strong>completed</strong> higher timeframe bar only.</p>
+</div>
+<div class="section" id="avoiding-repainting">
+<h3><a class="toc-backref" href="#id19">Avoiding repainting</a><a class="headerlink" href="#avoiding-repainting" title="Permalink to this headline">¶</a></h3>
+<p>In general, <code class="docutils literal notranslate"><span class="pre">barmerge.lookahead_on</span></code> should only be used when the series is offset, as when you want to avoid repainting:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+//...
+a = request.security(syminfo.tickerid, &#39;D&#39;, close[1], lookahead = barmerge.lookahead_on)
+</pre></div>
+</div>
+<p>If you use <code class="docutils literal notranslate"><span class="pre">barmerge.lookahead_off</span></code>, a non-repainting value can still be achieved, but it’s more complex:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+//...
+indexHighTF = barstate.isrealtime ? 1 : 0
+indexCurrTF = barstate.isrealtime ? 0 : 1
+a0 = request.security(syminfo.tickerid, &#39;D&#39;, close[indexHighTF], lookahead = barmerge.lookahead_off)
+a = a0[indexCurrTF]
+</pre></div>
+</div>
+<p>When an indicator is based on historical data (i.e.,
+<code class="docutils literal notranslate"><span class="pre">barstate.isrealtime</span></code> is <code class="docutils literal notranslate"><span class="pre">false</span></code>), we take the current <em>close</em> of
+the daily timeframe and shift the result of <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a>
+function call one bar to the right in the current timeframe. When an indicator is calculated on
+realtime data, we take the <em>close</em> of the previous day without shifting the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a> data.</p>
+</div>
+<div class="section" id="requesting-data-from-a-lower-timeframe">
+<span id="pageothertimeframesanddata-requestingdatafromalowertimeframe"></span><h3><a class="toc-backref" href="#id20">Requesting data from a lower timeframe</a><a class="headerlink" href="#requesting-data-from-a-lower-timeframe" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="request-security-lower-tf">
+<h2><a class="toc-backref" href="#id21">`request.security_lower_tf()`</a><a class="headerlink" href="#request-security-lower-tf" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a>
+function was designed to request data of a timeframe <em>higher</em>
+than the current chart timeframe. On a <em>60 minutes</em> chart,
+this would mean requesting 240, D, W, or any higher timeframe.</p>
+<p>However if you are on a <em>60 minutes</em> chart and want to use the data from the <em>1 minute</em> bars, you would need
+to specifically use the new <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security_lower_tf">request.security_lower_tf()</a>
+function. If you were to use the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a>
+function in our example you would actually only get the final minute bar for the last hour since <code class="docutils literal notranslate"><span class="pre">barmerge.lookahead_off</span></code> is the default.
+If you were to use <code class="docutils literal notranslate"><span class="pre">barmerge.lookahead_on</span></code> then you would get the first minute bar instead.</p>
+<p>This is why we added the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security_lower_tf">request.security_lower_tf()</a>
+function so you will now receive an array containing all of the minute bars in the last hour as per our example. The returned array will contain
+all of the available intrabars sorted by the timestamp in ascending order. However if you were to request a lower timeframe that is equal or
+higher than the current timeframe, you would get a runtime error. You can now do further calculations on this array as per our example below.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;`request.security_lower_tf()` Example&quot;)
+float travel = math.abs(high - low)
+float[] ltfTravelArray = request.security_lower_tf(syminfo.tickerid, &quot;1&quot;, travel)
+float volatility = nz(array.sum(ltfTravelArray) / travel)
+plot(volatility)
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Note that:</dt>
+<dd><ul class="first last simple">
+<li>There is a max of 40 function calls allowed in a script</li>
+<li>The amount of intrabars will vary based on the chart’s timeframe as well as the underlyingg instrument or sector so you may expect 60 intrabars returned but receive a smaller amount.</li>
+<li>We are calculating volatility in this example by comparing the absolute sum of high - low in the lower timeframe to the current timeframe of high - low.</li>
+<li>Tuples are not allowed currently in the <em>expression</em> parameter and you will receive an error if you try to use a tuple.</li>
+<li>You must use a lower timeframe than the chart timeframe so the same timeframe or a higher timeframe will throw an error.</li>
+<li>This function only works on chart timeframes higher than <em>1 minute</em> or else a runtime error will occur.</li>
+<li>A maximum of 100K total intrabars can be accessed by a script. This means that on a 24x7 market you have a max of 1440 intrabars per chart bar, so will only see values for the last ~70 days because: 70 days * 24 hours * 60 minutes ═ 100,800 minutes.</li>
+</ul>
+</dd>
+</dl>
+<div class="section" id="fetching-standard-prices-from-a-non-standard-chart">
+<h3><a class="toc-backref" href="#id22">Fetching standard prices from a non-standard chart</a><a class="headerlink" href="#fetching-standard-prices-from-a-non-standard-chart" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="request-economic">
+<h2><a class="toc-backref" href="#id23">`request.economic()`</a><a class="headerlink" href="#request-economic" title="Permalink to this headline">¶</a></h2>
+<p>This function returns economic data for a given country or region (i.e. US or EU). Economic data includes information such as the state of a country’s economy
+(GDP, inflation rate, etc.) or of a particular industry (steel production, ICU beds, etc.).</p>
+<p>The signature of <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}economic">request.economic()</a> is:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>request.economic(country_code, field, gaps, ignore_invalid_symbol) → series float
+</pre></div>
+</div>
+<p>We have covered the last two parameters in the <a class="reference internal" href="#pageothertimeframesanddata-commoncharacteristics"><span class="std std-ref">Common characteristics</span></a> section of this page.
+The first two parameters require a “simple string” argument. They are:</p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">country_code</span></code></dt>
+<dd>This is the identifier for the country or region that you want to request economic data for such as “US” or “EU”.
+A full list of countries/regions and their codes can be found <a class="reference external" href="https://www.tradingview.com/support/solutions/43000665359">here</a> and please note that
+the available metrics will depend on the country or region selected.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">field</span></code></dt>
+<dd>This is the identifier of the required metric. We have a full list of the available metrics along with the list of countries that support each metric by
+going <a class="reference external" href="https://www.tradingview.com/support/folders/43000581956-list-of-available-economic-indicators/">here</a></dd>
+</dl>
+<p>This example plots the current US GDP values</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Economic Data Example&quot;)
+e = request.economic(&quot;US&quot;, &quot;GDP&quot;)
+plot(e)
+</pre></div>
+</div>
+<p>Note that:</p>
+<blockquote>
+<div><ul class="simple">
+<li>You will receive an error if the requested metric is not available for the country or region you have selected.</li>
+<li>You can also view this data on a chart like you would with a symbol so for this example you would replace</li>
+</ul>
+<p>the exchange name with Economic and the symbol name with a single string combining the <code class="docutils literal notranslate"><span class="pre">country_code</span></code> with <code class="docutils literal notranslate"><span class="pre">field</span></code>.
+For this example you would use “/”Economic.USGDP”/” in the symbol search box.</p>
+</div></blockquote>
+</div>
+<div class="section" id="request-dividends-request-earnings-and-request-splits">
+<h2><a class="toc-backref" href="#id24">`request.dividends()`, `request.earnings()` and `request.splits()`</a><a class="headerlink" href="#request-dividends-request-earnings-and-request-splits" title="Permalink to this headline">¶</a></h2>
+<p>An easy method to determine the financial strength of a stock is using earnings data so we offer three options to receive the latest earnings data for a given stock:
+request.dividends(), request.earnings() and request.splits(). Much of the underlying data of a stock can be interpreted using these metrics but also keep in mind that not all stocks will have these stats available.
+Small cap stocks for example are not known for giving out dividends.</p>
+<p>It is important to remember that data for these functions is only available as the data comes in. This differs
+from the financial data originating from the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}financial">request.financial()</a> function in
+that the underlying financial data becomes available according to the current fiscal period for the underlying financial instrument.</p>
+<p>Below we have included an example that creates a handy table containing the latest earnings data for each stock using these three metrics.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Dividends, Splits, and Earnings Example&quot;)
+
+dividends = request.dividends(syminfo.tickerid)
+splitsNum = request.splits(syminfo.tickerid, splits.numerator)
+splitsDenom = request.splits(syminfo.tickerid, splits.denominator)
+earnings = request.earnings(syminfo.tickerid)
+
+plot(earnings, color=color.blue)
+plot(dividends, color=color.red)
+
+if barstate.islast
+    string tableText = &quot;Current Stats \n\n Dividends: &quot; + str.tostring(dividends) + &quot;\n Splits: &quot; + str.tostring(splitsNum) +
+    &quot;/&quot; + str.tostring(splitsDenom) + &quot; \n Earnings: &quot; + str.tostring(earnings)
+    var table t = table.new(position.middle_right, 1, 3), table.cell(t, 0, 0, tableText, bgcolor = color.lime)
+</pre></div>
+</div>
+<p>Note that:</p>
+<ul class="simple">
+<li>For the <cite>ticker</cite> parameter, you need to specifically use the symbol with the market instead of just the symbol ticker. e.g. “NASDAQ:AAPL” instead of “AAPL”.</li>
+<li>Also don’t use syminfo.ticker because you will receive a runtime error so make sure you use syminfo.tickerid instead.</li>
+<li>When you request financial data using the dividends and earnings functions, the new value is returned on the bar where the report was published.</li>
+<li>When you use request.splits(), you need to specify the split type by using splits.denominator or splits.numerator.</li>
+<li>We are creating the table only when we are on the latest bar so we are saving allocated memory by only creating the table when it is necessary.</li>
+</ul>
+</div>
+<div class="section" id="request-quandl">
+<h2><a class="toc-backref" href="#id25">`request.quandl()`</a><a class="headerlink" href="#request-quandl" title="Permalink to this headline">¶</a></h2>
+<p>TradingView has partnered with many fintech companies to provide our users with vast amounts of information on everything from crypto to stocks and much much more.
+One of our partners is Quandl and we have an example below that shows you how easy it is use this request function. Quandl has hundreds of thousands of available
+feeds and was recently purchased by Nasdaq so the url may be changed to reflect that. Below we have an example showing you a small glimpse of the vast amount of data available.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Quandl Example&quot;)
+
+// We are displaying FRED (Federal Reserve Economic Data) from Quandl showing the Federal Funds Rate as well as the current unemployment rate.
+f1 = request.quandl(&quot;FRED/FEDFUNDS&quot;, barmerge.gaps_off, 0)
+f2 = request.quandl(&quot;FRED/UNRATE&quot;, barmerge.gaps_off, 0)
+
+// Here we are displaying Bitcoin data showing the miner&#39;s revenue rate as well as the difficulty of completing the calculations.
+b1 = request.quandl(&quot;BCHAIN/MIREV&quot;, barmerge.gaps_off, 0)
+b2 = request.quandl(&quot;BCHAIN/DIFF&quot;, barmerge.gaps_off, 0)
+
+// The following 2 examples shows how to properly use the index parameter.
+// We are displaying Quandl data for University of Michigan Consumer Surveys with index 0 is a percentage of consumers
+who believe it is a good time to buy a house, and index 2 is a percentage of consumers who believe it is a bad time to buy a house.
+m1 = request.quandl(&quot;UMICH/SOC35&quot;, barmerge.gaps_off, 0)
+m2 = request.quandl(&quot;UMICH/SOC35&quot;, barmerge.gaps_off, 2)
+
+plot(na)
+
+Note that:
+- The `barmerge.gaps_off` is used to remove any `na` values so we don&#39;t have any gaps in the plotted data.
+- For the `ticker` parameter, you need to specifically use the Quandl symbol matching the data that you want to import.
+- For the `index` parameter, you need to make sure to match the index information given on `Quandl &lt;https://data.nasdaq.com/search?filters=%5B%22Quandl%22%5D&gt;`__
+- For a full list of available Quandl data feeds, you can go `here &lt;https://data.nasdaq.com/search?filters=%5B%22Quandl%22%5D&gt;`__.
+</pre></div>
+</div>
+</div>
+<div class="section" id="request-financial">
+<h2><a class="toc-backref" href="#id26">`request.financial()`</a><a class="headerlink" href="#request-financial" title="Permalink to this headline">¶</a></h2>
+<p>This function returns a financial metric from <a class="reference external" href="https://www.factset.com/" rel="nofollow">FactSet</a> for a given fiscal period. More than 200 financial
+metrics are available, although not for every symbol or fiscal period.
+Note that financial data is also available on TradingView through the chart’s <a class="reference external" href="https://www.tradingview.com/support/solutions/43000543506">“Fundamental metrics for stocks” button</a> in the top menu.</p>
+<p>It is important to remember that data for this function is only available according to the current fiscal period for the underlying
+financial instrument. This differs from the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}dividends">request.dividends()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}earnings">request.earnings()</a>, and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}splits">request.splits()</a> functions in that the underlying financial data becomes available immediately.</p>
+<p>The signature of <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}financial">request.financial()</a> is:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>request.financial(symbol, financial_id, period, gaps, ignore_invalid_symbol, currency) → series float
+</pre></div>
+</div>
+<p>We have covered the last three parameters in the <a class="reference internal" href="#pageothertimeframesanddata-commoncharacteristics"><span class="std std-ref">Common characteristics</span></a> section of this page.
+The first three parameters all require a “simple string” argument. They are:</p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">symbol</span></code></dt>
+<dd>This is similar to the first parameter of the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a>.
+It is the name of the symbol for which a financial metric is requested. For example: <cite>“NASDAQ:AAPL”</cite>.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">financial_id</span></code></dt>
+<dd>This is the identifier of the required metric. There are more than 200 IDs. They are listed in the third column of the <a class="reference internal" href="#pageothertimeframesanddata-financialids"><span class="std std-ref">Financial IDs</span></a> section below.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">period</span></code></dt>
+<dd>This represents the frequency at which you require the values to update on your chart. There are three possible arguments: <code class="docutils literal notranslate"><span class="pre">&quot;FQ&quot;</span></code> (quarterly), <code class="docutils literal notranslate"><span class="pre">&quot;FY&quot;</span></code> (yearly) and <code class="docutils literal notranslate"><span class="pre">&quot;TTM&quot;</span></code> (trailing twelve months).
+Not all frequencies are available for all metrics. Possible values for each metric are listed in the second column of the <a class="reference internal" href="#pageothertimeframesanddata-financialids"><span class="std std-ref">Financial IDs</span></a> section below.
+Note that each frequency is fixed and independent of the exact date where the data is made available within each period.
+If for dividends or earnings you require the data when it is made available, use
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}dividends">request.dividends()</a> or
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}earnings">request.earnings()</a> instead.</dd>
+</dl>
+<p>This plots the quarterly value of accounts payable for Apple:</p>
+<img alt="../_images/OtherTimeframesAndData-RequestFinancial()-01.png" src="../_images/OtherTimeframesAndData-RequestFinancial()-01.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;&quot;)
+f = request.financial(&quot;NASDAQ:AAPL&quot;, &quot;ACCOUNTS_PAYABLE&quot;, &quot;FQ&quot;)
+plot(f)
+</pre></div>
+</div>
+<p>Note that:</p>
+<ul class="simple">
+<li>The data begins in 2013.</li>
+<li>We are not using gaps, so the fetched value stays the same for during each fiscal quarter.</li>
+<li>New values appear on the bar where the next fiscal period begins.</li>
+</ul>
+<div class="section" id="calculated-financial-metrics">
+<h3><a class="toc-backref" href="#id27">Calculated financial metrics</a><a class="headerlink" href="#calculated-financial-metrics" title="Permalink to this headline">¶</a></h3>
+<p>Some common financial metrics cannot be fetched with <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}financial">request.financial()</a>
+because they require combining metrics with an instrument’s current chart price.
+Such is the case for:</p>
+<ul class="simple">
+<li>Market Capitalization (price X number of shares outstanding)</li>
+<li>Earnings Yield (earnings per share for the last 12-month / current market price)</li>
+<li>Price Book Ratio (price / book value per share)</li>
+<li>Price Earnings Ratio (price / earnings per share)</li>
+<li>Price Sales Ratio (company’s market capitalization / total revenue over the last twelve months)</li>
+</ul>
+<p>Here, we calculates all five values:</p>
+<img alt="../_images/OtherTimeframesAndData-RequestFinancial()-02.png" src="../_images/OtherTimeframesAndData-RequestFinancial()-02.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;&quot;)
+
+// ————— Market capitalization
+marketCap() =&gt;
+    totalSharesOutstanding = request.financial(syminfo.tickerid, &quot;TOTAL_SHARES_OUTSTANDING&quot;, &quot;FQ&quot;)
+    marketCap = totalSharesOutstanding * close
+
+// ————— Earnings yield
+earningsYield() =&gt;
+    earningsPerShare = request.financial(syminfo.tickerid, &quot;EARNINGS_PER_SHARE&quot;, &quot;TTM&quot;)
+    earningsYield = (earningsPerShare / close) * 100
+
+// ————— Price Book Ratio
+priceBookRatio() =&gt;
+    bookValuePerShare = request.financial(syminfo.tickerid, &quot;BOOK_VALUE_PER_SHARE&quot;, &quot;FQ&quot;)
+    priceBookRatio = close / bookValuePerShare
+
+// ————— Price Earnings Ratio
+priceEarningsRatio() =&gt;
+    earningsPerShare = request.financial(syminfo.tickerid, &quot;EARNINGS_PER_SHARE&quot;, &quot;TTM&quot;)
+    priceEarningsRatio = close / earningsPerShare
+
+// ————— Price Sales Ratio
+priseSalesRatio() =&gt;
+    totalSharesOutstanding = request.financial(syminfo.tickerid, &quot;TOTAL_SHARES_OUTSTANDING&quot;, &quot;FQ&quot;)
+    mktCap = totalSharesOutstanding * close
+    totalRevenue = request.financial(syminfo.tickerid, &quot;TOTAL_REVENUE&quot;, &quot;TTM&quot;)
+    priseSalesRatio = mktCap / totalRevenue
+
+plot(earningsYield(), &quot;Earnings yield&quot;, color.aqua, 2)
+plot(priceBookRatio(), &quot;Price Book Ratio&quot;, color.orange, 2)
+plot(priceEarningsRatio(), &quot;Price Earnings Ratio&quot;, color.purple, 2)
+plot(priseSalesRatio(), &quot;Price Sales Ratio&quot;, color.teal, 2)
+
+// ————— Display market cap using a label because its values are too large compared to the others.
+// New function using gaps.
+marketCapWithGaps() =&gt;
+    totalSharesOutstanding = request.financial(syminfo.tickerid, &quot;TOTAL_SHARES_OUTSTANDING&quot;, &quot;FQ&quot;, gaps = barmerge.gaps_on)
+    mktCapGaps = totalSharesOutstanding * close
+// Convert value to a string, abbreviating large values as is done for volume. Add currency.
+mktCapGapsTxt = str.tostring(marketCapWithGaps(), format.volume) + &quot; &quot; + syminfo.currency
+// Label&#39;s y position is the highest value among the last 50 of the four plotted values.
+labelY = ta.highest(math.max(earningsYield(), priceBookRatio(), priceEarningsRatio(), priseSalesRatio()), 50)
+// When the function returns a value instead of `na`, display a label.
+if not na(marketCapWithGaps())
+    label.new(bar_index, labelY, mktCapGapsTxt, color = color.new(color.blue, 85), size = size.large)
+</pre></div>
+</div>
+<p>Note that:</p>
+<ul class="simple">
+<li>We create a <a class="reference internal" href="../language/User-defined_functions.html#pageuserdefinedfunctions"><span class="std std-ref">user-defined function</span></a> for each value, which makes it easier to reuse the code.</li>
+<li>We plot all the values except the market cap. That value being much larger than the others, plotting it would more or less turn the other plots into flat lines.</li>
+<li>We use another method to display the market cap, which involves creating a version of its function that uses gaps, so we have an easy way to
+detect when a new value comes in for it and should be shown. We also format the value using
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_format{dot}volume">format.volume</a> to abbreviate large values,
+and add the currency using <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_syminfo{dot}currency">syminfo.currency</a>.
+To determine the height of the label, we calculate the maximum value plotted in the last 50 bars.</li>
+</ul>
+</div>
+<div class="section" id="financial-ids">
+<span id="pageothertimeframesanddata-financialids"></span><h3><a class="toc-backref" href="#id28">Financial IDs</a><a class="headerlink" href="#financial-ids" title="Permalink to this headline">¶</a></h3>
+<p>All financial metrics available with <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}financial">request.financial()</a> is listed below.
+The table columns contain the following information:</p>
+<ul class="simple">
+<li>The “Financial” column is a description of the value. It links to a corresponding Help Center page providing more information on the metric.</li>
+<li>The <code class="docutils literal notranslate"><span class="pre">period</span></code> column lists the arguments that can be used for the namesake parameter in
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}financial">request.financial()</a>.
+Only one period can be used per function call. Not all periods are available for all metrics.</li>
+<li>The <code class="docutils literal notranslate"><span class="pre">financial_id</span></code> column lists the string to be used for the <code class="docutils literal notranslate"><span class="pre">financial_id</span></code> parameter.</li>
+</ul>
+<p>Metrics are divided in four categories:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#pageothertimeframesanddata-incomestatements"><span class="std std-ref">Income statements</span></a></li>
+<li><a class="reference internal" href="#pageothertimeframesanddata-balancesheet"><span class="std std-ref">Balance sheet</span></a></li>
+<li><a class="reference internal" href="#pageothertimeframesanddata-cashflow"><span class="std std-ref">Cash flow</span></a></li>
+<li><a class="reference internal" href="#pageothertimeframesanddata-statistics"><span class="std std-ref">Statistics</span></a></li>
+</ul>
+<div class="section" id="income-statements">
+<span id="pageothertimeframesanddata-incomestatements"></span><h4><a class="toc-backref" href="#id29">Income statements</a><a class="headerlink" href="#income-statements" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="71%" />
+<col width="8%" />
+<col width="4%" />
+<col width="17%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>Financial</strong></td>
+<td><code class="docutils literal notranslate"><span class="pre">period</span></code></td>
+<td colspan="2"><code class="docutils literal notranslate"><span class="pre">financial_id</span></code></td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563497">After tax other income/expense</a></td>
+<td>FQ, FY</td>
+<td colspan="2">AFTER_TAX_OTHER_INCOME</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000670320">Average basic shares outstanding</a></td>
+<td>FQ, FY</td>
+<td colspan="2">BASIC_SHARES_OUTSTANDING</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563478">Other COGS</a></td>
+<td>FQ, FY</td>
+<td colspan="2">COST_OF_GOODS_EXCL_DEP_AMORT</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000553618">Cost of goods</a></td>
+<td>FQ, FY</td>
+<td colspan="2">COST_OF_GOODS</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563477">Deprecation and amortization</a></td>
+<td>FQ, FY</td>
+<td colspan="2">DEP_AMORT_EXP_INCOME_S</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563516">Diluted net income available to common stockholders</a></td>
+<td>FQ, FY</td>
+<td colspan="2">DILUTED_NET_INCOME</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000670322">Diluted shares outstanding</a></td>
+<td>FQ, FY</td>
+<td colspan="2">DILUTED_SHARES_OUTSTANDING</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563504">Dilution adjustment</a></td>
+<td>FQ, FY</td>
+<td colspan="2">DILUTION_ADJUSTMENT</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563502">Discontinued operations</a></td>
+<td>FQ, FY</td>
+<td colspan="2">DISCONTINUED_OPERATIONS</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563520">Basic EPS</a></td>
+<td>FQ, FY, TTM</td>
+<td colspan="2">EARNINGS_PER_SHARE_BASIC</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000553616">Diluted EPS</a></td>
+<td>FQ, FY</td>
+<td colspan="2">EARNINGS_PER_SHARE_DILUTED</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000670329">EBIT</a></td>
+<td>FQ, FY</td>
+<td colspan="2">EBIT</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000553610">EBITDA</a></td>
+<td>FQ, FY, TTM</td>
+<td colspan="2">EBITDA</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563487">Equity in earnings</a></td>
+<td>FQ, FY</td>
+<td colspan="2">EQUITY_IN_EARNINGS</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000553611">Gross profit</a></td>
+<td>FQ, FY</td>
+<td colspan="2">GROSS_PROFIT</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563492">Taxes</a></td>
+<td>FQ, FY</td>
+<td colspan="2">INCOME_TAX</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563468">Interest capitalized</a></td>
+<td>FQ, FY</td>
+<td colspan="2">INTEREST_CAPITALIZED</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563467">Interest expense on debt</a></td>
+<td>FQ, FY</td>
+<td colspan="2">INTEREST_EXPENSE_ON_DEBT</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563495">Non-controlling/minority interest</a></td>
+<td>FQ, FY</td>
+<td colspan="2">MINORITY_INTEREST_EXP</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563500">Net income before discontinued operations</a></td>
+<td>FQ, FY</td>
+<td colspan="2">NET_INCOME_BEF_DISC_OPE</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000553617">Net income</a></td>
+<td>FQ, FY</td>
+<td colspan="2">NET_INCOME</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563471">Non-operating income, excl. interest expenses</a></td>
+<td>FQ, FY</td>
+<td colspan="2">NON_OPER_INCOME</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563466">Interest expense, net of interest capitalized</a></td>
+<td>FQ, FY</td>
+<td colspan="2">NON_OPER_INTEREST_EXP</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563473">Non-operating interest income</a></td>
+<td>FQ, FY</td>
+<td colspan="2">NON_OPER_INTEREST_INCOME</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563464">Operating income</a></td>
+<td>FQ, FY</td>
+<td colspan="2">OPER_INCOME</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563463">Operating expenses (excl. COGS)</a></td>
+<td>FQ, FY</td>
+<td colspan="2">OPERATING_EXPENSES</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563479">Miscellaneous non-operating expense</a></td>
+<td>FQ, FY</td>
+<td colspan="2">OTHER_INCOME</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563483">Other operating expenses, total</a></td>
+<td>FQ, FY</td>
+<td colspan="2">OTHER_OPER_EXPENSE_TOTAL</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563506">Preferred dividends</a></td>
+<td>FQ, FY</td>
+<td colspan="2">PREFERRED_DIVIDENDS</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563474">Pretax equity in earnings</a></td>
+<td>FQ, FY</td>
+<td colspan="2">PRETAX_EQUITY_IN_EARNINGS</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563462">Pretax income</a></td>
+<td>FQ, FY</td>
+<td colspan="2">PRETAX_INCOME</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000553612">Research &amp; development</a></td>
+<td>FQ, FY</td>
+<td colspan="2">RESEARCH_AND_DEV</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000553614">Selling/general/admin expenses, other</a></td>
+<td>FQ, FY</td>
+<td colspan="2">SELL_GEN_ADMIN_EXP_OTHER</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000553613">Selling/general/admin expenses, total</a></td>
+<td>FQ, FY</td>
+<td colspan="2">SELL_GEN_ADMIN_EXP_TOTAL</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563473">Non-operating income, total</a></td>
+<td>FQ, FY</td>
+<td colspan="2">TOTAL_NON_OPER_INCOME</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000553615">Total operating expenses</a></td>
+<td>FQ, FY</td>
+<td colspan="2">TOTAL_OPER_EXPENSE</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000553619">Total revenue</a></td>
+<td>FQ, FY</td>
+<td colspan="2">TOTAL_REVENUE</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563479">Unusual income/expense</a></td>
+<td>FQ, FY</td>
+<td colspan="2">UNUSUAL_EXPENSE_INC</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="balance-sheet">
+<span id="pageothertimeframesanddata-balancesheet"></span><h4><a class="toc-backref" href="#id30">Balance sheet</a><a class="headerlink" href="#balance-sheet" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="67%" />
+<col width="8%" />
+<col width="25%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>Financial</strong></td>
+<td><code class="docutils literal notranslate"><span class="pre">period</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">financial_id</span></code></td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563619">Accounts payable</a></td>
+<td>FQ, FY</td>
+<td>ACCOUNTS_PAYABLE</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563740">Accounts receivable - trade, net</a></td>
+<td>FQ, FY</td>
+<td>ACCOUNTS_RECEIVABLES_NET</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563628">Accrued payroll</a></td>
+<td>FQ, FY</td>
+<td>ACCRUED_PAYROLL</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563673">Accumulated depreciation, total</a></td>
+<td>FQ, FY</td>
+<td>ACCUM_DEPREC_TOTAL</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563874">Additional paid-in capital/Capital surplus</a></td>
+<td>FQ, FY</td>
+<td>ADDITIONAL_PAID_IN_CAPITAL</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597072">Tangible book value per share</a></td>
+<td>FQ, FY</td>
+<td>BOOK_TANGIBLE_PER_SHARE</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000670330">Book value per share</a></td>
+<td>FQ, FY</td>
+<td>BOOK_VALUE_PER_SHARE</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563527">Capitalized lease obligations</a></td>
+<td>FQ, FY</td>
+<td>CAPITAL_LEASE_OBLIGATIONS</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563522">Capital and operating lease obligations</a></td>
+<td>FQ, FY</td>
+<td>CAPITAL_OPERATING_LEASE_OBLIGATIONS</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563709">Cash &amp; equivalents</a></td>
+<td>FQ, FY</td>
+<td>CASH_N_EQUIVALENTS</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563702">Cash and short term investments</a></td>
+<td>FQ, FY</td>
+<td>CASH_N_SHORT_TERM_INVEST</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563866">Common equity, total</a></td>
+<td>FQ, FY</td>
+<td>COMMON_EQUITY_TOTAL</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563873">Common stock par/Carrying value</a></td>
+<td>FQ, FY</td>
+<td>COMMON_STOCK_PAR</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563557">Current portion of LT debt and capital leases</a></td>
+<td>FQ, FY</td>
+<td>CURRENT_PORT_DEBT_CAPITAL_LEASES</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563631">Deferred income, current</a></td>
+<td>FQ, FY</td>
+<td>DEFERRED_INCOME_CURRENT</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563540">Deferred income, non-current</a></td>
+<td>FQ, FY</td>
+<td>DEFERRED_INCOME_NON_CURRENT</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563683">Deferred tax assets</a></td>
+<td>FQ, FY</td>
+<td>DEFERRED_TAX_ASSESTS</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563536">Deferred tax liabilities</a></td>
+<td>FQ, FY</td>
+<td>DEFERRED_TAX_LIABILITIES</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563624">Dividends payable</a></td>
+<td>FY</td>
+<td>DIVIDENDS_PAYABLE</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563688">Goodwill, net</a></td>
+<td>FQ, FY</td>
+<td>GOODWILL</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563621">Income tax payable</a></td>
+<td>FQ, FY</td>
+<td>INCOME_TAX_PAYABLE</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563686">Net intangible assets</a></td>
+<td>FQ, FY</td>
+<td>INTANGIBLES_NET</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563749">Inventories - finished goods</a></td>
+<td>FQ, FY</td>
+<td>INVENTORY_FINISHED_GOODS</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563748">Inventories - progress payments &amp; other</a></td>
+<td>FQ, FY</td>
+<td>INVENTORY_PROGRESS_PAYMENTS</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563753">Inventories - raw materials</a></td>
+<td>FQ, FY</td>
+<td>INVENTORY_RAW_MATERIALS</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563746">Inventories - work in progress</a></td>
+<td>FQ, FY</td>
+<td>INVENTORY_WORK_IN_PROGRESS</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563645">Investments in unconsolidated subsidiaries</a></td>
+<td>FQ, FY</td>
+<td>INVESTMENTS_IN_UNCONCSOLIDATE</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563521">Long term debt excl. lease liabilities</a></td>
+<td>FQ, FY</td>
+<td>LONG_TERM_DEBT_EXCL_CAPITAL_LEASE</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000553621">Long term debt</a></td>
+<td>FQ, FY</td>
+<td>LONG_TERM_DEBT</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563639">Long term investments</a></td>
+<td>FQ, FY</td>
+<td>LONG_TERM_INVESTMENTS</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563641">Note receivable - long term</a></td>
+<td>FQ, FY</td>
+<td>LONG_TERM_NOTE_RECEIVABLE</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563693">Other long term assets, total</a></td>
+<td>FQ, FY</td>
+<td>LONG_TERM_OTHER_ASSETS_TOTAL</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563884">Minority interest</a></td>
+<td>FQ, FY</td>
+<td>MINORITY_INTEREST</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563600">Notes payable</a></td>
+<td>FY</td>
+<td>NOTES_PAYABLE_SHORT_TERM_DEBT</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563532">Operating lease liabilities</a></td>
+<td>FQ, FY</td>
+<td>OPERATING_LEASE_LIABILITIES</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563877">Other common equity</a></td>
+<td>FQ, FY</td>
+<td>OTHER_COMMON_EQUITY</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563761">Other current assets, total</a></td>
+<td>FQ, FY</td>
+<td>OTHER_CURRENT_ASSETS_TOTAL</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563635">Other current liabilities</a></td>
+<td>FQ, FY</td>
+<td>OTHER_CURRENT_LIABILITIES</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563689">Other intangibles, net</a></td>
+<td>FQ, FY</td>
+<td>OTHER_INTANGIBLES_NET</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563649">Other investments</a></td>
+<td>FQ, FY</td>
+<td>OTHER_INVESTMENTS</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563635">Other liabilities, total</a></td>
+<td>FQ, FY</td>
+<td>OTHER_LIABILITIES_TOTAL</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563741">Other receivables</a></td>
+<td>FQ, FY</td>
+<td>OTHER_RECEIVABLES</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563614">Other short term debt</a></td>
+<td>FY</td>
+<td>OTHER_SHORT_TERM_DEBT</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563871">Paid in capital</a></td>
+<td>FQ, FY</td>
+<td>PAID_IN_CAPITAL</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563667">Gross property/plant/equipment</a></td>
+<td>FQ, FY</td>
+<td>PPE_TOTAL_GROSS</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563657">Net property/plant/equipment</a></td>
+<td>FQ, FY</td>
+<td>PPE_TOTAL_NET</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563879">Preferred stock, carrying value</a></td>
+<td>FQ, FY</td>
+<td>PREFERRED_STOCK_CARRYING_VALUE</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563757">Prepaid expenses</a></td>
+<td>FQ, FY</td>
+<td>PREPAID_EXPENSES</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563535">Provision for risks &amp; charge</a></td>
+<td>FQ, FY</td>
+<td>PROVISION_F_RISKS</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563867">Retained earnings</a></td>
+<td>FQ, FY</td>
+<td>RETAINED_EARNINGS</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563563">Short term debt excl. current portion of LT debt</a></td>
+<td>FQ, FY</td>
+<td>SHORT_TERM_DEBT_EXCL_CURRENT_PORT</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563554">Short term debt</a></td>
+<td>FQ, FY</td>
+<td>SHORT_TERM_DEBT</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563716">Short term investments</a></td>
+<td>FQ, FY</td>
+<td>SHORT_TERM_INVEST</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000557442">Shareholders’ equity</a></td>
+<td>FQ, FY</td>
+<td>SHRHLDRS_EQUITY</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000553623">Total assets</a></td>
+<td>FQ, FY</td>
+<td>TOTAL_ASSETS</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000557441">Total current assets</a></td>
+<td>FQ, FY</td>
+<td>TOTAL_CURRENT_ASSETS</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000557437">Total current liabilities</a></td>
+<td>FQ, FY</td>
+<td>TOTAL_CURRENT_LIABILITIES</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000553622">Total debt</a></td>
+<td>FQ, FY</td>
+<td>TOTAL_DEBT</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000553625">Total equity</a></td>
+<td>FQ, FY</td>
+<td>TOTAL_EQUITY</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563745">Total inventory</a></td>
+<td>FQ, FY</td>
+<td>TOTAL_INVENTORY</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000553624">Total liabilities</a></td>
+<td>FQ, FY</td>
+<td>TOTAL_LIABILITIES</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000553626">Total liabilities &amp; shareholders’ equities</a></td>
+<td>FQ, FY</td>
+<td>TOTAL_LIABILITIES_SHRHLDRS_EQUITY</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000557440">Total non-current assets</a></td>
+<td>FQ, FY</td>
+<td>TOTAL_NON_CURRENT_ASSETS</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000557436">Total non-current liabilities</a></td>
+<td>FQ, FY</td>
+<td>TOTAL_NON_CURRENT_LIABILITIES</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563738">Total receivables, net</a></td>
+<td>FQ, FY</td>
+<td>TOTAL_RECEIVABLES_NET</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563875">Treasury stock - common</a></td>
+<td>FQ, FY</td>
+<td>TREASURY_STOCK_COMMON</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="cash-flow">
+<span id="pageothertimeframesanddata-cashflow"></span><h4><a class="toc-backref" href="#id31">Cash flow</a><a class="headerlink" href="#cash-flow" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="66%" />
+<col width="8%" />
+<col width="27%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>Financial</strong></td>
+<td><code class="docutils literal notranslate"><span class="pre">period</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">financial_id</span></code></td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000564143">Amortization</a></td>
+<td>FQ, FY</td>
+<td>AMORTIZATION</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000564167">Capital expenditures - fixed assets</a></td>
+<td>FQ, FY</td>
+<td>CAPITAL_EXPENDITURES_FIXED_ASSETS</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000564166">Capital expenditures</a></td>
+<td>FQ, FY</td>
+<td>CAPITAL_EXPENDITURES</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000564168">Capital expenditures - other assets</a></td>
+<td>FQ, FY</td>
+<td>CAPITAL_EXPENDITURES_OTHER_ASSETS</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000553629">Cash from financing activities</a></td>
+<td>FQ, FY</td>
+<td>CASH_F_FINANCING_ACTIVITIES</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000553628">Cash from investing activities</a></td>
+<td>FQ, FY</td>
+<td>CASH_F_INVESTING_ACTIVITIES</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000553627">Cash from operating activities</a></td>
+<td>FQ, FY</td>
+<td>CASH_F_OPERATING_ACTIVITIES</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000564144">Deferred taxes (cash flow)</a></td>
+<td>FQ, FY</td>
+<td>CASH_FLOW_DEFERRED_TAXES</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563892">Depreciation &amp; amortization (cash flow)</a></td>
+<td>FQ, FY</td>
+<td>CASH_FLOW_DEPRECATION_N_AMORTIZATION</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000564150">Change in accounts payable</a></td>
+<td>FQ, FY</td>
+<td>CHANGE_IN_ACCOUNTS_PAYABLE</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000564148">Change in accounts receivable</a></td>
+<td>FQ, FY</td>
+<td>CHANGE_IN_ACCOUNTS_RECEIVABLE</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000564151">Change in accrued expenses</a></td>
+<td>FQ, FY</td>
+<td>CHANGE_IN_ACCRUED_EXPENSES</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000564153">Change in inventories</a></td>
+<td>FQ, FY</td>
+<td>CHANGE_IN_INVENTORIES</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000564154">Change in other assets/liabilities</a></td>
+<td>FQ, FY</td>
+<td>CHANGE_IN_OTHER_ASSETS</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000564149">Change in taxes payable</a></td>
+<td>FQ, FY</td>
+<td>CHANGE_IN_TAXES_PAYABLE</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000564147">Changes in working capital</a></td>
+<td>FQ, FY</td>
+<td>CHANGES_IN_WORKING_CAPITAL</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000564185">Common dividends paid</a></td>
+<td>FQ, FY</td>
+<td>COMMON_DIVIDENDS_CASH_FLOW</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000564142">Depreciation/depletion</a></td>
+<td>FQ, FY</td>
+<td>DEPRECIATION_DEPLETION</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000553630">Free cash flow</a></td>
+<td>FQ, FY</td>
+<td>FREE_CASH_FLOW</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563886">Funds from operations</a></td>
+<td>FQ, FY</td>
+<td>FUNDS_F_OPERATIONS</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000564172">Issuance/retirement of debt, net</a></td>
+<td>FQ, FY</td>
+<td>ISSUANCE_OF_DEBT_NET</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000564175">Issuance/retirement of long term debt</a></td>
+<td>FQ, FY</td>
+<td>ISSUANCE_OF_LONG_TERM_DEBT</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000564178">Issuance/retirement of other debt</a></td>
+<td>FQ, FY</td>
+<td>ISSUANCE_OF_OTHER_DEBT</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000564173">Issuance/retirement of short term debt</a></td>
+<td>FQ, FY</td>
+<td>ISSUANCE_OF_SHORT_TERM_DEBT</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000564169">Issuance/retirement of stock, net</a></td>
+<td>FQ, FY</td>
+<td>ISSUANCE_OF_STOCK_NET</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000563888">Net income (cash flow)</a></td>
+<td>FQ, FY</td>
+<td>NET_INCOME_STARTING_LINE</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000564146">Non-cash items</a></td>
+<td>FQ, FY</td>
+<td>NON_CASH_ITEMS</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000564179">Other financing cash flow items, total</a></td>
+<td>FQ, FY</td>
+<td>OTHER_FINANCING_CASH_FLOW_ITEMS_TOTAL</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000564181">Financing activities - other sources</a></td>
+<td>FQ, FY</td>
+<td>OTHER_FINANCING_CASH_FLOW_SOURCES</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000564182">Financing activities - other uses</a></td>
+<td>FQ, FY</td>
+<td>OTHER_FINANCING_CASH_FLOW_USES</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000564163">Other investing cash flow items, total</a></td>
+<td>FQ, FY</td>
+<td>OTHER_INVESTING_CASH_FLOW_ITEMS_TOTAL</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000564164">Investing activities - other sources</a></td>
+<td>FQ, FY</td>
+<td>OTHER_INVESTING_CASH_FLOW_SOURCES</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000564165">Investing activities - other uses</a></td>
+<td>FQ, FY</td>
+<td>OTHER_INVESTING_CASH_FLOW_USES</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000564186">Preferred dividends paid</a></td>
+<td>FQ, FY</td>
+<td>PREFERRED_DIVIDENDS_CASH_FLOW</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000564159">Purchase/acquisition of business</a></td>
+<td>FQ, FY</td>
+<td>PURCHASE_OF_BUSINESS</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000564162">Purchase of investments</a></td>
+<td>FQ, FY</td>
+<td>PURCHASE_OF_INVESTMENTS</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000564171">Repurchase of common &amp; preferred stock</a></td>
+<td>FQ, FY</td>
+<td>PURCHASE_OF_STOCK</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000564156">Purchase/sale of business, net</a></td>
+<td>FQ, FY</td>
+<td>PURCHASE_SALE_BUSINESS</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000564160">Purchase/sale of investments, net</a></td>
+<td>FQ, FY</td>
+<td>PURCHASE_SALE_INVESTMENTS</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000564177">Reduction of long term debt</a></td>
+<td>FQ, FY</td>
+<td>REDUCTION_OF_LONG_TERM_DEBT</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000564170">Sale of common &amp; preferred stock</a></td>
+<td>FQ, FY</td>
+<td>SALE_OF_STOCK</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000564158">Sale of fixed assets &amp; businesses</a></td>
+<td>FQ, FY</td>
+<td>SALES_OF_BUSINESS</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000564161">Sale/maturity of investments</a></td>
+<td>FQ, FY</td>
+<td>SALES_OF_INVESTMENTS</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000564176">Supplying of long term debt</a></td>
+<td>FQ, FY</td>
+<td>SUPPLYING_OF_LONG_TERM_DEBT</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000564183">Total cash dividends paid</a></td>
+<td>FQ, FY</td>
+<td>TOTAL_CASH_DIVIDENDS_PAID</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="statistics">
+<span id="pageothertimeframesanddata-statistics"></span><h4><a class="toc-backref" href="#id32">Statistics</a><a class="headerlink" href="#statistics" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="67%" />
+<col width="8%" />
+<col width="26%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>Financial</strong></td>
+<td><code class="docutils literal notranslate"><span class="pre">period</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">financial_id</span></code></td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597073">Accruals</a></td>
+<td>FQ, FY</td>
+<td>ACCRUALS_RATIO</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597092">Altman Z-score</a></td>
+<td>FQ, FY</td>
+<td>ALTMAN_Z_SCORE</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597022">Asset turnover</a></td>
+<td>FQ, FY</td>
+<td>ASSET_TURNOVER</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597835">Beneish M-score</a></td>
+<td>FQ, FY</td>
+<td>BENEISH_M_SCORE</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597088">Buyback yield %</a></td>
+<td>FQ, FY</td>
+<td>BUYBACK_YIELD</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597089">Cash conversion cycle</a></td>
+<td>FQ, FY</td>
+<td>CASH_CONVERSION_CYCLE</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597023">Cash to debt ratio</a></td>
+<td>FQ, FY</td>
+<td>CASH_TO_DEBT</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597026">COGS to revenue ratio</a></td>
+<td>FQ, FY</td>
+<td>COGS_TO_REVENUE</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597051">Current ratio</a></td>
+<td>FQ, FY</td>
+<td>CURRENT_RATIO</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597030">Days sales outstanding</a></td>
+<td>FQ, FY</td>
+<td>DAY_SALES_OUT</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597028">Days inventory</a></td>
+<td>FQ, FY</td>
+<td>DAYS_INVENT</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597029">Days payable</a></td>
+<td>FQ, FY</td>
+<td>DAYS_PAY</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597031">Debt to assets ratio</a></td>
+<td>FQ, FY</td>
+<td>DEBT_TO_ASSET</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597032">Debt to EBITDA ratio</a></td>
+<td>FQ, FY</td>
+<td>DEBT_TO_EBITDA</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597078">Debt to equity ratio</a></td>
+<td>FQ, FY</td>
+<td>DEBT_TO_EQUITY</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597033">Debt to revenue ratio</a></td>
+<td>FQ, FY</td>
+<td>DEBT_TO_REVENUE</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597738">Dividend payout ratio %</a></td>
+<td>FQ, FY</td>
+<td>DIVIDEND_PAYOUT_RATIO</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597817">Dividend yield %</a></td>
+<td>FQ, FY</td>
+<td>DIVIDENDS_YIELD</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000670334">Dividends per share - common stock primary issue</a></td>
+<td>FQ, FY</td>
+<td>DPS_COMMON_STOCK_PRIM_ISSUE</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597066">EPS estimates</a></td>
+<td>FQ, FY</td>
+<td>EARNINGS_ESTIMATE</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597069">EPS basic one year growth</a></td>
+<td>FQ, FY</td>
+<td>EARNINGS_PER_SHARE_BASIC_ONE_YEAR_GROWTH</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597071">EPS diluted one year growth</a></td>
+<td>FQ, FY</td>
+<td>EARNINGS_PER_SHARE_DILUTED_ONE_YEAR_GROWTH</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597075">EBITDA margin %</a></td>
+<td>FQ, FY</td>
+<td>EBITDA_MARGIN</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597034">Effective interest rate on debt %</a></td>
+<td>FQ, FY</td>
+<td>EFFECTIVE_INTEREST_RATE_ON_DEBT</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597064">Enterprise value to EBITDA ratio</a></td>
+<td>FQ, FY</td>
+<td>ENTERPRISE_VALUE_EBITDA</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597077">Enterprise value</a></td>
+<td>FQ, FY</td>
+<td>ENTERPRISE_VALUE</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597035">Equity to assets ratio</a></td>
+<td>FQ, FY</td>
+<td>EQUITY_TO_ASSET</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597063">Enterprise value to EBIT ratio</a></td>
+<td>FQ, FY</td>
+<td>EV_EBIT</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597065">Enterprise value to revenue ratio</a></td>
+<td>FQ, FY</td>
+<td>EV_REVENUE</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000670341">Float shares outstanding</a></td>
+<td>FY</td>
+<td>FLOAT_SHARES_OUTSTANDING</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597813">Free cash flow margin %</a></td>
+<td>FQ, FY</td>
+<td>FREE_CASH_FLOW_MARGIN</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597847">Fulmer H factor</a></td>
+<td>FQ, FY</td>
+<td>FULMER_H_FACTOR</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597036">Goodwill to assets ratio</a></td>
+<td>FQ, FY</td>
+<td>GOODWILL_TO_ASSET</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597084">Graham’s number</a></td>
+<td>FQ, FY</td>
+<td>GRAHAM_NUMBERS</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597811">Gross margin %</a></td>
+<td>FQ, FY</td>
+<td>GROSS_MARGIN</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597087">Gross profit to assets ratio</a></td>
+<td>FQ, FY</td>
+<td>GROSS_PROFIT_TO_ASSET</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597037">Interest coverage</a></td>
+<td>FQ, FY</td>
+<td>INTERST_COVER</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597047">Inventory to revenue ratio</a></td>
+<td>FQ, FY</td>
+<td>INVENT_TO_REVENUE</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597046">Inventory turnover</a></td>
+<td>FQ, FY</td>
+<td>INVENT_TURNOVER</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597844">KZ index</a></td>
+<td>FY</td>
+<td>KZ_INDEX</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597048">Long term debt to total assets ratio</a></td>
+<td>FQ, FY</td>
+<td>LONG_TERM_DEBT_TO_ASSETS</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597085">Net current asset value per share</a></td>
+<td>FQ, FY</td>
+<td>NCAVPS_RATIO</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597082">Net income per employee</a></td>
+<td>FY</td>
+<td>NET_INCOME_PER_EMPLOYEE</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597074">Net margin %</a></td>
+<td>FQ, FY</td>
+<td>NET_MARGIN</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597080">Number of employees</a></td>
+<td>FY</td>
+<td>NUMBER_OF_EMPLOYEES</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597010">Operating earnings yield %</a></td>
+<td>FQ, FY</td>
+<td>OPERATING_EARNINGS_YIELD</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597076">Operating margin %</a></td>
+<td>FQ, FY</td>
+<td>OPERATING_MARGIN</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597090">PEG ratio</a></td>
+<td>FQ, FY</td>
+<td>PEG_RATIO</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597734">Piotroski F-score</a></td>
+<td>FQ, FY</td>
+<td>PIOTROSKI_F_SCORE</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597831">Price earnings ratio forward</a></td>
+<td>FQ, FY</td>
+<td>PRICE_EARNINGS_FORWARD</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597832">Price sales ratio forward</a></td>
+<td>FQ, FY</td>
+<td>PRICE_SALES_FORWARD</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597816">Price to free cash flow ratio</a></td>
+<td>FQ, FY</td>
+<td>PRICE_TO_FREE_CASH_FLOW</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597815">Price to tangible book ratio</a></td>
+<td>FQ, FY</td>
+<td>PRICE_TO_TANGIBLE_BOOK</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597086">Quality ratio</a></td>
+<td>FQ, FY</td>
+<td>QUALITY_RATIO</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597050">Quick ratio</a></td>
+<td>FQ, FY</td>
+<td>QUICK_RATIO</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597739">Research &amp; development to revenue ratio</a></td>
+<td>FQ, FY</td>
+<td>RESEARCH_AND_DEVELOP_TO_REVENUE</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597054">Return on assets %</a></td>
+<td>FQ, FY</td>
+<td>RETURN_ON_ASSETS</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597055">Return on equity adjusted to book value %</a></td>
+<td>FQ, FY</td>
+<td>RETURN_ON_EQUITY_ADJUST_TO_BOOK</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597021">Return on equity %</a></td>
+<td>FQ, FY</td>
+<td>RETURN_ON_EQUITY</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597056">Return on invested capital %</a></td>
+<td>FQ, FY</td>
+<td>RETURN_ON_INVESTED_CAPITAL</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597052">Return on tangible assets %</a></td>
+<td>FQ, FY</td>
+<td>RETURN_ON_TANG_ASSETS</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597053">Return on tangible equity %</a></td>
+<td>FQ, FY</td>
+<td>RETURN_ON_TANG_EQUITY</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597068">Revenue one year growth</a></td>
+<td>FQ, FY</td>
+<td>REVENUE_ONE_YEAR_GROWTH</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597081">Revenue per employee</a></td>
+<td>FY</td>
+<td>REVENUE_PER_EMPLOYEE</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597067">Revenue estimates</a></td>
+<td>FQ, FY</td>
+<td>SALES_ESTIMATES</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597057">Shares buyback ratio %</a></td>
+<td>FQ, FY</td>
+<td>SHARE_BUYBACK_RATIO</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597058">Sloan ratio %</a></td>
+<td>FQ, FY</td>
+<td>SLOAN_RATIO</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597848">Springate score</a></td>
+<td>FQ, FY</td>
+<td>SPRINGATE_SCORE</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597736">Sustainable growth rate</a></td>
+<td>FQ, FY</td>
+<td>SUSTAINABLE_GROWTH_RATE</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597079">Tangible common equity ratio</a></td>
+<td>FQ, FY</td>
+<td>TANGIBLE_COMMON_EQUITY_RATIO</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597834">Tobin’s Q (approximate)</a></td>
+<td>FQ, FY</td>
+<td>TOBIN_Q_RATIO</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000670331">Total common shares outstanding</a></td>
+<td>FQ, FY</td>
+<td>TOTAL_SHARES_OUTSTANDING</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.tradingview.com/support/solutions/43000597850">Zmijewski score</a></td>
+<td>FQ, FY</td>
+<td>ZMIJEWSKI_SCORE</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Footnotes</p>
+<table class="docutils footnote" frame="void" id="minutes" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td>Actually the highest supported minute timeframe is “1440” (which is the number of minutes in 24 hours).</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="hours" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[2]</td><td>Requesting data of <code class="docutils literal notranslate"><span class="pre">&quot;1h&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;1H&quot;</span></code> timeframe would result in an error. Use <code class="docutils literal notranslate"><span class="pre">&quot;60&quot;</span></code> instead.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="seconds" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[3]</td><td>These are the only second-based timeframes available. To use a second-based timeframe, the timeframe of the chart should be equal to or less than the requested timeframe.</td></tr>
+</tbody>
+</table>
+<a class="reference external image-reference" href="https://www.tradingview.com/"><div align="center" class="align-center"><img alt="../_images/TradingView-Logo-Block.svg" src="../_images/TradingView-Logo-Block.svg" width="200px" /></div>
+</a>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+            
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="../_static/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="../_static/js/theme.js"></script>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Options</span>
+    v: v5
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Languages</dt>
+      
+        <strong>
+        <dd><a href="Other_timeframes_and_data.html">en</a></dd>
+        </strong>
+      
+    </dl>
+    <dl>
+      <dt>Versions</dt>
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v3/concepts/Other_timeframes_and_data.html">v3</a></dd>
+        
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v4/concepts/Other_timeframes_and_data.html">v4</a></dd>
+        
+      
+        <strong>
+        <dd><a href="Other_timeframes_and_data.html">v5</a></dd>
+        </strong>
+      
+    </dl>
+  </div>
+</div>
+<script type="text/javascript">
+    jQuery(function () {
+        SphinxRtdTheme.Navigation.enable(false);
+    });
+</script>
+  <div class="footer">
+    &copy; Copyright 2023, TradingView.
+  </div>
+  </body>
+
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/concepts/Other_timeframes_and_data.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:57:09 GMT -->
+</html>

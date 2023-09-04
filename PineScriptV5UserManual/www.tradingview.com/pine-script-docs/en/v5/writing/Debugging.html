@@ -1,0 +1,669 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/writing/Debugging.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:57:01 GMT -->
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Debugging &#8212; Pine Script® v5 User Manual v5 documentation</title>
+    <link rel="stylesheet" href="../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../../../../static.tradingview.com/static/bundles/pine-highlighter-v01.js"></script>
+    <script type="text/javascript" src="../_static/highlight-pine-code.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Publishing scripts" href="Publishing.html" />
+    <link rel="prev" title="Style guide" href="Style_guide.html" />
+  
+   
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Publishing.html" title="Publishing scripts"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Style_guide.html" title="Style guide"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Writing scripts</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="../index.html" class="text-logo">Pine Script<sup>®</sup> v5 User Manual</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Introduction.html">Welcome to Pine Script<sup>®</sup> v5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primer/index.html">Pine Script<sup>®</sup> primer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../language/index.html">Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepts</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Writing scripts</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Style_guide.html">Style guide</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Debugging</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-lay-of-the-land">The lay of the land</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#displaying-numeric-values">Displaying numeric values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#displaying-strings">Displaying strings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#debugging-conditions">Debugging conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#debugging-from-inside-functions">Debugging from inside functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#debugging-from-inside-for-loops">Debugging from inside `for` loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tips">Tips</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Publishing.html">Publishing scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Limitations.html">Limitations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Error_messages.html">Error messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Release_notes.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migration_guides/index.html">Migration guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Where_can_I_get_more_information.html">Where can I get more information?</a></li>
+</ul>
+
+    
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="https://www.tradingview.com/pine-script-docs/en/v5/search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../index.html">User Manual</a></li>
+              
+                <li><a href="index.html">Writing scripts</a></li>
+              
+              <li>Debugging</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <a class="reference external image-reference" href="../Introduction.html"><div align="right" class="align-right"><img alt="Pine Script® logo" height="100" src="../_images/Pine-script-logo.svg" width="100" /></div>
+</a>
+<div class="section" id="debugging">
+<span id="pagedebugging"></span><h1>Debugging<a class="headerlink" href="#debugging" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#introduction" id="id1">Introduction</a></li>
+<li><a class="reference internal" href="#the-lay-of-the-land" id="id2">The lay of the land</a></li>
+<li><a class="reference internal" href="#displaying-numeric-values" id="id3">Displaying numeric values</a><ul>
+<li><a class="reference internal" href="#when-the-script-s-scale-is-unimportant" id="id4">When the script’s scale is unimportant</a></li>
+<li><a class="reference internal" href="#when-the-script-s-scale-must-be-preserved" id="id5">When the script’s scale must be preserved</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#displaying-strings" id="id6">Displaying strings</a><ul>
+<li><a class="reference internal" href="#labels-on-each-bar" id="id7">Labels on each bar</a></li>
+<li><a class="reference internal" href="#labels-on-last-bar" id="id8">Labels on last bar</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#debugging-conditions" id="id9">Debugging conditions</a><ul>
+<li><a class="reference internal" href="#single-conditions" id="id10">Single conditions</a></li>
+<li><a class="reference internal" href="#compound-conditions" id="id11">Compound conditions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#debugging-from-inside-functions" id="id12">Debugging from inside functions</a></li>
+<li><a class="reference internal" href="#debugging-from-inside-for-loops" id="id13">Debugging from inside `for` loops</a><ul>
+<li><a class="reference internal" href="#extracting-a-single-value" id="id14">Extracting a single value</a></li>
+<li><a class="reference internal" href="#using-lines-and-labels" id="id15">Using lines and labels</a></li>
+<li><a class="reference internal" href="#extracting-multiple-values" id="id16">Extracting multiple values</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tips" id="id17">Tips</a></li>
+</ul>
+</div>
+<div class="section" id="introduction">
+<h2><a class="toc-backref" href="#id1">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>TradingView’s close integration between the Pine Script<sup>®</sup> Editor and charts allows for efficient and interactive debugging of Pine Script<sup>®</sup> code.
+Once a programmer understands the most appropriate technique to use in each situation, they will be able to debug scripts quickly and thoroughly.
+This page demonstrates the most useful techniques to debug Pine Script<sup>®</sup> code.</p>
+<p>If you are not yet familiar with Pine Script<sup>®</sup>’s execution model, it is important that you read the <span class="xref std std-ref">Execution model</span> page of this User Manual
+so you understand how your debugging code will behave in the Pine Script<sup>®</sup> environment.</p>
+</div>
+<div class="section" id="the-lay-of-the-land">
+<h2><a class="toc-backref" href="#id2">The lay of the land</a><a class="headerlink" href="#the-lay-of-the-land" title="Permalink to this headline">¶</a></h2>
+<p>Values plotted by Pine scripts can be displayed in four distinct places:</p>
+<ol class="arabic simple">
+<li>Next to the script’s name (controlled by the “Indicator Values” checkbox in the “Chart settings/Status Line” tab).</li>
+<li>In the script’s pane, whether your script is a chart overlay or in a separate pane.</li>
+<li>In the scale (only displays the last bar’s value and is controlled by the “Indicator Last Value Label” checkbox in the “Chart settings/Scale” tab).</li>
+<li>In the Data Window (which you can bring up using the fourth icon down, to the right of your chart).</li>
+</ol>
+<img alt="../_images/Debugging-TheLayOfTheLand-1.png" src="../_images/Debugging-TheLayOfTheLand-1.png" />
+<p>Note the following in the preceding screenshot:</p>
+<ul class="simple">
+<li>The chart’s cursor is on the dataset’s first bar, where <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_bar_index">bar_index</a> is zero. That value is reflected next to the indicator’s name and in the Data Window.
+<strong>Moving your cursor on other bars would update those values so they always represent the value of the plot on that bar.</strong>
+This is a good way to inspect the value of a variable as the script’s execution progresses from bar to bar.</li>
+<li>The <code class="docutils literal notranslate"><span class="pre">title</span></code> argument of our <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plot">plot()</a> call, “Bar Index”, is used as the value’s legend in the Data Window.</li>
+<li>The precision of the values displayed in the Data Window is dependent on the chart symbol’s tick value. You can modify it in two ways:<ul>
+<li>By changing the value of the “Precision” field in the script’s “Settings/Style” tab. You can obtain up to eight digits of precision using this method.</li>
+<li>By using the <code class="docutils literal notranslate"><span class="pre">precision</span></code> parameter in your script’s <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_indicator">indicator()</a> or <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_strategy">strategy()</a> declaration statement. This method allows specifying up to 16 digits precision.</li>
+</ul>
+</li>
+<li>The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plot">plot()</a> call in our script plots the value of <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_bar_index">bar_index</a> in the indicator’s pane,
+which shows the increasing value of the variable.</li>
+<li>The scale of the script’s pane is automatically sized to accommodate the smallest and largest values plotted by all <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plot">plot()</a> calls in the script.</li>
+</ul>
+</div>
+<div class="section" id="displaying-numeric-values">
+<h2><a class="toc-backref" href="#id3">Displaying numeric values</a><a class="headerlink" href="#displaying-numeric-values" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="when-the-script-s-scale-is-unimportant">
+<h3><a class="toc-backref" href="#id4">When the script’s scale is unimportant</a><a class="headerlink" href="#when-the-script-s-scale-is-unimportant" title="Permalink to this headline">¶</a></h3>
+<p>The script in the preceding screenshot used the simplest way to inspect numerical values: a <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plot">plot()</a> call,
+which plots a line corresponding to the variable’s value in the script’s display area.
+Our example script plotted the value of the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_bar_index">bar_index</a> built-in variable,
+which contains the bar’s number, a value beginning at zero on the dataset’s first bar and increased by one on each
+subsequent bar. We used a <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plot">plot()</a> call to plot the variable to inspect because our script was not plotting anything else;
+we were not preoccupied with preserving the scale for other plots to continue to plot normally. This is the script we used:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Plot `bar_index`&quot;)
+plot(bar_index, &quot;Bar Index&quot;)
+</pre></div>
+</div>
+</div>
+<div class="section" id="when-the-script-s-scale-must-be-preserved">
+<span id="pagedebugging-whenthescriptsscalemustbepreserved"></span><h3><a class="toc-backref" href="#id5">When the script’s scale must be preserved</a><a class="headerlink" href="#when-the-script-s-scale-must-be-preserved" title="Permalink to this headline">¶</a></h3>
+<p>Plotting values in the script’s display area is not always possible. When we already have other plots going on and adding debugging plots of variables whose values fall outside the script’s plotting boundaries would make the plots unreadable, another technique must be used to inspect values if we want to preserve the scale of the other plots.</p>
+<p>Suppose we want to continue inspecting the value of <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_bar_index">bar_index</a>, but this time in a script where we are also plotting RSI:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Plot RSI and `bar_index`&quot;)
+r = ta.rsi(close, 20)
+plot(r, &quot;RSI&quot;, color.black)
+plot(bar_index, &quot;Bar Index&quot;)
+</pre></div>
+</div>
+<p>Running the script on a dataset containing a large number of bars yields the following display:</p>
+<img alt="../_images/Debugging-DisplayingNumericValues-1.png" src="../_images/Debugging-DisplayingNumericValues-1.png" />
+<p>where:</p>
+<ol class="arabic simple">
+<li>The RSI line in black is flat because it varies between zero and 100, but the indicator’s pane is scaled to show the maximum value of <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_bar_index">bar_index</a>, which is <code class="docutils literal notranslate"><span class="pre">25692.0000</span></code>.</li>
+<li>The value of <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_bar_index">bar_index</a> on the bar the cursor is on is displayed next to the indicator’s name, and its blue plot in the script’s pane is flat.</li>
+<li>The <code class="docutils literal notranslate"><span class="pre">25692.0000</span></code> value of <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_bar_index">bar_index</a> shown in the scale represents its value on the last bar, so the dataset contains 25693 bars.</li>
+<li>The value of <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_bar_index">bar_index</a> on the bar the cursor is on is also displayed in the Data Window, along with that bar’s value for RSI just above it.</li>
+</ol>
+<p>In order to preserve our plot of RSI while still being able to inspect the value or <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_bar_index">bar_index</a>,
+we will plot the variable using <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plotchar">plotchar()</a> like this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Plot RSI and `bar_index`&quot;)
+r = ta.rsi(close, 20)
+plot(r, &quot;RSI&quot;, color.black)
+plotchar(bar_index, &quot;Bar index&quot;, &quot;&quot;, location.top)
+</pre></div>
+</div>
+<img alt="../_images/Debugging-DisplayingNumericValues-2.png" src="../_images/Debugging-DisplayingNumericValues-2.png" />
+<p>where:</p>
+<ul class="simple">
+<li>Because the value of <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_bar_index">bar_index</a> is no longer being plotted in the script’s pane, the pane’s boundaries are now those of RSI, which displays normally.</li>
+<li>The value plotted using <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plotchar">plotchar()</a> is displayed next to the script’s name and in the Data Window.</li>
+<li>We are not plotting a character with our <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plotchar">plotchar()</a> call, so the third argument is an empty string (<code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>).
+We are also specifying <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_location{dot}top">location.top</a> as the <code class="docutils literal notranslate"><span class="pre">location</span></code> argument, so that we do not put the symbol’s price in play in the calculation of the display area’s boundaries.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="displaying-strings">
+<h2><a class="toc-backref" href="#id6">Displaying strings</a><a class="headerlink" href="#displaying-strings" title="Permalink to this headline">¶</a></h2>
+<p>Pine Script<sup>®</sup> labels must be used to display strings. Labels only appear in the script’s display area; strings shown in labels do not appear in the Data Window or anywhere else.</p>
+<div class="section" id="labels-on-each-bar">
+<h3><a class="toc-backref" href="#id7">Labels on each bar</a><a class="headerlink" href="#labels-on-each-bar" title="Permalink to this headline">¶</a></h3>
+<p>The following script demonstrates the simplest way to repetitively draw a label showing the symbol’s name:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Simple label&quot;, &quot;&quot;, true)
+label.new(bar_index, high, syminfo.ticker)
+</pre></div>
+</div>
+<img alt="../_images/Debugging-DisplayingStrings-1.png" src="../_images/Debugging-DisplayingStrings-1.png" />
+<p>By default, only the last 50 labels will be shown on the chart. You can increase this amount up to a maximum of 500 by using the <code class="docutils literal notranslate"><span class="pre">max_labels_count</span></code> parameter in your script’s <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_indicator">indicator()</a> or <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_strategy">strategy()</a> declaration statement. For example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>indicator(&quot;Simple label&quot;, &quot;&quot;, true, max_labels_count = 500)
+</pre></div>
+</div>
+</div>
+<div class="section" id="labels-on-last-bar">
+<h3><a class="toc-backref" href="#id8">Labels on last bar</a><a class="headerlink" href="#labels-on-last-bar" title="Permalink to this headline">¶</a></h3>
+<p>As strings manipulated in Pine scripts often do not change bar to bar, the method most frequently used to visualize them is to draw a label on the dataset’s last bar.
+Here, we use a function to create a label that only appears on the chart’s last bar. Our <code class="docutils literal notranslate"><span class="pre">f_print()</span></code> function has only one parameter, the text string to be displayed:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;print()&quot;, &quot;&quot;, true)
+print(txt) =&gt;
+    // Create label on the first bar.
+    var lbl = label.new(bar_index, na, txt, xloc.bar_index, yloc.price, color(na), label.style_none, color.gray, size.large, text.align_left)
+    // On next bars, update the label&#39;s x and y position, and the text it displays.
+    label.set_xy(lbl, bar_index, ta.highest(10)[1])
+    label.set_text(lbl, txt)
+
+print(&quot;Multiplier = &quot; + str.tostring(timeframe.multiplier) + &quot;\nPeriod = &quot; + timeframe.period + &quot;\nHigh = &quot; + str.tostring(high))
+print(&quot;Hello world!\n\n\n\n&quot;)
+</pre></div>
+</div>
+<img alt="../_images/Debugging-DisplayingStrings-2.png" src="../_images/Debugging-DisplayingStrings-2.png" />
+<p>Note the following in our last code example:</p>
+<ul class="simple">
+<li>We use the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function to enclose the label-drawing code. While the function is called on each bar,
+the label is only created on the dataset’s first bar because of our use of the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_var">var</a> keyword when declaring the <code class="docutils literal notranslate"><span class="pre">lbl</span></code> variable inside the function. After creating it,
+we only update the label’s <em>x</em> and <em>y</em> coordinates and its text on each successive bar. If we did not update those values, the label would remain on the dataset’s first bar
+and would only display the text string’s value on that bar. Lastly, note that we use <code class="docutils literal notranslate"><span class="pre">ta.highest(10)[1]</span></code> to position the label vertically,
+By using the highest high of the <strong>previous</strong> 10 bars, we prevent the label from moving during the realtime bar.
+You may need to adapt this <em>y</em> position in other contexts.</li>
+<li>We call the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function twice to show that if you make multiple calls because it makes debugging multiple strings easier,
+you can superimpose their text by using the correct amount of newlines (<code class="docutils literal notranslate"><span class="pre">\n</span></code>) to separate each one.</li>
+<li>We use the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_str{dot}tostring">str.tostring()</a> function to convert numeric values to a string for inclusion in the text to be displayed.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="debugging-conditions">
+<h2><a class="toc-backref" href="#id9">Debugging conditions</a><a class="headerlink" href="#debugging-conditions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="single-conditions">
+<h3><a class="toc-backref" href="#id10">Single conditions</a><a class="headerlink" href="#single-conditions" title="Permalink to this headline">¶</a></h3>
+<p>Many methods can be used to display occurrences where a condition is met. This code shows six ways to identify bars where RSI is smaller than 30:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Single conditions&quot;)
+r = ta.rsi(close, 20)
+rIsLow = r &lt; 30
+hline(30)
+
+// Method #1: Change the plot&#39;s color.
+plot(r, &quot;RSI&quot;, rIsLow ? color.fuchsia : color.black)
+// Method #2: Plot a character in the bottom region of the display.
+plotchar(rIsLow, &quot;rIsLow char at bottom&quot;, &quot;▲&quot;, location.bottom, size = size.small)
+// Method #3: Plot a character on the RSI line.
+plotchar(rIsLow ? r : na, &quot;rIsLow char on line&quot;, &quot;•&quot;, location.absolute, color.red, size = size.small)
+// Method #4: Plot a shape in the top region of the display.
+plotshape(rIsLow, &quot;rIsLow shape&quot;, shape.arrowup, location.top)
+// Method #5: Plot an arrow.
+plotarrow(rIsLow ? 1 : na, &quot;rIsLow arrow&quot;)
+// Method #6: Change the background&#39;s color.
+bgcolor(rIsLow ? color.new(color.green, 90) : na)
+</pre></div>
+</div>
+<img alt="../_images/Debugging-DisplayingConditions-1.png" src="../_images/Debugging-DisplayingConditions-1.png" />
+<p>Note that:</p>
+<ul class="simple">
+<li>We define our condition in the <code class="docutils literal notranslate"><span class="pre">rIsLow</span></code> boolean variable and it is evaluated on each bar. The <code class="docutils literal notranslate"><span class="pre">r</span> <span class="pre">&lt;</span> <span class="pre">30</span></code> expression used to assign a value to the variable evaluates to <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code> (or <code class="docutils literal notranslate"><span class="pre">na</span></code> when <code class="docutils literal notranslate"><span class="pre">r</span></code> is <code class="docutils literal notranslate"><span class="pre">na</span></code>, as is the case in the first bars of the dataset).</li>
+<li><strong>Method #1</strong> uses a change in the color of the RSI plot on the condition. Whenever a plot’s color changes, it colors the plot starting from the preceding bar.</li>
+<li><strong>Method #2</strong> uses <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plotchar">plotchar()</a> to plot an up triangle in the bottom part of the indicator’s display.
+Using different combinations of positions and characters allows the simultaneous identification of multiple conditions on a single bar.
+<strong>This is one of our preferred methods to identify conditions on the chart.</strong></li>
+<li><strong>Method #3</strong> also uses a <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plotchar">plotchar()</a> call, but this time the character is positioned on the RSI line.
+In order to achieve this, we use <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_location{dot}absolute">location.absolute</a> and Pine Script<sup>®</sup>’s
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_{question}{colon}">?:</a> ternary conditional operator to define a conditional expression
+where a <em>y</em> position is used only when our <code class="docutils literal notranslate"><span class="pre">rIsLow</span></code> condition is true. When it is not true, <code class="docutils literal notranslate"><span class="pre">na</span></code> is used, so no character is displayed.</li>
+<li><strong>Method #4</strong> uses <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plotshape">plotshape()</a> to plot a blue up arrow in the top part of the indicator’s display area when our condition is met.</li>
+<li><strong>Method #5</strong> uses <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plotarrow">plotarrow()</a> to plot a green up arrow at the bottom of the display when our condition is met.</li>
+<li><strong>Method #6</strong> uses <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_bgcolor">bgcolor()</a> to change the color of the background when our condition is met. The ternary operator is used once again to evaluate our condition.
+It will return <code class="docutils literal notranslate"><span class="pre">color.green</span></code> when <code class="docutils literal notranslate"><span class="pre">rIsLow</span></code> is true, and the <code class="docutils literal notranslate"><span class="pre">na</span></code> color (which does not color the background) when <code class="docutils literal notranslate"><span class="pre">rIsLow</span></code> is false or <code class="docutils literal notranslate"><span class="pre">na</span></code>.</li>
+<li>Lastly, note how a boolean variable with a <code class="docutils literal notranslate"><span class="pre">true</span></code> value displays as <code class="docutils literal notranslate"><span class="pre">1</span></code> in the Data Window. <code class="docutils literal notranslate"><span class="pre">false</span></code> values are denoted by a zero value.</li>
+</ul>
+</div>
+<div class="section" id="compound-conditions">
+<h3><a class="toc-backref" href="#id11">Compound conditions</a><a class="headerlink" href="#compound-conditions" title="Permalink to this headline">¶</a></h3>
+<p>Programmers needing to identify situations where more than one condition is met must build compound conditions by aggregating individual conditions using the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_and">and</a> logical operator. Because compound conditions will only perform as expected if their individual conditions trigger correctly, you will save yourself many headaches if you validate the behavior of individual conditions before using a compound condition in your code.</p>
+<p>The state of multiple individual conditions can be displayed using a technique like this one, where four individual conditions are used to build our <code class="docutils literal notranslate"><span class="pre">bull</span></code> compound condition:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Compound conditions&quot;)
+periodInput    = input.int(20)
+bullLevelInput = input.int(55)
+
+r = ta.rsi(close, periodInput)
+
+// Condition #1.
+rsiBull = r &gt; bullLevelInput
+// Condition #2.
+hiChannel = ta.highest(r, periodInput * 2)[1]
+aboveHiChannel = r &gt; hiChannel
+// Condition #3.
+channelIsOld = hiChannel &gt;= hiChannel[periodInput]
+// Condition #4.
+historyIsBull = math.sum(rsiBull ? 1 : -1, periodInput * 3) &gt; 0
+// Compound condition.
+bull = rsiBull and aboveHiChannel and channelIsOld and historyIsBull
+
+hline(bullLevelInput)
+plot(r, &quot;RSI&quot;, color.black)
+plot(hiChannel, &quot;High Channel&quot;)
+
+plotchar(rsiBull ? bullLevelInput : na, &quot;rIsBull&quot;, &quot;1&quot;, location.absolute, color.green, size = size.tiny)
+plotchar(aboveHiChannel ? r : na, &quot;aboveHiChannel&quot;, &quot;2&quot;, location.absolute, size = size.tiny)
+plotchar(channelIsOld, &quot;channelIsOld&quot;, &quot;3&quot;, location.bottom, size = size.tiny)
+plotchar(historyIsBull, &quot;historyIsBull&quot;, &quot;4&quot;, location.top, size = size.tiny)
+bgcolor(bull ? not bull[1] ? color.new(color.green, 50) : color.new(color.green, 90) : na)
+</pre></div>
+</div>
+<img alt="../_images/Debugging-DisplayingConditions-2.png" src="../_images/Debugging-DisplayingConditions-2.png" />
+<p>Note that:</p>
+<ul class="simple">
+<li>We use a <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plotchar">plotchar()</a> call to display each condition’s number, taking care to spread them over the indicator’s <em>y</em> space so they don’t overlap.</li>
+<li>The first two <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plotchar">plotchar()</a> calls use absolute positioning to place the condition number so that it helps us remember the corresponding condition.
+The first one which displays “1” when RSI is higher than the user-defined bull level for example, positions the “1” on the bull level.</li>
+<li>We use two different shades of green to color the background: the brighter one indicates the first bar where our compound condition becomes <code class="docutils literal notranslate"><span class="pre">true</span></code>,
+the lighter green identifies subsequent bars where our compound condition continues to be true.</li>
+<li>While it is not always strictly necessary to assign individual conditions to a variable because they can be used directly in boolean expressions,
+it makes for more readable code when you assign a condition to a variable name that will remind you and your readers of what it represents.
+Readability considerations should always prevail in cases like this one, where the hit on performance of assigning conditions to variable names is minimal or null.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="debugging-from-inside-functions">
+<h2><a class="toc-backref" href="#id12">Debugging from inside functions</a><a class="headerlink" href="#debugging-from-inside-functions" title="Permalink to this headline">¶</a></h2>
+<p>Variables in function are local to the function, so not available for plotting from the script’s global scope.
+In this script we have written the <code class="docutils literal notranslate"><span class="pre">hlca()</span></code> function to calculate a weighed average:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Debugging from inside functions&quot;, &quot;&quot;, true)
+hlca() =&gt;
+    var float avg = na
+    hlca = math.avg(high, low, close, nz(avg, close))
+    avg := ta.sma(hlca, 20)
+
+h = hlca()
+plot(h)
+</pre></div>
+</div>
+<p>We need to inspect the value of <code class="docutils literal notranslate"><span class="pre">hlca</span></code> in the function’s local scope as the function calculates, bar to bar.
+We cannot access the <code class="docutils literal notranslate"><span class="pre">hlca</span></code> variable used inside the function from the script’s global scope.
+We thus need another mechanism to pull that variable’s value from inside the function’s local scope, while still being able to use the function’s result.
+We can use Pine Script<sup>®</sup>’s ability to have functions return a tuple to gain access to the variable:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Debugging from inside functions&quot;, &quot;&quot;, true)
+hlca() =&gt;
+    var float avg = na
+    instantVal = math.avg(high, low, close, nz(avg, close))
+    avg := ta.sma(instantVal, 20)
+    // Return two values instead of one.
+    [avg, instantVal]
+
+[h, instantVal] = hlca()
+plot(h, &quot;h&quot;)
+plot(instantVal, &quot;instantVal&quot;, color.black)
+</pre></div>
+</div>
+<img alt="../_images/Debugging-DebuggingFromInsideFunctions-1.png" src="../_images/Debugging-DebuggingFromInsideFunctions-1.png" />
+<p>Contrary to global scope variables, array elements of globally defined arrays can be modified from within functions.
+We can use this feature to write a functionally equivalent script:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Debugging from inside functions&quot;, &quot;&quot;, true)
+// Create an array containing only one float element.
+instantValGlobal = array.new_float(1)
+hlca() =&gt;
+    var float avg = na
+    instantVal = math.avg(high, low, close, nz(avg, close))
+    // Set the array&#39;s only element to the current value of `_instantVal`.
+    array.set(instantValGlobal, 0, instantVal)
+    avg := ta.sma(instantVal, 20)
+
+h = hlca()
+plot(h, &quot;h&quot;)
+// Retrieve the value of the array&#39;s only element which was set from inside the function.
+plot(array.get(instantValGlobal, 0), &quot;instantValGlobal&quot;, color.black)
+</pre></div>
+</div>
+</div>
+<div class="section" id="debugging-from-inside-for-loops">
+<h2><a class="toc-backref" href="#id13">Debugging from inside `for` loops</a><a class="headerlink" href="#debugging-from-inside-for-loops" title="Permalink to this headline">¶</a></h2>
+<p>Values inside <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_for">for</a> loops cannot be plotted using <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plot">plot()</a> calls in the loop. As in functions, such variables are also local to the loop’s scope. Here, we explore three different techniques to inspect variable values originating from <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_for">for</a> loops, starting from this code example, which calculates the balance of bars in the lookback period which have a higher/lower true range value than the current bar:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Debugging from inside `for` loops&quot;)
+lookbackInput = input.int(20, minval = 0)
+
+float trBalance = 0
+for i = 1 to lookbackInput
+    trBalance := trBalance + math.sign(ta.tr - ta.tr[i])
+
+hline(0)
+plot(trBalance)
+</pre></div>
+</div>
+<div class="section" id="extracting-a-single-value">
+<h3><a class="toc-backref" href="#id14">Extracting a single value</a><a class="headerlink" href="#extracting-a-single-value" title="Permalink to this headline">¶</a></h3>
+<p>If we want to inspect the value of a variable at a single point in the loop, we can save it and plot it once the loop is exited. Here, we save the value of <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_ta{dot}tr">tr</a> in the <code class="docutils literal notranslate"><span class="pre">val</span></code> variable at the loop’s last iteration:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Debugging from inside `for` loops&quot;, max_lines_count = 500, max_labels_count = 500)
+lookbackInput = input.int(20, minval = 0)
+
+float val = na
+float trBalance = 0
+for i = 1 to lookbackInput
+    trBalance := trBalance + math.sign(ta.tr - ta.tr[i])
+    if i == lookbackInput
+        val := ta.tr[i]
+hline(0)
+plot(trBalance)
+plot(val, &quot;val&quot;, color.black)
+</pre></div>
+</div>
+<img alt="../_images/Debugging-DebuggingFromInsideForLoops-1.png" src="../_images/Debugging-DebuggingFromInsideForLoops-1.png" />
+</div>
+<div class="section" id="using-lines-and-labels">
+<h3><a class="toc-backref" href="#id15">Using lines and labels</a><a class="headerlink" href="#using-lines-and-labels" title="Permalink to this headline">¶</a></h3>
+<p>When we want to extract values from more than one loop iteration we can use lines and labels.
+Here we draw a line corresponding to the value of <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_ta{dot}tr">ta.tr</a> used in each loop iteration.
+We also use a label to display, for each line, the loop’s index and the line’s value.
+This gives us a general idea of the values being used in each loop iteration:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Debugging from inside `for` loops&quot;, max_lines_count = 500, max_labels_count = 500)
+lookbackInput = input.int(20, minval = 0)
+
+float trBalance = 0
+for i = 1 to lookbackInput
+    trBalance := trBalance + math.sign(ta.tr - ta.tr[i])
+    line.new(bar_index[1], ta.tr[i], bar_index, ta.tr[i], color = color.black)
+    label.new(bar_index, ta.tr[i], str.tostring(i) + &quot;•&quot; + str.tostring(ta.tr[i]), style = label.style_none, size = size.small)
+
+hline(0)
+plot(trBalance)
+</pre></div>
+</div>
+<img alt="../_images/Debugging-DebuggingFromInsideForLoops-2.png" src="../_images/Debugging-DebuggingFromInsideForLoops-2.png" />
+<p>Note that:</p>
+<ul class="simple">
+<li>To show more detail, the scale in the preceding screenshot has been manually expanded by clicking and dragging the scale area.</li>
+<li>We use <code class="docutils literal notranslate"><span class="pre">max_lines_count</span> <span class="pre">=</span> <span class="pre">500,</span> <span class="pre">max_labels_count</span> <span class="pre">=</span> <span class="pre">500</span></code> in our <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_indicator">indicator()</a> declaration statement to display the maximum number of lines and labels.</li>
+<li>Each loop iteration does not necessarily produce a distinct <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_ta{dot}tr">ta.tr</a> value, which is why we may not see 20 distinct lines for each bar.</li>
+<li>If we wanted to show only one level, we could use the same technique while isolating a specific loop iteration as we did in the preceding example.</li>
+</ul>
+</div>
+<div class="section" id="extracting-multiple-values">
+<h3><a class="toc-backref" href="#id16">Extracting multiple values</a><a class="headerlink" href="#extracting-multiple-values" title="Permalink to this headline">¶</a></h3>
+<p>We can also extract multiple values from loop iterations by building a single string which we will display using a label after the loop executes:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Debugging from inside `for` loops&quot;, max_lines_count = 500, max_labels_count = 500)
+lookbackInput = input.int(20, minval = 0)
+
+string = &quot;&quot;
+float trBalance = 0
+for i = 1 to lookbackInput
+    trBalance := trBalance + math.sign(ta.tr - ta.tr[i])
+    string := string + str.tostring(i, &quot;00&quot;) + &quot;•&quot; + str.tostring(ta.tr[i]) + &quot;\n&quot;
+
+label.new(bar_index, 0, string, style = label.style_none, size = size.small, textalign = text.align_left)
+hline(0)
+plot(trBalance)
+</pre></div>
+</div>
+<img alt="../_images/Debugging-DebuggingFromInsideForLoops-3.png" src="../_images/Debugging-DebuggingFromInsideForLoops-3.png" />
+<p>Note that:</p>
+<ul class="simple">
+<li>The scale in the preceding screenshot has been manually expanded by clicking and dragging the scale area so the content of the indicator’s display area content could be moved vertically to show only its relevant part.</li>
+<li>We use <code class="docutils literal notranslate"><span class="pre">str.tostring(i,</span> <span class="pre">&quot;00&quot;)</span></code> to force the display of the loop’s index to zero-padded two digits so they align neatly.</li>
+</ul>
+<p>When loops with numerous iterations make displaying all their values impractical, you can sample a subset of the iterations. This code uses the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_{percent}">%</a> (modulo) operator to include values from every second loop iteration:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>for i = 1 to i_lookBack
+    lowerRangeBalance := lowerRangeBalance + math.sign(ta.tr - ta.tr[i])
+    if i % 2 == 0
+        string := string + str.tostring(i, &quot;00&quot;) + &quot;•&quot; + str.tostring(ta.tr[i]) + &quot;\n&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="tips">
+<h2><a class="toc-backref" href="#id17">Tips</a><a class="headerlink" href="#tips" title="Permalink to this headline">¶</a></h2>
+<p>The two techniques we use most frequently to debug our Pine Script<sup>®</sup> code are:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>plotchar(v, &quot;v&quot;, &quot;&quot;, location.top, size = size.tiny)
+</pre></div>
+</div>
+<p>to plot variables of type <em>float</em>, <em>int</em> or <em>bool</em> in the indicator’s values and the Data Window, and the one-line version of our <code class="docutils literal notranslate"><span class="pre">print()</span></code> function to debug strings:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>print(txt) =&gt; var _label = label.new(bar_index, na, txt, xloc.bar_index, yloc.price, color(na), label.style_none, color.gray, size.large, text.align_left), label.set_xy(_label, bar_index, ta.highest(10)[1]), label.set_text(_label, txt)
+print(stringName)
+</pre></div>
+</div>
+<p>As we use AutoHotkey for Windows to speed repetitive tasks, we include these lines in our AutoHotkey script (this is <strong>not</strong> Pine Script<sup>®</sup> code):</p>
+<div class="highlight-ahk notranslate"><div class="highlight"><pre><span></span><span class="c1">; ————— This is AHK code, not Pine Script®. —————</span>
+<span class="o">^+</span><span class="n">f</span><span class="o">::</span> <span class="n">SendInput</span> <span class="n">plotchar</span><span class="p">(</span><span class="o">^</span><span class="n">v</span><span class="p">,</span> <span class="s">&quot;^v&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">location</span><span class="o">.</span><span class="n">top</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">size</span><span class="o">.</span><span class="n">tiny</span><span class="p">){</span><span class="n">Return</span><span class="p">}</span>
+<span class="o">^+</span><span class="n">p</span><span class="o">::</span> <span class="n">SendInput</span> <span class="n">print</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">var</span> <span class="n">lbl</span> <span class="o">=</span> <span class="n">label</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">bar_index</span><span class="p">,</span> <span class="n">na</span><span class="p">,</span> <span class="n">txt</span><span class="p">,</span> <span class="n">xloc</span><span class="o">.</span><span class="n">bar_index</span><span class="p">,</span> <span class="n">yloc</span><span class="o">.</span><span class="n">price</span><span class="p">,</span> <span class="n">color</span><span class="p">(</span><span class="n">na</span><span class="p">),</span> <span class="n">label</span><span class="o">.</span><span class="n">style_none</span><span class="p">,</span> <span class="n">color</span><span class="o">.</span><span class="n">gray</span><span class="p">,</span> <span class="n">size</span><span class="o">.</span><span class="n">large</span><span class="p">,</span> <span class="n">text</span><span class="o">.</span><span class="n">align_left</span><span class="p">),</span> <span class="n">label</span><span class="o">.</span><span class="n">set_xy</span><span class="p">(</span><span class="n">lbl</span><span class="p">,</span> <span class="n">bar_index</span><span class="p">,</span> <span class="n">highest</span><span class="p">(</span><span class="mi">10</span><span class="p">)[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">label</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="n">lbl</span><span class="p">,</span> <span class="n">txt</span><span class="p">)</span><span class="se">`n</span><span class="n">print</span><span class="p">(){</span><span class="n">Left</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>The second line will type a debugging <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plotchar">plotchar()</a> call including an expression or variable name previously copied to the clipboard when we use <kbd class="kbd docutils literal notranslate">ctrl</kbd> + <kbd class="kbd docutils literal notranslate">shift</kbd> + <kbd class="kbd docutils literal notranslate">f</kbd>.
+Copying the <code class="docutils literal notranslate"><span class="pre">variableName</span></code> variable name or the <code class="docutils literal notranslate"><span class="pre">close</span> <span class="pre">&gt;</span> <span class="pre">open</span></code> conditional expression to the clipboard and hitting <kbd class="kbd docutils literal notranslate">ctrl</kbd> + <kbd class="kbd docutils literal notranslate">shift</kbd> + <kbd class="kbd docutils literal notranslate">f</kbd> will, respectively, yield:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>plotchar(variableName, &quot;variableName&quot;, &quot;&quot;, location.top, size = size.tiny)
+plotchar(close &gt; open, &quot;close &gt; open&quot;, &quot;&quot;, location.top, size = size.tiny)
+</pre></div>
+</div>
+<p>The third line triggers on <kbd class="kbd docutils literal notranslate">ctrl</kbd> + <kbd class="kbd docutils literal notranslate">shift</kbd> + <kbd class="kbd docutils literal notranslate">p</kbd>. It types our one-line <code class="docutils literal notranslate"><span class="pre">print()</span></code> function in a script and on a second line,
+an empty call to the function with the cursor placed so all that’s left to do is type the string we want to display:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>print(txt) =&gt; var lbl = label.new(bar_index, na, txt, xloc.bar_index, yloc.price, color(na), label.style_none, color.gray, size.large, text.align_left), label.set_xy(lbl, bar_index, ta.highest(10)[1]), label.set_text(lbl, txt)
+print()
+</pre></div>
+</div>
+<p>Note: AutoHotkey works only on Windows systems. Keyboard Maestro or others can be substituted on Apple systems.</p>
+<a class="reference external image-reference" href="https://www.tradingview.com/"><div align="center" class="align-center"><img alt="../_images/TradingView-Logo-Block.svg" src="../_images/TradingView-Logo-Block.svg" width="200px" /></div>
+</a>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="Style_guide.html" title="previous chapter (use the left arrow)">Style guide</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="Publishing.html" title="next chapter (use the right arrow)">Publishing scripts</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Publishing.html" title="Publishing scripts"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Style_guide.html" title="Style guide"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Writing scripts</a> &#187;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="../_static/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="../_static/js/theme.js"></script>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Options</span>
+    v: v5
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Languages</dt>
+      
+        <strong>
+        <dd><a href="Debugging.html">en</a></dd>
+        </strong>
+      
+    </dl>
+    <dl>
+      <dt>Versions</dt>
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v3/writing/Debugging.html">v3</a></dd>
+        
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v4/writing/Debugging.html">v4</a></dd>
+        
+      
+        <strong>
+        <dd><a href="Debugging.html">v5</a></dd>
+        </strong>
+      
+    </dl>
+  </div>
+</div>
+<script type="text/javascript">
+    jQuery(function () {
+        SphinxRtdTheme.Navigation.enable(false);
+    });
+</script>
+  <div class="footer">
+    &copy; Copyright 2023, TradingView.
+  </div>
+  </body>
+
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/writing/Debugging.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:57:03 GMT -->
+</html>

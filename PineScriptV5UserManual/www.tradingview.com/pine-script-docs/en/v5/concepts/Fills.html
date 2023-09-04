@@ -1,0 +1,379 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/concepts/Fills.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:56:13 GMT -->
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Fills &#8212; Pine Script® v5 User Manual v5 documentation</title>
+    <link rel="stylesheet" href="../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../../../../static.tradingview.com/static/bundles/pine-highlighter-v01.js"></script>
+    <script type="text/javascript" src="../_static/highlight-pine-code.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Inputs" href="Inputs.html" />
+    <link rel="prev" title="Colors" href="Colors.html" />
+  
+   
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Inputs.html" title="Inputs"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Colors.html" title="Colors"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Concepts</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="../index.html" class="text-logo">Pine Script<sup>®</sup> v5 User Manual</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Introduction.html">Welcome to Pine Script<sup>®</sup> v5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primer/index.html">Pine Script<sup>®</sup> primer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../language/index.html">Language</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Concepts</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Alerts.html">Alerts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Backgrounds.html">Backgrounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bar_coloring.html">Bar coloring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bar_plotting.html">Bar plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bar_states.html">Bar states</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chart_information.html">Chart information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Colors.html">Colors</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Fills</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#plot-and-hline-fills">`plot()` and `hline()` fills</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#line-fills">Line fills</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Inputs.html">Inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Levels.html">Levels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Libraries.html">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lines_and_boxes.html">Lines and boxes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Non-standard_charts_data.html">Non-standard charts data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Plots.html">Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Repainting.html">Repainting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Sessions.html">Sessions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Strategies.html">Strategies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Tables.html">Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Text_and_shapes.html">Text and shapes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Time.html">Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Timeframes.html">Timeframes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../writing/index.html">Writing scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Error_messages.html">Error messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Release_notes.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migration_guides/index.html">Migration guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Where_can_I_get_more_information.html">Where can I get more information?</a></li>
+</ul>
+
+    
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="https://www.tradingview.com/pine-script-docs/en/v5/search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../index.html">User Manual</a></li>
+              
+                <li><a href="index.html">Concepts</a></li>
+              
+              <li>Fills</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <a class="reference external image-reference" href="../Introduction.html"><div align="right" class="align-right"><img alt="Pine Script® logo" height="100" src="../_images/Pine-script-logo.svg" width="100" /></div>
+</a>
+<div class="section" id="fills">
+<span id="pagefills"></span><h1>Fills<a class="headerlink" href="#fills" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#introduction" id="id1">Introduction</a></li>
+<li><a class="reference internal" href="#plot-and-hline-fills" id="id2">`plot()` and `hline()` fills</a></li>
+<li><a class="reference internal" href="#line-fills" id="id3">Line fills</a></li>
+</ul>
+</div>
+<div class="section" id="introduction">
+<h2><a class="toc-backref" href="#id1">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>There are two different mechanisms dedicated to filling the space between Pine visuals:</p>
+<ul class="simple">
+<li>The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_fill">fill()</a> function lets you color the background between either
+two plots plotted using <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plot">plot()</a>
+or two horizontal lines plotted using <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_hline">hline()</a>.</li>
+<li>The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_linefill{dot}new">linefill.new()</a> function fills the space between lines created with
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}new">line.new()</a>.</li>
+</ul>
+</div>
+<div class="section" id="plot-and-hline-fills">
+<h2><a class="toc-backref" href="#id2">`plot()` and `hline()` fills</a><a class="headerlink" href="#plot-and-hline-fills" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_fill">fill()</a> function has two signatures:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>fill(plot1, plot2, color, title, editable, show_last, fillgaps) → void
+fill(hline1, hline2, color, title, editable, fillgaps) → void
+</pre></div>
+</div>
+<p>The arguments used for the <code class="docutils literal notranslate"><span class="pre">plot1</span></code>, <code class="docutils literal notranslate"><span class="pre">plot2</span></code>, <code class="docutils literal notranslate"><span class="pre">hline1</span></code> and <code class="docutils literal notranslate"><span class="pre">hline2</span></code> parameters must be the IDs returned by the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plot">plot()</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_hline">hline()</a> calls.
+The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_fill">fill()</a> function is the only built-in function where these IDs are used.</p>
+<p>See in this first example how the IDs returned by the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plot">plot()</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_hline">hline()</a> calls
+are captured in the <code class="docutils literal notranslate"><span class="pre">p1</span></code>, <code class="docutils literal notranslate"><span class="pre">p2</span></code>, <code class="docutils literal notranslate"><span class="pre">p3</span></code>, and <code class="docutils literal notranslate"><span class="pre">h1</span></code>, <code class="docutils literal notranslate"><span class="pre">h2</span></code>, <code class="docutils literal notranslate"><span class="pre">h3</span></code> and <code class="docutils literal notranslate"><span class="pre">h4</span></code> variables
+for reuse as <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_fill">fill()</a> arguments:</p>
+<img alt="../_images/Fills-Fill-1.png" src="../_images/Fills-Fill-1.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Example 1&quot;)
+p1 = plot(math.sin(high))
+p2 = plot(math.cos(low))
+p3 = plot(math.sin(close))
+fill(p1, p3, color.new(color.red, 90))
+fill(p2, p3, color.new(color.blue, 90))
+h1 = hline(0)
+h2 = hline(1.0)
+h3 = hline(0.5)
+h4 = hline(1.5)
+fill(h1, h2, color.new(color.yellow, 90))
+fill(h3, h4, color.new(color.lime, 90))
+</pre></div>
+</div>
+<p>Because <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_fill">fill()</a>
+requires two IDs from the same function,
+we sometimes need to use a <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plot">plot()</a>
+call where we would have otherwise used an <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_hline">hline()</a>
+call, as in this example:</p>
+<img alt="../_images/Fills-Fill-2.png" src="../_images/Fills-Fill-2.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Example 2&quot;)
+src = close
+ma = ta.sma(src, 10)
+osc = 100 * (ma - src) / ma
+oscPlotID  = plot(osc)
+// An `hline()` would not work here because two `plot()` calls are needed.
+zeroPlotID = plot(0, &quot;Zero&quot;, color.silver, 1, plot.style_circles)
+fill(oscPlotID, zeroPlotID, color.new(color.blue, 90))
+</pre></div>
+</div>
+<p>Because a “series color” can be used as an argument for the <code class="docutils literal notranslate"><span class="pre">color</span></code> parameter in
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_fill">fill()</a>,
+you can use constants like <code class="docutils literal notranslate"><span class="pre">color.red</span></code> or <code class="docutils literal notranslate"><span class="pre">#FF001A</span></code>, as well as expressions
+calculating the color on each bar, as in this example:</p>
+<img alt="../_images/Fills-Fill-3.png" src="../_images/Fills-Fill-3.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Example 3&quot;, &quot;&quot;, true)
+line1 = ta.sma(close, 5)
+line2 = ta.sma(close, 20)
+p1PlotID = plot(line1)
+p2PlotID = plot(line2)
+fill(p1PlotID, p2PlotID, line1 &gt; line2 ? color.new(color.green, 90) : color.new(color.red, 90))
+</pre></div>
+</div>
+</div>
+<div class="section" id="line-fills">
+<h2><a class="toc-backref" href="#id3">Line fills</a><a class="headerlink" href="#line-fills" title="Permalink to this headline">¶</a></h2>
+<p>Linefills are objects that allow you to fill the space between two line drawings created via
+the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}new">line.new()</a> function.
+A linefill object is displayed on the chart when the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_linefill{dot}new">linefill.new()</a> function is called.
+The function has the following signature:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>linefill.new(line1, line2, color) → series linefill
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">line1</span></code> and <code class="docutils literal notranslate"><span class="pre">line2</span></code> arguments are the line IDs of the two lines to fill between. The <code class="docutils literal notranslate"><span class="pre">color</span></code> argument is the color of the fill.
+Any two-line pair can only have one linefill between them, so successive calls to
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_linefill{dot}new">linefill.new()</a>
+on the same pair of lines will replace the previous linefill with a new one.
+The function returns the ID of the <code class="docutils literal notranslate"><span class="pre">linefill</span></code> object it created, which can be saved in a variable for use in
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_linefill{dot}set_color">linefill.set_color()</a> call that will change the color of an existing linefill.</p>
+<p>The behavior of linefills is dependent on the lines they are attached to.
+Linefills cannot be moved directly; their coordinates follow those of the lines they are tied to.
+If both lines extend in the same direction, the linefill will also extend.</p>
+<p>Note that for line extensions to work correctly, a line’s <code class="docutils literal notranslate"><span class="pre">x1</span></code> coordinate must be less than its <code class="docutils literal notranslate"><span class="pre">x2</span></code> coordinate.
+If a line’s <code class="docutils literal notranslate"><span class="pre">x1</span></code> argument is greater than its <code class="docutils literal notranslate"><span class="pre">x2</span></code> argument and <code class="docutils literal notranslate"><span class="pre">extend.left</span></code> is used, the line will actually extend to the right
+because <code class="docutils literal notranslate"><span class="pre">x2</span></code> is assumed to be the rightmost <em>x</em> coordinate.</p>
+<p>In the example below, our indicator draws two lines connecting the last two high and low pivot points of the chart.
+We extend the lines to the right to project the short-term movement of the chart,
+and fill the space between them to enhance the visibility of the channel the lines create:</p>
+<img alt="../_images/Fills-Linefill-01.png" src="../_images/Fills-Linefill-01.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Channel&quot;, overlay = true)
+
+LEN_LEFT = 15
+LEN_RIGHT = 5
+pH = ta.pivothigh(LEN_LEFT, LEN_RIGHT)
+pL = ta.pivotlow(LEN_LEFT, LEN_RIGHT)
+
+// Bar indices of pivot points
+pH_x1 = ta.valuewhen(pH, bar_index, 1) - LEN_RIGHT
+pH_x2 = ta.valuewhen(pH, bar_index, 0) - LEN_RIGHT
+pL_x1 = ta.valuewhen(pL, bar_index, 1) - LEN_RIGHT
+pL_x2 = ta.valuewhen(pL, bar_index, 0) - LEN_RIGHT
+// Price values of pivot points
+pH_y1 = ta.valuewhen(pH, pH, 1)
+pH_y2 = ta.valuewhen(pH, pH, 0)
+pL_y1 = ta.valuewhen(pL, pL, 1)
+pL_y2 = ta.valuewhen(pL, pL, 0)
+
+if barstate.islastconfirmedhistory
+    // Lines
+    lH = line.new(pH_x1, pH_y1, pH_x2, pH_y2, extend = extend.right)
+    lL = line.new(pL_x1, pL_y1, pL_x2, pL_y2, extend = extend.right)
+    // Fill
+    fillColor = switch
+        pH_y2 &gt; pH_y1 and pL_y2 &gt; pL_y1 =&gt; color.green
+        pH_y2 &lt; pH_y1 and pL_y2 &lt; pL_y1 =&gt; color.red
+        =&gt; color.silver
+    linefill.new(lH, lL, color.new(fillColor, 90))
+</pre></div>
+</div>
+<a class="reference external image-reference" href="https://www.tradingview.com/"><div align="center" class="align-center"><img alt="../_images/TradingView-Logo-Block.svg" src="../_images/TradingView-Logo-Block.svg" width="200px" /></div>
+</a>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="Colors.html" title="previous chapter (use the left arrow)">Colors</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="Inputs.html" title="next chapter (use the right arrow)">Inputs</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Inputs.html" title="Inputs"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Colors.html" title="Colors"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Concepts</a> &#187;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="../_static/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="../_static/js/theme.js"></script>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Options</span>
+    v: v5
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Languages</dt>
+      
+        <strong>
+        <dd><a href="Fills.html">en</a></dd>
+        </strong>
+      
+    </dl>
+    <dl>
+      <dt>Versions</dt>
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v3/concepts/Fills.html">v3</a></dd>
+        
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v4/concepts/Fills.html">v4</a></dd>
+        
+      
+        <strong>
+        <dd><a href="Fills.html">v5</a></dd>
+        </strong>
+      
+    </dl>
+  </div>
+</div>
+<script type="text/javascript">
+    jQuery(function () {
+        SphinxRtdTheme.Navigation.enable(false);
+    });
+</script>
+  <div class="footer">
+    &copy; Copyright 2023, TradingView.
+  </div>
+  </body>
+
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/concepts/Fills.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:56:14 GMT -->
+</html>

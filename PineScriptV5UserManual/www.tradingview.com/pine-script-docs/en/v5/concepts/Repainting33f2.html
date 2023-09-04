@@ -1,0 +1,681 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/concepts/Repainting.html?highlight=barmerge by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:57:07 GMT -->
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Repainting &#8212; Pine Script® v5 User Manual v5 documentation</title>
+    <link rel="stylesheet" href="../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../../../../static.tradingview.com/static/bundles/pine-highlighter-v01.js"></script>
+    <script type="text/javascript" src="../_static/highlight-pine-code.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Sessions" href="Sessions.html" />
+    <link rel="prev" title="Plots" href="Plots.html" />
+  
+   
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Sessions.html" title="Sessions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Plots.html" title="Plots"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Concepts</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="../index.html" class="text-logo">Pine Script<sup>®</sup> v5 User Manual</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Introduction.html">Welcome to Pine Script<sup>®</sup> v5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primer/index.html">Pine Script<sup>®</sup> primer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../language/index.html">Language</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Concepts</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Alerts.html">Alerts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Backgrounds.html">Backgrounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bar_coloring.html">Bar coloring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bar_plotting.html">Bar plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bar_states.html">Bar states</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chart_information.html">Chart information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Colors.html">Colors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fills.html">Fills</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Inputs.html">Inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Levels.html">Levels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Libraries.html">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lines_and_boxes.html">Lines and boxes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Non-standard_charts_data.html">Non-standard charts data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Plots.html">Plots</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Repainting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#historical-vs-realtime-calculations">Historical vs realtime calculations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#plotting-in-the-past">Plotting in the past</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dataset-variations">Dataset variations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Sessions.html">Sessions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Strategies.html">Strategies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Tables.html">Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Text_and_shapes.html">Text and shapes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Time.html">Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Timeframes.html">Timeframes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../writing/index.html">Writing scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Error_messages.html">Error messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Release_notes.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migration_guides/index.html">Migration guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Where_can_I_get_more_information.html">Where can I get more information?</a></li>
+</ul>
+
+    
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="https://www.tradingview.com/pine-script-docs/en/v5/search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../index.html">User Manual</a></li>
+              
+                <li><a href="index.html">Concepts</a></li>
+              
+              <li>Repainting</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <a class="reference external image-reference" href="../Introduction.html"><div align="right" class="align-right"><img alt="Pine Script® logo" height="100" src="../_images/Pine-script-logo.svg" width="100" /></div>
+</a>
+<div class="section" id="repainting">
+<span id="pagerepainting"></span><h1>Repainting<a class="headerlink" href="#repainting" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#introduction" id="id1">Introduction</a><ul>
+<li><a class="reference internal" href="#for-script-users" id="id2">For script users</a></li>
+<li><a class="reference internal" href="#for-pine-script-programmers" id="id3">For Pine Script<sup>®</sup> programmers</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#historical-vs-realtime-calculations" id="id4">Historical vs realtime calculations</a><ul>
+<li><a class="reference internal" href="#fluid-data-values" id="id5">Fluid data values</a></li>
+<li><a class="reference internal" href="#repainting-request-security-calls" id="id6">Repainting `request.security()` calls</a></li>
+<li><a class="reference internal" href="#using-request-security-at-lower-timeframes" id="id7">Using `request.security()` at lower timeframes</a></li>
+<li><a class="reference internal" href="#future-leak-with-request-security" id="id8">Future leak with `request.security()`</a></li>
+<li><a class="reference internal" href="#varip" id="id9">`varip`</a></li>
+<li><a class="reference internal" href="#bar-state-built-ins" id="id10">Bar state built-ins</a></li>
+<li><a class="reference internal" href="#timenow" id="id11">`timenow`</a></li>
+<li><a class="reference internal" href="#strategies" id="id12">Strategies</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#plotting-in-the-past" id="id13">Plotting in the past</a></li>
+<li><a class="reference internal" href="#dataset-variations" id="id14">Dataset variations</a><ul>
+<li><a class="reference internal" href="#starting-points" id="id15">Starting points</a></li>
+<li><a class="reference internal" href="#revision-of-historical-data" id="id16">Revision of historical data</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="introduction">
+<h2><a class="toc-backref" href="#id1">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>We define repainting as: <strong>script behavior causing historical vs realtime calculations or plots to behave differently</strong>.</p>
+<p>Repainting behavior is widespread and can be caused by many factors.
+Following our definition, our estimate is that more than 95% of indicators in existence repaint.
+Widely used indicators like MACD and RSI, for example,
+exhibit one form of repainting because they show one value on historical bars,
+yet when running in realtime they will produce results that constantly fluctuate until the realtime bar closes.
+They thus behave differently on historical and realtime bars.
+This does not necessarily make them less useful in all contexts, nor prevent knowledgeable traders from using them.
+Who would think of discrediting a volume profile indicator, for example because it updates in real time, and so repaints?</p>
+<p>The different types of repainting we discuss in this page can be divided this way:</p>
+<ul class="simple">
+<li><strong>Widespread and often acceptable</strong>: recalculation during the realtime bar
+(most classic indicators like MACD, RSI, and the vast majority of indicators in the <a class="reference external" href="https://www.tradingview.com/scripts/">Community Scripts</a>,
+scripts using repainting <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a> calls, etc.).
+There is often nothing wrong in using such scripts, provided you understand how they work.
+If you elect to use these scripts to issue alerts or trade orders, however,
+then you should know if they are being generated using the realtime or confirmed values,
+and decide for yourself if the script’s behavior meets your requirements.</li>
+<li><strong>Misleading</strong>: plotting in the past, calculating results in realtime that cannot be replicated on historical bars, relocating past events
+(Ichimoku, most pivot scripts, most strategies using <code class="docutils literal notranslate"><span class="pre">calc_on_evey_tick</span> <span class="pre">=</span> <span class="pre">true</span></code>,
+scripts using repainting <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a> calls when their values are plotted on historical bars,
+as their behavior will not be the same in realtime,
+most scripts using <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_varip">varip</a>,
+most scripts using <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_timenow">timenow</a>,
+some scripts using <code class="docutils literal notranslate"><span class="pre">barstate.*</span></code> variables).</li>
+<li><strong>Unacceptable</strong>: scripts using future information, strategies running on non-standard charts,
+scripts using realtime intrabar timeframes to generate alerts or orders.</li>
+<li><strong>Unavoidable</strong>: revision of historical feeds by data suppliers, varying starting bar on historical bars.</li>
+</ul>
+<p>The first two types of repainting can be perfectly acceptable if:</p>
+<ol class="arabic simple">
+<li>You are aware of the behavior.</li>
+<li>You can live with it, or</li>
+<li>You can circumvent it.</li>
+</ol>
+<p>It should now be clear to you that not <strong>all</strong> repainting behavior is inherently wrong and should be avoided at all cost.
+In many situations, repainting indicators are exactly what’s needed.
+What’s important is to know when repainting behavior is <strong>not</strong> acceptable to you.
+To avoid such situations, you must understand exactly how the tools you use work, or how you should design the ones you build.
+If you publish scripts, any potentially misleading repainting behavior should be mentioned along with the other limitations of your script.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">We will not discuss the perils of using strategies on non-standard charts,
+as this problem is not related to repainting.
+See the <a class="reference external" href="https://www.tradingview.com/script/q9laJNG9-Backtesting-on-Non-Standard-Charts-Caution-PineCoders-FAQ/">Backtesting on Non-Standard Charts: Caution!</a>
+script for a discussion of the subject.</p>
+</div>
+<div class="section" id="for-script-users">
+<h3><a class="toc-backref" href="#id2">For script users</a><a class="headerlink" href="#for-script-users" title="Permalink to this headline">¶</a></h3>
+<p>You can very well decide to use repainting indicators if you understand how they behave,
+and that behavior meets your trading methodology’s requirements.
+Don’t be one of those newcomers to trading who slap “repaint” sentences on published scripts as if it discredits them.
+Doing so only reveals your incomprehension of the subject.</p>
+<p>The question “Does it repaint?” means nothing.
+Consequently, it cannot be answered in a meaningful way.
+Why? Because it needs to be qualified. Instead, one could ask:</p>
+<ul class="simple">
+<li>Do you wait for the realtime bar to close before displaying your entry/exit markers?</li>
+<li>Do alerts wait for the end of the realtime bar before triggering?</li>
+<li>Do the higher timeframe plots repaint (which means they won’t plot the same way on realtime bars as they do on historical bars)?</li>
+<li>Does your script plot in the past (as most pivot or zigzag scripts will do)?</li>
+<li>Does your strategy use <code class="docutils literal notranslate"><span class="pre">calc_on_every_tick</span> <span class="pre">=</span> <span class="pre">true</span></code>?</li>
+<li>Will your indicator display in realtime the same way it does on historical bars?</li>
+<li>Are you fetching future information with your <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a> calls?</li>
+</ul>
+<p>What’s important is that you understand how the tools you use work,
+and if their behavior is compatible with your objectives, repainting or not.
+As you will learn if you read this page, repainting is a complex matter.
+It has many faces and many causes. Even if you don’t program in Pine Script<sup>®</sup>,
+this page will help you understand the array of causes that can lead to repainting,
+and hopefully enable more meaningful discussions with script authors.</p>
+</div>
+<div class="section" id="for-pine-script-programmers">
+<h3><a class="toc-backref" href="#id3">For Pine Script<sup>®</sup> programmers</a><a class="headerlink" href="#for-pine-script-programmers" title="Permalink to this headline">¶</a></h3>
+<p>As we discussed in the previous section, not all types of repainting behavior need to be avoided at all costs,
+and as we will see in the following text, some can’t.
+We hope this page helps you better understand the dynamics at play, so that you can make better design decisions concerning your trading tools.
+This page’s content should help you avoid making the most common coding mistakes that lead to repainting or misleading plots.</p>
+<p>Whatever your design decisions are, if you publish your script, you should explain them to traders so they can understand how your script behaves.</p>
+<p>We will survey three broad categories of repainting causes:</p>
+<ul class="simple">
+<li>Historical vs realtime calculations</li>
+<li>Plotting in the past</li>
+<li>Dataset variations</li>
+</ul>
+</div>
+</div>
+<div class="section" id="historical-vs-realtime-calculations">
+<h2><a class="toc-backref" href="#id4">Historical vs realtime calculations</a><a class="headerlink" href="#historical-vs-realtime-calculations" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="fluid-data-values">
+<h3><a class="toc-backref" href="#id5">Fluid data values</a><a class="headerlink" href="#fluid-data-values" title="Permalink to this headline">¶</a></h3>
+<p>Historical data does not include records of intermediary price movements on bars; only
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_open">open</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_high">high</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_low">low</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_close">close</a> values (OHLC).</p>
+<p>On realtime bars (bars running when the instrument’s market is open), however, the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_high">high</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_low">low</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_close">close</a> values are not fixed;
+they can change values many times before the realtime bar closes and its HLC values are fixed. They are <em>fluid</em>.
+This leads to a script sometimes working differently on historical data and in real time,
+where only the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_open">open</a> price will not change during the bar.</p>
+<p>Any script using values like
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_high">high</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_low">low</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_close">close</a>
+in realtime is subject to producing calculations that may not be repeatable on historical bars — thus repaint.</p>
+<p>Let’s look at this simple script. It detects crosses of the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_close">close</a> value
+(in the realtime bar, this corresponds to the current price of the instrument)
+over and under an <a class="reference external" href="https://www.tradingview.com/support/solutions/43000592270">EMA</a>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Repainting&quot;, &quot;&quot;, true)
+ma = ta.ema(close, 5)
+xUp = ta.crossover(close, ma)
+xDn = ta.crossunder(close, ma)
+plot(ma, &quot;MA&quot;, color.black, 2)
+bgcolor(xUp ? color.new(color.lime, 80) : xDn ? color.new(color.fuchsia, 80) : na)
+</pre></div>
+</div>
+<img alt="../_images/Repainting-01.png" src="../_images/Repainting-01.png" />
+<p>Note that:</p>
+<ul class="simple">
+<li>The script uses <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_bgcolor">bgcolor()</a>
+to color the background green when <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_close">close</a>
+crosses over the EMA, and red on crosses under the EMA.</li>
+<li>The screen snapshot shows the script in realtime on a 30sec chart.
+A cross over the EMA has been detected, thus the background of the realtime bar is green.</li>
+<li>The problem here is that nothing guarantees this condition will hold true until the
+end of the realtime bar. The arrow points to the timer showing that 21 seconds remain in the realtime bar,
+and anything could happen until then.</li>
+<li>We are witnessing a repainting script.</li>
+</ul>
+<p>To prevent this repainting, we must rewrite our script so that it does not use values that fluctuate
+during the realtime bar. This will require using values from a bar that has elapsed
+(typically the preceding bar), or the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_open">open</a>
+price, which does not vary in realtime.</p>
+<p>We can achieve this in many ways. This method adds a <code class="docutils literal notranslate"><span class="pre">and</span> <span class="pre">barstate.isconfirmed</span></code>
+condition to our cross detections, which requires the script to be executing on the bar’s last iteration,
+when it closes and prices are confirmed. It is a simple way to avoid repainting:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Repainting&quot;, &quot;&quot;, true)
+ma = ta.ema(close, 5)
+xUp = ta.crossover(close, ma) and barstate.isconfirmed
+xDn = ta.crossunder(close, ma) and barstate.isconfirmed
+plot(ma, &quot;MA&quot;, color.black, 2)
+bgcolor(xUp ? color.new(color.lime, 80) : xDn ? color.new(color.fuchsia, 80) : na)
+</pre></div>
+</div>
+<p>This uses the crosses detected on the previous bar:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Repainting&quot;, &quot;&quot;, true)
+ma = ta.ema(close, 5)
+xUp = ta.crossover(close, ma)[1]
+xDn = ta.crossunder(close, ma)[1]
+plot(ma, &quot;MA&quot;, color.black, 2)
+bgcolor(xUp ? color.new(color.lime, 80) : xDn ? color.new(color.fuchsia, 80) : na)
+</pre></div>
+</div>
+<p>This uses only confirmed <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_close">close</a>
+and EMA values for its calculations:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Repainting&quot;, &quot;&quot;, true)
+ma = ta.ema(close[1], 5)
+xUp = ta.crossover(close[1], ma)
+xDn = ta.crossunder(close[1], ma)
+plot(ma, &quot;MA&quot;, color.black, 2)
+bgcolor(xUp ? color.new(color.lime, 80) : xDn ? color.new(color.fuchsia, 80) : na)
+</pre></div>
+</div>
+<p>This detects crosses between the realtime bar’s <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_open">open</a>
+and the value of the EMA from the previous bars. Notice that the EMA is calculated using
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_close">close</a>,
+so it repaints. We must ensure we use a confirmed value to detect crosses, thus <code class="docutils literal notranslate"><span class="pre">ma[1]</span></code>
+in the cross detection logic:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Repainting&quot;, &quot;&quot;, true)
+ma = ta.ema(close, 5)
+xUp = ta.crossover(open, ma[1])
+xDn = ta.crossunder(open, ma[1])
+plot(ma, &quot;MA&quot;, color.black, 2)
+bgcolor(xUp ? color.new(color.lime, 80) : xDn ? color.new(color.fuchsia, 80) : na)
+</pre></div>
+</div>
+<p><strong>Note that all these methods have one thing in common: while they prevent repainting,
+they will also trigger signals later than repainting scripts.
+This is an inevitable compromise if one wants to avoid repainting.
+You just can’t have your cake and eat it too.</strong></p>
+</div>
+<div class="section" id="repainting-request-security-calls">
+<h3><a class="toc-backref" href="#id6">Repainting `request.security()` calls</a><a class="headerlink" href="#repainting-request-security-calls" title="Permalink to this headline">¶</a></h3>
+<p>The data fetched with <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a>
+will differ on historical and realtime bars if the function is not used in the correct manner.
+Repainting <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a>
+calls will produce historical data and plots that cannot be replicated in realtime.
+Let’s look at a script showing the difference between repainting and non-repainting
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a> calls:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Repainting vs non-repainting `request.security()`&quot;, &quot;&quot;, true)
+var BLACK_MEDIUM = color.new(color.black, 50)
+var ORANGE_LIGHT = color.new(color.orange, 80)
+
+tfInput = input.timeframe(&quot;1&quot;)
+
+repaintingClose = request.security(syminfo.tickerid, tfInput, close)
+plot(repaintingClose, &quot;Repainting close&quot;, BLACK_MEDIUM, 8)
+
+indexHighTF = barstate.isrealtime ? 1 : 0
+indexCurrTF = barstate.isrealtime ? 0 : 1
+nonRepaintingClose = request.security(syminfo.tickerid, tfInput, close[indexHighTF])[indexCurrTF]
+plot(nonRepaintingClose, &quot;Non-repainting close&quot;, color.fuchsia, 3)
+
+if ta.change(time(tfInput))
+    label.new(bar_index, na, &quot;↻&quot;, yloc = yloc.abovebar, style = label.style_none, textcolor = color.black, size = size.large)
+bgcolor(barstate.isrealtime ? ORANGE_LIGHT : na)
+</pre></div>
+</div>
+<p>This is what its output looks like on a 5sec chart that has been running the script for a few minutes:</p>
+<img alt="../_images/Repainting-RepaintingRequestSecurityCalls-01.png" src="../_images/Repainting-RepaintingRequestSecurityCalls-01.png" />
+<p>Note that:</p>
+<ul class="simple">
+<li>The orange background identifies the realtime bar, and elapsed realtime bars.</li>
+<li>A black curved arrow indicates when a new higher timeframe comes in.</li>
+<li>The thick gray line shows the repainting <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a> call
+used to initialize <code class="docutils literal notranslate"><span class="pre">repaintingClose</span></code>.</li>
+<li>The fuchsia line shows the non-repainting <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a> call
+used to initialize <code class="docutils literal notranslate"><span class="pre">nonRepaintingClose</span></code>.</li>
+<li>The behavior of the repainting line is completely different on historical bars and in realtime. On historical bars,
+it shows the new value of a completed timeframe on the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_close">close</a>
+of the bar where it completes. It then stays stable until another timeframe completes. The problem is that in realtime,
+it follows the <strong>current</strong> <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_close">close</a> price,
+so it moves all the time and changes on each bar.</li>
+<li>The behavior of the non-repainting fuchsia line, in contrast, behaves exactly the same way on historical bars and in realtime.
+It updates on the bar following the completion of the higher timeframe, and doesn’t move until the bar after another higher timeframe completes.
+It is more reliable and does not mislead script users. Note that while new higher timeframe data comes in at the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_close">close</a>
+of historical bars, it will be available on the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_open">open</a>
+of the same bar in realtime.</li>
+</ul>
+<p>This script shows a <code class="docutils literal notranslate"><span class="pre">nonRepaintingSecurity()</span></code> function that can be used to do the same as our non-repainting code in the previous example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Non-repainting `nonRepaintingSecurity()`&quot;, &quot;&quot;, true)
+
+tfInput = input.timeframe(&quot;1&quot;)
+
+nonRepaintingSecurity(sym, tf, src) =&gt;
+    request.security(sym, tf, src[barstate.isrealtime ? 1 : 0])[barstate.isrealtime ? 0 : 1]
+
+nonRepaintingClose = nonRepaintingSecurity(syminfo.tickerid, &quot;1&quot;, close)
+plot(nonRepaintingClose, &quot;Non-repainting close&quot;, color.fuchsia, 3)
+</pre></div>
+</div>
+<p>Another way to produce non-repainting higher timeframe data is this,
+which uses an offset of <code class="docutils literal notranslate"><span class="pre">[1]</span></code> on the series, and <code class="docutils literal notranslate"><span class="pre">lookahead</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>nonRepaintingSecurityAlternate(sym, tf, src) =&gt;
+    request.security(sym, tf, src[1], lookahead = barmerge.lookahead_on)
+</pre></div>
+</div>
+<p>It will produce the same non-repainting behavior as <code class="docutils literal notranslate"><span class="pre">nonRepaintingSecurity()</span></code>.
+Note that the <code class="docutils literal notranslate"><span class="pre">[1]</span></code> offset to the series and the use of <code class="docutils literal notranslate"><span class="pre">lookahead</span> <span class="pre">=</span> <span class="pre">barmerge.lookahead_on</span></code> are interdependent.
+One <strong>cannot</strong> be removed without compromising the functionality of the function.
+Also note that occasional one-bar variations between when the <code class="docutils literal notranslate"><span class="pre">nonRepaintingSecurity()</span></code> and <code class="docutils literal notranslate"><span class="pre">nonRepaintingSecurityAlternate()</span></code>
+values come in on historical bars are to be expected.</p>
+</div>
+<div class="section" id="using-request-security-at-lower-timeframes">
+<h3><a class="toc-backref" href="#id7">Using `request.security()` at lower timeframes</a><a class="headerlink" href="#using-request-security-at-lower-timeframes" title="Permalink to this headline">¶</a></h3>
+<p>Some scripts use <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a>
+to request data from a timeframe <strong>lower</strong> than the chart’s timeframe.
+This can be useful when functions specifically designed to handle intrabars at lower timeframes are sent down the timeframe.
+When this type of user-defined function requires the detection of the intrabars’ first bar, as most do,
+the technique will only work on historical bars. This is due to the fact that realtime intrabars are not yet sorted.
+The impact of this is that such scripts cannot reproduce in real time their behavior on historical bars.
+Any logic generating alerts, for example, will be flawed,
+and constant refreshing will be required to recalculate elapsed realtime bars as historical bars.</p>
+<p>When used at lower timeframes than the chart’s without specialized functions able to distinguish between intrabars,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a>
+will only return the value of the <strong>last</strong> intrabar in the dilation of the chart’s bar,
+which is usually not useful, and will also not reproduce in real time, so lead to repainting.</p>
+<p>For all these reasons, unless you understand the subtleties of using
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a>
+at lower timeframes than the chart’s, it is best to avoid using the function at those timeframes.
+Higher-quality scripts will have logic to detect such anomalies
+and prevent the display of results which would be invalid when a lower timeframe is used.</p>
+</div>
+<div class="section" id="future-leak-with-request-security">
+<h3><a class="toc-backref" href="#id8">Future leak with `request.security()`</a><a class="headerlink" href="#future-leak-with-request-security" title="Permalink to this headline">¶</a></h3>
+<p>When <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a>
+is used with <code class="docutils literal notranslate"><span class="pre">lookahead</span> <span class="pre">=</span> <span class="pre">barmerge.lookahead_on</span></code> to fetch prices without offsetting the series by <code class="docutils literal notranslate"><span class="pre">[1]</span></code>,
+it will return data from the future on historical bars, which is dangerously misleading.</p>
+<p>While historical bars will magically display future prices before they should be known,
+no lookahead is possible in realtime because the future there is unknown, as it should, so no future bars exist.</p>
+<p>This is an example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// FUTURE LEAK! DO NOT USE!
+//@version=5
+indicator(&quot;Future leak&quot;, &quot;&quot;, true)
+futureHigh = request.security(syminfo.tickerid, &quot;D&quot;, high, lookahead = barmerge.lookahead_on)
+plot(futureHigh)
+</pre></div>
+</div>
+<img alt="../_images/Repainting-FutureLeakWithRequestSecurity-01.png" src="../_images/Repainting-FutureLeakWithRequestSecurity-01.png" />
+<p>Note how the higher timeframe line is showing the timeframe’s <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_high">high</a>
+value before it occurs. The solution is to use the function like we do in our <code class="docutils literal notranslate"><span class="pre">nonRepaintingSecurity()</span></code> shown earlier.</p>
+<p>Public scripts using this misleading technique will be moderated.</p>
+</div>
+<div class="section" id="varip">
+<h3><a class="toc-backref" href="#id9">`varip`</a><a class="headerlink" href="#varip" title="Permalink to this headline">¶</a></h3>
+<p>Scripts using the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_varip">varip</a>
+declaration mode for variables (see our section on <a class="reference internal" href="../language/Variable_declarations.html#pagevariabledeclarations-varip"><span class="std std-ref">varip</span></a> for more information)
+save information across realtime updates, which cannot be reproduced on historical bars where only OHLC information is available.
+Such scripts may be useful in realtime, including to generate alerts,
+but their logic cannot be backtested, nor can their plots on historical bars reflect calculations that will be done in realtime.</p>
+</div>
+<div class="section" id="bar-state-built-ins">
+<h3><a class="toc-backref" href="#id10">Bar state built-ins</a><a class="headerlink" href="#bar-state-built-ins" title="Permalink to this headline">¶</a></h3>
+<p>Scripts using <a class="reference internal" href="Bar_states.html#pagebarstates"><span class="std std-ref">bar states</span></a> may or may not repaint.
+As we have seen in the previous section, using <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_barstate{dot}isconfirmed">barstate.isconfirmed</a>
+is actually one way to <strong>avoid</strong> repainting that <strong>will</strong> reproduce on historical bars, which are always “confirmed”.
+Uses of other bar states such as <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_barstate{dot}isnew">barstate.isnew</a>,
+however, will lead to repainting. The reason is that on historical bars,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_barstate{dot}isnew">barstate.isnew</a> is <code class="docutils literal notranslate"><span class="pre">true</span></code> on the bar’s
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_close">close</a>, yet in realtime, it is <code class="docutils literal notranslate"><span class="pre">true</span></code> on the bar’s
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#open">open</a>.
+Using the other bar state variables will usually cause some type of behavioral discrepancy between historical and realtime bars.</p>
+</div>
+<div class="section" id="timenow">
+<h3><a class="toc-backref" href="#id11">`timenow`</a><a class="headerlink" href="#timenow" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_timenow">timenow</a>
+built-in returns the current time. Scripts using this variable cannot show consistent historical and realtime behavior,
+so they necessarily repaint.</p>
+</div>
+<div class="section" id="strategies">
+<h3><a class="toc-backref" href="#id12">Strategies</a><a class="headerlink" href="#strategies" title="Permalink to this headline">¶</a></h3>
+<p>Strategies using <code class="docutils literal notranslate"><span class="pre">calc_on_every_tick</span> <span class="pre">=</span> <span class="pre">true</span></code> execute on each realtime update,
+while strategies run on the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_close">close</a>
+of historical bars. They will most probably not generate the same order executions, and so repaint.
+Note that when this happens, it also invalidates backtesting results,
+as they are not representative of the strategy’s behavior in realtime.</p>
+</div>
+</div>
+<div class="section" id="plotting-in-the-past">
+<h2><a class="toc-backref" href="#id13">Plotting in the past</a><a class="headerlink" href="#plotting-in-the-past" title="Permalink to this headline">¶</a></h2>
+<p>Scripts detecting pivots after 5 bars have elapsed will often go back in the past to plot pivot levels or values on the actual pivot, 5 bars in the past.
+This will often cause unsuspecting traders looking at plots on historical bars to infer that when the pivot happens in realtime,
+the same plots will apppear on the pivot when it occurs, as opposed to when it is detected.</p>
+<p>Let’s look at a script showing the price of high pivots by placing the price in the past, 5 bars after the pivot was detected:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Plotting in the past&quot;, &quot;&quot;, true)
+pHi = ta.pivothigh(5, 5)
+if not na(pHi)
+    label.new(bar_index[5], na, str.tostring(pHi, format.mintick) + &quot;\n🠇&quot;, yloc = yloc.abovebar, style = label.style_none, textcolor = color.black, size = size.normal)
+</pre></div>
+</div>
+<img alt="../_images/Repainting-PlottingInThePast-01.png" src="../_images/Repainting-PlottingInThePast-01.png" />
+<p>Note that:</p>
+<ul class="simple">
+<li>This script repaints because an elapsed realtime bar showing no price may get a price placed on it if it is identified as a pivot, 5 bars after the actual pivot occurs.</li>
+<li>The display looks great, but it can be misleading.</li>
+</ul>
+<p>The best solution to this problem when developing script for others is to plot <strong>without</strong> an offset by default,
+but give the option for script users to turn on plotting in the past through inputs,
+so they are necessarily aware of what the script is doing, e.g.:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Plotting in the past&quot;, &quot;&quot;, true)
+plotInThePast = input(false, &quot;Plot in the past&quot;)
+pHi = ta.pivothigh(5, 5)
+if not na(pHi)
+    label.new(bar_index[plotInThePast ? 5 : 0], na, str.tostring(pHi, format.mintick) + &quot;\n🠇&quot;, yloc = yloc.abovebar, style = label.style_none, textcolor = color.black, size = size.normal)
+</pre></div>
+</div>
+</div>
+<div class="section" id="dataset-variations">
+<h2><a class="toc-backref" href="#id14">Dataset variations</a><a class="headerlink" href="#dataset-variations" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="starting-points">
+<h3><a class="toc-backref" href="#id15">Starting points</a><a class="headerlink" href="#starting-points" title="Permalink to this headline">¶</a></h3>
+<p>Scripts begin executing on the chart’s first historical bar, and then execute on each bar sequentially,
+as is explained in this manual’s page on Pine Script<sup>®</sup>’s <a class="reference internal" href="../language/Execution_model.html#pageexecutionmodel"><span class="std std-ref">execution model</span></a>.
+If the first bar changes, then the script will often not calculate the same way it did when the dataset began at a different point in time.</p>
+<p>The following factors have an impact on the quantity of bars you see on your charts, and their <em>starting point</em>:</p>
+<ul class="simple">
+<li>The type of account you hold</li>
+<li>The historical data available from the data supplier</li>
+<li>The alignment requirements of the dataset, which determine its <em>starting point</em></li>
+</ul>
+<p>These are the account-specific bar limits:</p>
+<ul class="simple">
+<li>20000 historical bars for the Premium plan.</li>
+<li>10000 historical bars for Pro and Pro+ plans.</li>
+<li>5000 historical bars for other plans.</li>
+</ul>
+<p>Starting points are determined using the following rules, which depend on the chart’s timeframe:</p>
+<ul class="simple">
+<li><strong>1, 5, 10, 15, 30 seconds</strong>: aligns to the beginning of a day.</li>
+<li><strong>1 - 14 minutes</strong>: aligns to the beginning of a week.</li>
+<li><strong>15 - 29 minutes</strong>: aligns to the beginning of a month.</li>
+<li><strong>30 - 1439 minutes</strong>: aligns to the beginning of a year.</li>
+<li><strong>1440 minutes and higher</strong>: aligns to the first available historical data point.</li>
+</ul>
+<p>As time goes by, these factors cause your chart’s history to start at different points in time.
+This often has an impact on your scripts calculations, because changes in calculation results in early bars can ripple through all the other bars in the dataset.
+Using functions like <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_ta{dot}valuewhen">ta.valuewhen()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_ta{dot}barssince">ta.barssince()</a> or
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_ta{dot}ema">ta.ema()</a>, for example,
+will yield results that vary with early history.</p>
+</div>
+<div class="section" id="revision-of-historical-data">
+<h3><a class="toc-backref" href="#id16">Revision of historical data</a><a class="headerlink" href="#revision-of-historical-data" title="Permalink to this headline">¶</a></h3>
+<p>Historical and realtime bars are built using two different data feeds supplied by exchanges/brokers: historical data, and realtime data.
+When realtime bars elapse, exchanges/brokers sometimes make what are usually small adjustments to bar prices, which are then written to their historical data.
+When the chart is refreshed or the script is re-executed on those elapsed realtime bars,
+they will then be built and calculated using the historical data, which will contain those usually small price revisions, if any have been made.</p>
+<p>Historical data may also be revised for other reasons, e.g., for stock splits.</p>
+<a class="reference external image-reference" href="https://www.tradingview.com/"><div align="center" class="align-center"><img alt="../_images/TradingView-Logo-Block.svg" src="../_images/TradingView-Logo-Block.svg" width="200px" /></div>
+</a>
+</div>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="Plots.html" title="previous chapter (use the left arrow)">Plots</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="Sessions.html" title="next chapter (use the right arrow)">Sessions</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Sessions.html" title="Sessions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Plots.html" title="Plots"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Concepts</a> &#187;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="../_static/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="../_static/js/theme.js"></script>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Options</span>
+    v: v5
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Languages</dt>
+      
+        <strong>
+        <dd><a href="Repainting.html">en</a></dd>
+        </strong>
+      
+    </dl>
+    <dl>
+      <dt>Versions</dt>
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v3/concepts/Repainting.html">v3</a></dd>
+        
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v4/concepts/Repainting.html">v4</a></dd>
+        
+      
+        <strong>
+        <dd><a href="Repainting.html">v5</a></dd>
+        </strong>
+      
+    </dl>
+  </div>
+</div>
+<script type="text/javascript">
+    jQuery(function () {
+        SphinxRtdTheme.Navigation.enable(false);
+    });
+</script>
+  <div class="footer">
+    &copy; Copyright 2023, TradingView.
+  </div>
+  </body>
+
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/concepts/Repainting.html?highlight=barmerge by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:57:07 GMT -->
+</html>

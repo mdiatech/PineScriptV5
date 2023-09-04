@@ -1,0 +1,373 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/primer/First_indicator.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:56:01 GMT -->
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>First indicator &#8212; Pine Script® v5 User Manual v5 documentation</title>
+    <link rel="stylesheet" href="../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../../../../static.tradingview.com/static/bundles/pine-highlighter-v01.js"></script>
+    <script type="text/javascript" src="../_static/highlight-pine-code.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Next steps" href="Next_steps.html" />
+    <link rel="prev" title="First steps" href="First_steps.html" />
+  
+   
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Next_steps.html" title="Next steps"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="First_steps.html" title="First steps"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Pine Script<sup>®</sup> primer</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="../index.html" class="text-logo">Pine Script<sup>®</sup> v5 User Manual</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Introduction.html">Welcome to Pine Script<sup>®</sup> v5</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Pine Script<sup>®</sup> primer</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="First_steps.html">First steps</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">First indicator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#the-pine-script-editor">The Pine Script<sup>®</sup> Editor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#first-version">First version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#second-version">Second version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#next">Next</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Next_steps.html">Next steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../language/index.html">Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../writing/index.html">Writing scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Error_messages.html">Error messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Release_notes.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migration_guides/index.html">Migration guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Where_can_I_get_more_information.html">Where can I get more information?</a></li>
+</ul>
+
+    
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="https://www.tradingview.com/pine-script-docs/en/v5/search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../index.html">User Manual</a></li>
+              
+                <li><a href="index.html">Pine Script<sup>®</sup> primer</a></li>
+              
+              <li>First indicator</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <a class="reference external image-reference" href="../Introduction.html"><div align="right" class="align-right"><img alt="Pine Script® logo" height="100" src="../_images/Pine-script-logo.svg" width="100" /></div>
+</a>
+<div class="section" id="first-indicator">
+<span id="pagefirstindicator"></span><h1>First indicator<a class="headerlink" href="#first-indicator" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#the-pine-script-editor" id="id1">The Pine Script<sup>®</sup> Editor</a></li>
+<li><a class="reference internal" href="#first-version" id="id2">First version</a></li>
+<li><a class="reference internal" href="#second-version" id="id3">Second version</a></li>
+<li><a class="reference internal" href="#next" id="id4">Next</a></li>
+</ul>
+</div>
+<div class="section" id="the-pine-script-editor">
+<h2><a class="toc-backref" href="#id1">The Pine Script<sup>®</sup> Editor</a><a class="headerlink" href="#the-pine-script-editor" title="Permalink to this headline">¶</a></h2>
+<p>The Pine Script<sup>®</sup> Editor is where you will be working on your scripts. While you can use any text editor you want to write your Pine scripts,
+using our Editor has many advantages:</p>
+<ul class="simple">
+<li>It highlights your code following Pine Script<sup>®</sup> syntax.</li>
+<li>It pops up syntax reminders for built-in and library functions when you hover over them.</li>
+<li>It provides quick access to the Pine Script<sup>®</sup> v5 Reference Manual popup when you <kbd class="kbd docutils literal notranslate">ctrl</kbd> + <kbd class="kbd docutils literal notranslate">click</kbd> / <kbd class="kbd docutils literal notranslate">cmd</kbd> + <kbd class="kbd docutils literal notranslate">click</kbd> on Pine Script<sup>®</sup> keywords.</li>
+<li>It provides an auto-complete feature that you can activate with <kbd class="kbd docutils literal notranslate">ctrl</kbd> + <kbd class="kbd docutils literal notranslate">space</kbd> / <kbd class="kbd docutils literal notranslate">cmd</kbd> + <kbd class="kbd docutils literal notranslate">space</kbd>.</li>
+<li>It makes the write/compile/run cycle fast because saving a new version of a script loaded on the chart also executes it immediately.</li>
+<li>While not as feature-rich as the top editors out there, it provides key functionality such as search and replace, multi-cursor and versioning.</li>
+</ul>
+<p>To open the Editor, click on the “Pine Script<sup>®</sup> Editor” tab at the bottom of your TradingView chart. This will open up the Editor’s pane.</p>
+</div>
+<div class="section" id="first-version">
+<h2><a class="toc-backref" href="#id2">First version</a><a class="headerlink" href="#first-version" title="Permalink to this headline">¶</a></h2>
+<p>We will now create our first working Pine script, an implementation of the
+<a class="reference external" href="https://www.tradingview.com/support/solutions/43000502344-macd-moving-average-convergence-divergence/">MACD</a> indicator in Pine Script<sup>®</sup>:</p>
+<div class="highlight-pine notranslate"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span>//@version=5
+indicator(&quot;MACD #1&quot;)
+fast = 12
+slow = 26
+fastMA = ta.ema(close, fast)
+slowMA = ta.ema(close, slow)
+macd = fastMA - slowMA
+signal = ta.ema(macd, 9)
+plot(macd, color = color.blue)
+plot(signal, color = color.orange)
+</pre></div></td></tr></table></div>
+</div>
+<ul class="simple">
+<li>Start by bringing up the “Open” dropdown menu at the top right of the Editor and choose “New blank indicator”.</li>
+<li>Then copy the example script above, taking care not to include the line numbers in your selection.</li>
+<li>Select all the code already in the editor and replace it with the example script.</li>
+<li>Click “Save” and choose a name for your script. Your script is now saved in TradingView’s cloud, but under your account’s name. Nobody but you can use it.</li>
+<li>Click “Add to Chart” in the Editor’s menu bar. The MACD indicator appears in a separate <em>Pane</em> under your chart.</li>
+</ul>
+<p>Your first Pine script is running on your chart, which should look like this:</p>
+<img alt="../_images/FirstIndicator-Version1.png" src="../_images/FirstIndicator-Version1.png" />
+<p>Let’s look at our script’s code, line by line:</p>
+<dl class="docutils">
+<dt>Line 1: <code class="docutils literal notranslate"><span class="pre">//&#64;version=5</span></code></dt>
+<dd>This is a <a class="reference internal" href="../language/Script_structure.html#pagescriptstructure-compilerannotations"><span class="std std-ref">compiler annotation</span></a>
+telling the compiler the script will use version 5 of Pine Script<sup>®</sup>.</dd>
+<dt>Line 2: <code class="docutils literal notranslate"><span class="pre">indicator(&quot;MACD</span> <span class="pre">#1&quot;)</span></code></dt>
+<dd>Defines the name of the script that will appear on the chart as “MACD”.</dd>
+<dt>Line 3: <code class="docutils literal notranslate"><span class="pre">fast</span> <span class="pre">=</span> <span class="pre">12</span></code></dt>
+<dd>Defines a <code class="docutils literal notranslate"><span class="pre">fast</span></code> integer variable which will be the length of the fast EMA.</dd>
+<dt>Line 4: <code class="docutils literal notranslate"><span class="pre">slow</span> <span class="pre">=</span> <span class="pre">26</span></code></dt>
+<dd>Defines a <code class="docutils literal notranslate"><span class="pre">slow</span></code> integer variable which will be the length of the slow EMA.</dd>
+<dt>Line 5: <code class="docutils literal notranslate"><span class="pre">fastMA</span> <span class="pre">=</span> <span class="pre">ta.ema(close,</span> <span class="pre">fast)</span></code></dt>
+<dd>Defines the variable <code class="docutils literal notranslate"><span class="pre">fastMA</span></code>, containing the result of the
+EMA calculation (Exponential Moving Average) with a length equal
+to <code class="docutils literal notranslate"><span class="pre">fast</span></code> (12), on the <code class="docutils literal notranslate"><span class="pre">close</span></code> series, i.e., the closing price of bars.</dd>
+<dt>Line 6: <code class="docutils literal notranslate"><span class="pre">slowMA</span> <span class="pre">=</span> <span class="pre">ta.ema(close,</span> <span class="pre">slow)</span></code></dt>
+<dd>Defines the variable <code class="docutils literal notranslate"><span class="pre">slowMA</span></code>, containing the result of the
+EMA calculation with a length equal to <code class="docutils literal notranslate"><span class="pre">slow</span></code> (26), from <code class="docutils literal notranslate"><span class="pre">close</span></code>.</dd>
+<dt>Line 7: <code class="docutils literal notranslate"><span class="pre">macd</span> <span class="pre">=</span> <span class="pre">fastMA</span> <span class="pre">-</span> <span class="pre">slowMA</span></code></dt>
+<dd>Defines the variable <code class="docutils literal notranslate"><span class="pre">macd</span></code> as the difference between the two EMAs.</dd>
+<dt>Line 8: <code class="docutils literal notranslate"><span class="pre">signal</span> <span class="pre">=</span> <span class="pre">ta.ema(macd,</span> <span class="pre">9)</span></code></dt>
+<dd>Defines the variable <code class="docutils literal notranslate"><span class="pre">signal</span></code> as a smoothed value of
+<code class="docutils literal notranslate"><span class="pre">macd</span></code> using the EMA algorithm (Exponential Moving Average) with
+a length of 9.</dd>
+<dt>Line 9: <code class="docutils literal notranslate"><span class="pre">plot(macd,</span> <span class="pre">color</span> <span class="pre">=</span> <span class="pre">color.blue)</span></code></dt>
+<dd>Calls the <code class="docutils literal notranslate"><span class="pre">plot</span></code> function to output the variable <code class="docutils literal notranslate"><span class="pre">macd</span></code> using a blue line.</dd>
+<dt>Line 10: <code class="docutils literal notranslate"><span class="pre">plot(signal,</span> <span class="pre">color</span> <span class="pre">=</span> <span class="pre">color.orange)</span></code></dt>
+<dd>Calls the <code class="docutils literal notranslate"><span class="pre">plot</span></code> function to output the variable <code class="docutils literal notranslate"><span class="pre">signal</span></code> using an orange line.</dd>
+</dl>
+</div>
+<div class="section" id="second-version">
+<h2><a class="toc-backref" href="#id3">Second version</a><a class="headerlink" href="#second-version" title="Permalink to this headline">¶</a></h2>
+<p>The first version of our script calculated MACD “manually”, but because Pine Script<sup>®</sup> is designed to write indicators and strategies,
+built-in Pine Script<sup>®</sup> functions exist for many common indicators, including one for… MACD: <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_ta{dot}macd">ta.macd()</a>.</p>
+<p>This is the second version of our script:</p>
+<div class="highlight-pine notranslate"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span>//@version=5
+indicator(&quot;MACD #2&quot;)
+fastInput = input(12, &quot;Fast length&quot;)
+slowInput = input(26, &quot;Slow length&quot;)
+[macdLine, signalLine, histLine] = ta.macd(close, fastInput, slowInput, 9)
+plot(macdLine, color = color.blue)
+plot(signalLine, color = color.orange)
+</pre></div></td></tr></table></div>
+</div>
+<p>Note that we have:</p>
+<ul class="simple">
+<li>Added inputs so we can change the lengths for the MAs</li>
+<li>We now use the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_ta{dot}macd">ta.macd()</a>
+built-in to calculate our MACD, which saves us three line and makes our code easier to read.</li>
+</ul>
+<p>Let’s repeat the same process as before to copy that code in a new indicator:</p>
+<ul class="simple">
+<li>Start by bringing up the “Open” dropdown menu at the top right of the Editor and choose “New blank indicator”.</li>
+<li>Then copy the example script above, again taking care not to include the line numbers in your selection.</li>
+<li>Select all the code already in the editor and replace it with the second version of our script.</li>
+<li>Click “Save” and choose a name for your script different than the previous one.</li>
+<li>Click “Add to Chart” in the Editor’s menu bar. The “MACD #2” indicator appears in a separate <em>Pane</em> under the “MACD #1” indicator.</li>
+</ul>
+<p>Your second Pine script is running on your chart. If you double-click on the indicator’s name on your chart,
+you will bring up the script’s “Settings/Inputs” tab, where you can now change the slow and fast lengths:</p>
+<img alt="../_images/FirstIndicator-Version2.png" src="../_images/FirstIndicator-Version2.png" />
+<p>Let’s look at the lines that have changed in the second version of our script:</p>
+<dl class="docutils">
+<dt>Line 2: <code class="docutils literal notranslate"><span class="pre">indicator(&quot;MACD</span> <span class="pre">#2&quot;)</span></code></dt>
+<dd>We have changed <code class="docutils literal notranslate"><span class="pre">#1</span></code> to <code class="docutils literal notranslate"><span class="pre">#2</span></code> so the second version of our indicator displays a different name on the chart.</dd>
+<dt>Line 3: <code class="docutils literal notranslate"><span class="pre">fastInput</span> <span class="pre">=</span> <span class="pre">input(12,</span> <span class="pre">&quot;Fast</span> <span class="pre">length&quot;)</span></code></dt>
+<dd>Instead of assigning a constant value to a variable, we have used the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input">input()</a>
+function so we can change the value in our script’s “Settings/Inputs” tab. <code class="docutils literal notranslate"><span class="pre">12</span></code> will be the default value and the field’s label will be <code class="docutils literal notranslate"><span class="pre">&quot;Fast</span> <span class="pre">length&quot;</span></code>.
+If the value is changed in the “Inputs” tab, the <code class="docutils literal notranslate"><span class="pre">fastInput</span></code> variable’s content will contain the new value and the script will re-execute on the chart with that new value.
+Note that, as our Pine Script<sup>®</sup> <a class="reference internal" href="../writing/Style_guide.html#pagestyleguide"><span class="std std-ref">Style Guide</span></a> recommends, we add <code class="docutils literal notranslate"><span class="pre">Input</span></code> to the end of the variable’s name to remind us, later in the script,
+that its value comes from a user input.</dd>
+<dt>Line 4: <code class="docutils literal notranslate"><span class="pre">slowInput</span> <span class="pre">=</span> <span class="pre">input(26,</span> <span class="pre">&quot;Slow</span> <span class="pre">length&quot;)</span></code></dt>
+<dd>We do the same for the slow length, taking care to use a different variable name, default value and text string for the field’s label.</dd>
+<dt>Line 5: <code class="docutils literal notranslate"><span class="pre">[macdLine,</span> <span class="pre">signalLine,</span> <span class="pre">histLine]</span> <span class="pre">=</span> <span class="pre">ta.macd(close,</span> <span class="pre">fastInput,</span> <span class="pre">slowInput,</span> <span class="pre">9)</span></code></dt>
+<dd>This is where we call the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_ta{dot}macd">ta.macd()</a> built-in to
+perform all the first version’s calculations in one line only. The function requires four parameters (the values after the function name, enclosed in parentheses).
+It returns three values into the three variables instead of only one, like the functions we used until now, which is why we need to enclose the list of three
+variables receiving the function’s result in square brackets, to the left of the <code class="docutils literal notranslate"><span class="pre">=</span></code> sign.
+Note that two of the values we pass to the function are the “input” variables containing the fast and slow lengths: <code class="docutils literal notranslate"><span class="pre">fastInput</span></code> and <code class="docutils literal notranslate"><span class="pre">slowInput</span></code>.</dd>
+<dt>Line 6 and 7:</dt>
+<dd>The variable names we are plotting there have changed, but the lines are doing the same thing as in our first version.</dd>
+</dl>
+<p>Our second version performs the same calculations as our first, but we can change the two lengths used to calculate it.
+Our code is also simpler and shorter by three lines. We have improved our script.</p>
+</div>
+<div class="section" id="next">
+<h2><a class="toc-backref" href="#id4">Next</a><a class="headerlink" href="#next" title="Permalink to this headline">¶</a></h2>
+<p>We now recommend you go to our <a class="reference internal" href="Next_steps.html#pagenextsteps"><span class="std std-ref">Next Steps</span></a> page.</p>
+<a class="reference external image-reference" href="https://www.tradingview.com/"><div align="center" class="align-center"><img alt="../_images/TradingView-Logo-Block.svg" src="../_images/TradingView-Logo-Block.svg" width="200px" /></div>
+</a>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="First_steps.html" title="previous chapter (use the left arrow)">First steps</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="Next_steps.html" title="next chapter (use the right arrow)">Next steps</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Next_steps.html" title="Next steps"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="First_steps.html" title="First steps"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Pine Script<sup>®</sup> primer</a> &#187;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="../_static/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="../_static/js/theme.js"></script>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Options</span>
+    v: v5
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Languages</dt>
+      
+        <strong>
+        <dd><a href="First_indicator.html">en</a></dd>
+        </strong>
+      
+    </dl>
+    <dl>
+      <dt>Versions</dt>
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v3/primer/First_indicator.html">v3</a></dd>
+        
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v4/primer/First_indicator.html">v4</a></dd>
+        
+      
+        <strong>
+        <dd><a href="First_indicator.html">v5</a></dd>
+        </strong>
+      
+    </dl>
+  </div>
+</div>
+<script type="text/javascript">
+    jQuery(function () {
+        SphinxRtdTheme.Navigation.enable(false);
+    });
+</script>
+  <div class="footer">
+    &copy; Copyright 2023, TradingView.
+  </div>
+  </body>
+
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/primer/First_indicator.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:56:01 GMT -->
+</html>

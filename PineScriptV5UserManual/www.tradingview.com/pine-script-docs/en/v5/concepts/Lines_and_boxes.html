@@ -1,0 +1,1345 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/concepts/Lines_and_boxes.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:56:18 GMT -->
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Lines and boxes &#8212; Pine Script® v5 User Manual v5 documentation</title>
+    <link rel="stylesheet" href="../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../../../../static.tradingview.com/static/bundles/pine-highlighter-v01.js"></script>
+    <script type="text/javascript" src="../_static/highlight-pine-code.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Non-standard charts data" href="Non-standard_charts_data.html" />
+    <link rel="prev" title="Libraries" href="Libraries.html" />
+  
+   
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Non-standard_charts_data.html" title="Non-standard charts data"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Libraries.html" title="Libraries"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Concepts</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="../index.html" class="text-logo">Pine Script<sup>®</sup> v5 User Manual</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Introduction.html">Welcome to Pine Script<sup>®</sup> v5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primer/index.html">Pine Script<sup>®</sup> primer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../language/index.html">Language</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Concepts</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Alerts.html">Alerts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Backgrounds.html">Backgrounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bar_coloring.html">Bar coloring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bar_plotting.html">Bar plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bar_states.html">Bar states</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chart_information.html">Chart information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Colors.html">Colors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fills.html">Fills</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Inputs.html">Inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Levels.html">Levels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Libraries.html">Libraries</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Lines and boxes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lines">Lines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#boxes">Boxes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#realtime-behavior">Realtime behavior</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#limitations">Limitations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Non-standard_charts_data.html">Non-standard charts data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Plots.html">Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Repainting.html">Repainting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Sessions.html">Sessions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Strategies.html">Strategies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Tables.html">Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Text_and_shapes.html">Text and shapes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Time.html">Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Timeframes.html">Timeframes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../writing/index.html">Writing scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Error_messages.html">Error messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Release_notes.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migration_guides/index.html">Migration guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Where_can_I_get_more_information.html">Where can I get more information?</a></li>
+</ul>
+
+    
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="https://www.tradingview.com/pine-script-docs/en/v5/search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../index.html">User Manual</a></li>
+              
+                <li><a href="index.html">Concepts</a></li>
+              
+              <li>Lines and boxes</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <a class="reference external image-reference" href="../Introduction.html"><div align="right" class="align-right"><img alt="Pine Script® logo" height="100" src="../_images/Pine-script-logo.svg" width="100" /></div>
+</a>
+<div class="section" id="lines-and-boxes">
+<span id="pagelinesandboxes"></span><h1>Lines and boxes<a class="headerlink" href="#lines-and-boxes" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#introduction" id="id4">Introduction</a></li>
+<li><a class="reference internal" href="#lines" id="id5">Lines</a><ul>
+<li><a class="reference internal" href="#creating-lines" id="id6">Creating lines</a></li>
+<li><a class="reference internal" href="#modifying-lines" id="id7">Modifying lines</a></li>
+<li><a class="reference internal" href="#line-styles" id="id8">Line styles</a></li>
+<li><a class="reference internal" href="#getting-line-properties" id="id9">Getting line properties</a></li>
+<li><a class="reference internal" href="#cloning-lines" id="id10">Cloning lines</a></li>
+<li><a class="reference internal" href="#deleting-lines" id="id11">Deleting lines</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#boxes" id="id12">Boxes</a><ul>
+<li><a class="reference internal" href="#creating-boxes" id="id13">Creating boxes</a></li>
+<li><a class="reference internal" href="#modifying-boxes" id="id14">Modifying boxes</a></li>
+<li><a class="reference internal" href="#box-styles" id="id15">Box styles</a></li>
+<li><a class="reference internal" href="#getting-box-properties" id="id16">Getting box properties</a></li>
+<li><a class="reference internal" href="#cloning-boxes" id="id17">Cloning boxes</a></li>
+<li><a class="reference internal" href="#deleting-boxes" id="id18">Deleting boxes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#realtime-behavior" id="id19">Realtime behavior</a></li>
+<li><a class="reference internal" href="#limitations" id="id20">Limitations</a><ul>
+<li><a class="reference internal" href="#total-number-of-objects" id="id21">Total number of objects</a></li>
+<li><a class="reference internal" href="#future-references-with-xloc-bar-index" id="id22">Future references with `xloc.bar_index`</a></li>
+<li><a class="reference internal" href="#additional-securities" id="id23">Additional securities</a></li>
+<li><a class="reference internal" href="#historical-buffer-and-max-bars-back" id="id24">Historical buffer and `max_bars_back`</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#examples" id="id25">Examples</a><ul>
+<li><a class="reference internal" href="#pivot-points-standard" id="id26">Pivot Points Standard</a></li>
+<li><a class="reference internal" href="#pivot-points-high-low" id="id27">Pivot Points High/Low</a></li>
+<li><a class="reference internal" href="#linear-regression" id="id28">Linear Regression</a></li>
+<li><a class="reference internal" href="#zig-zag" id="id29">Zig Zag</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="introduction">
+<h2><a class="toc-backref" href="#id4">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Lines and boxes are only available in v4 and higher versions of Pine Script<sup>®</sup>.
+They are useful to draw support and resistance levels, trend lines, price ranges.
+Multiple small line segments are also useful to draw complex geometric forms.</p>
+<p>The flexibility lines and boxes allow in their positioning mechanism makes them particularly well-suited to
+drawing objects at points in the past that are detected a variable number of bars after the fact.</p>
+<p>Lines and boxes are objects, like <a class="reference internal" href="Text_and_shapes.html#pagetextandshapes-labels"><span class="std std-ref">labels</span></a> and <a class="reference internal" href="Tables.html#pagetables"><span class="std std-ref">tables</span></a>.
+Like them, they are referred to using an ID, which acts like a pointer.
+Line IDs are of “line” type, and box IDs are of “box” type.
+As with other objects, lines and box IDs are “time series” and all the functions used to manage them accept “series” arguments,
+which makes them very flexible.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">On TradingView charts, a complete set of <em>Drawing Tools</em>
+allows users to create and modify drawings using mouse actions. While they may sometimes look similar to
+drawing objects created with Pine Script<sup>®</sup> code, they are unrelated entities.
+Lines and boxes created using Pine code cannot be modified with mouse actions,
+and hand-drawn drawings from the chart user interface are not visible from Pine scripts.</p>
+</div>
+<p>Lines can be horizontal or at an angle, while boxes are always rectangular.
+Both share many common characteristics:</p>
+<ul class="simple">
+<li>They can start and end from any point on the chart, including the future.</li>
+<li>The functions used to manage them can be placed in conditional or loop structures, making it easier to control their behavior.</li>
+<li>They can be extended to infinity, left or right of their anchoring coordinates.</li>
+<li>Their attributes can be changed during the script’s execution.</li>
+<li>The <em>x</em> coordinates used to position them can be expressed as a bar index or a time value.</li>
+<li>In the <em>x</em> coordinate, they start and stop on the middle of the bar.</li>
+<li>Different pre-defined styles can be used for line patterns and end points, and box borders.</li>
+<li>A maximum of 500 of each can be drawn on the chart at any given time.
+The default is ~50, but you can use the <code class="docutils literal notranslate"><span class="pre">max_lines_count</span></code> and <code class="docutils literal notranslate"><span class="pre">max_boxes_count</span></code> parameters in your
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_indicator">indicator()</a> or
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_strategy">strategy()</a>
+declaration statement to specify up to 500. Lines and boxes, like <span class="xref std std-ref">labels</span>,
+are managed using a garbage collection mechanism which deletes the oldest ones on the chart,
+such that only the most recently displayed are visible.</li>
+</ul>
+<p>This script draws both lines and boxes:</p>
+<img alt="../_images/LinesAndBoxes-Introduction-01.png" src="../_images/LinesAndBoxes-Introduction-01.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Opening bar&#39;s range&quot;, &quot;&quot;, true)
+string tfInput = input.timeframe(&quot;D&quot;, &quot;Timeframe&quot;)
+// Initialize variables on bar zero only, so they preserve their values across bars.
+var hi = float(na)
+var lo = float(na)
+var line hiLine = na
+var line loLine = na
+var box hiLoBox = na
+// Detect changes in timeframe.
+bool newTF = ta.change(time(tfInput))
+if newTF
+    // New bar in higher timeframe; reset values and create new lines and box.
+    hi := high
+    lo := low
+    hiLine := line.new(bar_index - 1, hi, bar_index, hi, color = color.green, width = 2)
+    loLine := line.new(bar_index - 1, lo, bar_index, lo, color = color.red, width = 2)
+    hiLoBox := box.new(bar_index - 1, hi, bar_index, lo, border_color = na, bgcolor = color.silver)
+    int(na)
+else
+    // On other bars, extend the right coordinate of lines and box.
+    line.set_x2(hiLine, bar_index)
+    line.set_x2(loLine, bar_index)
+    box.set_right(hiLoBox, bar_index)
+    // Change the color of the boxes&#39; background depending on whether high/low is higher/lower than the box.
+    boxColor = high &gt; hi ? color.green : low &lt; lo ? color.red : color.silver
+    box.set_bgcolor(hiLoBox, color.new(boxColor, 50))
+    int(na)
+</pre></div>
+</div>
+<p>Note that:</p>
+<ul class="simple">
+<li>We are detecting the first bar of a user-defined higher timeframe and saving its
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_high">high</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_low">low</a> values.</li>
+<li>We draw the <code class="docutils literal notranslate"><span class="pre">hi</span></code> and <code class="docutils literal notranslate"><span class="pre">low</span></code> levels using one line for each.</li>
+<li>We fill the space in between with a box.</li>
+<li>Every time we create two new lines and a box, we save their ID in variables <code class="docutils literal notranslate"><span class="pre">hiLine</span></code>, <code class="docutils literal notranslate"><span class="pre">loLine</span></code> and <code class="docutils literal notranslate"><span class="pre">hiLoBox</span></code>,
+which we then use in the calls to the setter functions to prolong these objects as new bars come in during the
+higher timeframe.</li>
+<li>We change the color of the boxes’ background (<code class="docutils literal notranslate"><span class="pre">boxColor</span></code>) using the position of the bar’s
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_high">high</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_low">low</a> with relative to the opening bar’s
+same values. This entails that our script is repainting, as the boxes’ color on past bars will change,
+depending on the current bar’s values.</li>
+<li>We artificially make the return type of both branches of our <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_if">if</a>
+structure <code class="docutils literal notranslate"><span class="pre">int(na)</span></code> so the compiler doesn’t complain about them not returning the same type.
+This occurs because <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_box{dot}new">box.new()</a>
+in the first branch returns a result of type “box”,
+while <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_box{dot}set_bgcolor">box.set_bgcolor()</a>
+in the second branch returns type “void”.
+See the <a class="reference internal" href="../language/Conditional_structures.html#pageconditionalstructures-matchinglocalblocktyperequirement"><span class="std std-ref">Matching local block type requiremement</span></a> section for more information.</li>
+</ul>
+</div>
+<div class="section" id="lines">
+<h2><a class="toc-backref" href="#id5">Lines</a><a class="headerlink" href="#lines" title="Permalink to this headline">¶</a></h2>
+<p>Lines are managed using built-in functions in the <code class="docutils literal notranslate"><span class="pre">line</span></code> namespace. They include:</p>
+<ul class="simple">
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}new">line.new()</a> to create them.</li>
+<li><code class="docutils literal notranslate"><span class="pre">line.set_*()</span></code> functions to modify the properties of an line.</li>
+<li><code class="docutils literal notranslate"><span class="pre">line.get_*()</span></code> functions to read the properties of an existing line.</li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}copy">line.copy()</a> to clone them.</li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}delete">line.delete()</a> to delete them.</li>
+<li>The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_line{dot}all">line.all</a>
+array which always contains the IDs of all the visible lines on the chart.
+The array’s size will depend on the maximum line count for your script and how many of those you have drawn.
+<code class="docutils literal notranslate"><span class="pre">aray.size(line.all)</span></code> will return the array’s size.</li>
+</ul>
+<div class="section" id="creating-lines">
+<h3><a class="toc-backref" href="#id6">Creating lines</a><a class="headerlink" href="#creating-lines" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}new">line.new()</a>
+function creates a new line. It has the following signature:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>line.new(x1, y1, x2, y2, xloc, extend, color, style, width) → series line
+</pre></div>
+</div>
+<p>Lines are positioned on the chart according to <em>x</em> (bars) and <em>y</em> (price) coordinates.
+Five parameters affect this behavior: <code class="docutils literal notranslate"><span class="pre">x1</span></code>, <code class="docutils literal notranslate"><span class="pre">y1</span></code>, <code class="docutils literal notranslate"><span class="pre">x2</span></code>, <code class="docutils literal notranslate"><span class="pre">y2</span></code> and <code class="docutils literal notranslate"><span class="pre">xloc</span></code>:</p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">x1</span></code> and <code class="docutils literal notranslate"><span class="pre">x2</span></code></dt>
+<dd>They are the <em>x</em> coordinates of the line’s start and end points.
+They are either a bar index or a time value, as determined by the argument used for <code class="docutils literal notranslate"><span class="pre">xloc</span></code>.
+When a bar index is used, the value can be offset in the past (maximum of 5000 bars) or in the future (maximum of 500 bars).
+Past or future offsets can also be calculated when using time values.
+The <code class="docutils literal notranslate"><span class="pre">x1</span></code> and <code class="docutils literal notranslate"><span class="pre">x2</span></code> values of an existing line can be modified using
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}set_x1">line.set_x1()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}set_x2">line.set_x2()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}set_xy1">line.set_xy1()</a> or
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}set_xy2">line.set_xy2()</a>.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">xloc</span></code></dt>
+<dd>Is either <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_xloc{dot}bar_index">xloc.bar_index</a> (the default)
+or <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_xloc{dot}bar_time">xloc.bar_time</a>.
+It determines which type of argument must be used with <code class="docutils literal notranslate"><span class="pre">x1</span></code> and <code class="docutils literal notranslate"><span class="pre">x2</span></code>.
+With <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_xloc{dot}bar_index">xloc.bar_index</a>, <code class="docutils literal notranslate"><span class="pre">x1</span></code> and <code class="docutils literal notranslate"><span class="pre">x2</span></code> must be absolute bar indices.
+With <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_xloc{dot}bar_time">xloc.bar_time</a>, <code class="docutils literal notranslate"><span class="pre">x1</span></code> and <code class="docutils literal notranslate"><span class="pre">x2</span></code> must be a UNIX timestamp in milliseconds
+corresponding to the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_time">time</a>
+value of a bar’s <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_open">open</a>.
+The <code class="docutils literal notranslate"><span class="pre">xloc</span></code> value of an existing line can be modified using
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}set_xloc">line.set_xloc()</a>.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">y1</span></code> and <code class="docutils literal notranslate"><span class="pre">y2</span></code></dt>
+<dd>They are the <em>y</em> coordinates of the line’s start and end points.
+While they are called price levels, they must be of values that make sense in the script’s visual space.
+For an RSI indicator, they would typically be between 0 and 100, for example.
+When an indicator is running as an overlay, then the price scale will usually be that of the chart’s symbol.
+The <code class="docutils literal notranslate"><span class="pre">y1</span></code> and <code class="docutils literal notranslate"><span class="pre">y2</span></code> values of an existing line can be modified using
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}set_y1">line.set_y1()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}set_y2">line.set_y2()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}set_xy1">line.set_xy1()</a> or
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}set_xy2">line.set_xy2()</a>.</dd>
+</dl>
+<p>The remaining four parameters in <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}new">line.new()</a>
+control the visual appearance of lines:</p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">extend</span></code></dt>
+<dd>Determines if the line is extended past its coordinates.
+It can be <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_extend{dot}none">extend.none</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_extend{dot}left">extend.left</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_extend{dot}right">extend.right</a> or
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_extend{dot}both">extend.both</a>.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">color</span></code></dt>
+<dd>Is the line’s color.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">style</span></code></dt>
+<dd>Is the style of line. See this page’s <a class="reference internal" href="#pagelinesandboxes-linestyles"><span class="std std-ref">Line styles</span></a> section.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">width</span></code></dt>
+<dd>Determines the width of the line in pixels.</dd>
+</dl>
+<p>This is how you can create lines in their simplest form. We connect the preceding bar’s
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_high">high</a> to the current bar’s
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_low">low</a>:</p>
+<img alt="../_images/LinesAndBoxes-CreatingLines-01.png" src="../_images/LinesAndBoxes-CreatingLines-01.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;&quot;, &quot;&quot;, true)
+line.new(bar_index - 1, high[1], bar_index, low, width = 3)
+</pre></div>
+</div>
+<p>Note that:</p>
+<ul class="simple">
+<li>We use a different <code class="docutils literal notranslate"><span class="pre">x1</span></code> and <code class="docutils literal notranslate"><span class="pre">x2</span></code> value: <code class="docutils literal notranslate"><span class="pre">bar_index</span> <span class="pre">-</span> <span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">bar_index</span></code>.
+This is necessary, otherwise no line would be created.</li>
+<li>We make the width of our line 3 pixels using <code class="docutils literal notranslate"><span class="pre">width</span> <span class="pre">=</span> <span class="pre">3</span></code>.</li>
+<li>No logic controls our <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}new">line.new()</a> call, so lines are created on every bar.</li>
+<li>Only approximately the last 50 lines are shown because that is the default value for
+the <code class="docutils literal notranslate"><span class="pre">max_lines_count</span></code> parameter in <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_indicator">indicator()</a>,
+which we haven’t specified.</li>
+<li>Lines persist on bars until your script deletes them using
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}delete">line.delete()</a>, or garbage collection removes them.</li>
+</ul>
+<p>In this next example, we use lines to create probable travel paths for price.
+We draw a user-selected quantity of lines from the previous bar’s center point between its
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_close">close</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_open">open</a> values.
+The lines project one bar after the current bar, after having been distributed along the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_close">close</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_open">open</a> range of the current bar:</p>
+<img alt="../_images/LinesAndBoxes-CreatingLines-02.png" src="../_images/LinesAndBoxes-CreatingLines-02.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Price path projection&quot;, &quot;PPP&quot;, true, max_lines_count = 100)
+qtyOfLinesInput = input.int(10, minval = 1)
+
+y2Increment = (close - open) / qtyOfLinesInput
+// Starting point of the fan in y.
+lineY1 = math.avg(close[1], open[1])
+// Loop creating the fan of lines on each bar.
+for i = 0 to qtyOfLinesInput
+    // End point in y if line stopped at current bar.
+    lineY2 = open + (y2Increment * i)
+    // Extrapolate necessary y position to the next bar because we extend lines one bar in the future.
+    lineY2 := lineY2 + (lineY2 - lineY1)
+    lineColor = lineY2 &gt; lineY1 ? color.lime : color.fuchsia
+    line.new(bar_index - 1, lineY1, bar_index + 1, lineY2, color = lineColor)
+</pre></div>
+</div>
+<p>Note that:</p>
+<ul class="simple">
+<li>We are creating a set of lines from within a <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_for">for</a> structure.</li>
+<li>We use the default <code class="docutils literal notranslate"><span class="pre">xloc</span> <span class="pre">=</span> <span class="pre">xloc.bar_index</span></code>, so our <code class="docutils literal notranslate"><span class="pre">x1</span></code> and <code class="docutils literal notranslate"><span class="pre">x2</span></code> values are bar indices.</li>
+<li>We want to start lines on the previous bar, so we use <code class="docutils literal notranslate"><span class="pre">bar_index</span> <span class="pre">-</span> <span class="pre">1</span></code> for <code class="docutils literal notranslate"><span class="pre">x1</span></code> and <code class="docutils literal notranslate"><span class="pre">bar_index</span> <span class="pre">+</span> <span class="pre">1</span></code> for <code class="docutils literal notranslate"><span class="pre">x2</span></code>.</li>
+<li>We use a “series color” value (its value can change in any of the loop’s iterations) for the line’s color.
+When the line is going up we make it lime; if not we make it fuchsia.</li>
+<li>The script will repaint in realtime because it is using the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_close">close</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_open">open</a> values of the realtime bar to calculate line projections.
+Once the realtime bar closes, the lines drawn on elapsed realtime bars will no longer update.</li>
+<li>We use <code class="docutils literal notranslate"><span class="pre">max_lines_count</span> <span class="pre">=</span> <span class="pre">100</span></code> in our <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_indicator">indicator()</a> call to
+preserve the last 100 lines.</li>
+</ul>
+</div>
+<div class="section" id="modifying-lines">
+<h3><a class="toc-backref" href="#id7">Modifying lines</a><a class="headerlink" href="#modifying-lines" title="Permalink to this headline">¶</a></h3>
+<p>The <em>setter</em> functions allowing you to change a line’s properties are:</p>
+<ul class="simple">
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}set_x1">line.set_x1()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}set_y1">line.set_y1()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}set_xy1">line.set_xy1()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}set_x2">line.set_x2()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}set_y2">line.set_y2()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}set_xy2">line.set_xy2()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}set_xloc">line.set_xloc()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}set_extend">line.set_extend()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}set_color">line.set_color()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}set_style">line.set_style()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}set_width">line.set_width()</a></li>
+</ul>
+<p>They all have a similar signature.
+The one for <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}set_color">line.set_color()</a> is:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>line.set_color(id, color) → void
+</pre></div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">id</span></code> is the ID of the line whose property is to be modified.</li>
+<li>The next parameter is the property of the line to modify. It depends on the setter function used.
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}set_xy1">line.set_xy1()</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}set_xy2">line.set_xy2()</a> change two properties, so they have two such parameters.</li>
+</ul>
+<p>In the next example we display a line showing the highest <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_high">high</a>
+value in the last <code class="docutils literal notranslate"><span class="pre">lookbackInput</span></code> bars. We will be using setter functions to modify an existing line:</p>
+<img alt="../_images/LinesAndBoxes-ModifyingLines-01.png" src="../_images/LinesAndBoxes-ModifyingLines-01.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+MAX_BARS_BACK = 500
+indicator(&quot;Last high&quot;, &quot;&quot;, true, max_bars_back = MAX_BARS_BACK)
+
+repaintInput  = input.bool(false, &quot;Position bars in the past&quot;)
+lookbackInput = input.int(50, minval = 1, maxval = MAX_BARS_BACK)
+
+// Keep track of highest `high` and detect when it changes.
+hi = ta.highest(lookbackInput)
+newHi = ta.change(hi)
+// Find the offset to the highest `high` in last 50 bars. Change it&#39;s sign so it is positive.
+highestBarOffset = - ta.highestbars(lookbackInput)
+// Create label on bar zero only.
+var lbl = label.new(na, na, &quot;&quot;, color = color(na), style = label.style_label_left)
+var lin = line.new(na, na, na, na, xloc = xloc.bar_time, style = line.style_arrow_right)
+// When a new high is found, move the label there and update its text and tooltip.
+if newHi
+    // Build line.
+    lineX1 = time[highestBarOffset + 1]
+    // Get the `high` value at that offset. Note that `highest(50)` would be equivalent,
+    // but it would require evaluation on every bar, prior to entry into this `if` structure.
+    lineY = high[highestBarOffset]
+    // Determine line&#39;s starting point with user setting to plot in past or not.
+    line.set_xy1(lin, repaintInput ? lineX1 : time[1], lineY)
+    line.set_xy2(lin, repaintInput ? lineX1 : time,    lineY)
+
+    // Reposition label and display new high&#39;s value.
+    label.set_xy(lbl, bar_index, lineY)
+    label.set_text(lbl, str.tostring(lineY, format.mintick))
+else
+    // Update line&#39;s right end point and label to current bar&#39;s.
+    line.set_x2(lin, time)
+    label.set_x(lbl, bar_index)
+
+// Show a blue dot when a new high is found.
+plotchar(newHi, &quot;newHighFound&quot;, &quot;•&quot;, location.top, size = size.tiny)
+</pre></div>
+</div>
+<p>Note that:</p>
+<ul class="simple">
+<li>We plot the line starting on the bar preceding the point where the new high is found.
+We draw the line from the preceding bar so that we see a one bar line when a new high is found.</li>
+<li>We only start the line in the past, from the actual highest point,
+when the user explicitly chooses to do so through the script’s inputs.
+This gives the user control over the repainting behavior of the script.
+It also avoids misleading traders into thinking that our script is prescient and can know in advance if a high
+point will still be the high point in the lookback period <em>n</em> bars later.</li>
+<li>We manage the historical buffer to avoid runtime errors when referring to bars too far away in the past.
+We do two things for this: we use the <code class="docutils literal notranslate"><span class="pre">max_bars_back</span></code> parameter in our
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_indicator">indicator()</a> call,
+and we cap the input for <code class="docutils literal notranslate"><span class="pre">lookbackInput</span></code> using <code class="docutils literal notranslate"><span class="pre">maxval</span></code> in our
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input{dot}int">input.int()</a> call.
+Rather than use the <code class="docutils literal notranslate"><span class="pre">500</span></code> literal in two places, we create a <code class="docutils literal notranslate"><span class="pre">MAX_BARS_BACK</span></code> constant for it.</li>
+<li>We create our line and label on the first bar only, using <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_var">var</a>.
+From that point on, we only need to update their properties, so we are moving the same line and label along,
+resetting their position and the label’s text when a new high is found, and then only updating their <em>x</em> coordinates as new bars come in.
+We use the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}set_xy1">line.set_xy1()</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}set_xy1">line.set_xy1()</a> functions when we find a new high, and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}set_x2">line.set_x2()</a> on other bars, to extend the line.</li>
+<li>We use time values for <code class="docutils literal notranslate"><span class="pre">x1</span></code> and <code class="docutils literal notranslate"><span class="pre">x2</span></code> because our
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}new">line.new()</a> call specifies <code class="docutils literal notranslate"><span class="pre">xloc</span> <span class="pre">=</span> <span class="pre">xloc.bar_time</span></code>.</li>
+<li>We use <code class="docutils literal notranslate"><span class="pre">style</span> <span class="pre">=</span> <span class="pre">line.style_arrow_right</span></code> in our
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}new">line.new()</a>  call to display a right arrow line style.</li>
+<li>Even though our label’s background is not visible, we use <code class="docutils literal notranslate"><span class="pre">style</span> <span class="pre">=</span> <span class="pre">label.style_label_left</span></code> in our
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_label{dot}new">label.new()</a> call
+so that the price value is positioned to the right of the chart’s last bar.</li>
+<li>To better visualize on which bars a new high is found,
+we plot a blue dot using <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plotchar">plotchar()</a>.
+Note that this does not necessarily entail the bar where it appears <strong>is</strong> the new highest value.
+While this may happen, a new highest value can also be calculated because a long-standing high has dropped off
+from the lookback length and been replaced by another high that may not be on the bar where the blue dot appears.</li>
+<li>Our chart cursor points to the bar with the highest value in the last 50 bars.</li>
+<li>When the user does not choose to plot in the past, our script does not repaint.</li>
+</ul>
+</div>
+<div class="section" id="line-styles">
+<span id="pagelinesandboxes-linestyles"></span><h3><a class="toc-backref" href="#id8">Line styles</a><a class="headerlink" href="#line-styles" title="Permalink to this headline">¶</a></h3>
+<p>Various styles can be applied to lines with either the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}new">line.new()</a> or
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}set_style">line.set_style()</a> functions:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="26%" />
+<col width="24%" />
+<col width="1%" />
+<col width="26%" />
+<col width="24%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Argument</th>
+<th class="head">Line</th>
+<th class="head">&#160;</th>
+<th class="head">Argument</th>
+<th class="head">Line</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">line.style_solid</span></code></td>
+<td><img alt="line_style_solid" src="../_images/LinesAndBoxes-LineStyles-solid.png" /></td>
+<td>&#160;</td>
+<td><code class="docutils literal notranslate"><span class="pre">line.style_arrow_left</span></code></td>
+<td><img alt="line_style_arrow_left" src="../_images/LinesAndBoxes-LineStyles-arrow_left.png" /></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">line.style_dotted</span></code></td>
+<td><img alt="line_style_dotted" src="../_images/LinesAndBoxes-LineStyles-dotted.png" /></td>
+<td>&#160;</td>
+<td><code class="docutils literal notranslate"><span class="pre">line.style_arrow_right</span></code></td>
+<td><img alt="line_style_arrow_right" src="../_images/LinesAndBoxes-LineStyles-arrow_right.png" /></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">line.style_dashed</span></code></td>
+<td><img alt="line_style_dashed" src="../_images/LinesAndBoxes-LineStyles-dashed.png" /></td>
+<td>&#160;</td>
+<td><code class="docutils literal notranslate"><span class="pre">line.style_arrow_both</span></code></td>
+<td><img alt="line_style_arrow_both" src="../_images/LinesAndBoxes-LineStyles-arrow_both.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="getting-line-properties">
+<h3><a class="toc-backref" href="#id9">Getting line properties</a><a class="headerlink" href="#getting-line-properties" title="Permalink to this headline">¶</a></h3>
+<p>The following <em>getter</em> functions are available for lines:</p>
+<ul class="simple">
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}get_price">line.get_price()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}get_x1">line.get_x1()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}get_y1">line.get_y1()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}get_x2">line.get_x2()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}get_y2">line.get_y2()</a></li>
+</ul>
+<p>The signature for <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}get_price">line.get_price()</a> is:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>line.get_price(id, x) → series float
+</pre></div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">id</span></code> is the line whose <code class="docutils literal notranslate"><span class="pre">x1</span></code> value is to be retrieved</li>
+<li><code class="docutils literal notranslate"><span class="pre">x</span></code> is the bar index of the point on the line whose <em>y</em> coordinate is to be returned.</li>
+</ul>
+<p>The last four functions all have a similar signature.
+The one for <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}get_x1">line.get_x1()</a> is:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>line.get_x1(id) → series int
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">id</span></code> is the ID of the line whose <code class="docutils literal notranslate"><span class="pre">x1</span></code> value is to be retrieved.</p>
+</div>
+<div class="section" id="cloning-lines">
+<h3><a class="toc-backref" href="#id10">Cloning lines</a><a class="headerlink" href="#cloning-lines" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}copy">line.copy()</a>
+function is used to clone lines. Its syntax is:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>line.copy(id) → void
+</pre></div>
+</div>
+</div>
+<div class="section" id="deleting-lines">
+<h3><a class="toc-backref" href="#id11">Deleting lines</a><a class="headerlink" href="#deleting-lines" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}delete">line.delete()</a>
+function is used to delete lines. Its syntax is:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>line.delete(id) → void
+</pre></div>
+</div>
+<p>To keep only a user-defined quantity of lines on the chart, one could use code like this,
+where we are dawing a level every time RSI rises/falls for a user-defined quantity of consecutive bars:</p>
+<img alt="../_images/LinesAndBoxes-DeletingLines-01.png" src="../_images/LinesAndBoxes-DeletingLines-01.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+int MAX_LINES_COUNT = 500
+indicator(&quot;RSI levels&quot;, max_lines_count = MAX_LINES_COUNT)
+
+int linesToKeepInput = input.int(10, minval = 1, maxval = MAX_LINES_COUNT)
+int sensitivityInput = input.int(5, minval = 1)
+
+float myRSI = ta.rsi(close, 20)
+bool myRSIRises = ta.rising(myRSI, sensitivityInput)
+bool myRSIFalls = ta.falling(myRSI, sensitivityInput)
+if myRSIRises or myRSIFalls
+    color lineColor = myRSIRises ? color.new(color.green, 70) : color.new(color.red, 70)
+    line.new(bar_index, myRSI, bar_index + 1, myRSI, color = lineColor, width = 2)
+    // Once the new line is created, delete the oldest one if we have too many.
+    if array.size(line.all) &gt; linesToKeepInput
+        line.delete(array.get(line.all, 0))
+    int(na)
+else
+    // Extend all visible lines.
+    int lineNo = 0
+    while lineNo &lt; array.size(line.all)
+        line.set_x2(array.get(line.all, lineNo), bar_index)
+        lineNo += 1
+    int(na)
+
+plot(myRSI)
+hline(50)
+// Plot markers to show where our triggering conditions are `true`.
+plotchar(myRSIRises, &quot;myRSIRises&quot;, &quot;🠅&quot;, location.top,    color.green, size = size.tiny)
+plotchar(myRSIFalls, &quot;myRSIFalls&quot;, &quot;🠇&quot;, location.bottom, color.red,   size = size.tiny)
+</pre></div>
+</div>
+<p>Note that:</p>
+<ul class="simple">
+<li>We define a <code class="docutils literal notranslate"><span class="pre">MAX_LINES_COUNT</span></code> constant to hold the maximum quantity of lines a script can accommodate.
+We use that value to set the <code class="docutils literal notranslate"><span class="pre">max_lines_count</span></code> parameter’s value in our <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_indicator">indicator()</a> call,
+and also as the <code class="docutils literal notranslate"><span class="pre">maxval</span></code> value in our <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input{dot}int">input.int()</a> call,
+to cap the user value.</li>
+<li>We use the <code class="docutils literal notranslate"><span class="pre">myRSIRises</span></code> and <code class="docutils literal notranslate"><span class="pre">myRSIFalls</span></code> variables to hold the states determining when we create a new level.
+After that, we delete the oldest line in the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_label{dot}all">line.all</a>
+built-in array that is automatically maintained by the Pine Script<sup>®</sup> runtime and contains the ID of all the visible lines drawn by our script.
+We use the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_array{dot}get">array.get()</a>
+function to retrieve the array element at index zero (the oldest visible line ID).
+We then use <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}delete">line.delete()</a>
+to delete the line referenced by that ID.</li>
+<li>Again, we need to artificially return <code class="docutils literal notranslate"><span class="pre">int(na)</span></code> in both local blocks of our
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_if">if</a> structure so the compiler doesn’t not complain.
+See the <a class="reference internal" href="../language/Conditional_structures.html#pageconditionalstructures-matchinglocalblocktyperequirement"><span class="std std-ref">Matching local block type requiremement</span></a> section for more information.</li>
+<li>This time, we mention the type of variables explicitly when we declare them, as in <code class="docutils literal notranslate"><span class="pre">float</span> <span class="pre">myRSI</span> <span class="pre">=</span> <span class="pre">ta.rsi(close,</span> <span class="pre">20)</span></code>.
+The declarations are functionally redundant, but they can help make your intention clear to readers of your code — you being the one who will read it the most frequently.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="boxes">
+<h2><a class="toc-backref" href="#id12">Boxes</a><a class="headerlink" href="#boxes" title="Permalink to this headline">¶</a></h2>
+<p>Boxes are managed using built-in functions in the <code class="docutils literal notranslate"><span class="pre">box</span></code> namespace. They include:</p>
+<ul class="simple">
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_box{dot}new">box.new()</a> to create them.</li>
+<li><code class="docutils literal notranslate"><span class="pre">box.set_*()</span></code> functions to modify the properties of a box.</li>
+<li><code class="docutils literal notranslate"><span class="pre">box.get_*()</span></code> functions to read some of the properties of an existing box.</li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_box{dot}copy">box.copy()</a> to clone them.</li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_box{dot}delete">box.delete()</a> to delete them.</li>
+<li>The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_box{dot}all">box.all</a>
+array which always contains the IDs of all the visible boxes on the chart.
+The array’s size will depend on the maximum box count for your script and how many of those you have drawn.
+<code class="docutils literal notranslate"><span class="pre">aray.size(box.all)</span></code> will return the array’s size.</li>
+</ul>
+<div class="section" id="creating-boxes">
+<h3><a class="toc-backref" href="#id13">Creating boxes</a><a class="headerlink" href="#creating-boxes" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_box{dot}new">box.new()</a>
+function creates a new line. It has the following signature:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>box.new(left, top, right, bottom, border_color, border_width, border_style, extend, xloc, bgcolor) → series box
+</pre></div>
+</div>
+<p>Boxes are positioned on the chart according to <em>x</em> (bars) and <em>y</em> (price) coordinates.
+Five parameters affect this behavior: <code class="docutils literal notranslate"><span class="pre">left</span></code>, <code class="docutils literal notranslate"><span class="pre">top</span></code>, <code class="docutils literal notranslate"><span class="pre">right</span></code>, <code class="docutils literal notranslate"><span class="pre">bottom</span></code> and <code class="docutils literal notranslate"><span class="pre">xloc</span></code>:</p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">left</span></code> and <code class="docutils literal notranslate"><span class="pre">right</span></code></dt>
+<dd>They are the <em>x</em> coordinates of the line’s start and end points.
+They are either a bar index or a time value, as determined by the argument used for <code class="docutils literal notranslate"><span class="pre">xloc</span></code>.
+When a bar index is used, the value can be offset in the past (maximum of 5000 bars) or in the future (maximum of 500 bars).
+Past or future offsets can also be calculated when using time values.
+The <code class="docutils literal notranslate"><span class="pre">left</span></code> and <code class="docutils literal notranslate"><span class="pre">right</span></code> values of an existing line can be modified using
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_box{dot}set_left">box.set_left()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_box{dot}set_right">box.set_right()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_box{dot}set_lefttop">box.set_lefttop()</a> or
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_box{dot}set_rightbottom">box.set_rightbottom()</a>.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">xloc</span></code></dt>
+<dd>Is either <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_xloc{dot}bar_index">xloc.bar_index</a> (the default)
+or <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_xloc{dot}bar_time">xloc.bar_time</a>.
+It determines which type of argument must be used with <code class="docutils literal notranslate"><span class="pre">left</span></code> and <code class="docutils literal notranslate"><span class="pre">right</span></code>.
+With <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_xloc{dot}bar_index">xloc.bar_index</a>, <code class="docutils literal notranslate"><span class="pre">left</span></code> and <code class="docutils literal notranslate"><span class="pre">right</span></code> must be absolute bar indices.
+With <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_xloc{dot}bar_time">xloc.bar_time</a>, <code class="docutils literal notranslate"><span class="pre">left</span></code> and <code class="docutils literal notranslate"><span class="pre">right</span></code> must be a UNIX timestamp in milliseconds
+corresponding to a value between the bar’s <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_time">time</a> (opening time) and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_time_close">time_close</a> (closing time) values.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">top</span></code> and <code class="docutils literal notranslate"><span class="pre">bottom</span></code></dt>
+<dd>They are the <em>y</em> coordinates of the boxes’ top and bottom levels (boxes are always rectangular).
+While they are called price levels, they must be of values that make sense in the script’s visual space.
+For an RSI indicator, they would typically be between 0 and 100, for example.
+When an indicator is running as an overlay, then the price scale will usually be that of the chart’s symbol.
+The <code class="docutils literal notranslate"><span class="pre">top</span></code> and <code class="docutils literal notranslate"><span class="pre">bottom</span></code> values of an existing line can be modified using
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_box{dot}set_top">box.set_top()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_box{dot}set_bottom">box.set_bottom()</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_box{dot}set_lefttop">box.set_lefttop()</a> or
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_box{dot}set_rightbottom">box.set_rightbottom()</a>.</dd>
+</dl>
+<p>The remaining five parameters in <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_box{dot}new">box.new()</a>
+control the visual appearance of boxes:</p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">border_color</span></code></dt>
+<dd>Is the border’s color. It defaults to <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_color{dot}blue">color.blue</a>.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">border_width</span></code></dt>
+<dd>Determines the width of the border in pixels.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">border_style</span></code></dt>
+<dd>Is the style of border. See this page’s <a class="reference internal" href="#pagelinesandboxes-boxstyles"><span class="std std-ref">Box styles</span></a> section.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">extend</span></code></dt>
+<dd>Determines if the borders is extended past the box’s coordinates.
+It can be <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_extend{dot}none">extend.none</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_extend{dot}left">extend.left</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_extend{dot}right">extend.right</a> or
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_extend{dot}both">extend.both</a>.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">bgcolor</span></code></dt>
+<dd>Is the background color of the box. It defaults to <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_color{dot}blue">color.blue</a>.</dd>
+</dl>
+<p>Let’s create simple boxes:</p>
+<img alt="../_images/LinesAndBoxes-CreatingBoxes-01.png" src="../_images/LinesAndBoxes-CreatingBoxes-01.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;&quot;, &quot;&quot;, true)
+box.new(bar_index, high, bar_index + 1, low, border_color = color.gray, bgcolor = color.new(color.silver, 60))
+</pre></div>
+</div>
+<p>Note that:</p>
+<ul class="simple">
+<li>The start and end points of boxes, like lines, are always the horizontal <strong>center</strong> of bars.</li>
+<li>We start these boxes at <code class="docutils literal notranslate"><span class="pre">bar_index</span></code> and end them on <code class="docutils literal notranslate"><span class="pre">bar_index</span> <span class="pre">+</span> <span class="pre">1</span></code> (the following bar in the future)
+so that we get an actual box. If we used <code class="docutils literal notranslate"><span class="pre">bar_index</span></code> for both coordinates, only a vertical line would be drawn in the center of the bar.</li>
+<li>No logic controls our <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_box{dot}new">box.new()</a> call, so boxes are created on every bar.</li>
+<li>Only approximately the last 50 boxes are shown because that is the default value for
+the <code class="docutils literal notranslate"><span class="pre">max_boxes_count</span></code> parameter in <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_indicator">indicator()</a>,
+which we haven’t specified.</li>
+<li>Boxes persist on bars until your script deletes them using
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_box{dot}delete">box.delete()</a>, or garbage collection removes them.</li>
+</ul>
+</div>
+<div class="section" id="modifying-boxes">
+<h3><a class="toc-backref" href="#id14">Modifying boxes</a><a class="headerlink" href="#modifying-boxes" title="Permalink to this headline">¶</a></h3>
+<p>The available <em>setter</em> functions for box drawings are:</p>
+<ul class="simple">
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_box{dot}set_left">box.set_left()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_box{dot}set_top">box.set_top()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_box{dot}set_lefttop">box.set_lefttop()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_box{dot}set_right">box.set_right()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_box{dot}set_bottom">box.set_bottom()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_box{dot}set_rightbottom">box.set_rightbottom()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_box{dot}set_border_color">box.set_border_color()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_box{dot}set_border_width">box.set_border_width()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_box{dot}set_border_style">box.set_border_style()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_box{dot}set_extend">box.set_extend()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_box{dot}set_bgcolor">box.set_bgcolor()</a></li>
+</ul>
+<p>Note that contrary to lines, there is no setter function to modify <code class="docutils literal notranslate"><span class="pre">xloc</span></code> for boxes.</p>
+<p>This script uses setter functions to update boxes.
+It detects the largest up and down volume bars during a user-defined timeframe
+and draws boxes with the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_high">high</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_low">low</a> levels of those bars.
+If a higher volume bar comes in, the timeframe’s box is redrawn using the new bar’s
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_high">high</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_low">low</a> levels:</p>
+<img alt="../_images/LinesAndBoxes-ModifyingBoxes-01.png" src="../_images/LinesAndBoxes-ModifyingBoxes-01.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;High volume bar boxes&quot;, &quot;&quot;, true)
+
+string tfInput      = input.timeframe(&quot;D&quot;, &quot;Resetting timeframe&quot;)
+int    transpInput  = 100 - input.int(100, &quot;Line Brightness&quot;, minval = 0, maxval = 100, step = 5, inline = &quot;1&quot;, tooltip = &quot;100 is brightest&quot;)
+int    widthInput   = input.int(2, &quot;Width&quot;, minval = 0, maxval = 100, step = 5, inline = &quot;1&quot;)
+color  upColorInput = input.color(color.lime, &quot;🠅&quot;, inline = &quot;1&quot;)
+color  dnColorInput = input.color(color.fuchsia, &quot;🠇&quot;, inline = &quot;1&quot;)
+
+bool newTF = ta.change(time(tfInput))
+bool barUp = close &gt; open
+
+// These keep track of highest up/dn volume found during the TF.
+var float hiVolUp = na
+var float hiVolDn = na
+// These always hold the IDs of the current TFs boxes.
+var box boxUp = na
+var box boxDn = na
+
+if newTF and not na(volume)
+    // New TF begins; create new boxes, one of which will be invisible.
+    if barUp
+        hiVolUp := volume
+        hiVolDn := na
+        boxUp := box.new(bar_index, high, bar_index + 1, low, border_color = color.new(upColorInput, transpInput), border_width = widthInput, bgcolor = na)
+        boxDn := box.new(na, na, na, na, border_color = color.new(dnColorInput, transpInput), border_width = widthInput, bgcolor = na)
+    else
+        hiVolDn := volume
+        hiVolUp := na
+        boxDn := box.new(bar_index, high, bar_index + 1, low, border_color = color.new(dnColorInput, transpInput), border_width = widthInput, bgcolor = na)
+        boxUp := box.new(na, na, na, na, border_color = color.new(upColorInput, transpInput), border_width = widthInput, bgcolor = na)
+    int(na)
+else
+    // On bars during the HTF, keep tracks of highest up/dn volume bar.
+    if barUp
+        hiVolUp := math.max(nz(hiVolUp), volume)
+    else
+        hiVolDn := math.max(nz(hiVolDn), volume)
+    // If a new bar has higher volume, reset its box.
+    if hiVolUp &gt; nz(hiVolUp[1])
+        box.set_lefttop(boxUp, bar_index, high)
+        box.set_rightbottom(boxUp, bar_index + 1, low)
+    else if hiVolDn &gt; nz(hiVolDn[1])
+        box.set_lefttop(boxDn, bar_index, high)
+        box.set_rightbottom(boxDn, bar_index + 1, low)
+    int(na)
+
+// On all bars, extend right side of both boxes.
+box.set_right(boxUp, bar_index + 1)
+box.set_right(boxDn, bar_index + 1)
+// Plot circle mark on TF changes.
+plotchar(newTF, &quot;newTF&quot;, &quot;•&quot;, location.top, size = size.tiny)
+</pre></div>
+</div>
+<p>Note that:</p>
+<ul class="simple">
+<li>We use the <code class="docutils literal notranslate"><span class="pre">inline</span></code> parameter in the inputs relating to the boxes’ visual appearance to place them on the same line.</li>
+<li>We subtract the 0-100 brightness level given by the user from 100 to generate the correct transparency for our box borders.
+We do this because it is more intuitive for users to specify a brightness level where 100 represents maximum brightness.
+We provide a tooltip to explain the scale.</li>
+<li>When a new higher timeframe bar comes in and the symbol’s feed contains volume data, we reset our information. If the timeframe’s first bar is up,
+we create a new visible <code class="docutils literal notranslate"><span class="pre">boxUp</span></code> box and an invisible <code class="docutils literal notranslate"><span class="pre">boxDn</span></code> box. We do the inverse if the first bar’s polarity is down.
+We take care to reassign the IDs of the newly created boxes to <code class="docutils literal notranslate"><span class="pre">boxUp</span></code> and <code class="docutils literal notranslate"><span class="pre">boxUp</span></code> so we will be able to update those boxes later in the script.
+This is possible because we have declared those variables with <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_var">var</a>.
+See the section on the <a class="reference internal" href="../language/Variable_declarations.html#pagevariabledeclarations-var"><span class="std std-ref">var declaration mode</span></a> for more information.</li>
+<li>On all other chart bars belonging to the same higher timeframe bar, we monitor volume values to keep track of the highest.
+If a new higher volume bar is encountered, we reset the corresponding box’s coordinates on that new bar using
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_box{dot}set_lefttop">box.set_lefttop()</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_box{dot}set_rightbottom">box.set_rightbottom()</a>.</li>
+<li>On all bars, we extend the right side of the timeframe’s two boxes using <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_box{dot}set_right">box.set_right()</a>.</li>
+<li>Approximately the last 50 boxes will be visible on the chart because we do not use
+<code class="docutils literal notranslate"><span class="pre">max_boxes_count</span></code> in our <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_indicator">indicator()</a> call
+to change its default value.</li>
+</ul>
+<p>This is our script’s “Settings/Inputs” tab:</p>
+<img alt="../_images/LinesAndBoxes-ModifyingBoxes-02.png" src="../_images/LinesAndBoxes-ModifyingBoxes-02.png" />
+</div>
+<div class="section" id="box-styles">
+<span id="pagelinesandboxes-boxstyles"></span><h3><a class="toc-backref" href="#id15">Box styles</a><a class="headerlink" href="#box-styles" title="Permalink to this headline">¶</a></h3>
+<p>Various styles can be applied to boxes with either the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_box{dot}new">box.new()</a> or
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_box{dot}set_border_style">box.set_border_style()</a> functions:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="58%" />
+<col width="42%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Argument</th>
+<th class="head">Box</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">line.style_solid</span></code></td>
+<td><img alt="box_style_solid" src="../_images/LinesAndBoxes-BoxStyles-solid.png" /></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">line.style_dotted</span></code></td>
+<td><img alt="box_style_dotted" src="../_images/LinesAndBoxes-BoxStyles-dotted.png" /></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">line.style_dashed</span></code></td>
+<td><img alt="box_style_dashed" src="../_images/LinesAndBoxes-BoxStyles-dashed.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="getting-box-properties">
+<h3><a class="toc-backref" href="#id16">Getting box properties</a><a class="headerlink" href="#getting-box-properties" title="Permalink to this headline">¶</a></h3>
+<p>The following <em>getter</em> functions are available for boxes:</p>
+<ul class="simple">
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_box{dot}get_bottom">box.get_bottom()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_box{dot}get_left">box.get_left()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_box{dot}get_right">box.get_right()</a></li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_box{dot}get_top">box.get_top()</a></li>
+</ul>
+<p>The signature for <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_box{dot}get_top">box.get_top()</a> is:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>box.get_top(id) → series float
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">id</span></code> is the ID of the box whose <code class="docutils literal notranslate"><span class="pre">top</span></code> value is to be retrieved.</p>
+</div>
+<div class="section" id="cloning-boxes">
+<h3><a class="toc-backref" href="#id17">Cloning boxes</a><a class="headerlink" href="#cloning-boxes" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_box{dot}copy">box.copy()</a>
+function is used to clone boxes. Its syntax is:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>box.copy(id) → void
+</pre></div>
+</div>
+</div>
+<div class="section" id="deleting-boxes">
+<h3><a class="toc-backref" href="#id18">Deleting boxes</a><a class="headerlink" href="#deleting-boxes" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_box{dot}delete">box.delete()</a>
+function is used to delete boxes. Its signature is:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>box.delete(id) → void
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="realtime-behavior">
+<h2><a class="toc-backref" href="#id19">Realtime behavior</a><a class="headerlink" href="#realtime-behavior" title="Permalink to this headline">¶</a></h2>
+<p>Lines and boxes are subject to both <em>commit</em> and <em>rollback</em> actions, which affect the behavior of a script when it executes
+in the realtime bar. See the page on Pine Script<sup>®</sup>’s <a class="reference internal" href="../language/Execution_model.html#pageexecutionmodel"><span class="std std-ref">Execution model</span></a>.</p>
+<p>This script demonstrates the effect of rollback when running in the realtime bar:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;My Script&quot;, overlay = true)
+line.new(bar_index, high, bar_index, low, width = 6)
+</pre></div>
+</div>
+<p>While <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_line{dot}new">line.new()</a>
+creates a new line on every iteration of the script when price changes in the realtime bar,
+the most recent line created in the script’s previous iteration is also automatically deleted because of the rollback before the next iteration.
+Only the last line created before the realtime bar’s close will be committed, and will thus persist.</p>
+</div>
+<div class="section" id="limitations">
+<h2><a class="toc-backref" href="#id20">Limitations</a><a class="headerlink" href="#limitations" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="total-number-of-objects">
+<h3><a class="toc-backref" href="#id21">Total number of objects</a><a class="headerlink" href="#total-number-of-objects" title="Permalink to this headline">¶</a></h3>
+<p>Lines and boxes consume server resources, which is why there is a limit to the total number of drawings
+per indicator or strategy. When too many are created, old ones are automatically deleted by the Pine Script<sup>®</sup> runtime,
+in a process referred to as <em>garbage collection</em>.</p>
+<p>This code creates a line on every bar:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;&quot;, &quot;&quot;, true)
+line.new(bar_index, high, bar_index, low, width = 6)
+</pre></div>
+</div>
+<p>Scrolling the chart left, one will see there are no lines after approximately 50 bars:</p>
+<img alt="../_images/LinesAndBoxes-TotalNumberOfObjects-01.png" src="../_images/LinesAndBoxes-TotalNumberOfObjects-01.png" />
+<p>You can change the drawing limit to a value in range from 1 to 500 using the <code class="docutils literal notranslate"><span class="pre">max_lines_count</span></code> and <code class="docutils literal notranslate"><span class="pre">max_boxes_count</span></code> parameters
+in the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_indicator">indicator()</a>
+or <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_strategy">strategy()</a> functions:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;&quot;, &quot;&quot;, true, max_lines_count = 100)
+line.new(bar_index, high, bar_index, low, width = 6)
+</pre></div>
+</div>
+</div>
+<div class="section" id="future-references-with-xloc-bar-index">
+<h3><a class="toc-backref" href="#id22">Future references with `xloc.bar_index`</a><a class="headerlink" href="#future-references-with-xloc-bar-index" title="Permalink to this headline">¶</a></h3>
+<p>Objects positioned using <code class="docutils literal notranslate"><span class="pre">xloc.bar_index</span></code> cannot be drawn further than 500 bars into the future.</p>
+</div>
+<div class="section" id="additional-securities">
+<h3><a class="toc-backref" href="#id23">Additional securities</a><a class="headerlink" href="#additional-securities" title="Permalink to this headline">¶</a></h3>
+<p>Lines and boxes cannot be managed in functions sent with
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a> calls.
+While they can use values fetched through <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a>,
+they must be drawn in the main symbol’s context.</p>
+<p>This is also the reason why line and box drawing code will not work in scripts using the <code class="docutils literal notranslate"><span class="pre">timeframe</span></code> parameter
+in <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_indicator">indicator()</a>.</p>
+</div>
+<div class="section" id="historical-buffer-and-max-bars-back">
+<span id="max-bars-back-of-time"></span><h3><a class="toc-backref" href="#id24">Historical buffer and `max_bars_back`</a><a class="headerlink" href="#historical-buffer-and-max-bars-back" title="Permalink to this headline">¶</a></h3>
+<p>Use of <code class="docutils literal notranslate"><span class="pre">barstate.isrealtime</span></code> in combination with drawings may sometimes produce unexpected results.
+This code’s intention, for example, is to ignore all historical bars and create a label drawing on the <em>realtime</em> bar:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;My Script&quot;, overlay = true)
+
+if barstate.isrealtime
+    label.new(bar_index[300], na, text = &quot;Label&quot;, yloc = yloc.abovebar)
+</pre></div>
+</div>
+<p>It will, however, fail at runtime. The reason for the error is that the script cannot determine the buffer size
+for historical values of the <code class="docutils literal notranslate"><span class="pre">time</span></code> plot, even though the <code class="docutils literal notranslate"><span class="pre">time</span></code> built-in variable isn’t mentioned in the code.
+This is due to the fact that the built-in variable <code class="docutils literal notranslate"><span class="pre">bar_index</span></code> uses the <code class="docutils literal notranslate"><span class="pre">time</span></code> series in its inner workings.
+Accessing the value of the bar index 300 bars back requires that the history buffer size of the <code class="docutils literal notranslate"><span class="pre">time</span></code> series
+be of size 300 or more.</p>
+<p>In Pine Script<sup>®</sup>, there is a mechanism that automaticaly detects the required historical buffer size for most cases.
+Autodetection works by letting a script access historical values any number of bars back for a limited duration.
+In this script’s case, the <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">barstate.isrealtime</span></code> condition prevents any such accesses to occur,
+so the required historical buffer size cannot be inferred and the code fails.</p>
+<p>The solution to this conundrum is to use the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_max_bars_back">max_bars_back</a> function to explicitly set the historical buffer size for the <code class="docutils literal notranslate"><span class="pre">time</span></code> series:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;My Script&quot;, overlay = true)
+
+max_bars_back(time, 300)
+
+if barstate.isrealtime
+    label.new(bar_index[300], na, text = &quot;Label&quot;, yloc = yloc.abovebar)
+</pre></div>
+</div>
+<p>Such occurrences are confusing, but rare. In time, the Pine Script<sup>®</sup> team hopes to eliminate them.</p>
+</div>
+</div>
+<div class="section" id="examples">
+<h2><a class="toc-backref" href="#id25">Examples</a><a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="pivot-points-standard">
+<h3><a class="toc-backref" href="#id26">Pivot Points Standard</a><a class="headerlink" href="#pivot-points-standard" title="Permalink to this headline">¶</a></h3>
+<img alt="../_images/LinesAndBoxes-Examples-PivotPointsStandard-01.png" src="../_images/LinesAndBoxes-Examples-PivotPointsStandard-01.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Pivot Points Standard&quot;, overlay = true)
+higherTFInput = input.timeframe(&quot;D&quot;)
+prevCloseHTF = request.security(syminfo.tickerid, higherTFInput, close[1], lookahead = barmerge.lookahead_on)
+prevOpenHTF = request.security(syminfo.tickerid, higherTFInput, open[1], lookahead = barmerge.lookahead_on)
+prevHighHTF = request.security(syminfo.tickerid, higherTFInput, high[1], lookahead = barmerge.lookahead_on)
+prevLowHTF = request.security(syminfo.tickerid, higherTFInput, low[1], lookahead = barmerge.lookahead_on)
+
+pLevel = (prevHighHTF + prevLowHTF + prevCloseHTF) / 3
+r1Level = pLevel * 2 - prevLowHTF
+s1Level = pLevel * 2 - prevHighHTF
+
+var line r1Line = na
+var line pLine = na
+var line s1Line = na
+
+if pLevel[1] != pLevel
+    line.set_x2(r1Line, bar_index)
+    line.set_x2(pLine, bar_index)
+    line.set_x2(s1Line, bar_index)
+    line.set_extend(r1Line, extend.none)
+    line.set_extend(pLine, extend.none)
+    line.set_extend(s1Line, extend.none)
+    r1Line := line.new(bar_index, r1Level, bar_index, r1Level, extend = extend.right)
+    pLine := line.new(bar_index, pLevel, bar_index, pLevel, width=3, extend = extend.right)
+    s1Line := line.new(bar_index, s1Level, bar_index, s1Level, extend = extend.right)
+    label.new(bar_index, r1Level, &quot;R1&quot;, style = label.style_none)
+    label.new(bar_index, pLevel, &quot;P&quot;, style = label.style_none)
+    label.new(bar_index, s1Level, &quot;S1&quot;, style = label.style_none)
+
+if not na(pLine) and line.get_x2(pLine) != bar_index
+    line.set_x2(r1Line, bar_index)
+    line.set_x2(pLine, bar_index)
+    line.set_x2(s1Line, bar_index)
+</pre></div>
+</div>
+</div>
+<div class="section" id="pivot-points-high-low">
+<h3><a class="toc-backref" href="#id27">Pivot Points High/Low</a><a class="headerlink" href="#pivot-points-high-low" title="Permalink to this headline">¶</a></h3>
+<img alt="../_images/LinesAndBoxes-Examples-PivotPointsHighLow-01.png" src="../_images/LinesAndBoxes-Examples-PivotPointsHighLow-01.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Pivot Points High Low&quot;, &quot;Pivots HL&quot;, true)
+
+int lenHInput = input.int(10, &quot;Length High&quot;, minval = 1)
+int lenLInput = input.int(10, &quot;Length Low&quot;, minval = 1)
+
+float pivotHigh = ta.pivothigh(high, lenHInput, lenHInput)
+float pivotLow = ta.pivotlow(low, lenLInput, lenLInput)
+
+float pivot = 0.0
+if not na(pivotHigh)
+    pivot := nz(high[lenHInput])
+    label.new(nz(bar_index[lenHInput]), pivot, str.tostring(pivot, format.mintick), style = label.style_label_down, yloc = yloc.abovebar, color = color.lime)
+if not na(pivotLow)
+    pivot := nz(low[lenLInput])
+    label.new(nz(bar_index[lenLInput]), pivot, str.tostring(pivot, format.mintick), style = label.style_label_up, yloc = yloc.belowbar, color = color.red)
+</pre></div>
+</div>
+</div>
+<div class="section" id="linear-regression">
+<h3><a class="toc-backref" href="#id28">Linear Regression</a><a class="headerlink" href="#linear-regression" title="Permalink to this headline">¶</a></h3>
+<img alt="../_images/LinesAndBoxes-Examples-LinearRegression-01.png" src="../_images/LinesAndBoxes-Examples-LinearRegression-01.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&#39;Linear Regression&#39;, shorttitle=&#39;LinReg&#39;, overlay=true)
+
+upperMult = input(title=&#39;Upper Deviation&#39;, defval=2)
+lowerMult = input(title=&#39;Lower Deviation&#39;, defval=-2)
+
+useUpperDev = input(title=&#39;Use Upper Deviation&#39;, defval=true)
+useLowerDev = input(title=&#39;Use Lower Deviation&#39;, defval=true)
+showPearson = input(title=&#39;Show Pearson\&#39;s R&#39;, defval=true)
+extendLines = input(title=&#39;Extend Lines&#39;, defval=false)
+
+len = input(title=&#39;Count&#39;, defval=100)
+src = input(title=&#39;Source&#39;, defval=close)
+
+extend = extendLines ? extend.right : extend.none
+
+calcSlope(src, len) =&gt;
+    if not barstate.islast or len &lt;= 1
+        [float(na), float(na), float(na)]
+    else
+        sumX = 0.0
+        sumY = 0.0
+        sumXSqr = 0.0
+        sumXY = 0.0
+        for i = 0 to len - 1 by 1
+            val = src[i]
+            per = i + 1.0
+            sumX := sumX + per
+            sumY := sumY + val
+            sumXSqr := sumXSqr + per * per
+            sumXY := sumXY + val * per
+            sumXY
+        slope = (len * sumXY - sumX * sumY) / (len * sumXSqr - sumX * sumX)
+        average = sumY / len
+        intercept = average - slope * sumX / len + slope
+        [slope, average, intercept]
+
+[s, a, intercpt] = calcSlope(src, len)
+
+startPrice = intercpt + s * (len - 1)
+endPrice = intercpt
+var line baseLine = na
+
+if na(baseLine) and not na(startPrice)
+    baseLine := line.new(bar_index - len + 1, startPrice, bar_index, endPrice, width = 1, extend=extend, color = color.red)
+    baseLine
+else
+    line.set_xy1(baseLine, bar_index - len + 1, startPrice)
+    line.set_xy2(baseLine, bar_index, endPrice)
+    na
+
+calcDev(src, len, slope, average, intercept) =&gt;
+    upDev = 0.0
+    dnDev = 0.0
+    stdDevAcc = 0.0
+    dsxx = 0.0
+    dsyy = 0.0
+    dsxy = 0.0
+
+    periods = len - 1
+
+    daY = intercept + slope * periods / 2
+    val = intercept
+
+    for i = 0 to periods by 1
+        price = high[i] - val
+        if price &gt; upDev
+            upDev := price
+            upDev
+
+        price := val - low[i]
+        if price &gt; dnDev
+            dnDev := price
+            dnDev
+
+        price := src[i]
+        dxt = price - average
+        dyt = val - daY
+
+        price := price - val
+        stdDevAcc := stdDevAcc + price * price
+        dsxx := dsxx + dxt * dxt
+        dsyy := dsyy + dyt * dyt
+        dsxy := dsxy + dxt * dyt
+        val := val + slope
+        val
+
+    stdDev = math.sqrt(stdDevAcc / (periods == 0 ? 1 : periods))
+    pearsonR = dsxx == 0 or dsyy == 0 ? 0 : dsxy / math.sqrt(dsxx * dsyy)
+    [stdDev, pearsonR, upDev, dnDev]
+
+[stdDev, pearsonR, upDev, dnDev] = calcDev(src, len, s, a, intercpt)
+
+upperStartPrice = startPrice + (useUpperDev ? upperMult * stdDev : upDev)
+upperEndPrice = endPrice + (useUpperDev ? upperMult * stdDev : upDev)
+var line upper = na
+
+lowerStartPrice = startPrice + (useLowerDev ? lowerMult * stdDev : -dnDev)
+lowerEndPrice = endPrice + (useLowerDev ? lowerMult * stdDev : -dnDev)
+var line lower = na
+
+if na(upper) and not na(upperStartPrice)
+    upper := line.new(bar_index - len + 1, upperStartPrice, bar_index, upperEndPrice, width=1, extend=extend, color=#0000ff)
+    upper
+else
+    line.set_xy1(upper, bar_index - len + 1, upperStartPrice)
+    line.set_xy2(upper, bar_index, upperEndPrice)
+    na
+
+if na(lower) and not na(lowerStartPrice)
+    lower := line.new(bar_index - len + 1, lowerStartPrice, bar_index, lowerEndPrice, width=1, extend=extend, color=#0000ff)
+    lower
+else
+    line.set_xy1(lower, bar_index - len + 1, lowerStartPrice)
+    line.set_xy2(lower, bar_index, lowerEndPrice)
+    na
+
+// Pearson&#39;s R
+var label r = na
+transparent = color.new(color.white, 100)
+label.delete(r[1])
+if showPearson and not na(pearsonR)
+    r := label.new(bar_index - len + 1, lowerStartPrice, str.tostring(pearsonR, &#39;#.################&#39;), color=transparent, textcolor=#0000ff, size=size.normal, style=label.style_label_up)
+    r
+</pre></div>
+</div>
+</div>
+<div class="section" id="zig-zag">
+<h3><a class="toc-backref" href="#id29">Zig Zag</a><a class="headerlink" href="#zig-zag" title="Permalink to this headline">¶</a></h3>
+<img alt="../_images/LinesAndBoxes-Examples-ZigZag-01.png" src="../_images/LinesAndBoxes-Examples-ZigZag-01.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&#39;Zig Zag&#39;, overlay = true)
+
+float dev_threshold = input.float(title = &#39;Deviation (%)&#39;, defval = 5, minval = 1, maxval = 100)
+int depth           = input.int(title = &#39;Depth&#39;, defval = 10, minval = 1)
+
+type Point
+    int     index
+    float   price
+
+type Pivot
+    line    ln
+    bool    isHigh
+    Point   point
+
+var pivotArray  = array.new&lt;Pivot&gt;()
+int length      = math.floor(depth / 2)
+float pH        = ta.pivothigh(high, length, length)
+float pL        = ta.pivotlow(low, length, length)
+
+calcDeviation(base_price, price) =&gt;
+    100 * math.abs(price - base_price) / base_price
+
+newPivot(Point lastPoint, bool isHigh, int index, float price) =&gt;
+    line    ln      = line.new(lastPoint.index, lastPoint.price, index, price, color = color.red, width = 2)
+    Pivot   pivot   = Pivot.new(ln, isHigh, Point.new(index, price))
+    array.push(pivotArray, pivot)
+    pivot
+
+updatePivot(Pivot pivot, int index, float price) =&gt;
+    line ln = pivot.ln
+    line.set_xy2(ln, index, price)
+    pivot.point.index := index
+    pivot.point.price := price
+    pivot
+
+isPivotFound(bool isHigh, float price) =&gt;
+    bool result = false
+    int index = bar_index[length]
+    int size = array.size(pivotArray)
+    Pivot prevPivot = size &gt;= 1 ? array.get(pivotArray, size - 1) : newPivot(Point.new(index, price), isHigh, index, price)
+
+    if prevPivot.isHigh and not na(prevPivot.ln)
+        m = isHigh ? 1 : -1
+        if price * m &gt; prevPivot.point.price * m
+            updatePivot(prevPivot, index, price)
+            result := true
+    else if na(prevPivot.ln) or math.abs(calcDeviation(prevPivot.point.price, price)) &gt;= dev_threshold
+        newPivot(prevPivot.point, isHigh, index, price)
+        result := true
+    result
+
+isPivotFound(true, pH)
+isPivotFound(false, pL)
+</pre></div>
+</div>
+<a class="reference external image-reference" href="https://www.tradingview.com/"><div align="center" class="align-center"><img alt="../_images/TradingView-Logo-Block.svg" src="../_images/TradingView-Logo-Block.svg" width="200px" /></div>
+</a>
+</div>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="Libraries.html" title="previous chapter (use the left arrow)">Libraries</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="Non-standard_charts_data.html" title="next chapter (use the right arrow)">Non-standard charts data</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Non-standard_charts_data.html" title="Non-standard charts data"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Libraries.html" title="Libraries"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Concepts</a> &#187;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="../_static/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="../_static/js/theme.js"></script>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Options</span>
+    v: v5
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Languages</dt>
+      
+        <strong>
+        <dd><a href="Lines_and_boxes.html">en</a></dd>
+        </strong>
+      
+    </dl>
+    <dl>
+      <dt>Versions</dt>
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v3/concepts/Lines_and_boxes.html">v3</a></dd>
+        
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v4/concepts/Lines_and_boxes.html">v4</a></dd>
+        
+      
+        <strong>
+        <dd><a href="Lines_and_boxes.html">v5</a></dd>
+        </strong>
+      
+    </dl>
+  </div>
+</div>
+<script type="text/javascript">
+    jQuery(function () {
+        SphinxRtdTheme.Navigation.enable(false);
+    });
+</script>
+  <div class="footer">
+    &copy; Copyright 2023, TradingView.
+  </div>
+  </body>
+
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/concepts/Lines_and_boxes.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:56:23 GMT -->
+</html>

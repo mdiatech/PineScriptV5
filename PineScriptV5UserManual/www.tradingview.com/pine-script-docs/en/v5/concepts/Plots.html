@@ -1,0 +1,771 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/concepts/Plots.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:56:24 GMT -->
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Plots &#8212; Pine Script® v5 User Manual v5 documentation</title>
+    <link rel="stylesheet" href="../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../../../../static.tradingview.com/static/bundles/pine-highlighter-v01.js"></script>
+    <script type="text/javascript" src="../_static/highlight-pine-code.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Repainting" href="Repainting.html" />
+    <link rel="prev" title="Non-standard charts data" href="Non-standard_charts_data.html" />
+  
+   
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Repainting.html" title="Repainting"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Non-standard_charts_data.html" title="Non-standard charts data"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Concepts</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="../index.html" class="text-logo">Pine Script<sup>®</sup> v5 User Manual</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Introduction.html">Welcome to Pine Script<sup>®</sup> v5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primer/index.html">Pine Script<sup>®</sup> primer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../language/index.html">Language</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Concepts</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Alerts.html">Alerts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Backgrounds.html">Backgrounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bar_coloring.html">Bar coloring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bar_plotting.html">Bar plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bar_states.html">Bar states</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chart_information.html">Chart information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Colors.html">Colors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fills.html">Fills</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Inputs.html">Inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Levels.html">Levels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Libraries.html">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lines_and_boxes.html">Lines and boxes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Non-standard_charts_data.html">Non-standard charts data</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Plots</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#plot-parameters">`plot()` parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#plotting-conditionally">Plotting conditionally</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#levels">Levels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#offsets">Offsets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#plot-count-limit">Plot count limit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scale">Scale</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Repainting.html">Repainting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Sessions.html">Sessions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Strategies.html">Strategies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Tables.html">Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Text_and_shapes.html">Text and shapes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Time.html">Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Timeframes.html">Timeframes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../writing/index.html">Writing scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Error_messages.html">Error messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Release_notes.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migration_guides/index.html">Migration guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Where_can_I_get_more_information.html">Where can I get more information?</a></li>
+</ul>
+
+    
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="https://www.tradingview.com/pine-script-docs/en/v5/search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../index.html">User Manual</a></li>
+              
+                <li><a href="index.html">Concepts</a></li>
+              
+              <li>Plots</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <a class="reference external image-reference" href="../Introduction.html"><div align="right" class="align-right"><img alt="Pine Script® logo" height="100" src="../_images/Pine-script-logo.svg" width="100" /></div>
+</a>
+<div class="section" id="plots">
+<span id="pageplots"></span><h1>Plots<a class="headerlink" href="#plots" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#introduction" id="id1">Introduction</a></li>
+<li><a class="reference internal" href="#plot-parameters" id="id2">`plot()` parameters</a></li>
+<li><a class="reference internal" href="#plotting-conditionally" id="id3">Plotting conditionally</a><ul>
+<li><a class="reference internal" href="#value-control" id="id4">Value control</a></li>
+<li><a class="reference internal" href="#color-control" id="id5">Color control</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#levels" id="id6">Levels</a></li>
+<li><a class="reference internal" href="#offsets" id="id7">Offsets</a></li>
+<li><a class="reference internal" href="#plot-count-limit" id="id8">Plot count limit</a></li>
+<li><a class="reference internal" href="#scale" id="id9">Scale</a><ul>
+<li><a class="reference internal" href="#merging-two-indicators" id="id10">Merging two indicators</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="introduction">
+<h2><a class="toc-backref" href="#id1">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plot">plot()</a>
+function is the most frequently used function used to display information calculated using Pine scripts.
+It is versatile and can plot different styles of lines, histograms, areas, columns (like volume columns), fills, circles or crosses.</p>
+<p>The use of <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plot">plot()</a>
+to create fills is explained in the page on <a class="reference internal" href="Fills.html#pagefills"><span class="std std-ref">Fills</span></a>.</p>
+<p>This script showcases a few different uses of <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plot">plot()</a>
+in an overlay script:</p>
+<img alt="../_images/Plots-Introduction-01.png" src="../_images/Plots-Introduction-01.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;`plot()`&quot;, &quot;&quot;, true)
+plot(high, &quot;Blue `high` line&quot;)
+plot(math.avg(close, open), &quot;Crosses in body center&quot;, close &gt; open ? color.lime : color.purple, 6, plot.style_cross)
+plot(math.min(open, close), &quot;Navy step line on body low point&quot;, color.navy, 3, plot.style_stepline)
+plot(low, &quot;Gray dot on `low`&quot;, color.gray, 3, plot.style_circles)
+
+color VIOLET = #AA00FF
+color GOLD   = #CCCC00
+ma = ta.alma(hl2, 40, 0.85, 6)
+var almaColor = color.silver
+almaColor := ma &gt; ma[2] ? GOLD : ma &lt; ma[2]  ? VIOLET : almaColor
+plot(ma, &quot;Two-color ALMA&quot;, almaColor, 2)
+</pre></div>
+</div>
+<p>Note that:</p>
+<ul class="simple">
+<li>The first <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plot">plot()</a> call plots a 1-pixel blue line across the bar highs.</li>
+<li>The second plots crosses at the mid-point of bodies. The crosses are colored lime when the bar is up and purple when it is down.
+The argument used for <code class="docutils literal notranslate"><span class="pre">linewidth</span></code> is <code class="docutils literal notranslate"><span class="pre">6</span></code> but it is not a pixel value; just a relative size.</li>
+<li>The third call plots a 3-pixel wide step line following the low point of bodies.</li>
+<li>The fourth call plot a gray circle at the bars’ <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_low">low</a>.</li>
+<li>The last plot requires some preparation. We first define our bull/bear colors,
+calculate an <a class="reference external" href="https://www.tradingview.com/support/solutions/43000594683">Arnaud Legoux Moving Average</a>,
+then make our color calculations. We initialize our color variable on bar zero only, using <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_var">var</a>.
+We initialize it to <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_color{dot}silver">color.silver</a>,
+so on the dataset’s first bars, until one of our conditions causes the color to change, the line will be silver.
+The conditions that change the color of the line require it to be higher/lower than its value two bars ago.
+This makes for less noisy color transitions than if we merely looked for a higher/lower value than the previous one.</li>
+</ul>
+<p>This script shows other uses of <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plot">plot()</a> in a pane:</p>
+<img alt="../_images/Plots-Introduction-02.png" src="../_images/Plots-Introduction-02.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Volume change&quot;, format = format.volume)
+
+color GREEN         = #008000
+color GREEN_LIGHT   = color.new(GREEN, 50)
+color GREEN_LIGHTER = color.new(GREEN, 85)
+color PINK          = #FF0080
+color PINK_LIGHT    = color.new(PINK, 50)
+color PINK_LIGHTER  = color.new(PINK, 90)
+
+bool  barUp = ta.rising(close, 1)
+bool  barDn = ta.falling(close, 1)
+float volumeChange = ta.change(volume)
+
+volumeColor = barUp ? GREEN_LIGHTER : barDn ? PINK_LIGHTER : color.gray
+plot(volume, &quot;Volume columns&quot;, volumeColor, style = plot.style_columns)
+
+volumeChangeColor = barUp ? volumeChange &gt; 0 ? GREEN : GREEN_LIGHT : volumeChange &gt; 0 ? PINK : PINK_LIGHT
+plot(volumeChange, &quot;Volume change columns&quot;, volumeChangeColor, 12, plot.style_histogram)
+
+plot(0, &quot;Zero line&quot;, color.gray)
+</pre></div>
+</div>
+<p>Note that:</p>
+<ul class="simple">
+<li>We are plotting normal <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_volume">volume</a>
+values as wide columns above the zero line
+(see the <code class="docutils literal notranslate"><span class="pre">style</span> <span class="pre">=</span> <span class="pre">plot.style_columns</span></code> in our <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plot">plot()</a> call).</li>
+<li>Before plotting the columns we calculate our <code class="docutils literal notranslate"><span class="pre">volumeColor</span></code> by using the values of the <code class="docutils literal notranslate"><span class="pre">barUp</span></code> and <code class="docutils literal notranslate"><span class="pre">barDn</span></code> boolean variables.
+They become respectively <code class="docutils literal notranslate"><span class="pre">true</span></code> when the current bar’s <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_close">close</a>
+is higher/lower than the previous one. Note that the “Volume” built-in does not use the same condition; it identifies an up bar with <code class="docutils literal notranslate"><span class="pre">close</span> <span class="pre">&gt;</span> <span class="pre">open</span></code>.
+We use the <code class="docutils literal notranslate"><span class="pre">GREEN_LIGHTER</span></code> and <code class="docutils literal notranslate"><span class="pre">PINK_LIGHTER</span></code> colors for the volume columns.</li>
+<li>Because the first plot plots columns, we do not use the <code class="docutils literal notranslate"><span class="pre">linewidth</span></code> parameter, as it has no effect on columns.</li>
+<li>Our script’s second plot is the <strong>change</strong> in volume, which we have calculated earlier using <code class="docutils literal notranslate"><span class="pre">ta.change(volume)</span></code>.
+This value is plotted as a histogram, for which the <code class="docutils literal notranslate"><span class="pre">linewidth</span></code> parameter controls the width of the column.
+We make this width <code class="docutils literal notranslate"><span class="pre">12</span></code> so that histogram elements are thinner than the columns of the first plot.
+Positive/negative <code class="docutils literal notranslate"><span class="pre">volumeChange</span></code> values plot above/below the zero line; no manipulation is required to achieve this effect.</li>
+<li>Before plotting the histogram of <code class="docutils literal notranslate"><span class="pre">volumeChange</span></code> values, we calculate its color value, which can be one of four different colors.
+We use the bright <code class="docutils literal notranslate"><span class="pre">GREEN</span></code> or <code class="docutils literal notranslate"><span class="pre">PINK</span></code> colors when the bar is up/down AND the volume has increased since the last bar (<code class="docutils literal notranslate"><span class="pre">volumeChange</span> <span class="pre">&gt;</span> <span class="pre">0</span></code>).
+Because <code class="docutils literal notranslate"><span class="pre">volumeChange</span></code> is positive in this case, the histogram’s element will be plotted above the zero line.
+We use the bright <code class="docutils literal notranslate"><span class="pre">GREEN_LIGHT</span></code> or <code class="docutils literal notranslate"><span class="pre">PINK_LIGHT</span></code> colors when the bar is up/down AND the volume has NOT increased since the last bar.
+Because <code class="docutils literal notranslate"><span class="pre">volumeChange</span></code> is negative in this case, the histogram’s element will be plotted below the zero line.</li>
+<li>Finally, we plot a zero line. We could just as well have used <code class="docutils literal notranslate"><span class="pre">hline(0)</span></code> there.</li>
+<li>We use <code class="docutils literal notranslate"><span class="pre">format</span> <span class="pre">=</span> <span class="pre">format.volume</span></code> in our <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_indicator">indicator()</a> call
+so that large values displayed for this script are abbreviated like those of the built-in “Volume” indicator.</li>
+</ul>
+<p><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plot">plot()</a>
+calls must always be placed in a line’s first position, which entails they are always in the script’s global scope.
+They can’t be placed in user-defined functions or structures like <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_if">if</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_for">for</a>, etc.
+Calls to <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plot">plot()</a> <strong>can</strong>, however,
+be designed to plot conditionally in two ways, which we cover in the <span class="xref std std-ref">Conditional plots</span>
+section of this page.</p>
+<p>A script can only plot in its own visual space, whether it is in a pane or on the chart as an overlay.
+Scripts running in a pane can only <a class="reference internal" href="Bar_coloring.html#pagebarcoloring"><span class="std std-ref">color bars</span></a> in the chart area.</p>
+</div>
+<div class="section" id="plot-parameters">
+<h2><a class="toc-backref" href="#id2">`plot()` parameters</a><a class="headerlink" href="#plot-parameters" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plot">plot()</a> function has the following signature:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>plot(series, title, color, linewidth, style, trackprice, histbase, offset, join, editable, show_last, display) → plot
+</pre></div>
+</div>
+<p>The parameters of <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plot">plot()</a> are:</p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">series</span></code></dt>
+<dd>It is the only mandatory parameter. Its argument must be of “series int/float” type.
+Note that because the auto-casting rules in Pine Script<sup>®</sup> convert in the int 🠆 float 🠆 bool direction,
+a “bool” type variable cannot be used as is; it must be converted to an “int” or a “float” for use as an argument.
+For example, if <code class="docutils literal notranslate"><span class="pre">newDay</span></code> is of “bool” type,
+then <code class="docutils literal notranslate"><span class="pre">newDay</span> <span class="pre">?</span> <span class="pre">1</span> <span class="pre">:</span> <span class="pre">0</span></code> can be used to plot 1 when the variable is <code class="docutils literal notranslate"><span class="pre">true</span></code>, and zero when it is <code class="docutils literal notranslate"><span class="pre">false</span></code>.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">title</span></code></dt>
+<dd><p class="first">Requires a “const string” argument, so it must be known at compile time.
+The string appears:</p>
+<ul class="last simple">
+<li>In the script’s scale when the “Chart settings/Scales/Indicator Name Label” field is checked.</li>
+<li>In the Data Window.</li>
+<li>In the “Settings/Style” tab.</li>
+<li>In the dropdown of <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input{dot}source">input.source()</a> fields.</li>
+<li>In the “Condition” field of the “Create Alert” dialog box, when the script is selected.</li>
+<li>As the column header when exporting chart data to a CSV file.</li>
+</ul>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">color</span></code></dt>
+<dd>Accepts “series color”, so can be calculated on the fly, bar by bar.
+Plotting with <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a>
+as the color, or any color with a transparency of 100, is one way to hide plots when they are not needed.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">linewidth</span></code></dt>
+<dd>Is the plotted element’s size, but it does not apply to all styles. When a line is plotted, the unit is pixels.
+It has no impact when <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_plot{dot}style_columns">plot.style_columns</a> is used.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">style</span></code></dt>
+<dd><p class="first">The available arguments are:</p>
+<ul class="last simple">
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_plot{dot}style_line">plot.style_line</a> (the default):
+It plots a continous line using the <code class="docutils literal notranslate"><span class="pre">linewidth</span></code> argument in pixels for its width.
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a> values will not plot as a line,
+but they will be bridged when a value that is not <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a> comes in.
+Non-<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a> values are only bridged
+if they are visible on the chart.</li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_plot{dot}style_linebr">plot.style_linebr</a>:
+Allows the plotting of discontinuous lines by not plotting on <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a>  values,
+and not joining gaps, i.e., bridging over <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a> values.</li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_plot{dot}style_stepline">plot.style_stepline</a>:
+Plots using a staircase effect. Transitions between changes in values are done using a vertical line drawn in middle of bars,
+as opposed to a point-to-point diagonal joining the midpoints of bars. Can also be used to achieve an effect similar to that of
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_plot{dot}style_linebr">plot.style_linebr</a>,
+but only if care is taken to plot no color on <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a> values.</li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_plot{dot}style_area">plot.style_area</a>:
+plots a line of <code class="docutils literal notranslate"><span class="pre">linewidth</span></code> width, filling the area between the line and the <code class="docutils literal notranslate"><span class="pre">histbase</span></code>.
+The <code class="docutils literal notranslate"><span class="pre">color</span></code> argument is used for both the line and the fill. You can make the line a different color
+by using another <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plot">plot()</a> call.
+Positive values are plotted above the <code class="docutils literal notranslate"><span class="pre">histbase</span></code>, negative values below it.</li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_plot{dot}style_area">plot.style_areabr</a>:
+This is similar to <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_plot{dot}style_area">plot.style_area</a>
+but it doesn’t bridge over <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a> values.
+Another difference is how the indicator’s scale is calculated.
+Only the plotted values serve in the calculation of the <em>y</em> range of the script’s visual space.
+If only high values situated far away from the <code class="docutils literal notranslate"><span class="pre">histbase</span></code> are plotted, for example, those values will be used to calculate
+the <em>y</em> scale of the script’s visual space.
+Positive values are plotted above the <code class="docutils literal notranslate"><span class="pre">histbase</span></code>, negative values below it.</li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_plot{dot}style_columns">plot.style_columns</a>:
+Plots columns similar to those of the “Volume” built-in indicator. The <code class="docutils literal notranslate"><span class="pre">linewidth</span></code> value does <strong>not</strong> affect the width of the columns.
+Positive values are plotted above the <code class="docutils literal notranslate"><span class="pre">histbase</span></code>, negative values below it.
+Always includes the value of <code class="docutils literal notranslate"><span class="pre">histbase</span></code> in the <em>y</em> scale of the script’s visual space.</li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_plot{dot}style_histogram">plot.style_histogram</a>:
+Plots columns similar to those of the “Volume” built-in indicator, except that the <code class="docutils literal notranslate"><span class="pre">linewidth</span></code> value is used to determine the width of the histogram’s bars in pixels.
+Note that since <code class="docutils literal notranslate"><span class="pre">linewidth</span></code> requires an “input int” value, the width of the histogram’s bars cannot vary bar to bar.
+Positive values are plotted above the <code class="docutils literal notranslate"><span class="pre">histbase</span></code>, negative values below it.
+Always includes the value of <code class="docutils literal notranslate"><span class="pre">histbase</span></code> in the <em>y</em> scale of the script’s visual space.</li>
+<li><a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_plot{dot}style_circles">plot.style_circles</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_plot{dot}style_cross">plot.style_cross</a>:
+These plot a shape that is not joined across bars unless <code class="docutils literal notranslate"><span class="pre">join</span> <span class="pre">=</span> <span class="pre">true</span></code> is also used.
+For these styles, the <code class="docutils literal notranslate"><span class="pre">linewidth</span></code> argument becomes a relative sizing measure — its units are not pixels.</li>
+</ul>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">trackprice</span></code></dt>
+<dd>The default value of this is <code class="docutils literal notranslate"><span class="pre">false</span></code>. When it is <code class="docutils literal notranslate"><span class="pre">true</span></code>, a dotted line made up of small squares will be plotted
+the full width of the script’s visual space. It is often used in conjuction with <code class="docutils literal notranslate"><span class="pre">show_last</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">offset</span> <span class="pre">=</span> <span class="pre">-99999</span></code>
+to hide the actual plot and only leave the residual dotted line.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">histbase</span></code></dt>
+<dd>It is the reference point used with <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_plot{dot}style_area">plot.style_area</a>,
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_plot{dot}style_columns">plot.style_columns</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_plot{dot}style_histogram">plot.style_histogram</a>.
+It determines the level separating positive and negative values of the <code class="docutils literal notranslate"><span class="pre">series</span></code> argument.
+It cannot be calculated dynamically, as an “input int/float” is required.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">offset</span></code></dt>
+<dd>This allows shifting the plot in the past/future using a negative/positive offset in bars.
+The value cannot change during the script’s execution.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">join</span></code></dt>
+<dd>This only affect styles <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_plot{dot}style_circles">plot.style_circles</a> or
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_plot{dot}style_cross">plot.style_cross</a>.
+When <code class="docutils literal notranslate"><span class="pre">true</span></code>, the shapes are joined by a one-pixel line.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">editable</span></code></dt>
+<dd>This boolean parameter controls whether or not the plot’s properties can be edited in the “Settings/Style” tab.
+Its default value is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">show_last</span></code></dt>
+<dd>Allows control over how many of the last bars the plotted values are visible.
+An “input int” argument is required, so it cannot be calculated dynamically.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">display</span></code></dt>
+<dd><p class="first">The default is <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_display{dot}all">display.all</a>.
+When it is set to <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_display{dot}none">display.none</a>,
+plotted values will not affect the scale of the script’s visual space.
+The plot will be invisible and will not appear in indicator values or the Data Window.
+It can be useful in plots destined for use as external inputs for other scripts,
+or for plots used with the <code class="docutils literal notranslate"><span class="pre">{{plot(&quot;[plot_title]&quot;)}}</span></code> placeholder in
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_alertcondition">alertcondition()</a> calls, e.g.:</p>
+<div class="last highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;&quot;)
+r = ta.rsi(close, 14)
+xUp = ta.crossover(r, 50)
+plot(r, &quot;RSI&quot;, display = display.none)
+alertcondition(xUp, &quot;xUp alert&quot;, message = &#39;RSI is bullish at: {{plot(&quot;RSI&quot;)}}&#39;)
+</pre></div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="plotting-conditionally">
+<span id="pageplots-plottingconditionally"></span><h2><a class="toc-backref" href="#id3">Plotting conditionally</a><a class="headerlink" href="#plotting-conditionally" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plot">plot()</a> calls
+cannot be used in conditional structures such as <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_if">if</a>,
+but they can be controlled by varying their plotted values, or their color. When no plot is required,
+you can either plot <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a> values,
+or plot values using <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a> color
+or any color with 100 transparency (which also makes it invisible).</p>
+<div class="section" id="value-control">
+<h3><a class="toc-backref" href="#id4">Value control</a><a class="headerlink" href="#value-control" title="Permalink to this headline">¶</a></h3>
+<p>One way to control the display of plots is to plot <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a> values
+when no plot is needed. Sometimes, values returned by functions such as
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_request{dot}security">request.security()</a>
+will return <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a> values, when <code class="docutils literal notranslate"><span class="pre">gaps</span> <span class="pre">=</span> <span class="pre">barmerge.gaps_on</span></code> is used, for example.
+In both these cases it is sometimes useful to plot discontinuous lines.
+This script shows a few ways to do it:</p>
+<img alt="../_images/Plots-PlottingConditionally-01.png" src="../_images/Plots-PlottingConditionally-01.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Discontinuous plots&quot;, &quot;&quot;, true)
+bool plotValues = bar_index % 3 == 0
+plot(plotValues ? high : na, color = color.fuchsia, linewidth = 6, style = plot.style_linebr)
+plot(plotValues ? high : na)
+plot(plotValues ? math.max(open, close) : na, color = color.navy, linewidth = 6, style = plot.style_cross)
+plot(plotValues ? math.min(open, close) : na, color = color.navy, linewidth = 6, style = plot.style_circles)
+plot(plotValues ? low : na, color = plotValues ? color.green : na, linewidth = 6, style = plot.style_stepline)
+</pre></div>
+</div>
+<p>Note that:</p>
+<ul class="simple">
+<li>We define the condition determining when we plot using <code class="docutils literal notranslate"><span class="pre">bar_index</span> <span class="pre">%</span> <span class="pre">3</span> <span class="pre">==</span> <span class="pre">0</span></code>,
+which becomes <code class="docutils literal notranslate"><span class="pre">true</span></code> when the remainder of the division of the bar index by 3 is zero. This will happen every three bars.</li>
+<li>In the first plot, we use <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_plot{dot}style_linebr">plot.style_linebr</a>,
+which plots the fuchsia line on highs. It is centered on the bar’s horizontal midpoint.</li>
+<li>The second plot shows the result of plotting the same values, but without using special care to break the line.
+What’s happening here is that the thin blue line of the plain <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plot">plot()</a> call
+is automatically bridged over <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a> values (or <em>gaps</em>), so the plot does not interrupt.</li>
+<li>We then plot navy blue crosses and circles on the body tops and bottoms.
+The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_plot{dot}style_circles">plot.style_circles</a> and
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_plot{dot}style_cross">plot.style_cross</a>
+style are a simple way to plot discontinuous values, e.g., for stop or take profit levels, or support &amp; resistance levels.</li>
+<li>The last plot in green on the bar lows is done using <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_plot{dot}style_stepline">plot.style_stepline</a>.
+Note how its segments are wider than the fuchsia line segments plotted with <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_plot{dot}style_linebr">plot.style_linebr</a>.
+Also note how on the last bar, it only plots halfway until the next bar comes in.</li>
+<li>The plotting order of each plot is controlled by their order of appearance in the script.
+See</li>
+</ul>
+<p>This script shows how you can restrict plotting to bars after a user-defined date.
+We use the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input{dot}time">input.time()</a> function
+to create an input widget allowing script users to select a date and time, using Jan 1st 2021 as its default value:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;&quot;, &quot;&quot;, true)
+startInput = input.time(timestamp(&quot;2021-01-01&quot;))
+plot(time &gt; startInput ? close : na)
+</pre></div>
+</div>
+</div>
+<div class="section" id="color-control">
+<h3><a class="toc-backref" href="#id5">Color control</a><a class="headerlink" href="#color-control" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference internal" href="Colors.html#pagecolors-conditionalcoloring"><span class="std std-ref">Conditional coloring</span></a> section of the page on colors discusses color control for plots.
+We’ll look here at a few examples.</p>
+<p>The value of the <code class="docutils literal notranslate"><span class="pre">color</span></code> parameter in <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plot">plot()</a> can be a constant,
+such as one of the built-in <a class="reference internal" href="Colors.html#pagecolors-constantcolors"><span class="std std-ref">constant colors</span></a> or a <a class="reference internal" href="../language/Type_system.html#pagetypesystem-color"><span class="std std-ref">color literal</span></a>.
+In Pine Script<sup>®</sup>, the form-type of such colors is called <strong>“const color”</strong> (see the <a class="reference internal" href="../language/Type_system.html#pagetypesystem"><span class="std std-ref">Type system</span></a> page).
+They are known at compile time:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;&quot;, &quot;&quot;, true)
+plot(close, color = color.gray)
+</pre></div>
+</div>
+<p>The color of a plot can also be determined using information that is only known when the script begins execution on the first historical bar of a chart
+(bar zero, i.e., <code class="docutils literal notranslate"><span class="pre">bar_index</span> <span class="pre">==</span> <span class="pre">0</span></code> or <code class="docutils literal notranslate"><span class="pre">barstate.isfirst</span> <span class="pre">==</span> <span class="pre">true</span></code>), as will be the case when the information needed to determine a color depends on the chart the script is running on.
+Here, we calculate a plot color using the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_syminfo{dot}type">syminfo.type</a> built-in variable,
+which returns the type of the chart’s symbol. The form-type of <code class="docutils literal notranslate"><span class="pre">plotColor</span></code> in this case will be <strong>“simple color”</strong>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;&quot;, &quot;&quot;, true)
+plotColor = switch syminfo.type
+    &quot;stock&quot;     =&gt; color.purple
+    &quot;futures&quot;   =&gt; color.red
+    &quot;index&quot;     =&gt; color.gray
+    &quot;forex&quot;     =&gt; color.fuchsia
+    &quot;crypto&quot;    =&gt; color.lime
+    &quot;fund&quot;      =&gt; color.orange
+    &quot;dr&quot;        =&gt; color.aqua
+    &quot;cfd&quot;       =&gt; color.blue
+plot(close, color = plotColor)
+printTable(txt) =&gt; var table t = table.new(position.middle_right, 1, 1), table.cell(t, 0, 0, txt, bgcolor = color.yellow)
+printTable(syminfo.type)
+</pre></div>
+</div>
+<p>Plot colors can also be chosen through a script’s inputs. In this case, the <code class="docutils literal notranslate"><span class="pre">lineColorInput</span></code> variable is of form-type <strong>“input color”</strong>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;&quot;, &quot;&quot;, true)
+color lineColorInput  = input(#1848CC, &quot;Line color&quot;)
+plot(close, color = lineColorInput)
+</pre></div>
+</div>
+<p>Finally, plot colors can also be a <em>dynamic</em> value, i.e., a calculated value that is only known on each bar.
+These are of form-type <strong>“series color”</strong>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;&quot;, &quot;&quot;, true)
+plotColor = close &gt;= open ? color.lime : color.red
+plot(close, color = plotColor)
+</pre></div>
+</div>
+<p>When plotting pivot levels, one common requirement is to avoid plotting level transitions.
+Using <a class="reference internal" href="Lines_and_boxes.html#pagelinesandboxes"><span class="std std-ref">lines</span></a> is one alternative,
+but you can also use <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plot">plot()</a> like this:</p>
+<img alt="../_images/Plots-PlottingConditionally-02.png" src="../_images/Plots-PlottingConditionally-02.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Pivot plots&quot;, &quot;&quot;, true)
+pivotHigh = fixnan(ta.pivothigh(3,3))
+plot(pivotHigh, &quot;High pivot&quot;, ta.change(pivotHigh) ? na : color.olive, 3)
+plotchar(ta.change(pivotHigh), &quot;ta.change(pivotHigh)&quot;, &quot;•&quot;, location.top, size = size.small)
+</pre></div>
+</div>
+<p>Note that:</p>
+<ul class="simple">
+<li>We use <code class="docutils literal notranslate"><span class="pre">pivotHigh</span> <span class="pre">=</span> <span class="pre">fixnan(ta.pivothigh(3,3))</span></code> to hold our pivot values.
+Because <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_ta{dot}pivothigh">ta.pivothigh()</a>
+only returns a value when a new pivot is found, we use <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_fixnan">fixnan()</a>
+to fill the gaps with the last pivot value returned. The gaps here refer to the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a> values
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_ta{dot}pivothigh">ta.pivothigh()</a> returns when no new pivot is found.</li>
+<li>Our pivots are detected three bars after they occur because we use the argument <code class="docutils literal notranslate"><span class="pre">3</span></code> for both the <code class="docutils literal notranslate"><span class="pre">leftbars</span></code> and <code class="docutils literal notranslate"><span class="pre">rightbars</span></code> parameters in our
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_ta{dot}pivothigh">ta.pivothigh()</a> call.</li>
+<li>The last plot is plotting a continuous value, but it is setting the plot’s color to <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a>
+when the pivot’s value changes, so the plot isn’t visible then. Because of this,
+a visible plot will only appear on the bar following the one where we plotted using <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a> color.</li>
+<li>The blue dot indicates when a new high pivot is detected and no plot is drawn between the preceding bar and that one.
+Note how the pivot on the bar indicated by the arrow has just been detected in the realtime bar, three bars later,
+and how no plot is drawn. The plot will only appear on the next bar, making the plot visible <strong>four bars</strong> after the actual pivot.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="levels">
+<span id="pageplots-levels"></span><h2><a class="toc-backref" href="#id6">Levels</a><a class="headerlink" href="#levels" title="Permalink to this headline">¶</a></h2>
+<p>Pine Script<sup>®</sup> has an <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_hline">hline()</a>
+function to plot horizontal lines (see the page on <a class="reference internal" href="Levels.html#pagelevels"><span class="std std-ref">Levels</span></a>).
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_hline">hline()</a>
+is useful because it has some line styles unavailable with <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plot">plot()</a>,
+but it also has some limitations, namely that it does not accept “series color”,
+and that its <code class="docutils literal notranslate"><span class="pre">price</span></code> parameter requires an “input int/float”, so cannot vary during the script’s execution.</p>
+<p>You can plot levels with <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plot">plot()</a>
+in a few different ways. This shows a <a class="reference external" href="https://www.tradingview.com/support/solutions/43000502001">CCI</a>
+indicator with levels plotted using <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plot">plot()</a>:</p>
+<img alt="../_images/Plots-Levels-01.png" src="../_images/Plots-Levels-01.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;CCI levels with `plot()`&quot;)
+plot(ta.cci(close, 20))
+plot(0,  &quot;Zero&quot;, color.gray, 1, plot.style_circles)
+plot(bar_index % 2 == 0 ?  100 : na,  &quot;100&quot;, color.lime, 1, plot.style_linebr)
+plot(bar_index % 2 == 0 ? -100 : na, &quot;-100&quot;, color.fuchsia, 1, plot.style_linebr)
+plot( 200,  &quot;200&quot;, color.green, 2, trackprice = true, show_last = 1, offset = -99999)
+plot(-200, &quot;-200&quot;, color.red,   2, trackprice = true, show_last = 1, offset = -99999)
+plot( 300,  &quot;300&quot;, color.new(color.green, 50), 1)
+plot(-300, &quot;-300&quot;, color.new(color.red, 50),   1)
+</pre></div>
+</div>
+<p>Note that:</p>
+<ul class="simple">
+<li>The zero level is plotted using <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_plot{dot}style_circles">plot.style_circles</a>.</li>
+<li>The 100 levels are plotted using a conditional value that only plots every second bar.
+In order to prevent the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_na">na</a> values
+from being bridged, we use the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_plot{dot}style_linebr">plot.style_linebr</a> line style.</li>
+<li>The 200 levels are plotted using <code class="docutils literal notranslate"><span class="pre">trackprice</span> <span class="pre">=</span> <span class="pre">true</span></code> to plot a distinct pattern of small squares that
+extends the full width of the script’s visual space.
+The <code class="docutils literal notranslate"><span class="pre">show_last</span> <span class="pre">=</span> <span class="pre">1</span></code> in there displays only the last plotted value, which would appear as a one-bar straight line if the next trick wasn’t also used:
+the <code class="docutils literal notranslate"><span class="pre">offset</span> <span class="pre">=</span> <span class="pre">-99999</span></code> pushes that one-bar segment far away in the past so that it is never visible.</li>
+<li>The 300 levels are plotted using a continuous line, but a lighter transparency is used to make them less prominent.</li>
+</ul>
+</div>
+<div class="section" id="offsets">
+<h2><a class="toc-backref" href="#id7">Offsets</a><a class="headerlink" href="#offsets" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">offset</span></code> parameter specifies the shift used when the line is plotted
+(negative values shift in the past, positive values shift into the future.
+For example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;&quot;, &quot;&quot;, true)
+plot(close, color = color.red, offset = -5)
+plot(close, color = color.lime, offset = 5)
+</pre></div>
+</div>
+<img alt="../_images/Plots-Offsets-01.png" src="../_images/Plots-Offsets-01.png" />
+<p>As can be seen in the screenshot, the <em>red</em> series has been shifted to the
+left (since the argument’s value is negative), while the <em>green</em>
+series has been shifted to the right (its value is positive).</p>
+</div>
+<div class="section" id="plot-count-limit">
+<h2><a class="toc-backref" href="#id8">Plot count limit</a><a class="headerlink" href="#plot-count-limit" title="Permalink to this headline">¶</a></h2>
+<p>Each script is limited to a maximum plot count of 64.
+All <code class="docutils literal notranslate"><span class="pre">plot*()</span></code> calls and <a class="reference external" href="../../../../pine-script-reference/v5/index.html#func_alertcondition">alertcondition()</a> calls
+count in the plot count of a script. Some types of calls count for more than one in the total plot count.</p>
+<p><a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plot">plot()</a>
+calls count for one in the total plot count if they use a “const color” argument for the <code class="docutils literal notranslate"><span class="pre">color</span></code> parameter,
+which means it is known at compile time, e.g.:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>plot(close, color = color.green)
+</pre></div>
+</div>
+<p>When they use another form, such as any one of these, they will count for two in the total plot count:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>plot(close, color = syminfo.mintick &gt; 0.0001 ? color.green : color.red) //🠆 &quot;simple color&quot;
+plot(close, color = input.color(color.purple)) //🠆 &quot;input color&quot;
+plot(close, color = close &gt; open ? color.green : color.red) //🠆 &quot;series color&quot;
+plot(close, color = color.new(color.silver, close &gt; open ? 40 : 0)) //🠆 &quot;series color&quot;
+</pre></div>
+</div>
+</div>
+<div class="section" id="scale">
+<h2><a class="toc-backref" href="#id9">Scale</a><a class="headerlink" href="#scale" title="Permalink to this headline">¶</a></h2>
+<p>Not all values can be plotted everywhere.
+Your script’s visual space is always bound by upper and lower limits that are dynamically adjusted with the values plotted.
+An <a class="reference external" href="https://www.tradingview.com/support/solutions/43000502338">RSI</a> indicator will plot values between 0 and 100,
+which is why it is usually displayed in a distinct <em>pane</em> — or area — above or below the chart.
+If RSI values were plotted as an overlay on the chart,
+the effect would be to distort the symbol’s normal price scale,
+unless it just hapenned to be close to RSI’s 0 to 100 range.
+This shows an RSI signal line and a centerline at the 50 level,
+with the script running in a separate pane:</p>
+<img alt="../_images/Plots-Scale-01.png" src="../_images/Plots-Scale-01.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;RSI&quot;)
+myRSI = ta.rsi(close, 20)
+bullColor = color.from_gradient(myRSI, 50, 80, color.new(color.lime, 70), color.new(color.lime, 0))
+bearColor = color.from_gradient(myRSI, 20, 50, color.new(color.red,   0), color.new(color.red, 70))
+myRSIColor = myRSI &gt; 50 ? bullColor : bearColor
+plot(myRSI, &quot;RSI&quot;, myRSIColor, 3)
+hline(50)
+</pre></div>
+</div>
+<p>Note that the <em>y</em> axis of our script’s visual space is automatically sized using the range of values plotted, i.e.,
+the values of RSI.
+See the page on <a class="reference internal" href="Colors.html#pagecolors"><span class="std std-ref">Colors</span></a> for more information on the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_color{dot}from_gradient">color.from_gradient()</a> function used in the script.</p>
+<p>If we try to plot the symbol’s
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_close">close</a>
+values in the same space by adding the following line to our script:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>plot(close)
+</pre></div>
+</div>
+<p>This is what happens:</p>
+<img alt="../_images/Plots-Scale-02.png" src="../_images/Plots-Scale-02.png" />
+<p>The chart is on the BTCUSD symbol, whose <a class="reference external" href="../../../../pine-script-reference/v5/index.html#var_close">close</a>
+prices are around 40000 during this period. Plotting values in the 40000 range makes our RSI plots in the 0 to 100 range indiscernible.
+The same distorted plots would occur if we placed the <a class="reference external" href="https://www.tradingview.com/support/solutions/43000502338">RSI</a> indicator on the chart as an overlay.</p>
+<div class="section" id="merging-two-indicators">
+<h3><a class="toc-backref" href="#id10">Merging two indicators</a><a class="headerlink" href="#merging-two-indicators" title="Permalink to this headline">¶</a></h3>
+<p>If you are planning to merge two signals in one script, first consider the scale of each.
+It is impossible, for example, to correctly plot an
+<a class="reference external" href="https://www.tradingview.com/support/solutions/43000502338">RSI</a> and
+a <a class="reference external" href="https://www.tradingview.com/support/solutions/43000502344">MACD</a>
+in the same script’s visual space because RSI
+has a fixed range (0 to 100) while MACD doesn’t, as it plots moving averages calculated on price._</p>
+<p>If both your indicators used fixed ranges, you can shift the values of one of them so they do not overlap.
+We could, for example, plot both <a class="reference external" href="https://www.tradingview.com/support/solutions/43000502338">RSI</a> (0 to 100)
+and the <a class="reference external" href="https://www.tradingview.com/support/solutions/43000592290">True Strength Indicator (TSI)</a> (-100 to +100) by displacing one of them.
+Our strategy here will be to compress and shift the <a class="reference external" href="https://www.tradingview.com/support/solutions/43000592290">TSI</a> values
+so they plot over <a class="reference external" href="https://www.tradingview.com/support/solutions/43000502338">RSI</a>:</p>
+<img alt="../_images/Plots-Scale-03.png" src="../_images/Plots-Scale-03.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;RSI and TSI&quot;)
+myRSI = ta.rsi(close, 20)
+bullColor = color.from_gradient(myRSI, 50, 80, color.new(color.lime, 70), color.new(color.lime, 0))
+bearColor = color.from_gradient(myRSI, 20, 50, color.new(color.red,   0), color.new(color.red, 70))
+myRSIColor = myRSI &gt; 50 ? bullColor : bearColor
+plot(myRSI, &quot;RSI&quot;, myRSIColor, 3)
+hline(100)
+hline(50)
+hline(0)
+
+// 1. Compress TSI&#39;s range from -100/100 to -50/50.
+// 2. Shift it higher by 150, so its -50 min value becomes 100.
+myTSI = 150 + (100 * ta.tsi(close, 13, 25) / 2)
+plot(myTSI, &quot;TSI&quot;, color.blue, 2)
+plot(ta.ema(myTSI, 13), &quot;TSI EMA&quot;, #FF006E)
+hline(200)
+hline(150)
+</pre></div>
+</div>
+<p>Note that:</p>
+<ul>
+<li><p class="first">We have added levels using <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_hline">hline</a>
+to situate both signals.</p>
+</li>
+<li><p class="first">In order for both signal lines to oscillate on the same range of 100,
+we divide the <a class="reference external" href="https://www.tradingview.com/support/solutions/43000592290">TSI</a> value by 2 because it has a 200 range (-100 to +100).
+We then shift this value up by 150 so it oscillates between 100 and 200, making 150 its centerline.</p>
+</li>
+<li><p class="first">The manipulations we make here are typical of the compromises required to bring two indicators
+with different scales in the same visual space, even when their values, contrary to
+<a class="reference external" href="https://www.tradingview.com/support/solutions/43000502344">MACD</a>, are bounded in a fixed range.</p>
+<a class="reference external image-reference" href="https://www.tradingview.com/"><div align="center" class="align-center"><img alt="../_images/TradingView-Logo-Block.svg" src="../_images/TradingView-Logo-Block.svg" width="200px" /></div>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="Non-standard_charts_data.html" title="previous chapter (use the left arrow)">Non-standard charts data</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="Repainting.html" title="next chapter (use the right arrow)">Repainting</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Repainting.html" title="Repainting"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Non-standard_charts_data.html" title="Non-standard charts data"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Concepts</a> &#187;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="../_static/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="../_static/js/theme.js"></script>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Options</span>
+    v: v5
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Languages</dt>
+      
+        <strong>
+        <dd><a href="Plots.html">en</a></dd>
+        </strong>
+      
+    </dl>
+    <dl>
+      <dt>Versions</dt>
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v3/concepts/Plots.html">v3</a></dd>
+        
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v4/concepts/Plots.html">v4</a></dd>
+        
+      
+        <strong>
+        <dd><a href="Plots.html">v5</a></dd>
+        </strong>
+      
+    </dl>
+  </div>
+</div>
+<script type="text/javascript">
+    jQuery(function () {
+        SphinxRtdTheme.Navigation.enable(false);
+    });
+</script>
+  <div class="footer">
+    &copy; Copyright 2023, TradingView.
+  </div>
+  </body>
+
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/concepts/Plots.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:56:26 GMT -->
+</html>

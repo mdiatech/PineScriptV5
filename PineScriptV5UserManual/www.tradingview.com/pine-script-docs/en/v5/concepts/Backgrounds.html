@@ -1,0 +1,345 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/concepts/Backgrounds.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:56:07 GMT -->
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Backgrounds &#8212; Pine Script® v5 User Manual v5 documentation</title>
+    <link rel="stylesheet" href="../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../../../../static.tradingview.com/static/bundles/pine-highlighter-v01.js"></script>
+    <script type="text/javascript" src="../_static/highlight-pine-code.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Bar coloring" href="Bar_coloring.html" />
+    <link rel="prev" title="Alerts" href="Alerts.html" />
+  
+   
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Bar_coloring.html" title="Bar coloring"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Alerts.html" title="Alerts"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Concepts</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="../index.html" class="text-logo">Pine Script<sup>®</sup> v5 User Manual</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Introduction.html">Welcome to Pine Script<sup>®</sup> v5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primer/index.html">Pine Script<sup>®</sup> primer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../language/index.html">Language</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Concepts</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Alerts.html">Alerts</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Backgrounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bar_coloring.html">Bar coloring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bar_plotting.html">Bar plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bar_states.html">Bar states</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chart_information.html">Chart information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Colors.html">Colors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fills.html">Fills</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Inputs.html">Inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Levels.html">Levels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Libraries.html">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lines_and_boxes.html">Lines and boxes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Non-standard_charts_data.html">Non-standard charts data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Plots.html">Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Repainting.html">Repainting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Sessions.html">Sessions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Strategies.html">Strategies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Tables.html">Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Text_and_shapes.html">Text and shapes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Time.html">Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Timeframes.html">Timeframes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../writing/index.html">Writing scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Error_messages.html">Error messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Release_notes.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migration_guides/index.html">Migration guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Where_can_I_get_more_information.html">Where can I get more information?</a></li>
+</ul>
+
+    
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="https://www.tradingview.com/pine-script-docs/en/v5/search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../index.html">User Manual</a></li>
+              
+                <li><a href="index.html">Concepts</a></li>
+              
+              <li>Backgrounds</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <a class="reference external image-reference" href="../Introduction.html"><div align="right" class="align-right"><img alt="Pine Script® logo" height="100" src="../_images/Pine-script-logo.svg" width="100" /></div>
+</a>
+<div class="section" id="backgrounds">
+<span id="pagebackgrounds"></span><h1>Backgrounds<a class="headerlink" href="#backgrounds" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_bgcolor">bgcolor()</a>
+function changes the color of the script’s background. If the script is running in <code class="docutils literal notranslate"><span class="pre">overlay</span> <span class="pre">=</span> <span class="pre">true</span></code> mode, then it will color the chart’s background.</p>
+<p>The function’s signature is:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>bgcolor(color, offset, editable, show_last, title) → void
+</pre></div>
+</div>
+<p>Its <code class="docutils literal notranslate"><span class="pre">color</span></code> parameter allows a “series color” to be used for its argument,
+so it can be dynamically calculated in an expression.</p>
+<p>If the correct transparency is not part of the color to be used,
+it can be be generated using the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_color{dot}new">color.new()</a> function.</p>
+<p>Here is a script that colors the background of trading sessions (try it on
+30min EURUSD, for example):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;Session backgrounds&quot;, overlay = true)
+
+// Default color constants using tranparency of 25.
+BLUE_COLOR   = #0050FF40
+PURPLE_COLOR = #0000FF40
+PINK_COLOR   = #5000FF40
+NO_COLOR     = color(na)
+
+// Allow user to change the colors.
+preMarketColor  = input.color(BLUE_COLOR, &quot;Pre-market&quot;)
+regSessionColor = input.color(PURPLE_COLOR, &quot;Pre-market&quot;)
+postMarketColor = input.color(PINK_COLOR, &quot;Pre-market&quot;)
+
+// Function returns `true` when the bar&#39;s time is
+timeInRange(tf, session) =&gt;
+    time(tf, session) != 0
+
+// Function prints a message at the bottom-right of the chart.
+f_print(_text) =&gt;
+    var table _t = table.new(position.bottom_right, 1, 1)
+    table.cell(_t, 0, 0, _text, bgcolor = color.yellow)
+
+var chartIs30MinOrLess = timeframe.isseconds or (timeframe.isintraday and timeframe.multiplier &lt;=30)
+sessionColor = if chartIs30MinOrLess
+    switch
+        timeInRange(timeframe.period, &quot;0400-0930&quot;) =&gt; preMarketColor
+        timeInRange(timeframe.period, &quot;0930-1600&quot;) =&gt; regSessionColor
+        timeInRange(timeframe.period, &quot;1600-2000&quot;) =&gt; postMarketColor
+        =&gt; NO_COLOR
+else
+    f_print(&quot;No background is displayed.\nChart timeframe must be &lt;= 30min.&quot;)
+    NO_COLOR
+
+bgcolor(sessionColor)
+</pre></div>
+</div>
+<img alt="../_images/Backgrounds-Sessions.png" src="../_images/Backgrounds-Sessions.png" />
+<p>Note that:</p>
+<ul class="simple">
+<li>The script only works on chart timeframes of 30min or less.
+It prints an error message when the chart’s timeframe is higher than 30min.</li>
+<li>When the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#op_if">if</a> structure’s
+<code class="docutils literal notranslate"><span class="pre">else</span></code> branch is used because the chart’s timeframe is incorrect,
+the local block returns the <code class="docutils literal notranslate"><span class="pre">NO_COLOR</span></code> color so that no background is displayed in that case.</li>
+<li>We first initialize constants using our base colors, which include the <code class="docutils literal notranslate"><span class="pre">40</span></code> transparency
+in hex notation at the end. 40 in the hexadecimal notation on the reversed 00-FF scale for transparency
+corresponds to 75 in Pine Script<sup>®</sup>’s 0-100 decimal scale for transparency.</li>
+<li>We provide color inputs allowing script users to change the default colors we propose.</li>
+</ul>
+<p>In our next example, we generate a gradient for the background of a CCI line:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>//@version=5
+indicator(&quot;CCI Background&quot;)
+
+bullColor = input.color(color.lime, &quot;🠅&quot;, inline = &quot;1&quot;)
+bearColor = input.color(color.fuchsia, &quot;🠇&quot;, inline = &quot;1&quot;)
+
+// Calculate CCI.
+myCCI = ta.cci(hlc3, 20)
+// Get relative position of CCI in last 100 bars, on a 0-100% scale.
+myCCIPosition = ta.percentrank(myCCI, 100)
+// Generate a bull gradient when position is 50-100%, bear gradient when position is 0-50%.
+backgroundColor = if myCCIPosition &gt;= 50
+    color.from_gradient(myCCIPosition, 50, 100, color.new(bullColor, 75), bullColor)
+else
+    color.from_gradient(myCCIPosition, 0, 50, bearColor, color.new(bearColor, 75))
+
+// Wider white line background.
+plot(myCCI, &quot;CCI&quot;, color.white, 3)
+// Think black line.
+plot(myCCI, &quot;CCI&quot;, color.black, 1)
+// Zero level.
+hline(0)
+// Gradient background.
+bgcolor(backgroundColor)
+</pre></div>
+</div>
+<img alt="../_images/Backgrounds-CCI.png" src="../_images/Backgrounds-CCI.png" />
+<p>Note that:</p>
+<ul class="simple">
+<li>We use the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_ta{dot}cci">ta.cci()</a>
+built-in function to calculate the indicator value.</li>
+<li>We use the <a class="reference external" href="../../../../pine-script-reference/v5/index.html#ta.percentrank">ta.percentrank()</a>
+built-in function to calculate <code class="docutils literal notranslate"><span class="pre">myCCIPosition</span></code>, i.e., the percentage of past <code class="docutils literal notranslate"><span class="pre">myCCI</span></code>
+values in the last 100 bars that are below the current value of <code class="docutils literal notranslate"><span class="pre">myCCI</span></code>.</li>
+<li>To calculate the gradient, we use two different calls of the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_color{dot}from_gradient">color.from_gradient()</a>
+built-in: one for the bull gradient when <code class="docutils literal notranslate"><span class="pre">myCCIPosition</span></code> is in the 50-100% range,
+which means that more past values are below its current value, and another for the bear gradient
+when <code class="docutils literal notranslate"><span class="pre">myCCIPosition</span></code> is in the 0-49.99% range, which means that more past values are above it.</li>
+<li>We provide inputs so the user can change the bull/bear colors,
+and we place both color input widgets on the same line using <code class="docutils literal notranslate"><span class="pre">inline</span> <span class="pre">=</span> <span class="pre">&quot;1&quot;</span></code> in both
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_input{dot}color">input.color()</a> calls.</li>
+<li>We plot the CCI signal using two <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plot">plot()</a>
+calls to achieve the best contrast over the busy background: the first plot is a 3-pixel wide white background,
+the second <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_plot">plot()</a>
+call plots the thin, 1-pixel wide black line.</li>
+</ul>
+<p>See the <a class="reference internal" href="Colors.html#pagecolors"><span class="std std-ref">Colors</span></a> page for more examples of backgrounds.</p>
+<a class="reference external image-reference" href="https://www.tradingview.com/"><div align="center" class="align-center"><img alt="../_images/TradingView-Logo-Block.svg" src="../_images/TradingView-Logo-Block.svg" width="200px" /></div>
+</a>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="Alerts.html" title="previous chapter (use the left arrow)">Alerts</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="Bar_coloring.html" title="next chapter (use the right arrow)">Bar coloring</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Bar_coloring.html" title="Bar coloring"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Alerts.html" title="Alerts"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Concepts</a> &#187;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="../_static/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="../_static/js/theme.js"></script>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Options</span>
+    v: v5
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Languages</dt>
+      
+        <strong>
+        <dd><a href="Backgrounds.html">en</a></dd>
+        </strong>
+      
+    </dl>
+    <dl>
+      <dt>Versions</dt>
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v3/concepts/Backgrounds.html">v3</a></dd>
+        
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v4/concepts/Backgrounds.html">v4</a></dd>
+        
+      
+        <strong>
+        <dd><a href="Backgrounds.html">v5</a></dd>
+        </strong>
+      
+    </dl>
+  </div>
+</div>
+<script type="text/javascript">
+    jQuery(function () {
+        SphinxRtdTheme.Navigation.enable(false);
+    });
+</script>
+  <div class="footer">
+    &copy; Copyright 2023, TradingView.
+  </div>
+  </body>
+
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/concepts/Backgrounds.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:56:08 GMT -->
+</html>

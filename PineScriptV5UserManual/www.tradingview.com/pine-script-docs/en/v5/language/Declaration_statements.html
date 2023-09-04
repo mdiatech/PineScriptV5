@@ -1,0 +1,243 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/language/Declaration_statements.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:57:07 GMT -->
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Declaration statements &#8212; Pine Script® v5 User Manual v5 documentation</title>
+    <link rel="stylesheet" href="../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../../../../static.tradingview.com/static/bundles/pine-highlighter-v01.js"></script>
+    <script type="text/javascript" src="../_static/highlight-pine-code.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  
+   
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="../index.html" class="text-logo">Pine Script<sup>®</sup> v5 User Manual</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul>
+<li class="toctree-l1"><a class="reference internal" href="../Introduction.html">Welcome to Pine Script<sup>®</sup> v5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primer/index.html">Pine Script<sup>®</sup> primer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../writing/index.html">Writing scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Error_messages.html">Error messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Release_notes.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migration_guides/index.html">Migration guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Where_can_I_get_more_information.html">Where can I get more information?</a></li>
+</ul>
+
+    
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="https://www.tradingview.com/pine-script-docs/en/v5/search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../index.html">User Manual</a></li>
+              
+              <li>Declaration statements</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <a class="reference external image-reference" href="../Introduction.html"><div align="right" class="align-right"><img alt="Pine Script® logo" height="100" src="../_images/Pine-script-logo.svg" width="100" /></div>
+</a>
+<div class="section" id="declaration-statements">
+<span id="pagedeclarationstatements"></span><h1>Declaration statements<a class="headerlink" href="#declaration-statements" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#introduction" id="id3">Introduction</a></li>
+<li><a class="reference internal" href="#indicator" id="id4">`indicator()`</a></li>
+<li><a class="reference internal" href="#strategy" id="id5">`strategy()`</a></li>
+<li><a class="reference internal" href="#library" id="id6">`library()`</a></li>
+</ul>
+</div>
+<div class="section" id="introduction">
+<h2><a class="toc-backref" href="#id3">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="indicator">
+<h2><a class="toc-backref" href="#id4">`indicator()`</a><a class="headerlink" href="#indicator" title="Permalink to this headline">¶</a></h2>
+<p>Every <em>indicator</em> <a class="footnote-reference" href="#id2" id="id1">[1]</a> script must contain one call to the
+<a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_indicator">indicator</a>
+function, which has the following signature:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>indicator(title, shorttitle, overlay, format, precision, scale, max_bars_back, timeframe, timeframe_gaps, explicit_plot_zorder, max_lines_count, max_labels_count, max_boxes_count)
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">indicator</span></code> function determines the indicator’s general properties. The most important arguments of the indicator function are described below, a full overview of all <cite>indicator()`</cite> parameters can be found in its Reference Manual entry.</p>
+<p>Only the <code class="docutils literal notranslate"><span class="pre">title</span></code> parameter is mandatory. It defines the name of the
+indicator. This name will be used in the <em>Indicators</em> dialog box and is
+independent of the name used to save the script in your Personal Library.</p>
+<p><code class="docutils literal notranslate"><span class="pre">shorttitle</span></code> is the short name of the indicator displayed on the
+chart, if it must be different than the value of <code class="docutils literal notranslate"><span class="pre">title</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">overlay</span></code> is a “bool” parameter. If it is true then the study
+will be added as an overlay on top of the main chart. If it is false
+then it will be added in a separate pane. False is the default
+setting. Note that if you change the parameter’s value in a script that is
+already on a chart, you need to use the <em>Add to Chart</em> button to apply the change.</p>
+<p><code class="docutils literal notranslate"><span class="pre">format</span></code> defines the type of formatting used for study values appearing
+on the price axis, in indicator values or in the Data Window.
+Possible values are: <code class="docutils literal notranslate"><span class="pre">format.inherit</span></code>, <code class="docutils literal notranslate"><span class="pre">format.price</span></code> and <code class="docutils literal notranslate"><span class="pre">format.volume</span></code>.
+The default is <code class="docutils literal notranslate"><span class="pre">format.inherit</span></code>, which uses the format settings from the chart,
+unless <code class="docutils literal notranslate"><span class="pre">precision</span> <span class="pre">=</span></code> is also used, in which case it will override
+the effect of <code class="docutils literal notranslate"><span class="pre">format.inherit</span></code>. When <code class="docutils literal notranslate"><span class="pre">format.price</span></code> is used,
+the default precision will be “2”, unless one is specified using <code class="docutils literal notranslate"><span class="pre">precision</span> <span class="pre">=</span></code>. When
+<code class="docutils literal notranslate"><span class="pre">format.volume</span></code> is used, the format is equivalent to <code class="docutils literal notranslate"><span class="pre">precision</span> <span class="pre">=</span> <span class="pre">0</span></code> used in
+earlier versions of Pine Script<sup>®</sup>, where “5183” becomes “5.183K”.</p>
+<p><code class="docutils literal notranslate"><span class="pre">precision</span></code> is the number of digits after the floating point
+used to format study values.
+It must be a non-negative integer and not greater than 16.
+If omitted, then formatting from the parent series on the chart will be used.
+If the format is <code class="docutils literal notranslate"><span class="pre">format.inherit</span></code> and the <code class="docutils literal notranslate"><span class="pre">precision</span></code> parameter is used with a value,
+then the study will not inherit formatting from the chart’s settings and
+the value specified will be used instead, as if <code class="docutils literal notranslate"><span class="pre">format</span> <span class="pre">=</span> <span class="pre">format.price</span></code>
+had been used.</p>
+</div>
+<div class="section" id="strategy">
+<h2><a class="toc-backref" href="#id5">`strategy()`</a><a class="headerlink" href="#strategy" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="library">
+<h2><a class="toc-backref" href="#id6">`library()`</a><a class="headerlink" href="#library" title="Permalink to this headline">¶</a></h2>
+<p class="rubric">Footnote</p>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Pine Script<sup>®</sup> also has a <a class="reference external" href="../../../../pine-script-reference/v5/index.html#fun_strategy">strategy()</a>
+annotation function which is used to create a <a class="reference internal" href="../concepts/Strategies.html#pagestrategies"><span class="std std-ref">strategy</span></a> rather than an indicator.</td></tr>
+</tbody>
+</table>
+<a class="reference external image-reference" href="https://www.tradingview.com/"><div align="center" class="align-center"><img alt="../_images/TradingView-Logo-Block.svg" src="../_images/TradingView-Logo-Block.svg" width="200px" /></div>
+</a>
+</div>
+</div>
+
+
+          </div>
+            
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="../_static/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="../_static/js/theme.js"></script>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Options</span>
+    v: v5
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Languages</dt>
+      
+        <strong>
+        <dd><a href="Declaration_statements.html">en</a></dd>
+        </strong>
+      
+    </dl>
+    <dl>
+      <dt>Versions</dt>
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v3/language/Declaration_statements.html">v3</a></dd>
+        
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v4/language/Declaration_statements.html">v4</a></dd>
+        
+      
+        <strong>
+        <dd><a href="Declaration_statements.html">v5</a></dd>
+        </strong>
+      
+    </dl>
+  </div>
+</div>
+<script type="text/javascript">
+    jQuery(function () {
+        SphinxRtdTheme.Navigation.enable(false);
+    });
+</script>
+  <div class="footer">
+    &copy; Copyright 2023, TradingView.
+  </div>
+  </body>
+
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/language/Declaration_statements.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:57:07 GMT -->
+</html>

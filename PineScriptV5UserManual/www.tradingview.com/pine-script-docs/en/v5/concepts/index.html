@@ -1,0 +1,561 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/concepts/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:55:56 GMT -->
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Concepts &#8212; Pine Script® v5 User Manual v5 documentation</title>
+    <link rel="stylesheet" href="../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../../../../static.tradingview.com/static/bundles/pine-highlighter-v01.js"></script>
+    <script type="text/javascript" src="../_static/highlight-pine-code.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Alerts" href="Alerts.html" />
+    <link rel="prev" title="Maps" href="../language/Maps.html" />
+  
+   
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Alerts.html" title="Alerts"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../language/Maps.html" title="Maps"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="../index.html" class="text-logo">Pine Script<sup>®</sup> v5 User Manual</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Introduction.html">Welcome to Pine Script<sup>®</sup> v5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primer/index.html">Pine Script<sup>®</sup> primer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../language/index.html">Language</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Concepts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Alerts.html">Alerts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Backgrounds.html">Backgrounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bar_coloring.html">Bar coloring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bar_plotting.html">Bar plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bar_states.html">Bar states</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chart_information.html">Chart information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Colors.html">Colors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fills.html">Fills</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Inputs.html">Inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Levels.html">Levels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Libraries.html">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lines_and_boxes.html">Lines and boxes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Non-standard_charts_data.html">Non-standard charts data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Plots.html">Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Repainting.html">Repainting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Sessions.html">Sessions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Strategies.html">Strategies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Tables.html">Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Text_and_shapes.html">Text and shapes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Time.html">Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Timeframes.html">Timeframes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../writing/index.html">Writing scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Error_messages.html">Error messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Release_notes.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migration_guides/index.html">Migration guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Where_can_I_get_more_information.html">Where can I get more information?</a></li>
+</ul>
+
+    
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="https://www.tradingview.com/pine-script-docs/en/v5/search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../index.html">User Manual</a></li>
+              
+              <li>Concepts</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <div class="section" id="concepts">
+<span id="indexconcepts"></span><h1>Concepts<a class="headerlink" href="#concepts" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound" id="conceptstoc">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Alerts.html">Alerts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Alerts.html#introduction">Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Alerts.html#background">Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Alerts.html#which-type-of-alert-is-best">Which type of alert is best?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Alerts.html#script-alerts">Script alerts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Alerts.html#alert-function-events">`alert()` function events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Alerts.html#order-fill-events">Order fill events</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Alerts.html#alertcondition-events">`alertcondition()` events</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Alerts.html#using-one-condition">Using one condition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Alerts.html#using-compound-conditions">Using compound conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Alerts.html#placeholders">Placeholders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Alerts.html#avoiding-repainting-with-alerts">Avoiding repainting with alerts</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Backgrounds.html">Backgrounds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Bar_coloring.html">Bar coloring</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Bar_plotting.html">Bar plotting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Bar_plotting.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bar_plotting.html#plotting-candles-with-plotcandle">Plotting candles with `plotcandle()`</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bar_plotting.html#plotting-bars-with-plotbar">Plotting bars with `plotbar()`</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Bar_states.html">Bar states</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Bar_states.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bar_states.html#bar-state-built-in-variables">Bar state built-in variables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Bar_states.html#barstate-isfirst">`barstate.isfirst`</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Bar_states.html#barstate-islast">`barstate.islast`</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Bar_states.html#barstate-ishistory">`barstate.ishistory`</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Bar_states.html#barstate-isrealtime">`barstate.isrealtime`</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Bar_states.html#barstate-isnew">`barstate.isnew`</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Bar_states.html#barstate-isconfirmed">`barstate.isconfirmed`</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Bar_states.html#barstate-islastconfirmedhistory">`barstate.islastconfirmedhistory`</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Bar_states.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Chart_information.html">Chart information</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Chart_information.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chart_information.html#prices-and-volume">Prices and volume</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chart_information.html#symbol-information">Symbol information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chart_information.html#chart-timeframe">Chart timeframe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chart_information.html#session-information">Session information</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Colors.html">Colors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Colors.html#introduction">Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Colors.html#transparency">Transparency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Colors.html#z-index">Z-index</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Colors.html#constant-colors">Constant colors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Colors.html#conditional-coloring">Conditional coloring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Colors.html#calculated-colors">Calculated colors</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Colors.html#color-new">color.new()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Colors.html#color-rgb">color.rgb()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Colors.html#color-from-gradient">color.from_gradient()</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Colors.html#mixing-transparencies">Mixing transparencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Colors.html#tips">Tips</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Colors.html#designing-usable-colors-schemes">Designing usable colors schemes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Colors.html#plot-crisp-lines">Plot crisp lines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Colors.html#customize-gradients">Customize gradients</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Colors.html#color-selection-through-script-settings">Color selection through script settings</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Fills.html">Fills</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Fills.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fills.html#plot-and-hline-fills">`plot()` and `hline()` fills</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fills.html#line-fills">Line fills</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Inputs.html">Inputs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Inputs.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Inputs.html#input-functions">Input functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Inputs.html#input-function-parameters">Input function parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Inputs.html#input-types">Input types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Inputs.html#simple-input">Simple input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Inputs.html#integer-input">Integer input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Inputs.html#float-input">Float input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Inputs.html#boolean-input">Boolean input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Inputs.html#color-input">Color input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Inputs.html#timeframe-input">Timeframe input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Inputs.html#symbol-input">Symbol input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Inputs.html#session-input">Session input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Inputs.html#source-input">Source input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Inputs.html#time-input">Time input</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Inputs.html#other-features-affecting-inputs">Other features affecting Inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Inputs.html#tips">Tips</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Levels.html">Levels</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Levels.html#hline-levels">`hline()` levels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Levels.html#fills-between-levels">Fills between levels</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Libraries.html">Libraries</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Libraries.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Libraries.html#creating-a-library">Creating a library</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Libraries.html#library-functions">Library functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Libraries.html#argument-form-control">Argument form control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Libraries.html#user-defined-types-and-objects">User-defined types and objects</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Libraries.html#publishing-a-library">Publishing a library</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Libraries.html#house-rules">House Rules</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Libraries.html#using-a-library">Using a library</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Lines_and_boxes.html">Lines and boxes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Lines_and_boxes.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lines_and_boxes.html#lines">Lines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Lines_and_boxes.html#creating-lines">Creating lines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Lines_and_boxes.html#modifying-lines">Modifying lines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Lines_and_boxes.html#line-styles">Line styles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Lines_and_boxes.html#getting-line-properties">Getting line properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Lines_and_boxes.html#cloning-lines">Cloning lines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Lines_and_boxes.html#deleting-lines">Deleting lines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Lines_and_boxes.html#boxes">Boxes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Lines_and_boxes.html#creating-boxes">Creating boxes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Lines_and_boxes.html#modifying-boxes">Modifying boxes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Lines_and_boxes.html#box-styles">Box styles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Lines_and_boxes.html#getting-box-properties">Getting box properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Lines_and_boxes.html#cloning-boxes">Cloning boxes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Lines_and_boxes.html#deleting-boxes">Deleting boxes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Lines_and_boxes.html#realtime-behavior">Realtime behavior</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lines_and_boxes.html#limitations">Limitations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Lines_and_boxes.html#total-number-of-objects">Total number of objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Lines_and_boxes.html#future-references-with-xloc-bar-index">Future references with `xloc.bar_index`</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Lines_and_boxes.html#additional-securities">Additional securities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Lines_and_boxes.html#historical-buffer-and-max-bars-back">Historical buffer and `max_bars_back`</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Lines_and_boxes.html#examples">Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Lines_and_boxes.html#pivot-points-standard">Pivot Points Standard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Lines_and_boxes.html#pivot-points-high-low">Pivot Points High/Low</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Lines_and_boxes.html#linear-regression">Linear Regression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Lines_and_boxes.html#zig-zag">Zig Zag</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Non-standard_charts_data.html">Non-standard charts data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Non-standard_charts_data.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Non-standard_charts_data.html#id1">`ticker.heikinashi()`</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Non-standard_charts_data.html#id2">`ticker.renko()`</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Non-standard_charts_data.html#id4">`ticker.linebreak()`</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Non-standard_charts_data.html#id6">`ticker.kagi()`</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Non-standard_charts_data.html#id8">`ticker.pointfigure()`</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Plots.html">Plots</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Plots.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Plots.html#plot-parameters">`plot()` parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Plots.html#plotting-conditionally">Plotting conditionally</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Plots.html#value-control">Value control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Plots.html#color-control">Color control</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Plots.html#levels">Levels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Plots.html#offsets">Offsets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Plots.html#plot-count-limit">Plot count limit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Plots.html#scale">Scale</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Plots.html#merging-two-indicators">Merging two indicators</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Repainting.html">Repainting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Repainting.html#introduction">Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Repainting.html#for-script-users">For script users</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Repainting.html#for-pine-script-programmers">For Pine Script<sup>®</sup> programmers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Repainting.html#historical-vs-realtime-calculations">Historical vs realtime calculations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Repainting.html#fluid-data-values">Fluid data values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Repainting.html#repainting-request-security-calls">Repainting `request.security()` calls</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Repainting.html#using-request-security-at-lower-timeframes">Using `request.security()` at lower timeframes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Repainting.html#future-leak-with-request-security">Future leak with `request.security()`</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Repainting.html#varip">`varip`</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Repainting.html#bar-state-built-ins">Bar state built-ins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Repainting.html#timenow">`timenow`</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Repainting.html#strategies">Strategies</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Repainting.html#plotting-in-the-past">Plotting in the past</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Repainting.html#dataset-variations">Dataset variations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Repainting.html#starting-points">Starting points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Repainting.html#revision-of-historical-data">Revision of historical data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Sessions.html">Sessions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Sessions.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Sessions.html#session-strings">Session strings</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Sessions.html#session-string-specifications">Session string specifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Sessions.html#using-session-strings">Using session strings</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Sessions.html#session-states">Session states</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Sessions.html#using-sessions-with-request-security">Using sessions with `request.security()`</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Strategies.html">Strategies</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Strategies.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Strategies.html#a-simple-strategy-example">A simple strategy example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Strategies.html#applying-a-strategy-to-a-chart">Applying a strategy to a chart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Strategies.html#strategy-tester">Strategy tester</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Strategies.html#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Strategies.html#performance-summary">Performance summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Strategies.html#list-of-trades">List of trades</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Strategies.html#properties">Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Strategies.html#broker-emulator">Broker emulator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Strategies.html#bar-magnifier">Bar magnifier</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Strategies.html#orders-and-entries">Orders and entries</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Strategies.html#order-types">Order types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Strategies.html#order-placement-commands">Order placement commands</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Strategies.html#position-sizing">Position sizing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Strategies.html#closing-a-market-position">Closing a market position</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Strategies.html#oca-groups">OCA groups</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Strategies.html#strategy-oca-cancel">`strategy.oca.cancel`</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Strategies.html#strategy-oca-reduce">`strategy.oca.reduce`</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Strategies.html#strategy-oca-none">`strategy.oca.none`</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Strategies.html#currency">Currency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Strategies.html#altering-calculation-behavior">Altering calculation behavior</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Strategies.html#calc-on-every-tick">`calc_on_every_tick`</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Strategies.html#calc-on-order-fills">`calc_on_order_fills`</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Strategies.html#process-orders-on-close">`process_orders_on_close`</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Strategies.html#simulating-trading-costs">Simulating trading costs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Strategies.html#commission">Commission</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Strategies.html#slippage-and-unfilled-limits">Slippage and unfilled limits</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Strategies.html#risk-management">Risk management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Strategies.html#margin">Margin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Strategies.html#strategy-alerts">Strategy Alerts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Strategies.html#notes-on-testing-strategies">Notes on testing strategies</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Strategies.html#backtesting-and-forward-testing">Backtesting and forward testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Strategies.html#lookahead-bias">Lookahead bias</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Strategies.html#selection-bias">Selection bias</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Strategies.html#overfitting">Overfitting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Tables.html">Tables</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Tables.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Tables.html#creating-tables">Creating tables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Tables.html#placing-a-single-value-in-a-fixed-position">Placing a single value in a fixed position</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Tables.html#coloring-the-chart-s-background">Coloring the chart’s background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Tables.html#creating-a-display-panel">Creating a display panel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Tables.html#displaying-a-heatmap">Displaying a heatmap</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Tables.html#tips">Tips</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Text_and_shapes.html">Text and shapes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Text_and_shapes.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Text_and_shapes.html#plotchar">`plotchar()`</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Text_and_shapes.html#plotshape">`plotshape()`</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Text_and_shapes.html#plotarrow">`plotarrow()`</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Text_and_shapes.html#labels">Labels</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Text_and_shapes.html#creating-and-modifying-labels">Creating and modifying labels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Text_and_shapes.html#positioning-labels">Positioning labels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Text_and_shapes.html#reading-label-properties">Reading label properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Text_and_shapes.html#cloning-labels">Cloning labels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Text_and_shapes.html#deleting-labels">Deleting labels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Text_and_shapes.html#realtime-behavior">Realtime behavior</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Time.html">Time</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Time.html#introduction">Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Time.html#four-references">Four references</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Time.html#time-built-ins">Time built-ins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Time.html#time-zones">Time zones</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Time.html#time-variables">Time variables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Time.html#time-and-time-close">`time` and `time_close`</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Time.html#time-tradingday">`time_tradingday`</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Time.html#timenow">`timenow`</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Time.html#calendar-dates-and-times">Calendar dates and times</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Time.html#syminfo-timezone">`syminfo.timezone()`</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Time.html#time-functions">Time functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Time.html#id1">`time()` and `time_close()`</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Time.html#id2">Calendar dates and times</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Time.html#timestamp">`timestamp()`</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Time.html#formatting-dates-and-time">Formatting dates and time</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Timeframes.html">Timeframes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Timeframes.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Timeframes.html#timeframe-string-specifications">Timeframe string specifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Timeframes.html#comparing-timeframes">Comparing timeframes</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="../language/Maps.html" title="previous chapter (use the left arrow)">Maps</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="Alerts.html" title="next chapter (use the right arrow)">Alerts</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Alerts.html" title="Alerts"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../language/Maps.html" title="Maps"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pine Script® v5 User Manual v5 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="../_static/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="../_static/js/theme.js"></script>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Options</span>
+    v: v5
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Languages</dt>
+      
+        <strong>
+        <dd><a href="index.html">en</a></dd>
+        </strong>
+      
+    </dl>
+    <dl>
+      <dt>Versions</dt>
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v3/concepts/index.html">v3</a></dd>
+        
+      
+        
+        <dd><a href="https://www.tradingview.com/pine-script-docs/en/v4/concepts/index.html">v4</a></dd>
+        
+      
+        <strong>
+        <dd><a href="index.html">v5</a></dd>
+        </strong>
+      
+    </dl>
+  </div>
+</div>
+<script type="text/javascript">
+    jQuery(function () {
+        SphinxRtdTheme.Navigation.enable(false);
+    });
+</script>
+  <div class="footer">
+    &copy; Copyright 2023, TradingView.
+  </div>
+  </body>
+
+<!-- Mirrored from www.tradingview.com/pine-script-docs/en/v5/concepts/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2023 17:55:56 GMT -->
+</html>
